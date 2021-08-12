@@ -1,0 +1,126 @@
+.xln-about {
+    background-color: var(--xln-bg);
+}
+
+.xln-about__titles {
+    text-align: center;
+}
+
+.xln-about__subtitle {
+    text-transform: uppercase;
+    margin-bottom: 8px;
+
+    @include media-up(md) {
+        margin-bottom: 20px;
+    }
+}
+
+.xln-about__content {
+    position: relative;
+    margin-top: 40px;
+
+    @include media-up(lg) {
+        margin-top: 60px;
+        box-shadow: 0px 40px 50px rgba(229, 233, 246, 0.4);
+        border-radius: 8px;
+        background-color: var(--xln-light);
+        padding: 60px 0;
+    }
+}
+
+.xln-about__items {
+    @include media-up(lg) {
+        display: flex;
+    }
+}
+
+.xln-about-item {
+    text-align: center;
+    padding: 40px;
+    background-color: var(--xln-light);
+    border-radius: 8px;
+
+    @include media-up(lg) {
+        border-radius: 0;
+        padding: 0 30px 20px;
+    }
+}
+
+.xln-about-item:not(:last-child) {
+    margin-bottom: 15px;
+
+    @include media-up(lg) {
+        margin-bottom: 0;
+    }
+}
+
+.xln-about-item:not(:last-child) {
+    border-right: 1px solid var(--xln-gray);
+}
+
+.xln-about-item__icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 16px;
+    background-color: var(--xln-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 9px 35px 44px rgba(229, 233, 246, 0.4);
+    border-radius: 8px;
+
+    @include media-up(md) {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 32px;
+    }
+
+    img {
+        width: 36px;
+        height: 36px;
+
+        @include media-up(md) {
+            width: 48px;
+            height: 48px;
+        }
+    }
+}
+
+.xln-about-item__title {
+    font-size: 18px;
+
+    @include media-up(md) {
+        font-size: 20px;
+    }
+}
+
+.xln-about-item__text {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--xln-dark-2);
+
+    @include media-up(md) {
+        margin-top: 20px;
+        font-size: 16px;
+    }
+}
+
+.xln-about__items {
+    margin-bottom: 60px;
+}
+
+.xln-about__content-box {
+    margin: 0 -20px;
+
+    @include media-up(sm) {
+        margin: 0 10px;
+    }
+
+    @include media-up(md) {
+        margin: 0 20px;
+    }
+
+    @include media-up(xl) {
+        margin: 0 60px;
+    }
+}

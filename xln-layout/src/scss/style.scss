@@ -1,0 +1,48 @@
+/* ==========================================================================
+    LIBS
+    ========================================================================== */
+
+@import "~tiny-slider/dist/tiny-slider.css";
+
+/* ==========================================================================
+    SPECIFICATION
+    ========================================================================== */
+@import "spec/fonts";
+@import "spec/variables";
+@import "spec/mixins";
+@import "spec/global";
+@import "spec/fixes";
+@import "spec/visually-hidden";
+@import "spec/keyframes";
+
+/* ==========================================================================
+    COMPONENTS
+    ========================================================================== */
+@import "components/button";
+@import "components/link-arrow";
+@import "components/slider";
+@import "components/container";
+@import "components/content-box";
+@import "components/top-header";
+@import "components/main-nav";
+@import "components/main-menu";
+@import "components/xln-menu";
+@import "components/footer";
+@import "components/title";
+@import "components/form";
+@import "components/modals";
+@import "components/pagination";
+@import "components/socials";
+@import "components/mfp";
+
+/* ==========================================================================
+    HOME PAGE
+    ========================================================================== */
+@import "pages/home/banner";
+@import "pages/home/customers";
+@import "pages/home/about";
+@import "pages/home/platform";
+@import "pages/home/tools";
+@import "pages/home/service";
+@import "pages/home/offer";
+@import "pages/home/news";

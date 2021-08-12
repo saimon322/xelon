@@ -1,0 +1,50 @@
+.xln-pagination {
+  display: grid;
+  gap: 5px;
+  max-width: 450px;
+  grid-template-columns: 30px 1fr 40px;
+
+  @include media-up(md) {
+    grid-template-columns: 40px 1fr 40px;
+  }
+}
+
+.xln-pagination__arrow {
+  color: var(--xln-slider-arrow);
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--xln-main-hover);
+  }
+}
+
+.xln-pagination__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.xln-pagination__item:not(:last-child) {
+  margin-right: 5px;
+}
+
+.xln-pagination__page {
+  display: block;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--xln-bg);
+  }
+}
+
+.xln-pagination__page.xln-active {
+  background-color: var(--xln-main);
+  color: var(--xln-light);
+}

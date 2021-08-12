@@ -1,0 +1,71 @@
+.xln-slider-arrows {
+    position: absolute;
+    top: calc(50% - 20px);
+    left: 0;
+    right: 0;
+}
+
+.xln-slider-arrow {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    color: var(--xln-slider-arrow);
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+        color: var(--xln-main);
+    }
+}
+
+.xln-slider-arrow--prev {
+    left: 0;
+}
+
+.xln-slider-arrow--next {
+    right: 0;
+}
+
+.xln-slider-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+}
+
+.xln-slider-nav-dot {
+    border-radius: 50%;
+    background-color: rgba(23, 140, 249, 0.3);
+    transition: background-color 0.2s ease-in-out;
+    width: 8px;
+    height: 8px;
+
+    &:not(:last-child) {
+        margin-right: 12px;
+
+        @include media-up(md) {
+            margin-right: 16px;
+        }
+    }
+
+    @include media-down(sm) {
+
+        &:first-child,
+        &:last-child {
+            width: 4px;
+            height: 4px;
+        }
+    }
+
+    @include media-up(md) {
+        width: 10px;
+        height: 10px;
+
+        &:hover {
+            background-color: var(--xln-main-hover);
+        }
+    }
+
+    &.tns-nav-active {
+        background-color: var(--xln-main);
+    }
+}

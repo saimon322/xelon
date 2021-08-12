@@ -1,0 +1,96 @@
+.js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+}
+
+.msg {
+    top: -13px;
+    left: auto;
+    right: 0;
+    width: auto;
+}
+
+#modal-thanks .send-modal-data {
+    padding: 0;
+}
+
+.custom-sq label:before {
+    width: 24px;
+    height: 24px;
+    max-width: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.checkboks-text {
+    position: relative;
+    top: 0 !important;
+    display: block;
+    padding-left: 36px;
+    font-size: 12px;
+    line-height: 100%;
+
+    &::before {
+        position: absolute;
+        left: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+aside.weglot-default {
+    display: none;
+}
+
+.suppor-send-form.white-popup {
+    border: 0;
+
+    .like-header {
+        margin-bottom: 30px;
+    }
+
+    .checkboks-text {
+        display: flex;
+    }
+
+    .custom-sq.checkboks span {
+        color: #000 !important;
+    }
+}
+
+.blue-label {
+    pointer-events: none;
+}
+
+.admin-bar .mfp-wrap .mfp-close, 
+.admin-bar .mfp-wrap .mfp-close:active, 
+.admin-bar .mfp-wrap .mfp-close:hover, 
+.admin-bar .mfp-wrap .mfp-close:focus {
+    top: 0 !important;
+}
+
+.wlc-text {
+    .d-flex {
+        @include media-down(xs) {
+            display: block;
+        }
+    }
+
+    .xln-button + .xln-button {
+        margin-left: 20px;
+
+        @include media-down(xs) {
+            margin-left: 0;
+            margin-top: 20px;
+        }
+    }
+}
+
+.serv-need {
+    display: flex;
+    flex-direction: column;
+}

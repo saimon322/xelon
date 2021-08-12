@@ -1,0 +1,50 @@
+$grid-breakpoints: (
+  xs: 360,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1500px,
+);
+
+$shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+:root {
+  // font
+  --main-font: "Manrope", sans-serif;
+
+  // default colors
+  --white:      #ffffff;
+  --black:      #434963;
+  --blue-light: #5d6589;
+  --blue:       #178cf9;
+  --blue-2:     #007ff5;
+  --blue-3:     #006fd6;
+  --gray:       #f2f7fc;
+  --gray-2:     #b1bed3;
+  --gray-3:     #d9e1ee;
+  --gray-4:     #9da0af;
+  --dark:       #142640;
+  --green:      #00D69B;
+  --green-2:    #00C28C;
+  --green-3:    #00B281;
+  --red:        #EF5261;
+
+  // xelon colors
+  --xln-light:         var(--white);
+  --xln-dark:          var(--black);
+  --xln-dark-2:        var(--blue-light);
+  --xln-main:          var(--blue);
+  --xln-main-hover:    var(--blue-2);
+  --xln-main-active:   var(--blue-3);
+  --xln-main-disabled: var(--gray-3);
+  --xln-green:         var(--green);
+  --xln-green-hover:   var(--green-2);
+  --xln-green-active:  var(--green-3);
+  --xln-bg:            var(--gray);
+  --xln-slider-arrow:  var(--gray-2);
+  --xln-gray:          var(--gray-3);
+  --xln-total-dark:    var(--dark);
+  --xln-medium-gray:   var(--gray-4);
+  --xln-alert:         var(--red);
+}

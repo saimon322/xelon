@@ -1,0 +1,192 @@
+.xln-banner {
+    color: inherit;
+    background: none;
+    padding: 12px 0 40px;
+
+    @include media-up(md) {
+        padding: 20px 0 50px;
+    }
+
+    @include media-up(lg) {
+        padding: 76px 0;
+    }
+}
+
+.xln-banner__container {
+    position: relative;
+}
+
+.xln-banner__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include media-up(lg) {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.xln-banner__content {
+    display: flex;
+    flex-direction: column;
+
+    @include media-up(lg) {
+        width: 45%;
+        padding-right: 20px;
+    }
+}
+
+.xln-banner__main {
+    margin-bottom: 20px;
+
+    @include media-up(md) {
+        margin-bottom: 40px;
+    }
+
+    @include media-up(lg) {
+        margin-bottom: 60px;
+    }
+}
+
+.xln-banner__title {
+    font-size: 24px;
+    color: inherit;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+
+    @include media-up(md) {
+        max-width: 600px;
+        font-size: 42px;
+        margin-bottom: 16px;
+    }
+}
+
+.xln-banner__title span {
+    color: var(--xln-main);
+}
+
+.xln-banner__text {
+    color: var(--blue-light);
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 160%;
+
+    @include media-up(md) {
+        font-size: 16px;
+        max-width: 455px;
+        margin-bottom: 16px;
+    }
+}
+
+.xln-banner__imgs {
+    display: flex;
+}
+
+.xln-banner__attestat {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+
+    @include media-up(md) {
+        width: 60px;
+        height: 60px;
+    }
+    
+    &:not(:last-child) {
+        margin-right: 5px;
+
+        @include media-up(md) {
+            margin-right: 8px;
+        }
+    }
+}
+
+.xln-banner__form-wrapper {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 4px 10px #EBEEFA;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+
+    @include media-up(md) {
+        box-shadow: 0px 8px 20px #EBEEFA;
+        padding: 20px 40px 32px;
+        margin-bottom: 0;
+    }
+
+    @include media-up(lg) {
+        max-width: 440px;
+    }
+}
+
+.xln-banner__form {
+    @include media-only(md) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.xln-banner__form-title {
+    color: var(--blue-light);
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 120%;
+    margin-bottom: 16px;
+}
+
+.xln-banner__form input[type="submit"] {
+    font-weight: bold;
+    margin-top: 10px;
+
+    @include media-up(md) {
+        min-width: 220px;
+        margin-top: 16px;
+    }
+}
+
+.xln-banner__button {
+    @include media-up(md) {
+        display: none;
+    }
+}
+
+.xln-banner__media {
+    text-align: center;
+    
+    @include media-up(lg) {
+        width: 55%;
+        margin-bottom: 120px;
+    }
+
+    @include media-up(xl) {
+        margin-bottom: 0;
+    }
+}
+
+.xln-banner__anim {
+    &--mobile {
+        max-width: 100%;
+        max-height: 230px;
+    
+        @include media-up(md) {
+            max-height: 350px;
+        }
+
+        @include media-up(md) {
+            display: none;
+        }
+    }
+
+    &--desktop {
+        width: 100%;
+        
+        @include media-down(sm) {
+            display: none;
+        }
+    }
+}

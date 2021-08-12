@@ -1,0 +1,19 @@
+@keyframes showUp {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes moveRight {
+    0%   {transform: translateX(-50px);}
+    100% {transform: translateX(0);}
+}
+
+@keyframes menuIn {
+    0%   {transform: translateX(-100%);}
+    100% {transform: translateX(0);}
+}
+
+@keyframes menuOut {
+    0%   {transform: translateX(0);}
+    100% {transform: translateX(100%);}
+}

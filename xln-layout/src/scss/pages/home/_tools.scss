@@ -1,0 +1,114 @@
+.xln-tools {
+    background-color: var(--xln-light);
+    padding-top: 30px;
+    overflow: unset;
+
+    @include media-up(md) {
+        padding-top: 50px;
+    }
+
+    @include media-up(lg) {
+        padding-top: 70px;
+    }
+}
+
+.xln-tools__title {
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    @include media-up(md) {
+        display: block;
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-image: url(img/svg-sprite/rocket.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        margin-bottom: 15px;
+    
+        @include media-up(md) {
+            margin-bottom: 0;
+            margin-left: 25px;
+        }
+    }
+}
+
+.xln-tools__content {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include media-up(md) {
+        margin: 20px -40px -40px;
+    }
+
+    @include media-up(lg) {
+        margin-top: 40px;
+    }
+}
+
+.xln-tool {
+    display: flex;
+    background-color: var(--xln-light);
+    box-shadow: 0px 8px 20px var(--xln-gray);
+    border-radius: 8px;
+    width: 100%;
+    padding: 20px;
+
+    @include media-down(sm) {
+        &:not(:last-child) {
+            margin-bottom: 40px;
+        }
+    }
+
+    @include media-up(md) {
+        width: 330px;
+        padding: 25px;
+        margin: 20px;
+    }
+
+    @include media-up(lg) {
+        width: 400px;
+    }
+}
+
+.xln-tool__icon {
+    margin-right: 10px;
+
+    @include media-up(md) {
+        margin-right: 20px;
+    }
+}
+
+.xln-tool__title {
+    font-size: 16px;
+    color: var(--xln-main);
+
+    @include media-up(md) {
+        font-size: 20px;
+    }
+}
+
+.xln-tool__text {
+    margin-top: 10px;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.xln-tool__icon {
+    width: 40px;
+    height: 40px;
+
+    @include media-up(lg) {
+        width: 60px;
+        height: 60px;
+    }
+}

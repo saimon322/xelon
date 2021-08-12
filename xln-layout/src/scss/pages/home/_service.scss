@@ -1,0 +1,308 @@
+.xln-service {
+    background-color: var(--xln-bg);
+    padding: 130px 0 60px;
+    margin-top: -60px;
+    overflow: hidden;
+
+    @include media-up(lg) {
+        margin-top: -85px;
+        padding: 200px 0 80px;
+    }
+
+    .tns-ovh {
+        @include media-up(lg) {
+            overflow: unset;
+        }
+    }
+}
+
+.xln-service__wrapper {
+    @include media-up(lg) {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+}
+
+.xln-service__mobile-title {
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include media-up(sm) {
+        margin-bottom: 40px;
+    }
+
+    @include media-up(xl) {
+        display: none;
+    }
+}
+
+.xln-service__content {
+    position: relative;
+    height: 440px;
+    margin: 0 auto;
+
+    @include media-up(sm) {
+        height: 680px;
+    }
+
+    @include media-up(lg) {
+        flex-shrink: 0;
+        width: 43.75vw;
+        height: 47vw;
+        min-height: 50vh;
+        max-height: 80vh;
+        margin: 0;
+        margin-right: 30px;
+    }
+}
+
+.xln-service__content-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+
+    @include media-up(md) {
+        margin: 0;
+    }
+}
+
+.xln-service__content-item.xln-active {
+    opacity: 1;
+    visibility: visible;
+
+    .xln-service__img {
+        animation: moveRight .5s forwards;
+    }
+}
+
+.xln-service__img-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 0px 40px 0px 0px;
+    overflow: hidden;
+
+    @include media-up(md) {
+        border-radius: 0px 120px 8px 0px;
+    }
+}
+
+.xln-service__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.xln-service__comment-block {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    max-height: calc(100% - 40px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    border-radius: 8px 20px 8px 8px;
+
+    @include media-up(md) {
+        padding: 32px 48px 32px 32px;
+        border-radius: 8px 80px 8px 8px;
+        left: 40px;
+
+        &[data-position="bottom"] {
+            right: 40px;
+            bottom: 40px;
+        }
+
+        &[data-position="top"] {
+            right: 40px;
+            top: 40px;
+            bottom: auto;
+        }
+
+        &[data-position="left"] {
+            bottom: 40px;
+            right: auto;
+            max-width: 370px;
+        }
+
+        &[data-position="right"] {
+            top: 40px;
+            bottom: auto;
+            left: auto !important;
+            right: 40px;
+            max-width: 370px;
+        }
+    }
+
+    @media (min-width: 1360px) {
+        left: calc((100vw - 1280px) / 2);   
+    }
+}
+.xln-service__comment-text {
+    font-size: 14px;
+    max-height: 100%;
+    overflow: hidden;
+
+    @include media-up(md) {
+        font-size: 16px;
+    }
+}
+
+.xln-service__comment-info {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.xln-service__comment-info-text {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 700;
+
+    @include media-up(sm) {
+        font-size: 14px;
+    }
+}
+
+.xln-service__company-logo {
+    width: 95px;
+    height: 30px;
+}
+
+.xln-service__main {
+    @include media-up(lg) {
+        flex: 1 1 0;
+    }
+}
+
+.xln-service__main-wrapper {
+    @include media-up(lg) {
+        max-width: 730px;
+        margin: 0 auto;
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.xln-service__main-title {
+    display: none;
+
+    @include media-up(xl) {
+        display: block;
+        text-align: center;
+    }
+}
+
+.xln-service__selectors {
+    display: flex;
+    margin-top: 40px;
+    padding: 0 20px;
+
+    @include media-up(md) {
+        padding: 0 30px;
+        margin-top: 60px;
+    }
+
+    @include media-up(lg) {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+        margin: 50px -10px -10px;
+    }
+
+    @include media-up(xl) {
+        margin: -20px;
+        margin: 40px -20px -20px;
+    }
+}
+
+.xln-service__button-wrapper {
+    flex-shrink: 0;
+    margin-right: 8px;
+    max-width: 140px;
+
+    @include media-up(md) {
+        max-width: 180px;
+        margin-right: 16px;
+    }
+
+    @include media-up(lg) {
+        width: 100%;
+        margin: 10px;
+    }
+
+    @include media-up(xl) {
+        margin: 20px;
+    }
+}
+
+.xln-service__button {
+    position: relative;
+    color: var(--xln-main);
+    font-weight: 500;
+    background: var(--xln-light);
+    border-radius: 8px;
+    width: 100%;
+    transition: box-shadow 0.2s ease-in-out;
+    font-size: 16px;
+    padding: 20px 5px;
+    margin: 0 auto;
+    display: block;
+    user-select: none;
+
+    @include media-up(md) {
+        font-size: 18px;
+        padding: 20px;
+    }
+
+    &::before {
+        position: absolute;
+        content: url(img/svg-sprite/button-triangle.svg);
+        width: 16px;
+        height: 16px;
+        opacity: 0;
+        left: 4px;
+        top: 4px;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    &:hover,
+    &.xln-active {
+        box-shadow: 0px 8px 20px #e2e7f8;
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+.xln-service__sign-up {
+    @include media-down(md) {
+        display: none;
+    }
+
+    @include media-up(lg) {
+        margin: 60px auto 0;
+    }
+}
+
+.xln-service__slider-nav {
+    margin-top: 30px;
+
+    @include media-up(lg) {
+        display: none;
+    }
+}

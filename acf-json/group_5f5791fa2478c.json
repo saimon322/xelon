@@ -1,0 +1,124 @@
+{
+    "key": "group_5f5791fa2478c",
+    "title": "Single partners",
+    "fields": [
+        {
+            "key": "field_5f579257a93d7",
+            "label": "Map",
+            "name": "map",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5f579219a93d6",
+            "label": "Locate",
+            "name": "locate",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5f588951cbdf1",
+            "label": "Services",
+            "name": "services",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "ApplicationCloud": "Application Cloud",
+                "Backup": "Backup as a Service",
+                "ITServicesPrivate": "IT Services und Support für Private",
+                "ITServicesUnternehmen": "IT Services und Support für Unternehmen",
+                "ITSecurity": "IT Security und Netzwerk Lösungen",
+                "Desktop": "Desktop as a Service und Modern Workplace",
+                "Microsoft": "Microsoft Office 365 und Windows Server",
+                "AppleServices": "Apple Services und Support",
+                "LinuxServer": "Linux Server",
+                "ContainerUndKubernetes": "Container und Kubernetes Technologie",
+                "Telefonie": "Telefonie Dienstleistungen",
+                "Public": "Public Cloud Services für Unternehmen",
+                "Private": "Private Cloud Services für Unternehmen",
+                "Dedicated": "Dedicated Server und Dedicated Infrastruktur",
+                "Webdesign": "Webdesign und Kommunikation"
+            },
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 0,
+            "return_format": "array",
+            "save_custom": 0
+        },
+        {
+            "key": "field_5f59de4439821",
+            "label": "Label",
+            "name": "label",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "LegendPartner": "Legend Partner",
+                "HeroPartner": "Hero Partner",
+                "ExpertPartner": "Expert Partner"
+            },
+            "allow_custom": 0,
+            "default_value": [],
+            "layout": "vertical",
+            "toggle": 0,
+            "return_format": "array",
+            "save_custom": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "partners"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1608554587
+}

@@ -1,0 +1,26 @@
+.link-arrow {
+    position: relative;
+    display: inline-block;
+    color: var(--xln-main);
+    padding-right: 24px;
+    
+    &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: calc(50% - 12px);
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url(img/icon/link-arrow.svg) center no-repeat;
+        transition: transform .25s;
+    }
+
+    &:hover {
+        color: var(--xln-main-hover);
+
+        &:after {
+            transform: translateX(5px);
+        }
+    }
+}

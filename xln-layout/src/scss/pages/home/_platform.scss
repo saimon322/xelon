@@ -1,0 +1,176 @@
+.xln-platform {
+    overflow: hidden;
+    background-color: var(--xln-light);
+    padding: 60px 0 30px;
+
+    @include media-up(md) {
+        margin-top: -150px;
+        padding: 250px 0 50px;
+    }
+
+    @include media-up(lg) {
+        margin-top: -220px;
+        padding: 340px 0 70px;
+    }
+}
+
+.xln-platform__title {
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include media-up(md) {
+        margin-bottom: 60px;
+    }
+
+    @include media-up(lg) {
+        margin-bottom: 80px;
+    }
+}
+
+.xln-platform__content {
+    @include media-up(lg) {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}
+
+.xln-platform__schemes {
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include media-up(lg) {
+        margin-bottom: 0;
+    }
+}
+
+.xln-scheme {
+    width: 100%;
+    height: auto;
+
+    &--mobile {
+        @include media-up(md) {
+            display: none;
+        }
+    }
+
+    &--desktop {
+        @include media-down(sm) {
+            display: none;
+        }
+    }
+}
+
+.xln-scheme-el {
+    fill: #fff;
+    cursor: pointer;
+    transition: fill .25s;
+
+    & > rect {
+        transition: stroke .25s;
+    }
+
+    &:hover,
+    &.xln-active {
+        fill: var(--xln-bg);
+    }
+
+    &.xln-active > rect {
+        stroke: var(--xln-main);
+    }
+}
+
+.xln-platform__items {
+    position: relative;
+
+    @include media-up(lg) {
+        width: 400px;
+        height: 100%;
+        flex-shrink: 0;
+        margin-right: 30px;
+    }
+}
+
+.xln-platform-el {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 10px #EBEEFA;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+
+    @include media-up(md) {
+        padding: 32px;
+        box-shadow: 0px 8px 20px #EBEEFA;
+    }
+
+    &.xln-active {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        animation: moveRight .5s ease-out forwards;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+
+        @include media-up(md) {
+            margin-bottom: 24px;
+        }
+    }
+
+    &__icon {
+        height: 60px;
+        width: auto;
+    }
+
+    &__title {
+        font-weight: bold;
+        line-height: 1.25;
+        margin-left: 8px;
+
+        @include media-up(md) {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 120%;
+            margin-left: 16px;
+        }
+    }
+
+    &__content {
+        margin-bottom: 16px;
+
+        @include media-up(md) {
+            margin-bottom: 24px;
+        }
+    }
+
+    &__text {
+        font-weight: 500;
+        font-size: 14px;
+
+        @include media-up(md) {
+            font-weight: normal;
+            font-size: 16px;
+        }
+    }
+
+    &__link {
+        font-weight: 500;
+        font-size: 14px;
+        margin-top: 16px;
+
+        @include media-up(md) {
+            font-weight: normal;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+    }
+}
