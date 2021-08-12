@@ -28,8 +28,6 @@ function get_menu_layout()
     $layout_link   = get_field('layout_link');
     $empty_mobile   = get_field('empty_mobile');
     
-    file_put_contents(__DIR__.'/log.txt', print_r($layout_link, true), FILE_APPEND);
-    
     $filename = __DIR__ . '/templates/' . $layout . '.php';
     
     if (file_exists($filename)) {
