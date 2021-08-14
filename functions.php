@@ -988,8 +988,8 @@ function desktop_lang_switcher()
     
     echo '<div class="top-header__langs top-langs">';
     echo '<a href="' . $cur_link . '"
-                 data-wg-notranslate="true"
-                 class="top-langs__button top-header__link">
+                data-wg-notranslate="true"
+                class="top-langs__button top-header__link">
                   ' . $cur_name . '
                   <svg width="10"
                        height="10">
@@ -1023,3 +1023,32 @@ add_action('wp_print_scripts', function () {
     wp_dequeue_script('google-recaptcha-js');
     wp_dequeue_script('google-invisible-recaptcha');
 });
+
+add_shortcode( 'signups', 'get_signups' );
+add_filter('widget_text', 'do_shortcode');
+
+function get_signups(){
+    $signups = get_field('signups', 'options');
+    $result = '';
+    
+    if ($signups): 
+        $promo = get_current_page_promo();
+        $result .= '<div class="signups">';
+        foreach ($signups as $signup): 
+            $href = 'https://vdc.xelon.ch/login?';
+            if ($promo['status'] == 'true') {
+                $href .= 'promo=' . $promo['promo'] .= '&';
+            }
+            $href .= 'provider_name=' . $signup['type'];
+            $result .= '<a href="' . $href . '"
+                    class="signup"
+                    target="_blank">
+                        <img src="' . $signup['icon'] . '" alt="">' .
+                        '<span>' . $signup['name'] . '</span>' .
+                 '</a>';
+        endforeach;
+        $result .= '</div>';
+    endif;
+    
+    return $result;
+}

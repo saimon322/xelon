@@ -7,7 +7,6 @@
 /* ==========================================================================
     SPECIFICATION
     ========================================================================== */
-@import "spec/fonts";
 @import "spec/variables";
 @import "spec/mixins";
 @import "spec/global";
@@ -31,6 +30,7 @@
 @import "components/title";
 @import "components/form";
 @import "components/modals";
+@import "components/signups";
 @import "components/pagination";
 @import "components/socials";
 @import "components/mfp";

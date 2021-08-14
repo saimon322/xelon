@@ -190,12 +190,23 @@
             <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
             <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
             <div class="form-block">
-                <input type="text" id="send_email" name="subscribe-email" class="form-input" placeholder="Email*" required="required">
-                <label for="send_email" class="form-label">Email*</label>
+                <input type="text" id="signup_email" name="signup-email" class="form-input" placeholder="Email*" required="required">
+                <label for="signup_email" class="form-label">Email*</label>
                 <div class="msg"></div>
             </div>
             <input type="submit" name="subscribe-form" id="vdc-send-modal" class="xln-button send-subscribe" value="<?php echo $button; ?>">
         </form>
+        
+            
+        <?php $signups = get_field('signups', 'options');
+        if ($signups):  ?>
+            <div class="modal-signups">
+                <div class="signups-title">
+                    <span>oder registrieren Sie sich mit</span>
+                </div>
+                <?php echo do_shortcode('[signups]'); ?>
+            </div>
+        <?php endif; ?>
     </div>
 </div>
 

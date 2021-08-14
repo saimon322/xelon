@@ -29,16 +29,16 @@ get_header(); ?>
                             </div>
                         <?php endif; ?>
                     </div>
-                    <div class="xln-banner__form-wrapper">
+                    <div class="xln-banner-form">
                         <?php $banner_form = get_field('s1_form');
                         $headline = $banner_form['headline'];
                         $button = $banner_form['button'] ? $banner_form['button'] : 'Senden';
                         if ($headline):?>
-                            <p class="xln-banner__form-title">
+                            <div class="xln-banner-form__title">
                                 <?php echo $headline; ?>
-                            </p>
+                            </div>
                         <?php endif; ?>
-                        <form action="#" class="xln-banner__form">
+                        <form action="#" class="xln-banner-form__form">
                             <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
                             <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
                             <div class="form-block">
@@ -46,7 +46,13 @@ get_header(); ?>
                                 <label for="email" class="form-label">Email*</label>
                                 <div class="msg"></div>
                             </div>
-                            <input type="submit" class="xln-button xln-button--green send-subscribe" value="<?php echo $button; ?>">
+                            <div class="xln-banner-form__footer">
+                                <input type="submit" class="xln-button xln-button--green" value="Jetzt anmelden">
+                                <div class="signups-title">
+                                    <span><?php echo $banner_form['signups_label']; ?></span>
+                                </div>
+                                <?php echo do_shortcode('[signups]'); ?>
+                            </div>
                         </form>
                     </div>
                     <?php $button_mobile = $banner_form['button_mobile'];

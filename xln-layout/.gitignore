@@ -2,11 +2,7 @@
 /node_modules
 
 # Dist except old styles #
-/dist/*.html
-/dist/style.css
-/dist/fonts
 /dist/img
-/dist/js
 
 # Compiled source #
 *.com

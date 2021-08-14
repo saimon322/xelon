@@ -47,7 +47,7 @@ $consult_link = get_field('consult_link', 'options');
             <div class="top-header__wrapper">
                 <?php if ($signup_link): ?>
                     <a href="<?php echo $signup_link['url']; ?>"
-                       class="top-header__btn xln-button xln-button--white">
+                       class="top-header__btn xln-button xln-button--white open-popup-link">
                         <?php echo $signup_link['title']; ?>
                     </a>
                 <?php endif; ?>

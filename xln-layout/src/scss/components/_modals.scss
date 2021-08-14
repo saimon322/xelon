@@ -1,5 +1,17 @@
 #modal-contact {
     max-width: 620px;
+
+    .form-block .msg {
+        display: none;
+
+        &-show {
+            display: block;
+        }
+    }
+}
+
+#modal-thanks .send-modal-data {
+    padding: 0;
 }
 
 .modal-area {
@@ -87,4 +99,8 @@
 .white-popup .modal-area .checkboks-text span {
     color: var(--blue-light) !important;
     padding-left: 0 !important;
+}
+
+.modal-signups {
+    margin-top: 20px;
 }
