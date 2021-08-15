@@ -1,0 +1,27 @@
+.pricing-about {
+    margin-top: -90px;
+    padding: 165px 0 60px;
+    background: #fff;
+
+    @include media-up(md) {
+        margin-top: -115px;
+        padding: 235px 0 60px;
+    }
+
+    .xln-about-item {
+        @include media-down(md) {
+            margin-bottom: 0;
+            border-bottom: 1px solid var(--xln-gray);
+            border-radius: 0;
+            padding: 40px 10px;
+
+            &:first-child {
+                padding-top: 0;
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+        }
+    }
+}

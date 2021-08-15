@@ -7,7 +7,7 @@ get_header(); ?>
 
 <div class="xln-page">
     <section class="xln-banner">
-        <div class="xln-container xln-banner__container">
+        <div class="xln-container">
             <div class="xln-banner__wrapper">
                 <div class="xln-banner__content">
                     <div class="xln-banner__main">
@@ -84,7 +84,7 @@ get_header(); ?>
         <div class="xln-container">
             <?php $s2_headline = get_field('s2_headline');
             if ($s2_headline): ?>
-                <h2 class="xln-customers__title xln-title--h2">
+                <h2 class="xln-customers__title">
                     <?php echo $s2_headline; ?>
                 </h2>
             <?php endif; ?>
@@ -146,33 +146,33 @@ get_header(); ?>
             <div class="xln-about__titles">
                 <?php $s3_subtitle = get_field('s3_subtitle');
                 if ($s3_subtitle): ?>
-                    <h3 class="xln-title--h3 xln-about__subtitle">
+                    <h3 class="xln-about__subtitle">
                         <?php echo $s3_subtitle; ?>
                     </h3>
                 <?php endif;
                 $s3_title = get_field('s3_title');
                 if ($s3_title): ?>
-                    <h2 class="xln-title--h2 xln-about__title">
+                    <h2 class="xln-about__title">
                         <?php echo $s3_title; ?>
                     </h2>
                 <?php endif; ?>
             </div>
             <div class="xln-about__content">
-                <div class="xln-about__items">
+                <div class="xln-about__items xln-about-items">
                     <?php $s3_advantages = get_field('s3_advantages');
                     if ($s3_advantages):
                         foreach ($s3_advantages as $advantage): ?>
                             <div class="xln-about-item">
-                                <div class="xln-about-item__icon-wrapper">
+                                <div class="xln-about-item__icon">
                                     <img src="<?php echo $advantage['image']['url']; ?>"
                                         alt="<?php echo $advantage['image']['alt']; ?>"
                                         width='48px'
                                         height='48px'/>
                                 </div>
                                 <?php if ($advantage['title']): ?>
-                                    <h4 class="xln-about-item__title">
+                                    <h3 class="xln-about-item__title">
                                         <?php echo $advantage['title']; ?>
-                                    </h4>
+                                    </h3>
                                 <?php endif; ?>
                                 <?php if ($advantage['text']): ?>
                                     <p class="xln-about-item__text">
@@ -206,7 +206,7 @@ get_header(); ?>
         <div class="xln-container">
             <?php $s4_headline = get_field('s4_headline');
             if ($s4_headline): ?>
-                <h2 class="xln-title--h2 xln-platform__title">
+                <h2 class="xln-platform__title">
                     <?php echo $s4_headline ?>
                 </h2>
             <?php endif; ?>
@@ -246,9 +246,9 @@ get_header(); ?>
                                         <use xlink:href="#platform-<?php echo $key; ?>"></use>
                                     </svg>
                                     <?php if ($headline): ?>
-                                        <div class="xln-platform-el__title">
+                                        <h4 class="xln-platform-el__title">
                                             <?php echo $headline; ?>
-                                        </div>
+                                        </h4>
                                     <?php endif; ?>
                                 </div>
                                 <div class="xln-platform-el__content">
@@ -287,9 +287,11 @@ get_header(); ?>
         <div class="xln-container">
             <?php $s5_headline = get_field('s5_headline');
             if ($s5_headline): ?>
-                <h2 class="xln-title--h2 xln-tools__title">
-                    <?php echo $s5_headline ?>
-                </h2>
+                <div class="xln-content">
+                    <h2 class="xln-tools__title xln-content__title">
+                        <?php echo $s5_headline ?>
+                    </h2>
+                </div>
             <?php endif; ?>
             <div class="xln-tools__content">
                 <?php $s5_tools = get_field('s5_tools');
@@ -325,7 +327,7 @@ get_header(); ?>
             <div class="xln-service__mobile-title">
                 <?php $s6_headline = get_field('s6_headline');
                 if ($s6_headline): ?>
-                    <h2 class="xln-title--h2">
+                    <h2>
                         <?php echo $s6_headline ?>
                     </h2>
                 <?php endif; ?>
@@ -382,7 +384,7 @@ get_header(); ?>
                     <div class="xln-service__main-wrapper">
                         <div class="xln-service__main-title">
                             <?php if ($s6_headline): ?>
-                                <h2 class="xln-title--h2">
+                                <h2>
                                     <?php echo $s6_headline ?>
                                 </h2>
                             <?php endif; ?>
@@ -440,7 +442,7 @@ get_header(); ?>
                             <div class="xln-offer-item">
                                 <div class="xln-offer-item__content">
                                     <?php if ($headline): ?>
-                                        <h2 class="xln-offer-item__title xln-title--h2">
+                                        <h2 class="xln-offer-item__title">
                                             <?php echo $headline; ?>
                                         </h2>
                                     <?php endif; ?>
@@ -475,7 +477,7 @@ get_header(); ?>
             <div class="xln-offer-stat">
                 <?php $s7_statistic_title = get_field('s7_statistic_title');
                 if ($s7_statistic_title): ?>
-                    <h2 class="xln-offer-stat__title xln-title--h2">
+                    <h2 class="xln-offer-stat__title">
                         <?php echo $s7_statistic_title; ?>
                     </h2>
                 <?php endif; ?>
@@ -507,7 +509,7 @@ get_header(); ?>
     if ($s8_tags): ?>
         <section class="xln-news">
             <div class="xln-container">
-                <h2 class="xln-title--h2 xln-news__title">
+                <h2 class="xln-news__title">
                     News
                 </h2>
                 <div class="xln-news__tags">

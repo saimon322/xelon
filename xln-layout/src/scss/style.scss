@@ -21,13 +21,12 @@
 @import "components/link-arrow";
 @import "components/slider";
 @import "components/container";
-@import "components/content-box";
+@import "components/content";
 @import "components/top-header";
 @import "components/main-nav";
 @import "components/main-menu";
 @import "components/xln-menu";
 @import "components/footer";
-@import "components/title";
 @import "components/form";
 @import "components/modals";
 @import "components/signups";
@@ -46,3 +45,10 @@
 @import "pages/home/service";
 @import "pages/home/offer";
 @import "pages/home/news";
+
+/* ==========================================================================
+    PRICING PAGE
+    ========================================================================== */
+@import "pages/pricing/banner";
+@import "pages/pricing/about";
+@import "pages/pricing/calc";

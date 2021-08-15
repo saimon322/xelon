@@ -1,0 +1,7 @@
+.pricing-calc {
+    padding: 60px 0 80px;
+
+    @include media-up(md) {
+        padding: 60px 0 120px;
+    }
+}

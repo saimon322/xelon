@@ -50,15 +50,9 @@
 }
 
 .xln-banner__title {
-    font-size: 24px;
-    color: inherit;
-    letter-spacing: -1px;
     margin-bottom: 8px;
-    line-height: 1.2;
 
     @include media-up(md) {
-        max-width: 600px;
-        font-size: 42px;
         margin-bottom: 16px;
     }
 }
@@ -142,7 +136,7 @@
     
     input[type="submit"] {
         font-weight: bold;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
 
         @include media-up(md) {
             margin-bottom: 0;

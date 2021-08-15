@@ -132,14 +132,9 @@
     }
 
     &__title {
-        font-weight: bold;
-        line-height: 1.25;
         margin-left: 8px;
 
         @include media-up(md) {
-            font-weight: 600;
-            font-size: 20px;
-            line-height: 120%;
             margin-left: 16px;
         }
     }

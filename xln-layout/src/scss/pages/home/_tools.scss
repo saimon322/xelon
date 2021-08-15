@@ -12,46 +12,34 @@
     }
 }
 
-.xln-tools__title {
-    text-align: center;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-
-    @include media-up(md) {
-        display: block;
+h2.xln-tools__title {
+    @include media-down(sm) {
+        flex-direction: column-reverse;
+        align-items: center;        
     }
 
-    &::after {
-        content: "";
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        background-image: url(img/svg-sprite/rocket.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        margin-bottom: 15px;
+    img {        
+        width: 32px;
+        height: 32px;
+
+        @include media-down(sm) {
+            margin-bottom: 12px;
+        }
     
         @include media-up(md) {
-            margin-bottom: 0;
-            margin-left: 25px;
+            width: 40px;
+            height: 40px;
         }
     }
 }
 
 .xln-tools__content {
-    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 
     @include media-up(md) {
-        margin: 20px -40px -40px;
-    }
-
-    @include media-up(lg) {
-        margin-top: 40px;
+        margin: -20px -40px -40px;
     }
 }
 
@@ -88,13 +76,8 @@
     }
 }
 
-.xln-tool__title {
-    font-size: 16px;
+h4.xln-tool__title {
     color: var(--xln-main);
-
-    @include media-up(md) {
-        font-size: 20px;
-    }
 }
 
 .xln-tool__text {

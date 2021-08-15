@@ -102,9 +102,5 @@
 }
 
 .modal-signups {
-    margin-top: 10px;
-
-    @include media-up(md) {
-        margin-top: 20px;
-    }
+    margin-top: 20px;
 }

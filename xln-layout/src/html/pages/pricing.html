@@ -1,0 +1,13 @@
+<%=_.template(require('../templates/header.html'))({
+    title: "Pricing page - Xelon AG"
+}) %>
+
+<main>
+    <div class="xln-page">
+        <%=_.template(require('../templates/pricing/banner.html'))() %>
+        <%=_.template(require('../templates/pricing/about.html'))() %>
+        <%=_.template(require('../templates/pricing/calc.html'))() %>
+    </div>
+</main>
+
+<%=_.template(require('../templates/footer.html'))() %>
