@@ -290,6 +290,7 @@ get_header(); ?>
                 <div class="xln-content">
                     <h2 class="xln-tools__title xln-content__title">
                         <?php echo $s5_headline ?>
+                        <img src="img/icon/rocket.svg" alt="">
                     </h2>
                 </div>
             <?php endif; ?>

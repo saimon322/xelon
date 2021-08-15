@@ -3,6 +3,10 @@
     padding: 165px 0 60px;
     background: #fff;
 
+    @include media-down(sm) {
+        border-bottom: 8px solid var(--xln-bg);
+    }
+
     @include media-up(md) {
         margin-top: -115px;
         padding: 235px 0 60px;

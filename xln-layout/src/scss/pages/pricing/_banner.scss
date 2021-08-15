@@ -1,6 +1,7 @@
 .pricing-banner {
     padding-top: 60px;
     background: var(--xln-bg);
+    overflow: unset;
 
     &__icons {
         margin-bottom: 20px;
@@ -37,7 +38,11 @@
         font-size: 14px;
         line-height: 120%;
         text-align: center;
-        margin-bottom: 4px;
+        margin-bottom: 20px;
+
+        @include media-up(md) {
+            margin-bottom: 4px;
+        }
     }
 
     &__form {
