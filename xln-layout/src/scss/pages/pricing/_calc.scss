@@ -5,3 +5,130 @@
         padding: 60px 0 120px;
     }
 }
+
+.calc {
+    &__container {
+        @include media-down(sm) {
+            padding: 0;
+        }
+    }
+}
+
+.calc-row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calc-block {
+    padding: 20px;
+    margin-bottom: 4px;
+    background: var(--xln-bg);
+
+    @include media-up(md) {
+        padding: 20px 0;
+        margin-bottom: 0;
+        background: none;
+        border-bottom: 1px solid var(--xln-gray);
+    }
+}
+
+.calc-section {
+    margin-bottom: 16px;
+
+    @include media-up(md) {
+        margin-bottom: 20px;
+        padding: 20px;
+        background: var(--xln-bg);
+        border-radius: 8px;
+    }
+
+    &__header {
+        position: relative;
+        padding-right: 50px;
+
+        @include media-up(md) {
+            padding-right: 0;
+            padding-top: 0;
+        }
+
+        .calc-row {
+            align-items: center;
+        }
+    }
+
+    &__title {
+        width: 100%;
+        font-size: 20px;
+        font-weight: 600;
+
+        @include media-up(md) {
+            width: auto;
+            font-size: 24px;
+            margin-right: auto;
+        }
+    }
+
+    &__top-total {
+        font-size: 14px;
+        font-weight: 500;
+
+        @include media-up(md) {
+            margin-right: 58px;
+        }
+    }
+
+    &__toggler {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid var(--xln-main);
+        color: var(--xln-main);
+        cursor: pointer;
+
+        @include media-down(sm) {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);            
+        }
+
+        &.xln-active svg {
+            transform: translate(-50%, -50%) rotate(180deg);
+        }
+
+        svg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform .3s;
+        }
+    }
+}
+
+.calc-total {
+    color: var(--xln-dark-2);
+
+    &__line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title {
+        margin-right: 4px;
+
+        svg {
+            margin-right: 8px;
+        }
+    }
+
+    &__value {
+        span {
+            font-weight: bold;
+            color: var(--xln-dark);
+        }
+    }
+}

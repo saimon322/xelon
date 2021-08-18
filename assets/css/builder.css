@@ -209,7 +209,6 @@ form.send-cases-data button {
 	font-weight: 700;
 	line-height: 1;
 	text-align: center;
-	margin-bottom: 15px;
 }
 form.send-cases-data .success-msg {
 	grid-column-start: 1;

@@ -42,12 +42,12 @@ get_header(); ?>
                             <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
                             <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
                             <div class="form-block">
-                                <input type="email" id="send_email" name="email" id="email" placeholder="Email*" class="form-input">
-                                <label for="email" class="form-label">Email*</label>
+                                <input type="email" id="send_email" name="email" placeholder="Email*" class="form-input">
+                                <label class="form-label">Email*</label>
                                 <div class="msg"></div>
                             </div>
                             <div class="xln-banner-form__footer">
-                                <input type="submit" class="xln-button xln-button--green" value="Jetzt anmelden">
+                                <input type="submit" class="xln-button xln-button--green send-subscribe" value="<?php echo $button; ?>">
                                 <div class="signups-title">
                                     <span><?php echo $banner_form['signups_label']; ?></span>
                                 </div>
@@ -290,7 +290,7 @@ get_header(); ?>
                 <div class="xln-content">
                     <h2 class="xln-tools__title xln-content__title">
                         <?php echo $s5_headline ?>
-                        <img src="img/icon/rocket.svg" alt="">
+                        <img src="<?php echo TEMPLATE_URL; ?>/xln-layout/dist/img/icon/rocket.svg" alt="">
                     </h2>
                 </div>
             <?php endif; ?>
