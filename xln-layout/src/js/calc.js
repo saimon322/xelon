@@ -5,8 +5,8 @@ const calcInit = () => {
     if (calc.length) {
         // Section toggler
         $('.calc-section__toggler').click(function() {
-            $(this).parents('.calc-section').find('.calc-section__content').slideToggle();
             $(this).toggleClass(activeClass);
+            $(this).parents('.calc-section').find('.calc-section__content').stop().slideToggle();
         })
     }
 }

@@ -34,6 +34,8 @@ import '../img/svg-sprite/calc/calc-plus.svg';
 import '../img/svg-sprite/calc/calc-minus.svg';
 import '../img/svg-sprite/calc/calc-linux.svg';
 import '../img/svg-sprite/calc/calc-windows.svg';
+import '../img/svg-sprite/calc/calc-clock.svg';
+import '../img/svg-sprite/calc/calc-calendar.svg';
 
 // // Footer
 import '../img/svg-sprite/footer/footer-map.svg';

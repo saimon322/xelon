@@ -18,6 +18,10 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+
+    &--center {
+        align-items: center;
+    }
 }
 
 .calc-block {
@@ -30,6 +34,12 @@
         margin-bottom: 0;
         background: none;
         border-bottom: 1px solid var(--xln-gray);
+    }
+
+    &__title {
+        line-height: 1;
+        font-weight: bold;
+        margin-right: auto;
     }
 }
 
@@ -45,7 +55,7 @@
 
     &__header {
         position: relative;
-        padding-right: 50px;
+        padding-right: 52px;
 
         @include media-up(md) {
             padding-right: 0;
@@ -60,21 +70,15 @@
     &__title {
         width: 100%;
         font-size: 20px;
+        line-height: 1.2;
         font-weight: 600;
+        margin-bottom: 12px;
 
         @include media-up(md) {
             width: auto;
             font-size: 24px;
+            margin-bottom: 0;
             margin-right: auto;
-        }
-    }
-
-    &__top-total {
-        font-size: 14px;
-        font-weight: 500;
-
-        @include media-up(md) {
-            margin-right: 58px;
         }
     }
 
@@ -110,17 +114,46 @@
 
 .calc-total {
     color: var(--xln-dark-2);
+    line-height: 1;
+
+    &--top {
+        font-size: 14px;
+        font-weight: 500;
+
+        @include media-up(md) {
+            margin-right: 58px;
+        }
+    }
+
+    &--block {
+        width: 320px;
+        background: #FFFFFF;
+        border-radius: 8px;
+        padding: 8px 16px;
+
+        .calc-total__value span {
+            font-size: 18px;
+            line-height: 22px;
+        }
+    }
 
     &__line {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        &:not(:last-child) {
+            margin-bottom: 6px;
+        }
     }
 
     &__title {
+        display: flex;
+        align-items: center;
         margin-right: 4px;
 
         svg {
+            color: var(--xln-main);
             margin-right: 8px;
         }
     }
