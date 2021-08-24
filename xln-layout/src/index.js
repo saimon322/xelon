@@ -1,8 +1,8 @@
 import './scss/style.scss';
 
-import 'focus-visible';
 import './js/svg-sprite';
 import './js/vh-fix';
+import './js/tabs';
 import './js/sticky-menu';
 import './js/main-nav';
 import './js/modal';

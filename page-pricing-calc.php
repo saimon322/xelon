@@ -6,9 +6,9 @@
 get_header(); ?>
 
 <div class="xln-page">
-    <section class="pricing-calc">
-        <div class="xln-content">
-            <div class="xln-container">
+    <section class="pricing-banner">
+        <div class="xln-container">
+            <div class="xln-content">
                 <h1>Scalable, transparent, Swiss made</h1>
                 <div class="pricing-banner__icons">
                     <img src="<?php echo TEMPLATE_URL; ?>/xln-layout/dist/img/icon/pricing-scale.svg" alt="">
@@ -46,284 +46,6 @@ get_header(); ?>
                 </div>
             </div>
         </div>
-
-<div class="calc">
-    <div class="calc__container xln-container">
-        <div class="calc-section">
-            <div class="calc-section__header calc-block">
-                <div class="calc-row">
-                    <div class="calc-section__title">
-                        Infrastruktur
-                        (<span class="calc-section__counter">2</span>)
-                    </div>
-                    <div class="calc-total calc-total--top">
-                        <div class="calc-total__line">
-                            <div class="calc-total__title">
-                                Pro Stunde:
-                            </div>
-                            <div class="calc-total__value">
-                                <span>521.50</span> CHF
-                            </div>
-                        </div>
-                        <div class="calc-total__line">
-                            <div class="calc-total__title">
-                                Für 30 Tage:
-                            </div>
-                            <div class="calc-total__value">
-                                <span>52 122.31</span> CHF
-                            </div>
-                        </div>
-                    </div>
-                    <div class="calc-section__toggler">
-                        <svg width="24" height="24">
-                            <use xlink:href="#calc-arrow"></use>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="calc-section__content">
-                <div class="calc-block">
-                    <div class="calc-row">
-                        <div class="calc-block__title">Server #2</div>
-                        <div class="calc-total calc-total--block">
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-clock"></use>
-                                    </svg>
-                                    Pro Stunde:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>521.50</span> CHF
-                                </div>
-                            </div>
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-calendar"></use>
-                                    </svg>
-                                    Für 30 Tage:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>52 122.31</span> CHF
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="calc-block">
-                    <div class="calc-row">
-                        <div class="calc-block__title">Server #1</div>
-                        <div class="calc-total calc-total--block">
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-clock"></use>
-                                    </svg>
-                                    Pro Stunde:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>521.50</span> CHF
-                                </div>
-                            </div>
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-calendar"></use>
-                                    </svg>
-                                    Für 30 Tage:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>52 122.31</span> CHF
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="calc-section">
-            <div class="calc-section__header calc-block">
-                <div class="calc-row calc-row--center">
-                    <div class="calc-section__title">
-                        Networking und Security
-                    </div>
-                    <div class="calc-total calc-total--top">
-                        <div class="calc-total__line">
-                            <div class="calc-total__title">
-                                Pro Stunde:
-                            </div>
-                            <div class="calc-total__value">
-                                <span>521.50</span> CHF
-                            </div>
-                        </div>
-                        <div class="calc-total__line">
-                            <div class="calc-total__title">
-                                Für 30 Tage:
-                            </div>
-                            <div class="calc-total__value">
-                                <span>52 122.31</span> CHF
-                            </div>
-                        </div>
-                    </div>
-                    <div class="calc-section__toggler">
-                        <svg width="24" height="24">
-                            <use xlink:href="#calc-arrow"></use>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="calc-section__content">
-                <div class="calc-block">
-                    <div class="calc-row calc-row--center">
-                        <div class="calc-block__title">Firewall service</div>
-                        <div class="calc-total calc-total--block">
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-clock"></use>
-                                    </svg>
-                                    Pro Stunde:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>521.50</span> CHF
-                                </div>
-                            </div>
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-calendar"></use>
-                                    </svg>
-                                    Für 30 Tage:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>52 122.31</span> CHF
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="calc-block">
-                    <div class="calc-row calc-row--center">
-                        <div class="calc-block__title">Loadbalancer</div>
-                        <div class="calc-total calc-total--block">
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-clock"></use>
-                                    </svg>
-                                    Pro Stunde:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>521.50</span> CHF
-                                </div>
-                            </div>
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-calendar"></use>
-                                    </svg>
-                                    Für 30 Tage:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>52 122.31</span> CHF
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="calc-block">
-                    <div class="calc-row calc-row--center">
-                        <div class="calc-block__title">LAN</div>
-                        <div class="calc-total calc-total--block">
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-clock"></use>
-                                    </svg>
-                                    Pro Stunde:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>521.50</span> CHF
-                                </div>
-                            </div>
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-calendar"></use>
-                                    </svg>
-                                    Für 30 Tage:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>52 122.31</span> CHF
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="calc-block">
-                    <div class="calc-row calc-row--center">
-                        <div class="calc-block__title">WAN (#1)</div>
-                        <div class="calc-total calc-total--block">
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-clock"></use>
-                                    </svg>
-                                    Pro Stunde:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>521.50</span> CHF
-                                </div>
-                            </div>
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-calendar"></use>
-                                    </svg>
-                                    Für 30 Tage:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>52 122.31</span> CHF
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="calc-block">
-                    <div class="calc-row calc-row--center">
-                        <div class="calc-block__title">WAN (#2)</div>
-                        <div class="calc-total calc-total--block">
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-clock"></use>
-                                    </svg>
-                                    Pro Stunde:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>521.50</span> CHF
-                                </div>
-                            </div>
-                            <div class="calc-total__line">
-                                <div class="calc-total__title">
-                                    <svg width="16" height="16">
-                                        <use xlink:href="#calc-calendar"></use>
-                                    </svg>
-                                    Für 30 Tage:
-                                </div>
-                                <div class="calc-total__value">
-                                    <span>52 122.31</span> CHF
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
     </section><!-- /.pricing-banner -->
 
     <section class="pricing-about">
@@ -381,8 +103,283 @@ get_header(); ?>
                 </h2>
                 <p>Erstellen Sie Ihre eigene Infrastruktur und nutzen Sie den Kalkulator, um einen besseren Überblick über Ihre Kosten zu erhalten. Fügen Sie einfach Elemente hinzu, die Sie verwenden möchten, und erhalten Sie die Kostenschätzung</p>
             </div>
+            
             <div class="calc">
+                <div class="calc__container xln-container">
+                    <div class="calc-section">
+                        <div class="calc-section__header calc-block">
+                            <div class="calc-row">
+                                <div class="calc-section__title">
+                                    Infrastruktur
+                                    (<span class="calc-section__counter">2</span>)
+                                </div>
+                                <div class="calc-total calc-total--top">
+                                    <div class="calc-total__line">
+                                        <div class="calc-total__title">
+                                            Pro Stunde:
+                                        </div>
+                                        <div class="calc-total__value">
+                                            <span>521.50</span> CHF
+                                        </div>
+                                    </div>
+                                    <div class="calc-total__line">
+                                        <div class="calc-total__title">
+                                            Für 30 Tage:
+                                        </div>
+                                        <div class="calc-total__value">
+                                            <span>52 122.31</span> CHF
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calc-section__toggler">
+                                    <svg width="24" height="24">
+                                        <use xlink:href="#calc-arrow"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calc-section__content">
+                            <div class="calc-block">
+                                <div class="calc-row">
+                                    <div class="calc-block__title">Server #2</div>
+                                    <div class="calc-total calc-total--block">
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-clock"></use>
+                                                </svg>
+                                                Pro Stunde:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>521.50</span> CHF
+                                            </div>
+                                        </div>
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-calendar"></use>
+                                                </svg>
+                                                Für 30 Tage:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>52 122.31</span> CHF
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="calc-block">
+                                <div class="calc-row">
+                                    <div class="calc-block__title">Server #1</div>
+                                    <div class="calc-total calc-total--block">
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-clock"></use>
+                                                </svg>
+                                                Pro Stunde:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>521.50</span> CHF
+                                            </div>
+                                        </div>
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-calendar"></use>
+                                                </svg>
+                                                Für 30 Tage:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>52 122.31</span> CHF
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="calc-section">
+                        <div class="calc-section__header calc-block">
+                            <div class="calc-row calc-row--center">
+                                <div class="calc-section__title">
+                                    Networking und Security
+                                </div>
+                                <div class="calc-total calc-total--top">
+                                    <div class="calc-total__line">
+                                        <div class="calc-total__title">
+                                            Pro Stunde:
+                                        </div>
+                                        <div class="calc-total__value">
+                                            <span>521.50</span> CHF
+                                        </div>
+                                    </div>
+                                    <div class="calc-total__line">
+                                        <div class="calc-total__title">
+                                            Für 30 Tage:
+                                        </div>
+                                        <div class="calc-total__value">
+                                            <span>52 122.31</span> CHF
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calc-section__toggler">
+                                    <svg width="24" height="24">
+                                        <use xlink:href="#calc-arrow"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calc-section__content">
+                            <div class="calc-block">
+                                <div class="calc-row calc-row--center">
+                                    <div class="calc-block__title">Firewall service</div>
+                                    <div class="calc-total calc-total--block">
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-clock"></use>
+                                                </svg>
+                                                Pro Stunde:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>521.50</span> CHF
+                                            </div>
+                                        </div>
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-calendar"></use>
+                                                </svg>
+                                                Für 30 Tage:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>52 122.31</span> CHF
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="calc-block">
+                                <div class="calc-row calc-row--center">
+                                    <div class="calc-block__title">Loadbalancer</div>
+                                    <div class="calc-total calc-total--block">
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-clock"></use>
+                                                </svg>
+                                                Pro Stunde:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>521.50</span> CHF
+                                            </div>
+                                        </div>
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-calendar"></use>
+                                                </svg>
+                                                Für 30 Tage:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>52 122.31</span> CHF
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="calc-block">
+                                <div class="calc-row calc-row--center">
+                                    <div class="calc-block__title">LAN</div>
+                                    <div class="calc-total calc-total--block">
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-clock"></use>
+                                                </svg>
+                                                Pro Stunde:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>521.50</span> CHF
+                                            </div>
+                                        </div>
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-calendar"></use>
+                                                </svg>
+                                                Für 30 Tage:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>52 122.31</span> CHF
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="calc-block">
+                                <div class="calc-row calc-row--center">
+                                    <div class="calc-block__title">WAN (#1)</div>
+                                    <div class="calc-total calc-total--block">
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-clock"></use>
+                                                </svg>
+                                                Pro Stunde:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>521.50</span> CHF
+                                            </div>
+                                        </div>
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-calendar"></use>
+                                                </svg>
+                                                Für 30 Tage:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>52 122.31</span> CHF
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="calc-block">
+                                <div class="calc-row calc-row--center">
+                                    <div class="calc-block__title">WAN (#2)</div>
+                                    <div class="calc-total calc-total--block">
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-clock"></use>
+                                                </svg>
+                                                Pro Stunde:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>521.50</span> CHF
+                                            </div>
+                                        </div>
+                                        <div class="calc-total__line">
+                                            <div class="calc-total__title">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="#calc-calendar"></use>
+                                                </svg>
+                                                Für 30 Tage:
+                                            </div>
+                                            <div class="calc-total__value">
+                                                <span>52 122.31</span> CHF
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section><!-- /.pricing-calc -->
