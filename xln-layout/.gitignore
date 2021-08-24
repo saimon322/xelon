@@ -1,7 +1,7 @@
 # Nodde modules #
 /node_modules
 
-# Dist except old styles #
+# Dist #
 /dist/img
 
 # Compiled source #

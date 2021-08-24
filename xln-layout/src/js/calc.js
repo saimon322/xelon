@@ -1,4 +1,4 @@
-const calcInit = () => {
+$(() => {
     const calc = $('.calc');
     const activeClass = 'xln-active';
 
@@ -9,6 +9,4 @@ const calcInit = () => {
             $(this).parents('.calc-section').find('.calc-section__content').stop().slideToggle();
         })
     }
-}
-
-window.addEventListener('DOMContentLoaded', calcInit);
+})
