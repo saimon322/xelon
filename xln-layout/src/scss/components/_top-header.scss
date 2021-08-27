@@ -1,7 +1,7 @@
 .top-header {
     display: none;
     height: 48px;
-    background: #fff;
+    background: var(--xln-light);
     border-bottom: 1px solid var(--xln-gray);
 
     @include media-up(lg) {
@@ -131,7 +131,7 @@
     &__item a {
         display: block;
         padding: 15px 20px;
-        background: #fff;
+        background: var(--xln-light);
         font-weight: 500;
         font-size: 14px;
         line-height: 1;
@@ -139,12 +139,12 @@
     
         &:hover {
             background: var(--xln-main-hover);
-            color: #fff;
+            color: var(--xln-light);
         }
     
         &:active {
             background: var(--xln-main-active);
-            color: #fff;
+            color: var(--xln-light);
         }
     }
 }

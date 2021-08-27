@@ -20,7 +20,7 @@
 
 .main-nav__wr {
     z-index: 10;
-    background-color: #fff;
+    background-color: var(--xln-light);
 
     &--start-sticky {
         position: fixed;
@@ -56,7 +56,7 @@
             display: block;
             width: 100%;
             height: 100%;
-            background: #fff;
+            background: var(--xln-light);
             border-bottom: 1px solid var(--xln-gray);
         }
     }
@@ -188,7 +188,7 @@
     color: var(--xln-dark-2);
 
     &.xln-active {
-        color: #fff;
+        color: var(--xln-light);
         background: var(--xln-main);
     }
 }

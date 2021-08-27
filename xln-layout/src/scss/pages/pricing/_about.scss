@@ -1,7 +1,7 @@
 .pricing-about {
     margin-top: -90px;
     padding: 165px 0 60px;
-    background: #fff;
+    background: var(--xln-light);
 
     @include media-down(sm) {
         border-bottom: 8px solid var(--xln-bg);

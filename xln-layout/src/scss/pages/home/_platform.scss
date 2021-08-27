@@ -62,7 +62,7 @@
 }
 
 .xln-scheme-el {
-    fill: #fff;
+    fill: var(--xln-light);
     cursor: pointer;
     transition: fill .25s;
 
@@ -97,7 +97,7 @@
     top: 0;
     width: 100%;
     padding: 20px;
-    background: #fff;
+    background: var(--xln-light);
     box-shadow: 0px 4px 10px #EBEEFA;
     border-radius: 8px;
     opacity: 0;

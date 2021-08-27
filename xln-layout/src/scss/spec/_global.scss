@@ -18,6 +18,10 @@ button {
     background: none;
 }
 
+h2, h3, h4 {
+    font-weight: normal;
+}
+
 .xln-page {
     h1,
     h2,
@@ -78,6 +82,12 @@ textarea {
     border: none;
     outline: none;
     appearance: none;
+}
+
+select {
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
 }
 
 input[type="submit"] {
