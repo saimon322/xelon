@@ -18,7 +18,7 @@
                             Infrastruktur
                             (<span class="calc-servers-counter">2</span>)
                         </div>
-                        <div class="calc-total calc-total--top">
+                        <div class="calc-section__total calc-total">
                             <div class="calc-total__item">
                                 <div class="calc-total__title">
                                     Pro Stunde:
@@ -50,20 +50,21 @@
                             <div class="calc-item">
                                 <div class="calc-item__title">Type:</div>
                                 <div class="calc-select">
-                                    <select>
-                                        <option value="linux">
+                                    <div class="calc-select__current"></div>
+                                    <div class="calc-select__items">
+                                        <div class="calc-select__item" data-type="linux">
                                             <svg width="24" height="24">
                                                 <use xlink:href="#calc-linux"></use>
                                             </svg>
-                                            Linux
-                                        </option>
-                                        <option value="windows">
+                                            <span>Linux</span>
+                                        </div>
+                                        <div class="calc-select__item" data-type="windows">
                                             <svg width="24" height="24">
-                                                <use xlink:href="#calc-linux"></use>
+                                                <use xlink:href="#calc-windows"></use>
                                             </svg>
-                                            Windows
-                                        </option>
-                                    </select>
+                                            <span>Windows</span>
+                                        </div>
+                                    </div>
                                     <span class="calc-select__btn">
                                         <svg width="24" height="24">
                                             <use xlink:href="#calc-arrow"></use>
@@ -148,9 +149,35 @@
                                         </svg>
                                     </span>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
-                        <div class="calc-total calc-total--block">
+                        <div class="calc-block__total calc-total">
+                            <div class="calc-total__item">
+                                <div class="calc-total__title">
+                                    <svg width="16" height="16">
+                                        <use xlink:href="#calc-clock"></use>
+                                    </svg>
+                                    Pro Stunde:
+                                </div>
+                                <div class="calc-total__value">
+                                    <span class="calc-total-hour">521.50</span> CHF
+                                </div>
+                            </div>
+                            <div class="calc-total__item">
+                                <div class="calc-total__title">
+                                    <svg width="16" height="16">
+                                        <use xlink:href="#calc-calendar"></use>
+                                    </svg>
+                                    Für 30 Tage:
+                                </div>
+                                <div class="calc-total__value">
+                                    <span class="calc-total-month">52 122.31</span> CHF
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calc-section__footer">
+                        <div class="calc-section__total calc-total">
                             <div class="calc-total__item">
                                 <div class="calc-total__title">
                                     <svg width="16" height="16">
@@ -184,7 +211,7 @@
                         <div class="calc-section__title">
                             Networking und Security
                         </div>
-                        <div class="calc-total calc-total--top">
+                        <div class="calc-section__total calc-total">
                             <div class="calc-total__item">
                                 <div class="calc-total__title">
                                     Pro Stunde:
@@ -213,7 +240,25 @@
                     <div class="calc-block calc-service">
                         <div class="calc-row">
                             <div class="calc-block__title">Firewall service</div>
-                            <div class="calc-total calc-total--block">
+                            <div class="calc-item" data-hour="0.03" data-month="21.60">
+                                <div class="calc-item__title">
+                                    Anzahl
+                                </div>
+                                <div class="calc-counter">
+                                    <span class="calc-minus">
+                                        <svg width="16" height="16">
+                                            <use xlink:href="#calc-minus"></use>
+                                        </svg>
+                                    </span>
+                                    <input type="number" value="1" min="1" max="100" step="1">
+                                    <span class="calc-plus">
+                                        <svg width="16" height="16">
+                                            <use xlink:href="#calc-plus"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="calc-block__total calc-total">
                                 <div class="calc-total__item">
                                     <div class="calc-total__title">
                                         <svg width="16" height="16">
@@ -239,10 +284,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="calc-block">
+                    <div class="calc-block calc-service">
                         <div class="calc-row">
                             <div class="calc-block__title">Loadbalancer</div>
-                            <div class="calc-total calc-total--block">
+                            <div class="calc-item" data-hour="0.03" data-month="21.60">
+                                <div class="calc-item__title">
+                                    Anzahl
+                                </div>
+                                <div class="calc-counter">
+                                    <span class="calc-minus">
+                                        <svg width="16" height="16">
+                                            <use xlink:href="#calc-minus"></use>
+                                        </svg>
+                                    </span>
+                                    <input type="number" value="1" min="1" max="100" step="1">
+                                    <span class="calc-plus">
+                                        <svg width="16" height="16">
+                                            <use xlink:href="#calc-plus"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="calc-block__total calc-total">
                                 <div class="calc-total__item">
                                     <div class="calc-total__title">
                                         <svg width="16" height="16">
@@ -268,10 +331,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="calc-block">
+                    <div class="calc-block calc-service">
                         <div class="calc-row">
                             <div class="calc-block__title">LAN</div>
-                            <div class="calc-total calc-total--block">
+                            <div class="calc-item" data-hour="0.0139" data-month="10.01">
+                                <div class="calc-item__title">
+                                    Anzahl
+                                </div>
+                                <div class="calc-counter">
+                                    <span class="calc-minus">
+                                        <svg width="16" height="16">
+                                            <use xlink:href="#calc-minus"></use>
+                                        </svg>
+                                    </span>
+                                    <input type="number" value="1" min="1" max="100" step="1">
+                                    <span class="calc-plus">
+                                        <svg width="16" height="16">
+                                            <use xlink:href="#calc-plus"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="calc-block__total calc-total">
                                 <div class="calc-total__item">
                                     <div class="calc-total__title">
                                         <svg width="16" height="16">
@@ -297,10 +378,35 @@
                             </div>
                         </div>
                     </div>
-                    <div class="calc-block">
+                    <div class="calc-block calc-wan">
                         <div class="calc-row">
                             <div class="calc-block__title">WAN (#1)</div>
-                            <div class="calc-total calc-total--block">
+                            <div class="calc-item">
+                                <div class="calc-item__title">Type:</div>
+                                <div class="calc-select">
+                                    <div class="calc-select__current"></div>
+                                    <div class="calc-select__items">
+                                        <div class="calc-select__item" data-hour="0.041" data-month="29.52">
+                                            <span>/29 Subnet (5 IP’s nutzbar)</span>
+                                        </div>
+                                        <div class="calc-select__item" data-hour="0.07" data-month="50.40">
+                                            <span>/28 Subnet (13 IP’s nutzbar)</span>
+                                        </div>
+                                        <div class="calc-select__item" data-hour="0.12" data-month="86.40">
+                                            <span>/27 Subnet (29 IP’s nutzbar)</span>
+                                        </div>
+                                        <div class="calc-select__item" data-hour="0.22" data-month="158.40">
+                                            <span>/26 Subnet (61 IP’s nutzbar)</span>
+                                        </div>
+                                    </div>
+                                    <span class="calc-select__btn">
+                                        <svg width="24" height="24">
+                                            <use xlink:href="#calc-arrow"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="calc-block__total calc-total">
                                 <div class="calc-total__item">
                                     <div class="calc-total__title">
                                         <svg width="16" height="16">
@@ -326,10 +432,35 @@
                             </div>
                         </div>
                     </div>
-                    <div class="calc-block">
+                    <div class="calc-block calc-wan">
                         <div class="calc-row">
                             <div class="calc-block__title">WAN (#2)</div>
-                            <div class="calc-total calc-total--block">
+                            <div class="calc-item">
+                                <div class="calc-item__title">Type:</div>
+                                <div class="calc-select">
+                                    <div class="calc-select__current"></div>
+                                    <div class="calc-select__items">
+                                        <div class="calc-select__item" data-hour="0.041" data-month="29.52">
+                                            <span>/29 Subnet (5 IP’s nutzbar)</span>
+                                        </div>
+                                        <div class="calc-select__item" data-hour="0.07" data-month="50.40">
+                                            <span>/28 Subnet (13 IP’s nutzbar)</span>
+                                        </div>
+                                        <div class="calc-select__item" data-hour="0.12" data-month="86.40">
+                                            <span>/27 Subnet (29 IP’s nutzbar)</span>
+                                        </div>
+                                        <div class="calc-select__item" data-hour="0.22" data-month="158.40">
+                                            <span>/26 Subnet (61 IP’s nutzbar)</span>
+                                        </div>
+                                    </div>
+                                    <span class="calc-select__btn">
+                                        <svg width="24" height="24">
+                                            <use xlink:href="#calc-arrow"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="calc-block__total calc-total">
                                 <div class="calc-total__item">
                                     <div class="calc-total__title">
                                         <svg width="16" height="16">
@@ -351,6 +482,32 @@
                                     <div class="calc-total__value">
                                         <span class="calc-total-month">52 122.31</span> CHF
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calc-section__footer">
+                        <div class="calc-section__total calc-total">
+                            <div class="calc-total__item">
+                                <div class="calc-total__title">
+                                    <svg width="16" height="16">
+                                        <use xlink:href="#calc-clock"></use>
+                                    </svg>
+                                    Pro Stunde:
+                                </div>
+                                <div class="calc-total__value">
+                                    <span class="calc-total-hour">521.50</span> CHF
+                                </div>
+                            </div>
+                            <div class="calc-total__item">
+                                <div class="calc-total__title">
+                                    <svg width="16" height="16">
+                                        <use xlink:href="#calc-calendar"></use>
+                                    </svg>
+                                    Für 30 Tage:
+                                </div>
+                                <div class="calc-total__value">
+                                    <span class="calc-total-month">52 122.31</span> CHF
                                 </div>
                             </div>
                         </div>

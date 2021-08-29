@@ -67,10 +67,10 @@ const calcInit = () => {
 
         const servers  = new Servers(calcEl);
         const calc     = new Calc(calcEl, servers);
-        
+
         // Section toggler
         const sectionTogglers = document.querySelectorAll('.calc-section__toggler');
-        sectionTogglers.forEach(function(toggler) {
+        sectionTogglers && sectionTogglers.forEach(function(toggler) {
             toggler.addEventListener('click', () => {
                 toggler.classList.toggle(activeClass);
                 const parent = toggler.closest('.calc-section');
@@ -81,13 +81,48 @@ const calcInit = () => {
         
         // Item toggler
         const itemTogglers = document.querySelectorAll('.calc-item__toggler');
-        itemTogglers.forEach(function(toggler) {
+        itemTogglers && itemTogglers.forEach(function(toggler) {
             toggler.addEventListener('click', () => {
                 const parent = toggler.closest('.calc-item');
-                parent.classList.toggle('.calc-item--disabled');
+                parent.classList.toggle('calc-item--disabled');
+            })
+        })
+
+        // Select
+        const selects = document.querySelectorAll('.calc-select');
+        selects && selects.forEach(function(select) {
+            const items = select.querySelectorAll('.calc-select__item');
+            const current = select.querySelector('.calc-select__current');
+            current.innerHTML = items[0].innerHTML;
+            setDataAttributes(items[0], current);
+
+            select.addEventListener('mouseover', () => {
+                select.classList.add(activeClass);
+            })
+            select.addEventListener('mouseout', () => {
+                select.classList.remove(activeClass);
+            })
+            
+            items && items.forEach(function(item) {
+                item.addEventListener('click', () => {
+                    current.innerHTML = item.innerHTML;
+                    setDataAttributes(item, current);
+                    select.classList.remove(activeClass);
+                })
             })
         })
     }
+}
+
+function setDataAttributes(elFrom, elTo) {
+    const re_dataAttr = /^data\-(.+)$/;
+
+    elFrom.attributes.forEach(function(attr) {
+        if (re_dataAttr.test(attr.nodeName)) {
+            const key = attr.nodeName.match(re_dataAttr)[1];
+            elTo.setAttribute(key, attr.nodeValue)
+        }
+    });
 }
 
 window.addEventListener('DOMContentLoaded', calcInit);
