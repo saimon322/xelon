@@ -1035,11 +1035,25 @@ function get_signups(){
         $promo = get_current_page_promo();
         $result .= '<div class="signups">';
         foreach ($signups as $signup): 
+            
             $href = 'https://vdc.xelon.ch/login?';
             if ($promo['status'] == 'true') {
                 $href .= 'promo=' . $promo['promo'] .= '&';
             }
             $href .= 'provider_name=' . $signup['type'];
+            
+            if ($signup['type'] == 'google'){
+                $href = 'https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20profile&include_granted_scopes=true&response_type=code&redirect_uri=https%3A%2F%2Fvdc.xelon.ch%2Flogin&client_id=733922324275-bf6k7rls1053bkj23cfc5km9sf5e0e0v&flowName=GeneralOAuthFlow';
+            }
+            
+            if ($signup['type'] == 'github'){
+                $href = 'https://github.com/login?client_id=4fce1b0caa1c5fa247d8&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3D4fce1b0caa1c5fa247d8%26redirect_uri%3Dhttps%253A%252F%252Fvdc.xelon.ch%252Flogin%253FgithubAuth%253Dtrue%26scope%3Duser';
+            }
+            
+            if ($promo['status'] == 'true') {
+                $href .= '&state=' . $promo['promo'];
+            }
+            
             $result .= '<a href="' . $href . '"
                     class="signup"
                     target="_blank">
