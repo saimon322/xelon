@@ -75,7 +75,7 @@ get_header();
             <label for="pdCheck2" class="checkboks-text d-flex align-center"><?php the_field('pdf_form_c2', 'option');?></label>
           </div>
           <div class="send-success-zone d-flex align-center">
-            <button type="submit" class="danger-btn pdf-submit"><?php the_field('pdf_form_btn', 'option');?></button>
+            <button type="submit" class="xln-button pdf-submit"><?php the_field('pdf_form_btn', 'option');?></button>
             <div class="sucmsg8"></div>
           </div>
         </form>
@@ -93,7 +93,7 @@ get_header();
               <div class="info-content">
                 <p><?php echo the_field('story_rp_text'); ?></p>
               </div>
-              <a href="<?php echo the_field('story_rp_btn_url'); ?>" class="bluberry-btn item-center"><?php echo the_field('story_rp_btn'); ?></a>
+              <a href="<?php echo the_field('story_rp_btn_url'); ?>" class="xln-button item-center"><?php echo the_field('story_rp_btn'); ?></a>
             </div>
           </div>
           <div class="page-40">
@@ -180,7 +180,7 @@ get_header();
                 <label for="pdCheck2" class="checkboks-text d-flex align-center">I would like to receive the monthly newsletter from Xelon.</label>
               </div>
               <div class="send-success-zone d-flex align-center">
-                <button type="submit" class="danger-btn pdf-submit">Send</button>
+                <button type="submit" class="xln-button pdf-submit">Send</button>
                 <div class="sucmsg8"></div>
               </div>
             </form>

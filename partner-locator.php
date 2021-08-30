@@ -113,7 +113,7 @@ get_header(); ?>
 						<span><?php the_field('locate'); ?></span>
 					</div>
 					<div class="contact-pl">
-						<a class="blue-btn popup-open-pl" href="#plform"><?php echo $btn; ?></a>
+						<a class="xln-button popup-open-pl" href="#plform"><?php echo $btn; ?></a>
 					</div>
 				</div>
 

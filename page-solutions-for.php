@@ -24,7 +24,7 @@ get_header();
             <div class="info-content">
               <p><?php echo the_field('sf_text');?></p>
             </div>
-            <a href="<?php echo the_field('sf_btn_url');?>" class="danger-btn"><?php echo the_field('sf_btn_text');?></a>
+            <a href="<?php echo the_field('sf_btn_url');?>" class="xln-button"><?php echo the_field('sf_btn_text');?></a>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@ get_header();
             <div class="info-content">
               <p><?php the_field('sf_text_block_text');?></p>
             </div>
-            <a href="<?php the_field('sf_text_block_btn_url');?>" class="success-btn"><?php the_field('sf_text_block_btn_text');?></a>
+            <a href="<?php the_field('sf_text_block_btn_url');?>" class="xln-button"><?php the_field('sf_text_block_btn_text');?></a>
           </div>
         </div>
         <div class="page-40">
@@ -214,7 +214,7 @@ get_header();
             <div class="info-content">
               <p><?php the_field('sf_text_block2_text');?></p>
             </div>
-            <a href="<?php the_field('sf_text_block2_btn_url');?>" class="danger-btn"><?php the_field('sf_text_block2_btn_text');?></a>
+            <a href="<?php the_field('sf_text_block2_btn_url');?>" class="xln-button"><?php the_field('sf_text_block2_btn_text');?></a>
           </div>
         </div>
       </div>

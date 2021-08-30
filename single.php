@@ -80,7 +80,7 @@ get_header (); ?>
               <span><?php the_field('sub_title_product'); ?></span>
               <h3><?php the_field('title_product'); ?></h3>
               <p><?php the_field('text_product'); ?></p>
-              <a href="<?php the_field('url_product'); ?>" class="danger-btn">Learn More</a>
+              <a href="<?php the_field('url_product'); ?>" class="xln-button">Learn More</a>
             </div>
            </div>
            <div class="col">

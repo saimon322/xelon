@@ -31,7 +31,7 @@ get_header();
 					<div class="content-text">
 						<?php echo $data_server_content; ?>
 					</div>
-					<a href="<?php echo $data_server_link_url; ?>" class="danger-btn"><?php echo $data_server_link; ?></a>
+					<a href="<?php echo $data_server_link_url; ?>" class="xln-button"><?php echo $data_server_link; ?></a>
 				</div>
 			</div>
 		</div>
@@ -134,7 +134,7 @@ get_header();
 							<?php echo $servers_b_description; ?>
 						</div>
 						<div class="ds-configure">
-							<a href="<?php echo $servers_link; ?>" class="danger-btn open-popup-contact"><?php echo the_field('configure_btn', 'option'); ?></a>
+							<a href="<?php echo $servers_link; ?>" class="xln-button open-popup-contact"><?php echo the_field('configure_btn', 'option'); ?></a>
 						</div>
 					</div>
 				</div>
@@ -157,7 +157,7 @@ get_header();
 				</div>
 			</div>
 			<div class="fc-call d-flex justify-center">
-				<a href="<?php echo the_field('fc_btn_url'); ?>" class="white-btn open-popup-contact"><?php echo the_field('fc_btn'); ?></a>
+				<a href="<?php echo the_field('fc_btn_url'); ?>" class="xln-button xln-button--white open-popup-contact"><?php echo the_field('fc_btn'); ?></a>
 			</div>
 		</div>
 	</div>

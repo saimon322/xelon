@@ -1,22 +1,15 @@
+const { isArray } = require("jquery");
+
 const calcInit = () => {
     const calcEl = document.querySelector('.calc');
     const activeClass = 'xln-active';
 
     if (calcEl) {
-        class Servers {
-            constructor(calcEl) {
-                this.el = calcEl.querySelector('.calc-servers');
+        class Param {
+            constructor(el) {
+                this.el = el;
                 this.perHour = 0;
                 this.perMonth = 0;
-                this.counter = 0;
-            }
-            total() {
-                this.perHour = this.servers.perHour + 
-                               this.services.perHour + 
-                               this.wans.perHour;
-                this.perMonth = this.servers.perMonth + 
-                                this.services.perMonth + 
-                                this.wans.perMonth;
             }
         }
 
@@ -28,11 +21,25 @@ const calcInit = () => {
             }
         }
 
-        class Param {
-            constructor(el) {
-                this.el = el;
+        class Servers {
+            constructor(calcEl) {
+                this.el = calcEl.querySelector('.calc-servers');
                 this.perHour = 0;
                 this.perMonth = 0;
+                this.counter = 0;
+                this.init();
+            }
+            init() {
+                this.items = this.el.querySelectorAll('.calc-server');
+                console.log(this.items);
+            }
+            total() {
+                this.perHour = this.servers.perHour + 
+                               this.services.perHour + 
+                               this.wans.perHour;
+                this.perMonth = this.servers.perMonth + 
+                                this.services.perMonth + 
+                                this.wans.perMonth;
             }
         }
         
@@ -42,11 +49,10 @@ const calcInit = () => {
                 this.servers = servers;
                 this.perHour = 0;
                 this.perMonth = 0;
-                this.listeners();
+                this.init();
             }
-            listeners() {
-                console.log('listeners');
-                const inputEls = this.el.querySelectorAll('input, select');
+            init() {
+                const inputEls = this.el.querySelectorAll('input');
                 const calcThis = this;
                 inputEls.forEach(function(inputEl){
                     inputEl.addEventListener('change', calcThis.update());
@@ -116,8 +122,8 @@ const calcInit = () => {
 
 function setDataAttributes(elFrom, elTo) {
     const re_dataAttr = /^data\-(.+)$/;
-
-    elFrom.attributes.forEach(function(attr) {
+    
+    [...elFrom.attributes].forEach(function(attr) {
         if (re_dataAttr.test(attr.nodeName)) {
             const key = attr.nodeName.match(re_dataAttr)[1];
             elTo.setAttribute(key, attr.nodeValue)

@@ -56,7 +56,7 @@ get_header();
 					<div class="info-content">
 						<?php echo $pr_content_vs; ?>
 					</div>
-					<a href="<?php echo $pr_link_vs;?>" class="success-btn item-center"><?php echo the_field('learn_more', 'option') ?></a>
+					<a href="<?php echo $pr_link_vs;?>" class="xln-button item-center"><?php echo the_field('learn_more', 'option') ?></a>
 				</div>
 			</div>
 		</div>
@@ -82,7 +82,7 @@ get_header();
 					<div class="info-content">
 						<?php echo $pr_content_ds; ?>
 					</div>
-					<a href="<?php the_field('pr_link_ds' ) ?>" class="bluberry-btn item-center"><?php the_field('learn_more', 'option') ?></a>
+					<a href="<?php the_field('pr_link_ds' ) ?>" class="xln-button item-center"><?php the_field('learn_more', 'option') ?></a>
 				</div>
 			</div>
 			<div class="page-40">
@@ -114,7 +114,7 @@ get_header();
 					<div class="info-content">
 						<?php echo $pr_content_ms; ?>
 					</div>
-					<a href="<?php echo $pr_link_ms; ?>" class="danger-btn item-center"><?php echo the_field('learn_more', 'option') ?></a>
+					<a href="<?php echo $pr_link_ms; ?>" class="xln-button item-center"><?php echo the_field('learn_more', 'option') ?></a>
 				</div>
 			</div>
 		</div>

@@ -32,7 +32,7 @@ get_header();
             <div class="content-text">
               <?php echo $p_ds_content; ?>
             </div>
-            <a href="<?php echo $p_ds_link; ?>" class="<?php if($ds_change_color[0] == 'red') { echo "danger-btn"; } elseif ($ds_change_color[0] == 'green') { echo "success-btn"; } elseif ($ds_change_color[0] == 'blueberry') echo "bluberry-btn";
+            <a href="<?php echo $p_ds_link; ?>" class="<?php if($ds_change_color[0] == 'red') { echo "xln-button"; } elseif ($ds_change_color[0] == 'green') { echo "xln-button"; } elseif ($ds_change_color[0] == 'blueberry') echo "xln-button";
             ?>"><?php echo the_field('configure_now', 'option'); ?></a>
           </div>
         </div>
@@ -122,7 +122,7 @@ get_header();
                     <?php echo $core_price; ?>
                   </div>
                   <div class="ds-configure">
-                    <a href="<?php echo $core_link;?>" class="<?php if($ds_change_color_r[0] == 'red') { echo "danger-btn"; } elseif ($ds_change_color_r[0] == 'green') { echo "success-btn"; } elseif ($ds_change_color_r[0] == 'blueberry') echo "bluberry-btn";
+                    <a href="<?php echo $core_link;?>" class="<?php if($ds_change_color_r[0] == 'red') { echo "xln-button"; } elseif ($ds_change_color_r[0] == 'green') { echo "xln-button"; } elseif ($ds_change_color_r[0] == 'blueberry') echo "xln-button";
                     ?>"><?php echo the_field('configure_btn', 'option'); ?></a>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ get_header();
           <?php echo the_field('adv_describtion'); ?>
         </div>
         <div class="adv-conf">
-          <a href="<?php echo the_field('adv_link'); ?>" class="white-btn open-popup-contact"><?php echo the_field('configure_your_setup'); ?></a>
+          <a href="<?php echo the_field('adv_link'); ?>" class="xln-button xln-button--white open-popup-contact"><?php echo the_field('configure_your_setup'); ?></a>
         </div>
       </div>
     </div>

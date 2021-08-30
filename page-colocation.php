@@ -89,7 +89,7 @@ get_header(); ?>
 							<?php echo $ctabel_price; ?>
 						</div>
 						<div class="ds-configure">
-							<a href="<?php echo $ctabel_link;?>" class="bluberry-btn"><?php echo $text_btn; ?></a>
+							<a href="<?php echo $ctabel_link;?>" class="xln-button"><?php echo $text_btn; ?></a>
 						</div>
 					</div>
 				</div>

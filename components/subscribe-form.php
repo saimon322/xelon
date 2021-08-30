@@ -25,7 +25,7 @@ $checkbox_text = get_field('subscribe_checkbox_text', 'option');
                         <input type="hidden" name="pageUrl" value="<?php echo "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
 						<div class="subs-flex d-flex align-center">
 							<input type="text" name="subsEmail" id="subsEmail" class="simple-input" placeholder="<?php the_field('ph_email', 'option');?>">
-							<button type="submit" class="danger-btn subs-submit">Send</button>
+							<button type="submit" class="xln-button subs-submit">Send</button>
 							<div class="sucmsg4"></div>	
 						</div>
 						<div class="checkboks custom-sq">

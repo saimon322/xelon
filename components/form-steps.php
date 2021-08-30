@@ -16,7 +16,7 @@
 							<label for="box3" class="checkboks-text d-flex align-center">I've got the <a href="#">Data Protection</a> to the attention of the court.</label>
 						</div>
 						<div class="send-success-zone d-flex align-center">
-							<button type="submit" class="danger-btn hy-submit">Send message</button>
+							<button type="submit" class="xln-button hy-submit">Send message</button>
 							<div class="sucmsg2"></div>								
 						</div>
 					</form> -->

@@ -29,7 +29,7 @@ get_header();
 					<div class="content-text">
 						<?php echo $dcp_content; ?>
 					</div>
-					<a href="<?php echo $dcp_btn_url ;?>" class="success-btn open-popup-link"><?php echo the_field('try_for_free', 'option'); ?></a>
+					<a href="<?php echo $dcp_btn_url ;?>" class="xln-button open-popup-link"><?php echo the_field('try_for_free', 'option'); ?></a>
 				</div>
 			</div>
 		</div>
@@ -113,7 +113,7 @@ get_header();
 					<div class="content-text">
 						<?php echo $dcr_content; ?>
 					</div>
-					<a href="<?php echo $dcr_btn_url; ?>" class="success-btn open-popup-link"><?php echo the_field('try_for_free', 'option'); ?></a>
+					<a href="<?php echo $dcr_btn_url; ?>" class="xln-button open-popup-link"><?php echo the_field('try_for_free', 'option'); ?></a>
 				</div>
 			</div>
 			<div class="page-right page-50">

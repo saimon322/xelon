@@ -62,6 +62,16 @@ aside.weglot-default {
     }
 }
 
+#category #subs-form .custom-sq.checkboks span {
+    color: #000 !important;
+}
+
+.partner-locate-one .contact-pl {
+    @media (min-width: 576px) {
+        margin-left: 10px;
+    }
+}
+
 .blue-label {
     pointer-events: none;
 }
@@ -93,4 +103,38 @@ aside.weglot-default {
 .serv-need {
     display: flex;
     flex-direction: column;
+}
+
+.subs-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    height: 50px;
+    background: none;
+    border-radius: 4px;
+    padding: 8px 20px;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--xln-light);
+    background-color: var(--xln-main);
+    transition: 0.2s ease-in-out;
+    text-align: center;
+    text-decoration: none !important;
+    white-space: unset;
+
+    @include media-up(md) {
+        display: inline-flex;
+        width: 150px;
+        padding: 8px 24px;
+    }
+
+    &:hover {
+        background-color: var(--xln-main-hover);
+    }
+
+    &:active {
+        background-color: var(--xln-main-active);
+    }
 }

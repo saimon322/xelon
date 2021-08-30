@@ -57,9 +57,9 @@ get_header();
 						<?php echo $sol_content; ?>
 					</div>
 					<?php if (is_page(706)) { ?>
-					<a href="<?php echo $sol_link; ?>" class=" <?php if($sol_check_colors[0] == 'red') { echo "danger-btn"; } elseif ($sol_check_colors[0] == 'green') { echo "success-btn"; } elseif ($sol_check_colors[0] == 'blueberry') echo "bluberry-btn";?> item-center open-popup-contact"><?php echo $sol_link_name; ?></a>
+					<a href="<?php echo $sol_link; ?>" class=" <?php if($sol_check_colors[0] == 'red') { echo "xln-button"; } elseif ($sol_check_colors[0] == 'green') { echo "xln-button"; } elseif ($sol_check_colors[0] == 'blueberry') echo "xln-button";?> item-center open-popup-contact"><?php echo $sol_link_name; ?></a>
 				<?php } else { ?>
-					<a href="<?php echo $sol_link; ?>" class=" <?php if($sol_check_colors[0] == 'red') { echo "danger-btn"; } elseif ($sol_check_colors[0] == 'green') { echo "success-btn"; } elseif ($sol_check_colors[0] == 'blueberry') echo "bluberry-btn";?> item-center"><?php echo $sol_link_name; ?></a>
+					<a href="<?php echo $sol_link; ?>" class=" <?php if($sol_check_colors[0] == 'red') { echo "xln-button"; } elseif ($sol_check_colors[0] == 'green') { echo "xln-button"; } elseif ($sol_check_colors[0] == 'blueberry') echo "xln-button";?> item-center"><?php echo $sol_link_name; ?></a>
 				<?php } ?>
 				</div>
 			</div>
@@ -174,11 +174,11 @@ get_header();
 					<?php 
 
 						if($sy_color[0] == 'red') {
-							echo "danger-btn";
+							echo "xln-button";
 						} elseif ($sy_color[0] == 'green') {
-							echo "success-btn";
+							echo "xln-button";
 						} elseif ($sy_color[0] == 'blueberry')
-							echo "bluberry-btn";
+							echo "xln-button";
 					 ?>
 
 				 item-center"><?php echo $sy_link_name; ?></a>

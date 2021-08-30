@@ -29,7 +29,7 @@ get_header();
 					<div class="content-text">
 						<?php echo $di_content; ?>
 					</div>
-					<a href="<?php echo $di_link; ?>" class="bluberry-btn open-popup-contact"><?php echo the_field('contact_us_btn', 'option'); ?></a>
+					<a href="<?php echo $di_link; ?>" class="xln-button open-popup-contact"><?php echo the_field('contact_us_btn', 'option'); ?></a>
 				</div>
 			</div>
 		</div>

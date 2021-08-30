@@ -30,7 +30,7 @@ get_header();
 					<div class="content-text">
 						<?php echo $msec_content; ?>
 					</div>
-					<a href="<?php echo $msec_btn_url; ?>" class="danger-btn open-popup-contact"><?php echo the_field('contact_us_btn', 'option'); ?></a>
+					<a href="<?php echo $msec_btn_url; ?>" class="xln-button open-popup-contact"><?php echo the_field('contact_us_btn', 'option'); ?></a>
 				</div>
 			</div>
 		</div>
@@ -125,7 +125,7 @@ get_header();
 						<?php endwhile; ?>
 						<?php endif; ?>
 								</div>
-					<a href="<?php echo $msec_b1_btn_url; ?>" class="danger-btn open-popup-contact"><?php echo the_field('contact_us_btn', 'option'); ?></a>
+					<a href="<?php echo $msec_b1_btn_url; ?>" class="xln-button open-popup-contact"><?php echo the_field('contact_us_btn', 'option'); ?></a>
 				</div>
 			</div>
 			<div class="page-right page-40">
@@ -180,7 +180,7 @@ get_header();
 						<?php endwhile; ?>
 						<?php endif; ?>
 								</div>
-					<a href="<?php echo $msec_b2_btn_url; ?>" class="danger-btn open-popup-contact"><?php echo the_field('contact_us_btn', 'option'); ?></a>
+					<a href="<?php echo $msec_b2_btn_url; ?>" class="xln-button open-popup-contact"><?php echo the_field('contact_us_btn', 'option'); ?></a>
 				</div>
 			</div>
 		</div>
@@ -224,7 +224,7 @@ get_header();
 						<?php endwhile; ?>
 						<?php endif; ?>
 								</div>
-					<a href="<?php echo $msec_b3_btn_url; ?>" class="danger-btn open-popup-contact"><?php echo the_field('contact_us_btn', 'option'); ?></a>
+					<a href="<?php echo $msec_b3_btn_url; ?>" class="xln-button open-popup-contact"><?php echo the_field('contact_us_btn', 'option'); ?></a>
 				</div>
 			</div>
 			<div class="page-right page-40">

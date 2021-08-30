@@ -53,7 +53,7 @@ get_header();
                 <label for="box11" class="checkboks-text d-flex align-center"><?php echo the_field('so_form_c2', 'option');?></label>
               </div>
               <div class="send-success-zone d-flex align-center">
-                <button type="submit" class="danger-btn subscribe-btn"><?php echo the_field('so_form_btn', 'option');?></button>
+                <button type="submit" class="xln-button subscribe-btn"><?php echo the_field('so_form_btn', 'option');?></button>
                 <div class="sucmsg7"></div>
               </div>
             </form>

@@ -16,6 +16,7 @@
 
 // Block
 .calc-block {
+    position: relative;
     width: 100%;
     padding: 20px;
     margin-bottom: 4px;
@@ -36,6 +37,68 @@
         @include media-up(md) {
             margin-bottom: 14px;
         }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        @include media-up(md) {
+            justify-content: flex-end;
+        }
+
+        @include media-up(xl) {
+            margin-top: 16px;
+        }
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        cursor: pointer;
+        line-height: 1;
+
+        svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            transition: transform .25s;
+        }
+
+        &:hover svg {
+            transform: rotate(90deg);
+        }        
+
+        &--remove {
+            color: var(--xln-alert);
+
+            @include media-down(sm) {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 4px;
+                }
+            }
+        }
+
+        &--add {
+            display: none;
+            color: var(--xln-main);
+
+            @include media-up(md) {
+                margin-left: 40px;
+            }
+        }
+    }
+
+    &:nth-last-child(2) .calc-block__button--add {
+        display: flex;
     }
 }
 

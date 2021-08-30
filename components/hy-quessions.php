@@ -24,7 +24,7 @@
 							<label for="box3" class="checkboks-text d-flex align-center"><?php echo the_field('any_questions_checkbox_text', 'option'); ?></label>
 						</div>
 						<div class="send-success-zone d-flex align-center">
-							<button type="submit" class="danger-btn hy-submit"><?php echo the_field('btn_send', 'option'); ?></button>
+							<button type="submit" class="xln-button hy-submit"><?php echo the_field('btn_send', 'option'); ?></button>
 							<div class="sucmsg2"></div>								
 						</div>
 					</form>

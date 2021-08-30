@@ -62,7 +62,7 @@ get_header();
 								<label for="box9" class="checkboks-text d-flex align-center"><?php echo the_field('support_page_checkbox_text', 'option'); ?></label>
 							</div>
 							<div class="send-success-zone d-flex align-center">
-							<button type="submit" class="danger-btn support-submit"><?php echo the_field('message_support_btn', 'option'); ?></button>							
+							<button type="submit" class="xln-button support-submit"><?php echo the_field('message_support_btn', 'option'); ?></button>							
 							<div class="sucmsg5"></div>									
 							</div>
 						</form>

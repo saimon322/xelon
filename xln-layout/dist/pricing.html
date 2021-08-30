@@ -1116,7 +1116,9 @@
                 </div>
                 <div class="calc-section__content">
                     <div class="calc-block calc-server">
-                        <div class="calc-block__title">Server #1</div>
+                        <div class="calc-block__title">
+                            Server #<span>1</span>
+                        </div>
                         <div class="calc-row">
                             <div class="calc-item">
                                 <div class="calc-item__title">Type:</div>
@@ -1244,6 +1246,20 @@
                                 <div class="calc-total__value">
                                     <span class="calc-total-month">52 122.31</span> CHF
                                 </div>
+                            </div>
+                        </div>
+                        <div class="calc-block__buttons">
+                            <div class="calc-block__button calc-block__button--remove">
+                                <svg width="24" height="42">
+                                    <use xlink:href="#calc-remove"></use>
+                                </svg>
+                                Entfernen
+                            </div>
+                            <div class="calc-block__button calc-block__button--add">
+                                <svg width="24" height="42">
+                                    <use xlink:href="#calc-add"></use>
+                                </svg>
+                                Server hinzufügen
                             </div>
                         </div>
                     </div>
@@ -1451,7 +1467,9 @@
                     </div>
                     <div class="calc-block calc-wan">
                         <div class="calc-row">
-                            <div class="calc-block__title">WAN (#1)</div>
+                            <div class="calc-block__title">
+                                WAN (#<span>1</span>)
+                            </div>
                             <div class="calc-item">
                                 <div class="calc-item__title">Type:</div>
                                 <div class="calc-select">
@@ -1502,58 +1520,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="calc-block calc-wan">
-                        <div class="calc-row">
-                            <div class="calc-block__title">WAN (#2)</div>
-                            <div class="calc-item">
-                                <div class="calc-item__title">Type:</div>
-                                <div class="calc-select">
-                                    <div class="calc-select__current"></div>
-                                    <div class="calc-select__items">
-                                        <div class="calc-select__item" data-hour="0.041" data-month="29.52">
-                                            <span>/29 Subnet (5 IP’s nutzbar)</span>
-                                        </div>
-                                        <div class="calc-select__item" data-hour="0.07" data-month="50.40">
-                                            <span>/28 Subnet (13 IP’s nutzbar)</span>
-                                        </div>
-                                        <div class="calc-select__item" data-hour="0.12" data-month="86.40">
-                                            <span>/27 Subnet (29 IP’s nutzbar)</span>
-                                        </div>
-                                        <div class="calc-select__item" data-hour="0.22" data-month="158.40">
-                                            <span>/26 Subnet (61 IP’s nutzbar)</span>
-                                        </div>
-                                    </div>
-                                    <span class="calc-select__btn">
-                                        <svg width="24" height="24">
-                                            <use xlink:href="#calc-arrow"></use>
-                                        </svg>
-                                    </span>
-                                </div>
+                        <div class="calc-block__buttons">
+                            <div class="calc-block__button calc-block__button--remove">
+                                <svg width="24" height="42">
+                                    <use xlink:href="#calc-remove"></use>
+                                </svg>
+                                Entfernen
                             </div>
-                            <div class="calc-block__total calc-total">
-                                <div class="calc-total__item">
-                                    <div class="calc-total__title">
-                                        <svg width="16" height="16">
-                                            <use xlink:href="#calc-clock"></use>
-                                        </svg>
-                                        Pro Stunde:
-                                    </div>
-                                    <div class="calc-total__value">
-                                        <span class="calc-total-hour">521.50</span> CHF
-                                    </div>
-                                </div>
-                                <div class="calc-total__item">
-                                    <div class="calc-total__title">
-                                        <svg width="16" height="16">
-                                            <use xlink:href="#calc-calendar"></use>
-                                        </svg>
-                                        Für 30 Tage:
-                                    </div>
-                                    <div class="calc-total__value">
-                                        <span class="calc-total-month">52 122.31</span> CHF
-                                    </div>
-                                </div>
+                            <div class="calc-block__button calc-block__button--add">
+                                <svg width="24" height="42">
+                                    <use xlink:href="#calc-add"></use>
+                                </svg>
+                                Server hinzufügen
                             </div>
                         </div>
                     </div>
