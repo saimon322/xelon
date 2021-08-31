@@ -42,10 +42,10 @@
     &__buttons {
         display: flex;
         justify-content: center;
-        margin-top: 20px;
 
         @include media-up(md) {
             justify-content: flex-end;
+            margin-top: 20px;
         }
 
         @include media-up(xl) {
@@ -64,6 +64,7 @@
             width: 24px;
             height: 24px;
             margin-right: 8px;
+            pointer-events: none;
             transition: transform .25s;
         }
 
@@ -88,7 +89,6 @@
         }
 
         &--add {
-            display: none;
             color: var(--xln-main);
 
             @include media-up(md) {
@@ -97,8 +97,8 @@
         }
     }
 
-    &:nth-last-child(2) .calc-block__button--add {
-        display: flex;
+    &:not(:last-child) .calc-block__button--add {
+        display: none;
     }
 }
 
@@ -338,6 +338,7 @@
             background: var(--xln-light);
             border-radius: 100%;
             transition: .25s;
+            pointer-events: none;
 
             @include media-up(lg) {
                 left: 11px;
@@ -374,7 +375,7 @@
     overflow: hidden;
     transition: opacity .25s;
 
-    span {
+    &__button {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -386,9 +387,13 @@
         &:hover {
             color: var(--xln-main);
         }
+
+        svg {
+            pointer-events: none;
+        }
     }
 
-    input {
+    &__input {
         flex: 1 1 0;
         min-width: 44px;
         height: 100%;
@@ -489,6 +494,7 @@
             top: 50%;
             transform: translate(-50%, -50%) rotate(180deg);
             transition: transform .3s;
+            pointer-events: none;
         }
     }
 
@@ -527,7 +533,15 @@
         }
 
         .calc-total {
-            display: block;
+            width: 100%;
+            background: var(--xln-light);
+            border-radius: 8px;
+            padding: 8px 16px;
+
+            &__value span {
+                font-size: 18px;
+                line-height: 22px;
+            }
         }
     }
 }
@@ -543,10 +557,6 @@
 
         @include media-down(sm) {
             width: 100%;
-
-            &:last-child {
-                margin-bottom: 0;
-            }
             
             &:nth-child(2),
             &:nth-child(3) {
