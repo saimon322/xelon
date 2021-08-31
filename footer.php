@@ -234,17 +234,6 @@
     </div>
 </div>
 
-<!-- Download book Modal -->
-<div id="modal-download-book"
-     class="white-popup mfp-hide">
-    <div class="modal-area d-flex">
-        <h3>E-BOOK «SECURITY TRENDS 2021»</h3>
-        <p>Im E-Book «Security Trends 2021» gibt es weitere Einblicke in das Thema Cyber-Security für Schweizer Unternehmen. Jetzt gratis herunterladen und Cyber-Kriminelle abhängen.</p>
-        <br>
-        <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/30XwgOZcf9AMIzJgj2CgHm7uMFxDSuvRtiVVPNYGU8QlfoVTqvDzOWHxl2ebPyvE7"><script src="https://webforms.pipedrive.com/f/loader"></script></div>
-    </div>
-</div>
-
 <!-- Open Apply to position Modal -->
 <div id="open-apply"
      class="white-popup mfp-hide">
