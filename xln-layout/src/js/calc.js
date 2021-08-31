@@ -99,7 +99,7 @@ const calcInit = () => {
         // Section toggler
         calcEl.addEventListener('click', function(e){
             if(e.target && e.target.classList.contains('calc-section__toggler')){
-                toggler = e.target;
+                const toggler = e.target;
                 toggler.classList.toggle(activeClass);
                 const parent = toggler.closest('.calc-section');
                 const content = parent.querySelector('.calc-section__content');
@@ -110,7 +110,7 @@ const calcInit = () => {
         // Item toggler
         calcEl.addEventListener('click', function(e){
             if(e.target && e.target.classList.contains('calc-item__toggler')){
-                toggler = e.target;
+                const toggler = e.target;
                 const parent = toggler.closest('.calc-item');
                 parent.classList.toggle('calc-item--disabled');
             }

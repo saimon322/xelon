@@ -175,13 +175,13 @@ get_header(); ?>
                                         CPU (cores)
                                     </div>
                                     <div class="calc-counter">
-                                        <span class="calc-minus">
+                                        <span class="calc-counter__button calc-minus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-minus"></use>
                                             </svg>
                                         </span>
-                                        <input type="number" value="1" min="1" max="100" step="1">
-                                        <span class="calc-plus">
+                                        <input type="number" value="1" min="1" max="100" step="1" class="calc-counter__input">
+                                        <span class="calc-counter__button calc-plus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-plus"></use>
                                             </svg>
@@ -193,13 +193,13 @@ get_header(); ?>
                                         RAM (GB)
                                     </div>
                                     <div class="calc-counter">
-                                        <span class="calc-minus">
+                                        <span class="calc-counter__button calc-minus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-minus"></use>
                                             </svg>
                                         </span>
-                                        <input type="number" value="1" min="1" max="100" step="1">
-                                        <span class="calc-plus">
+                                        <input type="number" value="1" min="1" max="100" step="1" class="calc-counter__input">
+                                        <span class="calc-counter__button calc-plus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-plus"></use>
                                             </svg>
@@ -214,13 +214,13 @@ get_header(); ?>
                                         </div>
                                     </div>
                                     <div class="calc-counter">
-                                        <span class="calc-minus">
+                                        <span class="calc-counter__button calc-minus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-minus"></use>
                                             </svg>
                                         </span>
-                                        <input type="number" value="5" min="5" max="100" step="5">
-                                        <span class="calc-plus">
+                                        <input type="number" value="5" min="5" max="100" step="5" class="calc-counter__input">
+                                        <span class="calc-counter__button calc-plus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-plus"></use>
                                             </svg>
@@ -235,13 +235,13 @@ get_header(); ?>
                                         </div>
                                     </div>
                                     <div class="calc-counter">
-                                        <span class="calc-minus">
+                                        <span class="calc-counter__button calc-minus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-minus"></use>
                                             </svg>
                                         </span>
-                                        <input type="number" value="5" min="5" max="100" step="5">
-                                        <span class="calc-plus">
+                                        <input type="number" value="5" min="5" max="100" step="5" class="calc-counter__input">
+                                        <span class="calc-counter__button calc-plus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-plus"></use>
                                             </svg>
@@ -288,29 +288,29 @@ get_header(); ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="calc-section__footer">
-                            <div class="calc-section__total calc-total">
-                                <div class="calc-total__item">
-                                    <div class="calc-total__title">
-                                        <svg width="16" height="16">
-                                            <use xlink:href="#calc-clock"></use>
-                                        </svg>
-                                        Pro Stunde:
-                                    </div>
-                                    <div class="calc-total__value">
-                                        <span class="calc-total-hour">521.50</span> CHF
-                                    </div>
+                    </div>
+                    <div class="calc-section__footer">
+                        <div class="calc-section__total calc-total">
+                            <div class="calc-total__item">
+                                <div class="calc-total__title">
+                                    <svg width="16" height="16">
+                                        <use xlink:href="#calc-clock"></use>
+                                    </svg>
+                                    Pro Stunde:
                                 </div>
-                                <div class="calc-total__item">
-                                    <div class="calc-total__title">
-                                        <svg width="16" height="16">
-                                            <use xlink:href="#calc-calendar"></use>
-                                        </svg>
-                                        Für 30 Tage:
-                                    </div>
-                                    <div class="calc-total__value">
-                                        <span class="calc-total-month">52 122.31</span> CHF
-                                    </div>
+                                <div class="calc-total__value">
+                                    <span class="calc-total-hour">521.50</span> CHF
+                                </div>
+                            </div>
+                            <div class="calc-total__item">
+                                <div class="calc-total__title">
+                                    <svg width="16" height="16">
+                                        <use xlink:href="#calc-calendar"></use>
+                                    </svg>
+                                    Für 30 Tage:
+                                </div>
+                                <div class="calc-total__value">
+                                    <span class="calc-total-month">52 122.31</span> CHF
                                 </div>
                             </div>
                         </div>
@@ -357,13 +357,13 @@ get_header(); ?>
                                         Anzahl
                                     </div>
                                     <div class="calc-counter">
-                                        <span class="calc-minus">
+                                        <span class="calc-counter__button calc-minus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-minus"></use>
                                             </svg>
                                         </span>
-                                        <input type="number" value="1" min="1" max="100" step="1">
-                                        <span class="calc-plus">
+                                        <input type="number" value="1" min="1" max="100" step="1" class="calc-counter__input">
+                                        <span class="calc-counter__button calc-plus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-plus"></use>
                                             </svg>
@@ -404,13 +404,13 @@ get_header(); ?>
                                         Anzahl
                                     </div>
                                     <div class="calc-counter">
-                                        <span class="calc-minus">
+                                        <span class="calc-counter__button calc-minus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-minus"></use>
                                             </svg>
                                         </span>
-                                        <input type="number" value="1" min="1" max="100" step="1">
-                                        <span class="calc-plus">
+                                        <input type="number" value="1" min="1" max="100" step="1" class="calc-counter__input">
+                                        <span class="calc-counter__button calc-plus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-plus"></use>
                                             </svg>
@@ -451,13 +451,13 @@ get_header(); ?>
                                         Anzahl
                                     </div>
                                     <div class="calc-counter">
-                                        <span class="calc-minus">
+                                        <span class="calc-counter__button calc-minus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-minus"></use>
                                             </svg>
                                         </span>
-                                        <input type="number" value="1" min="1" max="100" step="1">
-                                        <span class="calc-plus">
+                                        <input type="number" value="1" min="1" max="100" step="1" class="calc-counter__input">
+                                        <span class="calc-counter__button calc-plus">
                                             <svg width="16" height="16">
                                                 <use xlink:href="#calc-plus"></use>
                                             </svg>
@@ -560,29 +560,29 @@ get_header(); ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="calc-section__footer">
-                            <div class="calc-section__total calc-total">
-                                <div class="calc-total__item">
-                                    <div class="calc-total__title">
-                                        <svg width="16" height="16">
-                                            <use xlink:href="#calc-clock"></use>
-                                        </svg>
-                                        Pro Stunde:
-                                    </div>
-                                    <div class="calc-total__value">
-                                        <span class="calc-total-hour">521.50</span> CHF
-                                    </div>
+                    </div>
+                    <div class="calc-section__footer">
+                        <div class="calc-section__total calc-total">
+                            <div class="calc-total__item">
+                                <div class="calc-total__title">
+                                    <svg width="16" height="16">
+                                        <use xlink:href="#calc-clock"></use>
+                                    </svg>
+                                    Pro Stunde:
                                 </div>
-                                <div class="calc-total__item">
-                                    <div class="calc-total__title">
-                                        <svg width="16" height="16">
-                                            <use xlink:href="#calc-calendar"></use>
-                                        </svg>
-                                        Für 30 Tage:
-                                    </div>
-                                    <div class="calc-total__value">
-                                        <span class="calc-total-month">52 122.31</span> CHF
-                                    </div>
+                                <div class="calc-total__value">
+                                    <span class="calc-total-hour">521.50</span> CHF
+                                </div>
+                            </div>
+                            <div class="calc-total__item">
+                                <div class="calc-total__title">
+                                    <svg width="16" height="16">
+                                        <use xlink:href="#calc-calendar"></use>
+                                    </svg>
+                                    Für 30 Tage:
+                                </div>
+                                <div class="calc-total__value">
+                                    <span class="calc-total-month">52 122.31</span> CHF
                                 </div>
                             </div>
                         </div>
