@@ -111,7 +111,7 @@ get_header(); ?>
                     <div class="calc-section__header calc-block">
                         <div class="calc-row">
                             <div class="calc-section__title">
-                                Infrastruktur
+                                <?php echo get_field('infrastructure')['title']; ?>
                                 (<span class="calc-servers-counter">2</span>)
                             </div>
                             <div class="calc-section__total calc-total">
@@ -170,84 +170,49 @@ get_header(); ?>
                                         </span>
                                     </div>
                                 </div>
-                                <div class="calc-item" data-hour="0.0156" data-month="11.23">
-                                    <div class="calc-item__title">
-                                        CPU (cores)
-                                    </div>
-                                    <div class="calc-counter">
-                                        <span class="calc-counter__button calc-minus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-minus"></use>
-                                            </svg>
-                                        </span>
-                                        <input type="number" value="1" min="1" max="100" step="1" class="calc-counter__input">
-                                        <span class="calc-counter__button calc-plus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-plus"></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="calc-item" data-hour="0.0150" data-month="10.80">
-                                    <div class="calc-item__title">
-                                        RAM (GB)
-                                    </div>
-                                    <div class="calc-counter">
-                                        <span class="calc-counter__button calc-minus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-minus"></use>
-                                            </svg>
-                                        </span>
-                                        <input type="number" value="1" min="1" max="100" step="1" class="calc-counter__input">
-                                        <span class="calc-counter__button calc-plus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-plus"></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="calc-item" data-hour="0.00034" data-month="0.24">
-                                    <div class="calc-item__title">
-                                        SSD-Storage (GB)
-                                        <div class="calc-item__toggler">
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="calc-counter">
-                                        <span class="calc-counter__button calc-minus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-minus"></use>
-                                            </svg>
-                                        </span>
-                                        <input type="number" value="5" min="5" max="100" step="5" class="calc-counter__input">
-                                        <span class="calc-counter__button calc-plus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-plus"></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="calc-item" data-hour="0.00014" data-month="0.10">
-                                    <div class="calc-item__title">
-                                        HDD (GB)
-                                        <div class="calc-item__toggler">
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                    <div class="calc-counter">
-                                        <span class="calc-counter__button calc-minus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-minus"></use>
-                                            </svg>
-                                        </span>
-                                        <input type="number" value="5" min="5" max="100" step="5" class="calc-counter__input">
-                                        <span class="calc-counter__button calc-plus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-plus"></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
+
+	                              <?php
+	                              if ( $server = get_field('infrastructure')['server'] ) :
+			                              foreach ($server as $item) :
+					                              $title = $item['title'];
+					                              $optional = $item['optional'];
+					                              $min = $item['min'];
+					                              $max = $item['max'];
+					                              $inc = $item['increment'];
+					                              $per_hour = $item['per_hour'];
+					                              $per_month = $item['per_month'];
+					                              ?>
+							                              <div class="calc-item" data-hour="<?php echo $per_hour; ?>" data-month="<?php echo $per_month; ?>">
+									                              <div class="calc-item__title">
+											                              <?php echo $title; ?>
+											                              <?php if ( $optional ) : ?>
+											                                  <div class="calc-item__toggler"><span></span></div>
+											                              <?php endif; ?>
+									                              </div>
+									                              <div class="calc-counter">
+						                                        <span class="calc-counter__button calc-minus">
+						                                            <svg width="16" height="16">
+						                                                <use xlink:href="#calc-minus"></use>
+						                                            </svg>
+						                                        </span>
+											                              <input
+													                              type="number"
+													                              value="1"
+													                              min="<?php echo $min; ?>"
+													                              max="<?php echo $max; ?>"
+													                              step="<?php echo $inc; ?>"
+													                              class="calc-counter__input"
+											                              >
+											                              <span class="calc-counter__button calc-plus">
+						                                            <svg width="16" height="16">
+						                                                <use xlink:href="#calc-plus"></use>
+						                                            </svg>
+						                                        </span>
+									                              </div>
+						                                </div>
+		                                    <?php
+			                              endforeach;
+	                              endif; ?>
                             </div>
                             <div class="calc-block__total calc-total">
                                 <div class="calc-total__item">
@@ -321,7 +286,7 @@ get_header(); ?>
                     <div class="calc-section__header calc-block">
                         <div class="calc-row">
                             <div class="calc-section__title">
-                                Networking und Security
+                                <?php echo get_field('networking')['title']; ?>
                             </div>
                             <div class="calc-section__total calc-total">
                                 <div class="calc-total__item">
@@ -349,217 +314,146 @@ get_header(); ?>
                         </div>
                     </div>
                     <div class="calc-section__content">
-                        <div class="calc-block calc-service">
-                            <div class="calc-row">
-                                <div class="calc-block__title">Firewall service</div>
-                                <div class="calc-item" data-hour="0.03" data-month="21.60">
-                                    <div class="calc-item__title">
-                                        Anzahl
-                                    </div>
-                                    <div class="calc-counter">
-                                        <span class="calc-counter__button calc-minus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-minus"></use>
-                                            </svg>
-                                        </span>
-                                        <input type="number" value="1" min="1" max="100" step="1" class="calc-counter__input">
-                                        <span class="calc-counter__button calc-plus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-plus"></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="calc-block__total calc-total">
-                                    <div class="calc-total__item">
-                                        <div class="calc-total__title">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-clock"></use>
-                                            </svg>
-                                            Pro Stunde:
-                                        </div>
-                                        <div class="calc-total__value">
-                                            <span class="calc-total-hour">521.50</span> CHF
-                                        </div>
-                                    </div>
-                                    <div class="calc-total__item">
-                                        <div class="calc-total__title">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-calendar"></use>
-                                            </svg>
-                                            Für 30 Tage:
-                                        </div>
-                                        <div class="calc-total__value">
-                                            <span class="calc-total-month">52 122.31</span> CHF
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="calc-block calc-service">
-                            <div class="calc-row">
-                                <div class="calc-block__title">Loadbalancer</div>
-                                <div class="calc-item" data-hour="0.03" data-month="21.60">
-                                    <div class="calc-item__title">
-                                        Anzahl
-                                    </div>
-                                    <div class="calc-counter">
-                                        <span class="calc-counter__button calc-minus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-minus"></use>
-                                            </svg>
-                                        </span>
-                                        <input type="number" value="1" min="1" max="100" step="1" class="calc-counter__input">
-                                        <span class="calc-counter__button calc-plus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-plus"></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="calc-block__total calc-total">
-                                    <div class="calc-total__item">
-                                        <div class="calc-total__title">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-clock"></use>
-                                            </svg>
-                                            Pro Stunde:
-                                        </div>
-                                        <div class="calc-total__value">
-                                            <span class="calc-total-hour">521.50</span> CHF
-                                        </div>
-                                    </div>
-                                    <div class="calc-total__item">
-                                        <div class="calc-total__title">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-calendar"></use>
-                                            </svg>
-                                            Für 30 Tage:
-                                        </div>
-                                        <div class="calc-total__value">
-                                            <span class="calc-total-month">52 122.31</span> CHF
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="calc-block calc-service">
-                            <div class="calc-row">
-                                <div class="calc-block__title">LAN</div>
-                                <div class="calc-item" data-hour="0.0139" data-month="10.01">
-                                    <div class="calc-item__title">
-                                        Anzahl
-                                    </div>
-                                    <div class="calc-counter">
-                                        <span class="calc-counter__button calc-minus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-minus"></use>
-                                            </svg>
-                                        </span>
-                                        <input type="number" value="1" min="1" max="100" step="1" class="calc-counter__input">
-                                        <span class="calc-counter__button calc-plus">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-plus"></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="calc-block__total calc-total">
-                                    <div class="calc-total__item">
-                                        <div class="calc-total__title">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-clock"></use>
-                                            </svg>
-                                            Pro Stunde:
-                                        </div>
-                                        <div class="calc-total__value">
-                                            <span class="calc-total-hour">521.50</span> CHF
-                                        </div>
-                                    </div>
-                                    <div class="calc-total__item">
-                                        <div class="calc-total__title">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-calendar"></use>
-                                            </svg>
-                                            Für 30 Tage:
-                                        </div>
-                                        <div class="calc-total__value">
-                                            <span class="calc-total-month">52 122.31</span> CHF
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="calc-block calc-wan">
-                            <div class="calc-row">
-                                <div class="calc-block__title">
-                                    WAN (#<span>1</span>)
-                                </div>
-                                <div class="calc-item">
-                                    <div class="calc-item__title">Type:</div>
-                                    <div class="calc-select">
-                                        <div class="calc-select__current"></div>
-                                        <div class="calc-select__items">
-                                            <div class="calc-select__item" data-hour="0.041" data-month="29.52">
-                                                <span>/29 Subnet (5 IP’s nutzbar)</span>
-                                            </div>
-                                            <div class="calc-select__item" data-hour="0.07" data-month="50.40">
-                                                <span>/28 Subnet (13 IP’s nutzbar)</span>
-                                            </div>
-                                            <div class="calc-select__item" data-hour="0.12" data-month="86.40">
-                                                <span>/27 Subnet (29 IP’s nutzbar)</span>
-                                            </div>
-                                            <div class="calc-select__item" data-hour="0.22" data-month="158.40">
-                                                <span>/26 Subnet (61 IP’s nutzbar)</span>
-                                            </div>
-                                        </div>
-                                        <span class="calc-select__btn">
-                                            <svg width="24" height="24">
-                                                <use xlink:href="#calc-arrow"></use>
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="calc-block__total calc-total">
-                                    <div class="calc-total__item">
-                                        <div class="calc-total__title">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-clock"></use>
-                                            </svg>
-                                            Pro Stunde:
-                                        </div>
-                                        <div class="calc-total__value">
-                                            <span class="calc-total-hour">521.50</span> CHF
-                                        </div>
-                                    </div>
-                                    <div class="calc-total__item">
-                                        <div class="calc-total__title">
-                                            <svg width="16" height="16">
-                                                <use xlink:href="#calc-calendar"></use>
-                                            </svg>
-                                            Für 30 Tage:
-                                        </div>
-                                        <div class="calc-total__value">
-                                            <span class="calc-total-month">52 122.31</span> CHF
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="calc-block__buttons">
-                                <div class="calc-block__button calc-block__button--remove">
-                                    <svg width="24" height="42">
-                                        <use xlink:href="#calc-remove"></use>
-                                    </svg>
-                                    Entfernen
-                                </div>
-                                <div class="calc-block__button calc-block__button--add">
-                                    <svg width="24" height="42">
-                                        <use xlink:href="#calc-add"></use>
-                                    </svg>
-                                    Server hinzufügen
-                                </div>
-                            </div>
-                        </div>
+	                      <?php
+	                      if ( $network = get_field('networking')['group']['network_items'] ) :
+			                      foreach ($network as $item) :
+				                        $title = $item['title'];
+			                          $min = $item['min'];
+			                          $max = $item['max'];
+			                          $inc = $item['increment'];
+			                          $per_hour = $item['per_hour'];
+			                          $per_month = $item['per_month'];
+				                        ?>
+						                        <div class="calc-block calc-service">
+						                            <div class="calc-row">
+						                                <div class="calc-block__title"><?php echo $title; ?></div>
+						                                <div class="calc-item" data-hour="<?php echo $per_hour; ?>" data-month="<?php echo $per_month; ?>">
+						                                    <div class="calc-item__title">
+						                                        Anzahl
+						                                    </div>
+						                                    <div class="calc-counter">
+						                                        <span class="calc-counter__button calc-minus">
+						                                            <svg width="16" height="16">
+						                                                <use xlink:href="#calc-minus"></use>
+						                                            </svg>
+						                                        </span>
+						                                        <input
+								                                        type="number"
+								                                        value="1"
+								                                        min="<?php echo $min; ?>"
+								                                        max="<?php echo $max; ?>"
+								                                        step="<?php echo $inc; ?>"
+								                                        class="calc-counter__input"
+						                                        >
+						                                        <span class="calc-counter__button calc-plus">
+						                                            <svg width="16" height="16">
+						                                                <use xlink:href="#calc-plus"></use>
+						                                            </svg>
+						                                        </span>
+						                                    </div>
+						                                </div>
+						                                <div class="calc-block__total calc-total">
+						                                    <div class="calc-total__item">
+						                                        <div class="calc-total__title">
+						                                            <svg width="16" height="16">
+						                                                <use xlink:href="#calc-clock"></use>
+						                                            </svg>
+						                                            Pro Stunde:
+						                                        </div>
+						                                        <div class="calc-total__value">
+						                                            <span class="calc-total-hour">521.50</span> CHF
+						                                        </div>
+						                                    </div>
+						                                    <div class="calc-total__item">
+						                                        <div class="calc-total__title">
+						                                            <svg width="16" height="16">
+						                                                <use xlink:href="#calc-calendar"></use>
+						                                            </svg>
+						                                            Für 30 Tage:
+						                                        </div>
+						                                        <div class="calc-total__value">
+						                                            <span class="calc-total-month">52 122.31</span> CHF
+						                                        </div>
+						                                    </div>
+						                                </div>
+						                            </div>
+						                        </div>
+			                          <?php
+	                          endforeach;
+                        endif; ?>
+
+	                      <?php if ($wan = get_field('networking')['group']['wan']) : ?>
+	                        <div class="calc-block calc-wan">
+	                            <div class="calc-row">
+	                                <div class="calc-block__title">
+	                                    WAN (#<span>1</span>)
+	                                </div>
+	                                <div class="calc-item">
+	                                    <div class="calc-item__title">Type:</div>
+	                                    <div class="calc-select">
+	                                        <div class="calc-select__current"></div>
+	                                        <div class="calc-select__items">
+		                                          <?php
+		                                          foreach( $wan as $item ) :
+				                                          $title = $item['title'];
+				                                          $per_hour = $item['per_hour'];
+				                                          $per_month = $item['per_month'];
+				                                          ?>
+					                                            <div class="calc-select__item" data-hour="<?php echo $per_hour; ?>" data-month="<?php echo $per_month; ?>">
+					                                                <span><?php echo $title; ?></span>
+					                                            </div>
+		                                              <?php
+		                                          endforeach; ?>
+	                                        </div>
+	                                        <span class="calc-select__btn">
+	                                            <svg width="24" height="24">
+	                                                <use xlink:href="#calc-arrow"></use>
+	                                            </svg>
+	                                        </span>
+	                                    </div>
+	                                </div>
+	                                <div class="calc-block__total calc-total">
+	                                    <div class="calc-total__item">
+	                                        <div class="calc-total__title">
+	                                            <svg width="16" height="16">
+	                                                <use xlink:href="#calc-clock"></use>
+	                                            </svg>
+	                                            Pro Stunde:
+	                                        </div>
+	                                        <div class="calc-total__value">
+	                                            <span class="calc-total-hour">521.50</span> CHF
+	                                        </div>
+	                                    </div>
+	                                    <div class="calc-total__item">
+	                                        <div class="calc-total__title">
+	                                            <svg width="16" height="16">
+	                                                <use xlink:href="#calc-calendar"></use>
+	                                            </svg>
+	                                            Für 30 Tage:
+	                                        </div>
+	                                        <div class="calc-total__value">
+	                                            <span class="calc-total-month">52 122.31</span> CHF
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="calc-block__buttons">
+	                                <div class="calc-block__button calc-block__button--remove">
+	                                    <svg width="24" height="42">
+	                                        <use xlink:href="#calc-remove"></use>
+	                                    </svg>
+	                                    Entfernen
+	                                </div>
+	                                <div class="calc-block__button calc-block__button--add">
+	                                    <svg width="24" height="42">
+	                                        <use xlink:href="#calc-add"></use>
+	                                    </svg>
+	                                    Server hinzufügen
+	                                </div>
+	                            </div>
+	                        </div>
+	                      <?php endif; ?>
+
                     </div>
                     <div class="calc-section__footer">
                         <div class="calc-section__total calc-total">
@@ -586,6 +480,35 @@ get_header(); ?>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="calc-footer">
+                    <div class="calc-footer__total calc-total">
+                        <div class="calc-total__item">
+                            <div class="calc-total__title">
+                                Total pro Stunde:
+                            </div>
+                            <div class="calc-total__value">
+                                <span class="calc-total-hour">15 502.50</span> CHF
+                            </div>
+                        </div>
+                        <div class="calc-total__item">
+                            <div class="calc-total__title">
+                                Total für 30 Tage:
+                            </div>
+                            <div class="calc-total__value">
+                                <span class="calc-total-month">1 80</span> CHF
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calc-footer__buttons">
+                        <a href="#" class="xln-button xln-button--white">
+                            Kostenlos anmelden
+                        </a>
+                        <a href="#" class="xln-button">
+                            Preis anfragen
+                        </a>
                     </div>
                 </div>
             </div>
