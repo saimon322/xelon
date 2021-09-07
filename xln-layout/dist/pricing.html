@@ -1125,13 +1125,13 @@
                                 <div class="calc-select">
                                     <div class="calc-select__current"></div>
                                     <div class="calc-select__items">
-                                        <div class="calc-select__item" data-type="linux">
+                                        <div class="calc-select__item" data-type="linux" data-hour="0" data-month="0">
                                             <svg width="24" height="24">
                                                 <use xlink:href="#calc-linux"></use>
                                             </svg>
                                             <span>Linux</span>
                                         </div>
-                                        <div class="calc-select__item" data-type="windows">
+                                        <div class="calc-select__item" data-type="windows" data-hour="0.03" data-month="21.6">
                                             <svg width="24" height="24">
                                                 <use xlink:href="#calc-windows"></use>
                                             </svg>
@@ -1145,7 +1145,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="calc-item" data-hour="0.0156" data-month="11.23">
+                            <div class="calc-item" data-hour="0.0156" data-month="11.23" data-type="both">
                                 <div class="calc-item__title">
                                     CPU (cores)
                                 </div>
@@ -1163,7 +1163,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="calc-item" data-hour="0.015" data-month="10.8">
+                            <div class="calc-item" data-hour="0.015" data-month="10.8" data-type="both">
                                 <div class="calc-item__title">
                                     RAM (GB)
                                 </div>
@@ -1181,7 +1181,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="calc-item" data-hour="0.00034" data-month="0.24">
+                            <div class="calc-item" data-hour="0.00034" data-month="0.24" data-type="linux">
                                 <div class="calc-item__title">
                                     SSD-Storage (GB)
                                     <div class="calc-item__toggler">
@@ -1202,7 +1202,28 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="calc-item" data-hour="0.00014" data-month="0.1">
+                            <div class="calc-item" data-hour="0.00034" data-month="0.24" data-type="windows">
+                                <div class="calc-item__title">
+                                    SSD-Storage (GB)
+                                    <div class="calc-item__toggler">
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="calc-counter">
+                                    <span class="calc-counter__button calc-minus">
+                                        <svg width="16" height="16">
+                                            <use xlink:href="#calc-minus"></use>
+                                        </svg>
+                                    </span>
+                                    <input type="number" value="32" min="32" max="2048" step="5" class="calc-counter__input">
+                                    <span class="calc-counter__button calc-plus">
+                                        <svg width="16" height="16">
+                                            <use xlink:href="#calc-plus"></use>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="calc-item" data-hour="0.00014" data-month="0.1" data-type="both">
                                 <div class="calc-item__title">
                                     HDD (GB)
                                     <div class="calc-item__toggler">

@@ -97,13 +97,20 @@ const calcInit = () => {
         class Param {
             constructor(el) {
                 this.el = el;
+                this.type = el.getAttribute('data-type');
                 this.perHourVal = parseFloat(el.getAttribute('data-hour'));
                 this.perMonthVal = parseFloat(el.getAttribute('data-month'));
                 this.input = el.querySelector('.calc-counter__input');
             }
-            total() {
+            total(type) {
+                this.hidden = this.type != type && this.type != 'both';
                 this.inactive = this.el.classList.contains('calc-item--disabled');
-                if (!this.inactive) {
+                if (this.hidden) {
+                    this.el.classList.add('calc-item--hidden');
+                } else {
+                    this.el.classList.remove('calc-item--hidden');
+                }
+                if (!this.inactive && !this.hidden) {
                     this.count = parseInt(this.input.value);
                     this.perHour = this.perHourVal * this.count;
                     this.perMonth = this.perMonthVal * this.count;
@@ -117,6 +124,7 @@ const calcInit = () => {
                 this.items = [];
                 this.perHourEl = this.el.querySelector('.calc-block__total .calc-total-hour');
                 this.perMonthEl = this.el.querySelector('.calc-block__total .calc-total-month');
+                this.typeEl = this.el.querySelector('.calc-select__current');
                 this.indexEl = this.el.querySelector('.calc-block__title span');
                 this.indexEl.textContent = index;
                 this.init();
@@ -129,27 +137,26 @@ const calcInit = () => {
                         self.items.push(new Param(item));
                     }
                 })
-                this.typeEl = this.el.querySelector('.calc-select__current');
             }
             updateIndex(index) {
                 this.indexEl.textContent = index;
             }
             total() {
                 const self = this;
+                this.type = this.typeEl.getAttribute('data-type');
+                this.extraPerHour = parseFloat(this.typeEl.getAttribute('data-hour'));
+                this.extraPerMonth = parseFloat(this.typeEl.getAttribute('data-month'));
                 this.perHour = 0;
                 this.perMonth = 0;
                 this.items.forEach(function(item){
-                    item.total();
-                    if (!item.inactive) {
+                    item.total(self.type);
+                    if (!item.inactive && !item.hidden) {
                         self.perHour += item.perHour;
                         self.perMonth += item.perMonth;
                     }
-                })                
-                this.type = this.typeEl.getAttribute('data-type');
-                if (this.type == 'windows') {
-                    this.perHour += 0.03;
-                    this.perMonth += 21.6;
-                }
+                })
+                this.perHour += this.extraPerHour;
+                this.perMonth += this.extraPerMonth;
                 this.perHour = parseFloat(this.perHour.toFixed(2));
                 this.perMonth = parseFloat(this.perMonth.toFixed(2));
                 this.perHourEl.innerHTML = this.perHour;

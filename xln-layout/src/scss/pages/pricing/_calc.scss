@@ -356,6 +356,10 @@
         }
     }
 
+    &--hidden {
+        display: none;
+    }
+
     &--disabled {
         .calc-item__toggler {
             background: var(--xln-light);
