@@ -243,8 +243,6 @@
   </div>
 </div>
 
-
-
 <script>
     var ajaxactionurl = '<?php echo admin_url('admin-ajax.php'); ?>';
 </script>

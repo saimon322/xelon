@@ -628,17 +628,18 @@ add_action('wp_ajax_nopriv_get_stories', 'get_stories');
 */
 function bitcat_xelon_scripts_and_styles()
 {
-    wp_enqueue_style('xelon-style', get_template_directory_uri() . '/assets/css/style.css', array(), time());
+    wp_enqueue_style('xelon-style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.0');
     
-    wp_enqueue_style('xelon-style-new', get_template_directory_uri() . '/xln-layout/dist/style.css', array(), time());
+    wp_enqueue_style('xelon-style-new', get_template_directory_uri() . '/xln-layout/dist/style.css', array(), '1.0.0');
     
-    wp_enqueue_script('defer-scripts', get_template_directory_uri() . '/assets/js/defer.js', array('jquery'), time(), true);
-    
-    // wp_enqueue_script('menu-scripts', get_template_directory_uri() . '/assets/js/mobile-menu.js', array('jquery'), '1.0.0', true);
-    
+    wp_enqueue_script('defer-scripts', get_template_directory_uri() . '/assets/js/defer.js', array('jquery'), '1.0.0', true);
+//    wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('new-scripts', get_template_directory_uri() . '/xln-layout/dist/js/app.bundle.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('front-page-filter-js', get_template_directory_uri() . '/xln-layout/dist/js/filter.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('form-js', get_template_directory_uri() . '/xln-layout/dist/js/forms.js', array('jquery'), '1.0.0', true);
+    
+    // wp_enqueue_script('menu-scripts', get_template_directory_uri() . '/assets/js/mobile-menu.js', array('jquery'), '1.0.0', true);
+    
     
     
     wp_localize_script('front-page-filter-js', 'filter',
@@ -1034,13 +1035,9 @@ function get_signups(){
     if ($signups): 
         $promo = get_current_page_promo();
         $result .= '<div class="signups">';
-        foreach ($signups as $signup): 
+        foreach ($signups as $signup):
             
-            $href = 'https://vdc.xelon.ch/login?';
-            if ($promo['status'] == 'true') {
-                $href .= 'promo=' . $promo['promo'] .= '&';
-            }
-            $href .= 'provider_name=' . $signup['type'];
+            $href = '';
             
             if ($signup['type'] == 'google'){
                 $href = 'https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20profile&include_granted_scopes=true&response_type=code&redirect_uri=https%3A%2F%2Fvdc.xelon.ch%2Flogin&client_id=733922324275-bf6k7rls1053bkj23cfc5km9sf5e0e0v&flowName=GeneralOAuthFlow';
