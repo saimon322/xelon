@@ -1,5 +1,3 @@
-const { isArray } = require("jquery");
-
 const calcInit = () => {
     const calcEl = document.querySelector('.calc');
     const activeClass = 'xln-active';

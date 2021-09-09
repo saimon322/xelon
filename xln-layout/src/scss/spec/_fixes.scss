@@ -46,7 +46,7 @@ aside.weglot-default {
     display: none;
 }
 
-.suppor-send-form.white-popup {
+.support-form {
     border: 0;
 
     .like-header {
@@ -60,6 +60,53 @@ aside.weglot-default {
     .custom-sq.checkboks span {
         color: #000 !important;
     }
+
+    .modal-input::placeholder {
+        color: transparent;
+    }
+
+    .send-success-zone {
+        justify-content: center;
+    }
+
+    .support-submit {
+        min-width: 170px;
+    }
+}
+
+
+.page-special-offer .support-form {
+    .modal-input {
+        border-color: #fff;
+    }
+
+    .checkboks-text:before {
+        border: 1px solid #fff;
+    }
+}
+
+.blue-label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    line-height: 1;
+    color: var(--gray-4);
+    pointer-events: none;
+    transition: .25s;
+
+    @include media-down(sm) {
+        top: 22px;
+    }
+}
+
+input:focus ~ .blue-label,
+input.not-empty ~ .blue-label,
+textarea:focus ~ .blue-label,
+textarea.not-empty ~ .blue-label {
+    top: -7px !important;
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--blue-light) !important;
 }
 
 #category #subs-form .custom-sq.checkboks span {
@@ -137,4 +184,8 @@ aside.weglot-default {
     &:active {
         background-color: var(--xln-main-active);
     }
+}
+
+.single-post h2 strong {
+    font-weight: normal;
 }

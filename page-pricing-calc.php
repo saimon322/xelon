@@ -186,13 +186,14 @@ get_header(); ?>
 										$title = $item['title'];
 										$type = $item['type'];
 										$optional = $item['optional'];
+                                        $disabled = $item['disabled'] ? ' calc-item--disabled' : '';
 										$min = $item['min'];
 										$max = $item['max'];
 										$inc = $item['increment'];
 										$per_hour = $item['per_hour'];
 										$per_month = $item['per_month'];
 										?>
-										<div class="calc-item"
+										<div class="calc-item<?php echo $disabled; ?>"
                                              data-hour="<?php echo $per_hour; ?>" 
                                              data-month="<?php echo $per_month; ?>"
                                              data-type="<?php echo $type; ?>">

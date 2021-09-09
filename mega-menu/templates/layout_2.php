@@ -25,9 +25,9 @@
                         foreach ($variables['content_items'] as $item): ?>
                             <?php if ($item['acf_fc_layout'] == 'headline'): ?>
                                 <li class="xln-menu__item">
-                                    <h3 class="xln-menu__title">
+                                    <p class="xln-menu__title">
                                         <?php echo $item['text']; ?>
-                                    </h3>
+                                    </p>
                                 </li>
                             <?php endif;
                             if ($item['acf_fc_layout'] == 'content'): ?>
@@ -45,9 +45,9 @@
                                            data-menu="<?php echo $data_num; ?>">
                                             <li class="xln-menu-inside__item">
                                                 <?php if ($item['headline']): ?>
-                                                    <h3 class="xln-menu-inside__main-title">
+                                                    <p class="xln-menu-inside__main-title">
                                                         <?php echo $item['headline']; ?>
-                                                    </h3>
+                                                    </p>
                                                 <?php endif;
                                                 if ($item['text_after_headline']): ?>
                                                     <div class="xln-menu-inside__text">
@@ -61,9 +61,9 @@
                                                         '<a href="' . $content['link'] . '" class="xln-menu-inside__sublink">' :
                                                         '<div class="xln-menu-inside__subitem">'; ?>
                                                         <?php if ($content['title']): ?>
-                                                            <h4 class="xln-menu-inside__title">
+                                                            <p class="xln-menu-inside__title">
                                                                 <?php echo $content['title']; ?>
-                                                            </h4>
+                                                            </p>
                                                         <?php endif;
                                                         if ($content['text']): ?>
                                                             <div class="xln-menu-inside__text">
@@ -101,9 +101,9 @@
                         <?php endforeach; ?>
                         <?php if ($variables['add_downloads']): ?>
                             <li class="xln-menu__item">
-                                <h3 class="xln-menu__title">
+                                <p class="xln-menu__title">
                                     Downloads
-                                </h3>
+                                </p>
                             </li>
                             <?php foreach ($variables['downloads'] as $download):
                                 switch ($download['acf_fc_layout']):
@@ -149,9 +149,9 @@
                                                     data-menu="<?php echo $data_num; ?>">
                                                     <li class="xln-menu-inside__item">
                                                         <?php if ($download['headline']): ?>
-                                                            <h3 class="xln-menu-inside__main-title">
+                                                            <p class="xln-menu-inside__main-title">
                                                                 <?php echo $download['headline']; ?>
-                                                            </h3>
+                                                            </p>
                                                         <?php endif;
                                                         if ($item['text_after_headline']): ?>
                                                             <div class="xln-menu-inside__text">
@@ -198,9 +198,9 @@
             <div class="xln-menu-more">
                 <div class="xln-menu-more__wrapper">
                     <div class="xln-menu-news">
-                        <h3 class="xln-menu-news__title">
+                        <p class="xln-menu-news__title">
                             Empfohlene Beiträge
-                        </h3>
+                        </p>
                         <ul class="xln-menu-news__list">
                             <?php foreach ($variables['articles'] as $article): ?>
                                 <li class="xln-menu-news__item xln-menu-new">

@@ -33,7 +33,7 @@ get_header();
 				</div>
 			</div>
 			<div class="page-50">
-				<div class="suppor-send-form white-popup">
+				<div class="support-form">
 					<div class="tp-m-area">
 						<div class="like-header"><?php echo the_field('message_support_instantly', 'option'); ?></div>
 						<form id="support-form" class="tp-m-form" method="POST">

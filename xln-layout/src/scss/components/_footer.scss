@@ -37,7 +37,7 @@
             border-right: 1px solid var(--gray-2);
         }
 
-        @include media-up(lg) {
+        @include media-up(xl) {
             padding-right: 90px;
         }
     }
@@ -74,10 +74,13 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin-bottom: 32px;
 
-            &-item:not(:last-child) {
-                margin-right: 30px;
+            &-item {
+                margin-bottom: 32px;
+
+                &:not(:last-child) {
+                    margin-right: 30px;
+                }
             }
         }
 

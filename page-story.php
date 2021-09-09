@@ -40,7 +40,7 @@ get_header();
       </div>
     </div>
 
-    <!-- <div id="pdfRequest-area" class="suppor-send-form pdf-form-wrap white-popup">
+    <!-- <div id="pdfRequest-area" class="support-form pdf-form-wrap white-popup">
       <div class="tp-m-area">
         <div class="like-header"><?php the_field('pdf_form_title', 'option');?></div>
         <p class="subheader"><?php the_field('pdf_form_text', 'option');?></p>

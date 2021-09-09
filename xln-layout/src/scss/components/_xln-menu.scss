@@ -189,6 +189,14 @@
     flex-grow: 1;
     border-right: 1px solid var(--xln-gray);
 
+    @include media-up(lg) {
+        max-width: 620px;
+    }
+
+    @include media-up(xl) {
+        max-width: 660px;
+    }
+
     @include media-down(md) {
         display: none;
     }
@@ -220,14 +228,12 @@
         left: 0;
         top: 0;
         width: 100%;
-        max-width: 620px;
         animation: menuOut .25s forwards;
         padding: 0 20px;
     }
 
     @include media-up(xl) {
         padding: 0 40px;
-        max-width: 660px;
     }
 
     &.xln-active {

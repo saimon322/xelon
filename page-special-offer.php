@@ -21,7 +21,7 @@ get_header();
         <p><?php echo the_field('so_text');?></>
       </div>
       <div class="so-right">
-        <div class="suppor-send-form white-popup">
+        <div class="support-form">
           <div class="tp-m-area">
             <div class="like-header"><?php echo the_field('so_form_title', 'option');?></div>
             <p class="subheader"><?php echo the_field('so_form_subtitle', 'option');?></p>

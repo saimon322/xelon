@@ -25,9 +25,9 @@
                         foreach ($variables['content_items'] as $item): ?>
                             <?php if ($item['acf_fc_layout'] == 'headline'): ?>
                                 <li class="xln-menu__item">
-                                    <h3 class="xln-menu__title">
+                                    <p class="xln-menu__title">
                                         <?php echo $item['text']; ?>
-                                    </h3>
+                                    </p>
                                 </li>
                             <?php endif;
                             if ($item['acf_fc_layout'] == 'content'): ?>
@@ -42,9 +42,9 @@
                                         <ul class="xln-menu-inside__list"
                                            data-menu="<?php echo $data_num; ?>">
                                             <li class="xln-menu-inside__item">
-                                                <h3 class="xln-menu-inside__main-title">
+                                                <p class="xln-menu-inside__main-title">
                                                     <?php echo $item['headline']; ?>
-                                                </h3>
+                                                </p>
                                                 <div class="xln-menu-inside__text">
                                                     <?php echo $item['content']; ?>
                                                 </div>
