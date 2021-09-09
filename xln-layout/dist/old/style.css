@@ -7401,7 +7401,7 @@ body {
 }
 
 .bg-slider-company .bg-one img {
-    height: calc(100vh - 100px);
+    height: 100%;
     width: 100%;
     object-fit: cover
 }
@@ -27824,38 +27824,48 @@ body.hc-nav-open {
     display: none
 }
 
-.page-template-page-about-us .about-us-welcome .about-us-bottom {
+.about-us-welcome {
+    position: relative;
+    display: block !important;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: calc(100vh - 129px);
+}
+
+.bg-slider-company {
+    height: 100%;
+}
+
+@media (max-width: 1024px) {
+    .bg-slider-company {
+        height: 44vw;
+    }    
+}
+
+.bg-slider-company .slick-list,
+.bg-slider-company .slick-track {
+    height: 100% !important;
+}
+
+.about-us-welcome .about-us-bottom {
     padding: 50px 0;
     width: 100%;
     background: rgba(46, 49, 68, .95)
 }
 
-.page-template-page-about-us .about-us-welcome .about-us-bottom {
+.about-us-welcome .about-us-bottom {
     position: absolute;
     bottom: 0;
     left: 0
 }
 
-.page-template-page-about-us .about-us-welcome {
-    background-position: 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: calc(100vh - 100px);
-    display: flex;
-    align-items: flex-end
-}
-
-.page-template-page-about-us .about-us-welcome {
-    display: block !important;
-    position: relative
-}
-
-.page-template-page-about-us .about-us-welcome .about-us-bottom .aub-row {
+.about-us-welcome .about-us-bottom .aub-row {
     display: flex;
     justify-content: center
 }
 
-.page-template-page-about-us .about-us-welcome .about-us-bottom .aub-row h1 {
+.about-us-welcome .about-us-bottom .aub-row h1 {
     color: #fff;
     font-size: 24px;
     font-weight: 700;
@@ -27863,11 +27873,11 @@ body.hc-nav-open {
     padding: 0
 }
 
-.page-template-page-about-us .about-us-welcome .about-us-bottom .aub-row .aub-row-text {
+.about-us-welcome .about-us-bottom .aub-row .aub-row-text {
     max-width: 680px
 }
 
-.page-template-page-about-us .about-us-welcome .about-us-bottom .aub-row .aub-row-text .aub-row-text-item {
+.about-us-welcome .about-us-bottom .aub-row .aub-row-text .aub-row-text-item {
     color: #fff;
     font-size: 16px;
     line-height: 30px;
@@ -27875,7 +27885,7 @@ body.hc-nav-open {
     opacity: .8
 }
 
-.page-template-page-about-us .about-us-welcome .about-us-bottom .aub-row .aub-row-text .aub-author {
+.about-us-welcome .about-us-bottom .aub-row .aub-row-text .aub-author {
     color: #fff;
     font-size: 18px;
     font-weight: 700
@@ -27985,35 +27995,35 @@ body.hc-nav-open {
 }
 
 @media only screen and (max-width:1024px) {
-    .page-template-page-about-us .about-us-welcome .about-us-bottom .aub-row {
+    .about-us-welcome .about-us-bottom .aub-row {
         flex-direction: column;
         align-items: center
     }
 
-    .page-template-page-about-us .about-us-welcome {
+    .about-us-welcome {
         height: auto;
         min-height: 0;
         background: 0 0
     }
 
-    .page-template-page-about-us .about-us-welcome .about-us-bottom {
+    .about-us-welcome .about-us-bottom {
         position: static;
         padding: 40px 15px;
         background: #2e3144;
         min-height: 0
     }
 
-    .page-template-page-about-us .about-us-welcome .about-us-bottom .aub-row h1 {
+    .about-us-welcome .about-us-bottom .aub-row h1 {
         text-align: center;
         margin: 0 0 30px
     }
 
-    .page-template-page-about-us .about-us-welcome .about-us-bottom .aub-row .aub-row-text .aub-row-text-item {
+    .about-us-welcome .about-us-bottom .aub-row .aub-row-text .aub-row-text-item {
         text-align: center;
         margin-bottom: 30px
     }
 
-    .page-template-page-about-us .about-us-welcome .about-us-bottom .aub-row .aub-row-text .aub-author {
+    .about-us-welcome .about-us-bottom .aub-row .aub-row-text .aub-author {
         text-align: center
     }
 }

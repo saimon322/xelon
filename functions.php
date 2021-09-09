@@ -528,14 +528,6 @@ function send_email()
     die();
 }
 
-add_action('wp_enqueue_scripts', 'my_register_javascript', 100);
-
-function my_register_javascript()
-{
-    wp_register_script('mediaelement', plugins_url('wp-mediaelement.min.js', __FILE__), array('jquery'), '4.8.2', true);
-    wp_enqueue_script('mediaelement');
-}
-
 function exclude_category($query)
 {
     if ($query->is_home()) {
@@ -632,14 +624,19 @@ function bitcat_xelon_scripts_and_styles()
     
     wp_enqueue_style('xelon-style-new', get_template_directory_uri() . '/xln-layout/dist/style.css', array(), '1.0.0');
     
-    wp_enqueue_script('defer-scripts', get_template_directory_uri() . '/assets/js/defer.js', array('jquery'), '1.0.0', true);
-//    wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array('jquery'), '1.0.0', true);
+    if (is_page(12974)) {
+        wp_enqueue_script('isotope-js', get_template_directory_uri() . '/assets/js/libs/isotope.min.js', array('jquery'), '1.0.0', true);
+    }
+
+    if (!is_front_page()) {
+        wp_enqueue_script('slick-js', get_template_directory_uri() . '/assets/js/libs/slick.min.js', array('jquery'), '1.0.0', true);
+        wp_enqueue_script('defer-scripts', get_template_directory_uri() . '/assets/js/defer.js', array('jquery'), '1.0.0', true);
+    }
+    
+    wp_enqueue_script('metrics-scripts', get_template_directory_uri() . '/assets/js/metrics.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('new-scripts', get_template_directory_uri() . '/xln-layout/dist/js/app.bundle.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('front-page-filter-js', get_template_directory_uri() . '/xln-layout/dist/js/filter.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('form-js', get_template_directory_uri() . '/xln-layout/dist/js/forms.js', array('jquery'), '1.0.0', true);
-    
-    // wp_enqueue_script('menu-scripts', get_template_directory_uri() . '/assets/js/mobile-menu.js', array('jquery'), '1.0.0', true);
-    
     
     
     wp_localize_script('front-page-filter-js', 'filter',
