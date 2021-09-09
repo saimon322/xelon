@@ -40,7 +40,7 @@ get_header();
   <div class="facts">
     <div class="container">
       <div class="facts-area">
-        <div class="like-header"><?php echo the_field('ff_title');?></div>
+        <h2 class="like-header"><?php echo the_field('ff_title');?></h2>
         <div class="loop d-flex facts-item-row">
           <div class="facts-item d-flex">
             <div class="f-item-logo">

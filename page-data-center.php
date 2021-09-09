@@ -107,9 +107,9 @@ get_header();
 			<div class="page-left page-50">
 				<span class="light-header"><?php echo $dcr_title; ?></span>
 				<div class="content-column d-flex content-fluid padding-15">
-					<div class="like-header">
+					<h2 class="like-header">
 						<?php echo $dcr_subtitle; ?>
-					</div>
+					</h2>
 					<div class="content-text">
 						<?php echo $dcr_content; ?>
 					</div>
@@ -361,7 +361,7 @@ get_header();
 <section class="faq-vdc">
 <div class="container">
 	<div class="faq-area padding-15">
-		<div class="like-header"><?php echo the_field('vdc_c_title'); ?></div>
+		<h2 class="like-header"><?php echo the_field('vdc_c_title'); ?></h2>
 	</div>
 	<div class="accordion-area loop d-flex justify-center">
 		<?php if( have_rows('vdc_faq') ): ?>
@@ -390,9 +390,9 @@ get_header();
 
 <section class="adv-page-client partners" style="padding-top: 80px;">
 	<div class="container">
-		<div class="like-header">
+		<h2 class="like-header">
 			<?php echo the_field('our_clients', 'option'); ?>
-		</div>
+		</h2>
 		<div class="partners-slider">
 			<?php if( have_rows('p_slider', 'option') ): ?>
 			<?php while( have_rows('p_slider', 'option') ): the_row();

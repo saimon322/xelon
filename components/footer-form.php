@@ -1,10 +1,10 @@
 <section class="s-fform">
     <h3 class="d-none">Block</h3>
 	<div class="container">
-		<div class="like-header">
+		<h2 class="like-header">
 			<?php the_field('adv_form_title','option'); ?>
 			<span><?php the_field('adv_form_subtitle','option'); ?></span>
-		</div>
+		</h2>
     <div class="d-flex flex-row">
         <form method="POST" class="send-modal-data" id="form-blue">
             <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga']?>">

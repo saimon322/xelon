@@ -49,9 +49,9 @@ get_header(); ?>
 					$ctabel_link = get_sub_field('ctabel_link');
 				?>
 				<div class="ds-item d-flex flex-direction">
-					<div class="ds-item-title">
+					<h3 class="ds-item-title">
 						<?php echo $ctable_title; ?>
-					</div>
+					</h3>
 					<div class="ds-item-content">
 						<?php echo $ctabel_content; ?>
 					</div>

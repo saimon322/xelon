@@ -73,9 +73,9 @@ $wlc_text_btn = get_field('wlc_text_btn');
 }?>
 <section class="product partners padding-15">
 	<div class="container">
-		<div class="like-header">
+		<h2 class="like-header">
 			<?php echo $tl; ?>
-		</div>
+		</h2>
 		<?php include 'components/our-clients.php' ?>
 	</div>
 </section>

@@ -11,9 +11,9 @@ if( $add_custom_post ): ?>
 <section class="s-recom-news">
   <div class="container">
       <h1 class="d-none">News</h1>
-      <div class="like-header">
+      <h2 class="like-header">
         <?php echo the_field('title_recom'); ?>
-      </div>
+      </h2>
       <div class="recom-news-row d-flex">
       <?php $n = 1; foreach( $add_custom_post as $post): ?>
       <?php setup_postdata($post);  ?>
@@ -75,9 +75,9 @@ if( $add_custom_post ): ?>
 <section class="all-news posts-3col">
 	<div class="container">
 		<div class="all-news-area">
-			<div class="like-header">
+			<h2 class="like-header">
 				<?php echo the_field('all_news'); ?>
-			</div>
+			</h2>
 			<?php include 'filter.php'; ?>
 		</div>
 	</div>

@@ -236,7 +236,7 @@ get_header();
 	</div>
 </section>
 <section class="our-clients">
-	<div class="like-header"><?php echo the_field('our_clients', 'option'); ?></div>
+	<h2 class="like-header"><?php echo the_field('our_clients', 'option'); ?></h2>
 	<div class="partners">
 		<div class="partners-slider">
 			<?php if( have_rows('p_slider', 'option') ): ?>

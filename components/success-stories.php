@@ -1,5 +1,5 @@
 <div class="success-stories">
-  <div class="like-header">Success Stories</div>
+  <h2 class="like-header">Success Stories</h2>
   <div class="container">
     <div class="filtering filter-post">
       <div class="filter-line">

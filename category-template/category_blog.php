@@ -10,9 +10,9 @@ get_header (); ?>
 <section class="blog">
 	<div class="container">
 		<div class="blog-area">
-			<div class="like-header">
+			<h2 class="like-header">
 				<?php echo single_cat_title(); ?>
-			</div>
+			</h2>
 			<div class="blog-loop loop d-flex justify-center">
 			<?php
 
@@ -42,9 +42,9 @@ get_header (); ?>
 <section class="all-news">
 	<div class="container">
 		<div class="all-news-area">
-			<div class="like-header">
+			<h2 class="like-header">
 				<?php echo the_field('all_news', 'option'); ?>
-			</div>
+			</h2>
 			<?php require_once dirname(__FILE__).'/../filter.php'; ?>	
 		</div>
 	</div>
@@ -52,9 +52,9 @@ get_header (); ?>
 <?php include __DIR__ . '/../components/hy-quessions.php' ?>
 <div class="browse-by-author">
 	<div class="container">
-			<div class="like-header">
+			<h2 class="like-header">
 				<?php echo the_field('browse_by_author', 'option'); ?>
-			</div>
+			</h2>
 			<div class="browse-slider d-flex">
 			<?php 
 			if( have_rows('addAuthors', 'option') ): ?>

@@ -23,7 +23,7 @@ get_header();
       <div class="so-right">
         <div class="support-form">
           <div class="tp-m-area">
-            <div class="like-header"><?php echo the_field('so_form_title', 'option');?></div>
+            <h2 class="like-header"><?php echo the_field('so_form_title', 'option');?></h2>
             <p class="subheader"><?php echo the_field('so_form_subtitle', 'option');?></p>
             <form id="subscription-form" class="tp-m-form" method="POST">
                 <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga']?>">

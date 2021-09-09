@@ -3,9 +3,9 @@
     <h3 class="d-none">Block</h3>
 	<div class="container">
 	<div class="customers">
-		<div class="like-header">
+		<h2 class="like-header">
 			<?php echo get_field('t_title'); ?>
-		</div>
+		</h2>
 		<div class="slider-tm">
 
 			<?php while( have_rows('testimonials') ): the_row();
@@ -50,9 +50,9 @@
     <h3 class="d-none">Block</h3>
 	<div class="container">
 	<div class="customers">
-		<div class="like-header">
+		<h2 class="like-header">
 			<?php echo get_field('testimonials_slider_title','option'); ?>
-		</div>
+		</h2>
 		<div class="slider-tm">
 
 			<?php while( have_rows('testimonials_slider','option') ): the_row();

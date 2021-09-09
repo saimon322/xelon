@@ -91,9 +91,9 @@ get_header();
 <section id="configure-now-scroll">
 <div class="servers-page page-padding">
 	<div class="container">
-		<div class="like-header">
+		<h2 class="like-header">
 			<?php echo the_field('servers_title'); ?>
-		</div>
+		</h2>
 		<div class="server-subtitle">
 			<?php echo the_field('servers_subtitle'); ?>
 		</div>
@@ -109,9 +109,9 @@ get_header();
 					$servers_link = get_sub_field('servers_link');
 				?>
 				<div class="ds-item d-flex flex-direction">
-					<div class="ds-item-title">
+					<h3 class="ds-item-title">
 						<?php echo $servers_title; ?>
-					</div>
+					</h3>
 					<div class="ds-item-desc">
 						<?php echo $servers_describtion; ?>
 					</div>
@@ -213,9 +213,9 @@ get_header();
 <section class="modules page-padding">
 	<div class="container">
 		<div class="module-head">
-			<div class="like-header">
+			<h2 class="like-header">
 				<?php echo the_field('module_title'); ?>
-			</div>
+			</h2>
 			<div class="accordion-section">
 				<?php if( have_rows('modules_faq') ): ?>
 				<?php while( have_rows('modules_faq') ): the_row();
@@ -239,9 +239,9 @@ get_header();
 </section>
 <section class="adv-page-client partners">
 	<div class="container">
-		<div class="like-header">
+		<h2 class="like-header">
 			<?php echo the_field('our_clients', 'option'); ?>
-		</div>
+		</h2>
 		<div class="partners-slider">
 			<?php if( have_rows('p_slider', 'option') ): ?>
 			<?php while( have_rows('p_slider', 'option') ): the_row();

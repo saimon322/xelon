@@ -89,7 +89,7 @@ get_header();
 <section class="facts">
 	<div class="container">
 		<div class="facts-area">
-			<div class="like-header"><?php echo the_field('ff_title');?></div>
+			<h2 class="like-header"><?php echo the_field('ff_title');?></h2>
 			<div class="loop d-flex facts-item-row">
 				<div class="facts-item d-flex">
 					<div class="f-item-logo">
@@ -138,7 +138,7 @@ get_header();
 <section class="x-history">
 	<div class="container">
 		<div class="x-history-area">
-			<div class="like-header"><?php echo the_field('xh_title'); ?></div>
+			<h2 class="like-header"><?php echo the_field('xh_title'); ?></h2>
 			<div class="xh-row d-flex">
 				<?php if( have_rows('xelon_history_slider') ): ?>
 				<?php while( have_rows('xelon_history_slider') ): the_row();
@@ -189,9 +189,9 @@ get_header();
 <section class="membership-certifications">
 	<div class="container">
 		<div class="m-cert-row">
-			<div class="like-header">
+			<h2 class="like-header">
 				<?php echo the_field('mc_title'); ?>
-			</div>
+			</h2>
 			<div class="m-cert-loop loop d-flex justify-center padding-15">
 				<?php if( have_rows('mcert') ): ?>
 				<?php while( have_rows('mcert') ): the_row();
@@ -228,7 +228,7 @@ get_header();
 <section class="tech-partners">
 	<div class="container">
 		<div class="tp-area">
-			<div class="like-header"><?php echo the_field('tp_title'); ?></div>
+			<h2 class="like-header"><?php echo the_field('tp_title'); ?></h2>
 			<div class="tp-loop loop d-flex justify-center">
 				<?php if( have_rows('add_tech_partners') ): ?>
 				<?php while( have_rows('add_tech_partners') ): the_row();
@@ -251,7 +251,7 @@ get_header();
 <section class="about-us-team about-us-instagram">
 	<div class="container">
 		<?php if(get_field('title_insta_main')) { ?>
-		<div class="like-header"><?php the_field('title_insta_main'); ?></div>
+		<h2 class="like-header"><?php the_field('title_insta_main'); ?></h2>
 		<?php } ?>
 		<div class="insta-box">
 			<div class="insta-bar">

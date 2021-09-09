@@ -1,9 +1,10 @@
 <div class="success-stories">
   <div class="bg-color"></div>
-  <div class="like-header">
+  <h2 class="like-header">
     <?php if(get_field('cp_slider_title')) {
         the_field('cp_slider_title'); } else {
-        the_field('cp_slider_title', 'option'); } ?></div>
+        the_field('cp_slider_title', 'option'); } ?>
+  </h2>
   <div class="container">
     <div class="filtering filter-post">
       <div class="filter-line">

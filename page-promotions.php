@@ -90,9 +90,9 @@ get_header();
   </section>
 
   <section class="support-you" id="hy-quessions-scroll">
-    <div class="like-header">
+    <h2 class="like-header">
       <?php echo the_field('promotions_cd_title'); ?>
-    </div>
+    </h2>
     <div class="container">
       <div class="d-flex loop justify-center">
         <?php if( have_rows('promotions_deal_item') ): ?>
@@ -132,9 +132,9 @@ get_header();
 
   <section class="adv-page-client partners">
     <div class="container">
-      <div class="like-header">
+      <h2 class="like-header">
         <?php echo the_field('our_clients', 'option'); ?>
-      </div>
+      </h2>
       <div class="partners-slider">
         <?php if( have_rows('p_slider', 'option') ): ?>
           <?php while( have_rows('p_slider', 'option') ): the_row();

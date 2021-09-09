@@ -92,9 +92,9 @@ get_header();
   </section>
   <section class="our-ds page-padding" id="our-ds-scroll">
     <div class="container">
-      <div class="like-header">
+      <h2 class="like-header">
         <?php echo the_field('core_p_title'); ?>
-      </div>
+      </h2>
       <div class="our-absolute-container">
         <div class="loop ds-row-items d-flex justify-center">
           <?php if( have_rows('add_core_card') ): ?>
@@ -107,9 +107,9 @@ get_header();
               $ds_change_color_r = get_sub_field('ds_change_color_r');
               ?>
               <div class="ds-item d-flex flex-direction">
-                <div class="ds-item-title">
+                <h3 class="ds-item-title">
                   <?php echo $core_title; ?>
-                </div>
+                </h3>
                 <div class="ds-item-desc">
                   <?php echo $core_describtion; ?>
                 </div>
@@ -136,9 +136,9 @@ get_header();
   <section class="advanced-options d-flex align-center">
     <div class="container">
       <div class="advanced-items d-flex flex-direction align-center">
-        <div class="adv-title">
+        <h2 class="adv-title">
           <?php echo the_field('adv_title'); ?>
-        </div>
+        </h2>
         <div class="adv-desc">
           <?php echo the_field('adv_describtion'); ?>
         </div>
@@ -152,9 +152,9 @@ get_header();
     <div class="container">
       <div class="accordion-area d-flex justify-center">
         <div class="accordion-section">
-          <div class="like-header">
+          <h2 class="like-header">
             <?php echo the_field('adv_acc_title_1'); ?>
-          </div>
+          </h2>
           <?php if( have_rows('adv_accordion_1') ): ?>
             <?php while( have_rows('adv_accordion_1') ): the_row();
 
@@ -184,9 +184,9 @@ get_header();
   </section>
   <section class="adv-page-client partners">
     <div class="container">
-      <div class="like-header">
+      <h2 class="like-header">
         <?php echo the_field('our_clients', 'option'); ?>
-      </div>
+      </h2>
       <div class="partners-slider">
         <?php if( have_rows('p_slider', 'option') ): ?>
           <?php while( have_rows('p_slider', 'option') ): the_row();

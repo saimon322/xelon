@@ -42,7 +42,7 @@ get_header();
 
     <!-- <div id="pdfRequest-area" class="support-form pdf-form-wrap white-popup">
       <div class="tp-m-area">
-        <div class="like-header"><?php the_field('pdf_form_title', 'option');?></div>
+        <h2 class="like-header"><?php the_field('pdf_form_title', 'option');?></h2>
         <p class="subheader"><?php the_field('pdf_form_text', 'option');?></p>
         <form id="pdfRequest" class="tp-m-form" method="POST">
           <input type="hidden" id="pdfLink" value="<?php the_field('story_pdf');?>">

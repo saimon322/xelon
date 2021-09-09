@@ -127,7 +127,7 @@ get_header();
 <section class="faq-vdc">
 	<div class="container">
 		<div class="faq-area padding-15">
-			<div class="like-header"><?php echo the_field('di_faq_title'); ?></div>
+			<h2 class="like-header"><?php echo the_field('di_faq_title'); ?></h2>
 		</div>
 		<div class="accordion-area loop d-flex justify-center">
 			<?php if( have_rows('di_faq_repeater') ): ?>
@@ -150,7 +150,7 @@ get_header();
 	</div>
 </section>
 <section class="our-clients">
-	<div class="like-header"><?php echo the_field('our_clients', 'option'); ?></div>
+	<h2 class="like-header"><?php echo the_field('our_clients', 'option'); ?></h2>
 	<div class="partners">
 		<div class="partners-slider">
 			<?php if( have_rows('p_slider', 'option') ): ?>

@@ -56,9 +56,9 @@ get_header(); ?>
 
 <section class="our-ds page-padding" id="our-ds-scroll">
 	<div class="container">
-		<div class="like-header">
+		<h2 class="like-header">
 			<?php echo the_field('core_p_title'); ?>
-		</div>
+		</h2>
 		<div class="our-absolute-container">
 			<div class="loop ds-row-items d-flex justify-center">
 				<?php if( have_rows('colo_add_card') ): ?>
@@ -75,9 +75,9 @@ get_header(); ?>
 					}
 				?>
 				<div class="ds-item d-flex flex-direction">
-					<div class="ds-item-title">
+					<h3 class="ds-item-title">
 						<?php echo $ctable_title; ?>
-					</div>
+					</h3>
 					<div class="ds-item-desc">
 						<?php echo $ctabel_describtion; ?>
 					</div>

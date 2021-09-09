@@ -4,7 +4,7 @@
   <h3 class="d-none">Block</h3>
   <div class="container">
 
-    <div class="like-header"><?php the_field('title_fb'); ?></div>
+    <h2 class="like-header"><?php the_field('title_fb'); ?></h2>
 
       <div class="slider">
       <?php while ( have_rows('slider_fb') ) : the_row(); ?>
@@ -51,7 +51,7 @@
   <h3 class="d-none">Block</h3>
   <div class="container">
 
-      <div class="like-header"><?php the_field('title_fb','option'); ?></div>
+      <h2 class="like-header"><?php the_field('title_fb','option'); ?></h2>
 
       <div class="slider">
       <?php while ( have_rows('slider_fb','option') ) : the_row(); ?>

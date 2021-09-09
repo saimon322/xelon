@@ -18,9 +18,9 @@ get_header();
           <h1 class="d-none">Customer Project</h1>
           <?php if($testimonials) { ?>
             <div class="customers">
-              <div class="like-header">
+              <h2 class="like-header">
                 <?php echo $t_title; ?>
-              </div>
+              </h2>
               <div class="slider">
                 <?php if( have_rows('testimonials') ): ?>
                   <?php while( have_rows('testimonials') ): the_row();

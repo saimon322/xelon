@@ -209,9 +209,9 @@ get_header();
 </div>
 <section class="product partners padding-15">
 	<div class="container">
-		<div class="like-header">
+		<h2 class="like-header">
 			<?php echo the_field('our_clients', 'option'); ?>
-		</div>
+		</h2>
 		<?php include 'components/our-clients.php' ?>
 	</div>
 </section>

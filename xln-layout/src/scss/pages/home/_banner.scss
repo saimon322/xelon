@@ -83,18 +83,11 @@
     display: inline-block;
     width: 48px;
     height: 48px;
+    margin-right: 8px;
 
     @include media-up(md) {
         width: 60px;
         height: 60px;
-    }
-    
-    &:not(:last-child) {
-        margin-right: 5px;
-
-        @include media-up(md) {
-            margin-right: 8px;
-        }
     }
 }
 

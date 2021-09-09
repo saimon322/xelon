@@ -35,7 +35,7 @@ get_header();
 			<div class="page-50">
 				<div class="support-form">
 					<div class="tp-m-area">
-						<div class="like-header"><?php echo the_field('message_support_instantly', 'option'); ?></div>
+						<h2 class="like-header"><?php echo the_field('message_support_instantly', 'option'); ?></h2>
 						<form id="support-form" class="tp-m-form" method="POST">
                             <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga']?>">
                             <input type="hidden" name="pageUrl" value="<?php echo "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">

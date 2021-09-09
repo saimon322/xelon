@@ -124,9 +124,9 @@ get_header();
 	</div>
 </section>
 <section class="support-you" id="hy-quessions-scroll">
-	<div class="like-header">
+	<h2 class="like-header">
 		<?php echo the_field('support_block_page_title'); ?>
-	</div>
+	</h2>
 	<div class="loop solution-include-pages d-flex">
 	<?php
 
@@ -195,7 +195,7 @@ get_header();
   <?php include 'components/customer-projects.php' ?>
 </section>
 <section class="solutions-page partners">
-  <div class="like-header"><?php echo the_field('our_clients', 'option'); ?></div>
+  <h2 class="like-header"><?php echo the_field('our_clients', 'option'); ?></h2>
 	<div class="partners-slider">
 		<?php if( have_rows('p_slider', 'option') ): ?>
 		<?php while( have_rows('p_slider', 'option') ): the_row();
