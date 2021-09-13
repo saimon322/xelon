@@ -1060,3 +1060,23 @@ function get_signups(){
     
     return $result;
 }
+
+// Nofollow for external links
+add_filter('the_content', 'my_nofollow');
+add_filter('the_excerpt', 'my_nofollow');
+ 
+function my_nofollow($content) {
+    return preg_replace_callback('/&amp;lt;a[^&amp;gt;]+/', 'my_nofollow_callback', $content);
+}
+ 
+function my_nofollow_callback($matches) {
+    $link = $matches[0];
+    $site_link = get_bloginfo('url');
+ 
+    if (strpos($link, 'rel') === false) {
+        $link = preg_replace("%(href=\S(?!$site_link))%i", 'rel="nofollow" $1', $link);
+    } elseif (preg_match("%href=\S(?!$site_link)%i", $link)) {
+        $link = preg_replace('/rel=\S(?!nofollow)\S*/i', 'rel="nofollow"', $link);
+    }
+    return $link;
+}
