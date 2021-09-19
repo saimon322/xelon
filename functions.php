@@ -621,25 +621,26 @@ add_action('wp_ajax_nopriv_get_stories', 'get_stories');
 function bitcat_xelon_scripts_and_styles()
 {
     wp_enqueue_style('xelon-style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.0');
-    
     wp_enqueue_style('xelon-style-new', get_template_directory_uri() . '/xln-layout/dist/style.css', array(), '1.0.0');
     
+
+    wp_enqueue_script('old-scripts', get_template_directory_uri() . '/assets/js/main-scripts.js', array('jquery'), '1.0.0', true);
+
     if (is_page(12974)) {
         wp_enqueue_script('isotope-js', get_template_directory_uri() . '/assets/js/libs/isotope.min.js', array('jquery'), '1.0.0', true);
     }
 
     if (!is_front_page()) {
-        wp_enqueue_script('slick-js', get_template_directory_uri() . '/assets/js/libs/slick.min.js', array('jquery'), '1.0.0', true);
-        wp_enqueue_script('defer-scripts', get_template_directory_uri() . '/assets/js/defer.js', array('jquery'), '1.0.0', true);
+        wp_enqueue_script('other-libs', get_template_directory_uri() . '/assets/js/libs/other-libs.js', array('jquery'), '1.0.0', true);
+        wp_enqueue_script('other-scripts', get_template_directory_uri() . '/assets/js/other-scripts.js', array('jquery'), '1.0.0', true);
     }
-    
-    wp_enqueue_script('metrics-scripts', get_template_directory_uri() . '/assets/js/metrics.js', array('jquery'), '1.0.0', true);
+
     wp_enqueue_script('new-scripts', get_template_directory_uri() . '/xln-layout/dist/js/app.bundle.js', array('jquery'), '1.0.0', true);
-    wp_enqueue_script('front-page-filter-js', get_template_directory_uri() . '/xln-layout/dist/js/filter.js', array('jquery'), '1.0.0', true);
-    wp_enqueue_script('form-js', get_template_directory_uri() . '/xln-layout/dist/js/forms.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('filter-scripts', get_template_directory_uri() . '/xln-layout/dist/js/filter.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('form-scripts', get_template_directory_uri() . '/xln-layout/dist/js/forms.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('metrics-scripts', get_template_directory_uri() . '/assets/js/metrics.js', array('jquery'), '1.0.0', true);
     
-    
-    wp_localize_script('front-page-filter-js', 'filter',
+    wp_localize_script('filter-scripts', 'filter',
         array(
             'action'   => 'blog_filter',
             'ajax_url' => site_url() . '/wp-admin/admin-ajax.php',
@@ -647,7 +648,7 @@ function bitcat_xelon_scripts_and_styles()
         )
     );
     
-    wp_localize_script('defer-scripts', 'promocode',
+    wp_localize_script('old-scripts', 'promocode',
         get_current_page_promo()
     );
 }
@@ -1067,16 +1068,4 @@ add_filter('the_excerpt', 'my_nofollow');
  
 function my_nofollow($content) {
     return preg_replace_callback('/&amp;lt;a[^&amp;gt;]+/', 'my_nofollow_callback', $content);
-}
- 
-function my_nofollow_callback($matches) {
-    $link = $matches[0];
-    $site_link = get_bloginfo('url');
- 
-    if (strpos($link, 'rel') === false) {
-        $link = preg_replace("%(href=\S(?!$site_link))%i", 'rel="nofollow" $1', $link);
-    } elseif (preg_match("%href=\S(?!$site_link)%i", $link)) {
-        $link = preg_replace('/rel=\S(?!nofollow)\S*/i', 'rel="nofollow"', $link);
-    }
-    return $link;
 }

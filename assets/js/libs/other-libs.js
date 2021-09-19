@@ -1,3 +1,4 @@
+// HC Off-canvas Nav
 (function (t, e) {
     const i = e.document,
         o = t(i.getElementsByTagName("html")[0]),
@@ -398,6 +399,8 @@
         },
     });
 })(jQuery, "undefined" != typeof window ? window : this),
+
+// bxSlider
 (function (t) {
     var e = {
         mode: "horizontal",
@@ -1101,761 +1104,1247 @@
         }
     };
 })(jQuery),
-(function (t) {
-    "function" == typeof define && define.amd ? define(["jquery"], t) : t("object" == typeof exports ? require("jquery") : window.jQuery || window.Zepto);
-})(function (t) {
-    var e,
-        i,
-        o,
-        s,
-        n,
-        r,
-        a = "Close",
-        l = "BeforeClose",
-        d = "MarkupParse",
-        c = "Open",
-        u = "Change",
-        p = "mfp",
-        h = ".mfp",
-        f = "mfp-ready",
-        m = "mfp-removing",
-        g = "mfp-prevent-close",
-        v = function () {},
-        y = !!window.jQuery,
-        w = t(window),
-        b = function (t, i) {
-            e.ev.on(p + t + h, i);
-        },
-        k = function (e, i, o, s) {
-            var n = document.createElement("div");
-            return (n.className = "mfp-" + e), o && (n.innerHTML = o), s ? i && i.appendChild(n) : ((n = t(n)), i && n.appendTo(i)), n;
-        },
-        S = function (i, o) {
-            e.ev.triggerHandler(p + i, o), e.st.callbacks && ((i = i.charAt(0).toLowerCase() + i.slice(1)), e.st.callbacks[i] && e.st.callbacks[i].apply(e, t.isArray(o) ? o : [o]));
-        },
-        x = function (i) {
-            return (i === r && e.currTemplate.closeBtn) || ((e.currTemplate.closeBtn = t(e.st.closeMarkup.replace("%title%", e.st.tClose))), (r = i)), e.currTemplate.closeBtn;
-        },
-        C = function () {
-            t.magnificPopup.instance || ((e = new v()).init(), (t.magnificPopup.instance = e));
+
+// Slick slider
+!(function (i) {
+    "use strict";
+    "function" == typeof define && define.amd ? define(["jquery"], i) : "undefined" != typeof exports ? (module.exports = i(require("jquery"))) : i(jQuery);
+})(function (i) {
+    "use strict";
+    var e = window.Slick || {};
+    ((e = (function () {
+        var e = 0;
+        return function (t, o) {
+            var s,
+                n = this;
+            (n.defaults = {
+                accessibility: !0,
+                adaptiveHeight: !1,
+                appendArrows: i(t),
+                appendDots: i(t),
+                arrows: !0,
+                asNavFor: null,
+                prevArrow: '<button class="slick-prev" aria-label="Previous" type="button">Previous</button>',
+                nextArrow: '<button class="slick-next" aria-label="Next" type="button">Next</button>',
+                autoplay: !1,
+                autoplaySpeed: 3e3,
+                centerMode: !1,
+                centerPadding: "50px",
+                cssEase: "ease",
+                customPaging: function (e, t) {
+                    return i('<button type="button" />').text(t + 1);
+                },
+                dots: !1,
+                dotsClass: "slick-dots",
+                draggable: !0,
+                easing: "linear",
+                edgeFriction: 0.35,
+                fade: !1,
+                focusOnSelect: !1,
+                focusOnChange: !1,
+                infinite: !0,
+                initialSlide: 0,
+                lazyLoad: "ondemand",
+                mobileFirst: !1,
+                pauseOnHover: !0,
+                pauseOnFocus: !0,
+                pauseOnDotsHover: !1,
+                respondTo: "window",
+                responsive: null,
+                rows: 1,
+                rtl: !1,
+                slide: "",
+                slidesPerRow: 1,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                speed: 500,
+                swipe: !0,
+                swipeToSlide: !1,
+                touchMove: !0,
+                touchThreshold: 5,
+                useCSS: !0,
+                useTransform: !0,
+                variableWidth: !1,
+                vertical: !1,
+                verticalSwiping: !1,
+                waitForAnimate: !0,
+                zIndex: 1e3,
+            }),
+                (n.initials = {
+                    animating: !1,
+                    dragging: !1,
+                    autoPlayTimer: null,
+                    currentDirection: 0,
+                    currentLeft: null,
+                    currentSlide: 0,
+                    direction: 1,
+                    $dots: null,
+                    listWidth: null,
+                    listHeight: null,
+                    loadIndex: 0,
+                    $nextArrow: null,
+                    $prevArrow: null,
+                    scrolling: !1,
+                    slideCount: null,
+                    slideWidth: null,
+                    $slideTrack: null,
+                    $slides: null,
+                    sliding: !1,
+                    slideOffset: 0,
+                    swipeLeft: null,
+                    swiping: !1,
+                    $list: null,
+                    touchObject: {},
+                    transformsEnabled: !1,
+                    unslicked: !1,
+                }),
+                i.extend(n, n.initials),
+                (n.activeBreakpoint = null),
+                (n.animType = null),
+                (n.animProp = null),
+                (n.breakpoints = []),
+                (n.breakpointSettings = []),
+                (n.cssTransitions = !1),
+                (n.focussed = !1),
+                (n.interrupted = !1),
+                (n.hidden = "hidden"),
+                (n.paused = !0),
+                (n.positionProp = null),
+                (n.respondTo = null),
+                (n.rowCount = 1),
+                (n.shouldClick = !0),
+                (n.$slider = i(t)),
+                (n.$slidesCache = null),
+                (n.transformType = null),
+                (n.transitionType = null),
+                (n.visibilityChange = "visibilitychange"),
+                (n.windowWidth = 0),
+                (n.windowTimer = null),
+                (s = i(t).data("slick") || {}),
+                (n.options = i.extend({}, n.defaults, o, s)),
+                (n.currentSlide = n.options.initialSlide),
+                (n.originalSettings = n.options),
+                void 0 !== document.mozHidden ? ((n.hidden = "mozHidden"), (n.visibilityChange = "mozvisibilitychange")) : void 0 !== document.webkitHidden && ((n.hidden = "webkitHidden"), (n.visibilityChange = "webkitvisibilitychange")),
+                (n.autoPlay = i.proxy(n.autoPlay, n)),
+                (n.autoPlayClear = i.proxy(n.autoPlayClear, n)),
+                (n.autoPlayIterator = i.proxy(n.autoPlayIterator, n)),
+                (n.changeSlide = i.proxy(n.changeSlide, n)),
+                (n.clickHandler = i.proxy(n.clickHandler, n)),
+                (n.selectHandler = i.proxy(n.selectHandler, n)),
+                (n.setPosition = i.proxy(n.setPosition, n)),
+                (n.swipeHandler = i.proxy(n.swipeHandler, n)),
+                (n.dragHandler = i.proxy(n.dragHandler, n)),
+                (n.keyHandler = i.proxy(n.keyHandler, n)),
+                (n.instanceUid = e++),
+                (n.htmlExpr = /^(?:\s*(<[\w\W]+>)[^>]*)$/),
+                n.registerBreakpoints(),
+                n.init(!0);
         };
-    (v.prototype = {
-        constructor: v,
-        init: function () {
-            var i = navigator.appVersion;
-            (e.isLowIE = e.isIE8 = document.all && !document.addEventListener),
-                (e.isAndroid = /android/gi.test(i)),
-                (e.isIOS = /iphone|ipad|ipod/gi.test(i)),
-                (e.supportsTransition = (function () {
-                    var t = document.createElement("p").style,
-                        e = ["ms", "O", "Moz", "Webkit"];
-                    if (void 0 !== t.transition) return !0;
-                    for (; e.length; ) if (e.pop() + "Transition" in t) return !0;
-                    return !1;
-                })()),
-                (e.probablyMobile = e.isAndroid || e.isIOS || /(Opera Mini)|Kindle|webOS|BlackBerry|(Opera Mobi)|(Windows Phone)|IEMobile/i.test(navigator.userAgent)),
-                (o = t(document)),
-                (e.popupsCache = {});
-        },
-        open: function (i) {
-            var s;
-            if (!1 === i.isObj) {
-                (e.items = i.items.toArray()), (e.index = 0);
-                var r,
-                    a = i.items;
-                for (s = 0; s < a.length; s++)
-                    if (((r = a[s]).parsed && (r = r.el[0]), r === i.el[0])) {
-                        e.index = s;
-                        break;
-                    }
-            } else (e.items = t.isArray(i.items) ? i.items : [i.items]), (e.index = i.index || 0);
-            if (!e.isOpen) {
-                (e.types = []),
-                    (n = ""),
-                    i.mainEl && i.mainEl.length ? (e.ev = i.mainEl.eq(0)) : (e.ev = o),
-                    i.key ? (e.popupsCache[i.key] || (e.popupsCache[i.key] = {}), (e.currTemplate = e.popupsCache[i.key])) : (e.currTemplate = {}),
-                    (e.st = t.extend(!0, {}, t.magnificPopup.defaults, i)),
-                    (e.fixedContentPos = "auto" === e.st.fixedContentPos ? !e.probablyMobile : e.st.fixedContentPos),
-                    e.st.modal && ((e.st.closeOnContentClick = !1), (e.st.closeOnBgClick = !1), (e.st.showCloseBtn = !1), (e.st.enableEscapeKey = !1)),
-                    e.bgOverlay ||
-                        ((e.bgOverlay = k("bg").on("click" + h, function () {
-                            e.close();
-                        })),
-                        (e.wrap = k("wrap")
-                            .attr("tabindex", -1)
-                            .on("click" + h, function (t) {
-                                e._checkIfClose(t.target) && e.close();
-                            })),
-                        (e.container = k("container", e.wrap))),
-                    (e.contentContainer = k("content")),
-                    e.st.preloader && (e.preloader = k("preloader", e.container, e.st.tLoading));
-                var l = t.magnificPopup.modules;
-                for (s = 0; s < l.length; s++) {
-                    var u = l[s];
-                    (u = u.charAt(0).toUpperCase() + u.slice(1)), e["init" + u].call(e);
-                }
-                S("BeforeOpen"),
-                    e.st.showCloseBtn &&
-                        (e.st.closeBtnInside
-                            ? (b(d, function (t, e, i, o) {
-                                    i.close_replaceWith = x(o.type);
-                                }),
-                                (n += " mfp-close-btn-in"))
-                            : e.wrap.append(x())),
-                    e.st.alignTop && (n += " mfp-align-top"),
-                    e.fixedContentPos ? e.wrap.css({ overflow: e.st.overflowY, overflowX: "hidden", overflowY: e.st.overflowY }) : e.wrap.css({ top: w.scrollTop(), position: "absolute" }),
-                    (!1 === e.st.fixedBgPos || ("auto" === e.st.fixedBgPos && !e.fixedContentPos)) && e.bgOverlay.css({ height: o.height(), position: "absolute" }),
-                    e.st.enableEscapeKey &&
-                        o.on("keyup" + h, function (t) {
-                            27 === t.keyCode && e.close();
-                        }),
-                    w.on("resize" + h, function () {
-                        e.updateSize();
-                    }),
-                    e.st.closeOnContentClick || (n += " mfp-auto-cursor"),
-                    n && e.wrap.addClass(n);
-                var p = (e.wH = w.height()),
-                    m = {};
-                if (e.fixedContentPos && e._hasScrollBar(p)) {
-                    var g = e._getScrollbarSize();
-                    g && (m.marginRight = g);
-                }
-                e.fixedContentPos && (e.isIE7 ? t("body, html").css("overflow", "hidden") : (m.overflow = "hidden"));
-                var v = e.st.mainClass;
-                return (
-                    e.isIE7 && (v += " mfp-ie7"),
-                    v && e._addClassToMFP(v),
-                    e.updateItemHTML(),
-                    S("BuildControls"),
-                    t("html").css(m),
-                    e.bgOverlay.add(e.wrap).prependTo(e.st.prependTo || t(document.body)),
-                    (e._lastFocusedEl = document.activeElement),
-                    setTimeout(function () {
-                        e.content ? (e._addClassToMFP(f), e._setFocus()) : e.bgOverlay.addClass(f), o.on("focusin" + h, e._onFocusIn);
-                    }, 16),
-                    (e.isOpen = !0),
-                    e.updateSize(p),
-                    S(c),
-                    i
-                );
-            }
-            e.updateItemHTML();
-        },
-        close: function () {
-            e.isOpen &&
-                (S(l),
-                (e.isOpen = !1),
-                e.st.removalDelay && !e.isLowIE && e.supportsTransition
-                    ? (e._addClassToMFP(m),
-                        setTimeout(function () {
-                            e._close();
-                        }, e.st.removalDelay))
-                    : e._close());
-        },
-        _close: function () {
-            S(a);
-            var i = m + " " + f + " ";
-            if ((e.bgOverlay.detach(), e.wrap.detach(), e.container.empty(), e.st.mainClass && (i += e.st.mainClass + " "), e._removeClassFromMFP(i), e.fixedContentPos)) {
-                var s = { marginRight: "" };
-                e.isIE7 ? t("body, html").css("overflow", "") : (s.overflow = ""), t("html").css(s);
-            }
-            o.off("keyup.mfp focusin" + h),
-                e.ev.off(h),
-                e.wrap.attr("class", "mfp-wrap").removeAttr("style"),
-                e.bgOverlay.attr("class", "mfp-bg"),
-                e.container.attr("class", "mfp-container"),
-                !e.st.showCloseBtn || (e.st.closeBtnInside && !0 !== e.currTemplate[e.currItem.type]) || (e.currTemplate.closeBtn && e.currTemplate.closeBtn.detach()),
-                e.st.autoFocusLast && e._lastFocusedEl && t(e._lastFocusedEl).focus(),
-                (e.currItem = null),
-                (e.content = null),
-                (e.currTemplate = null),
-                (e.prevHeight = 0),
-                S("AfterClose");
-        },
-        updateSize: function (t) {
-            if (e.isIOS) {
-                var i = document.documentElement.clientWidth / window.innerWidth,
-                    o = window.innerHeight * i;
-                e.wrap.css("height", o), (e.wH = o);
-            } else e.wH = t || w.height();
-            e.fixedContentPos || e.wrap.css("height", e.wH), S("Resize");
-        },
-        updateItemHTML: function () {
-            var i = e.items[e.index];
-            e.contentContainer.detach(), e.content && e.content.detach(), i.parsed || (i = e.parseEl(e.index));
-            var o = i.type;
-            if ((S("BeforeChange", [e.currItem ? e.currItem.type : "", o]), (e.currItem = i), !e.currTemplate[o])) {
-                var n = !!e.st[o] && e.st[o].markup;
-                S("FirstMarkupParse", n), (e.currTemplate[o] = !n || t(n));
-            }
-            s && s !== i.type && e.container.removeClass("mfp-" + s + "-holder");
-            var r = e["get" + o.charAt(0).toUpperCase() + o.slice(1)](i, e.currTemplate[o]);
-            e.appendContent(r, o), (i.preloaded = !0), S(u, i), (s = i.type), e.container.prepend(e.contentContainer), S("AfterChange");
-        },
-        appendContent: function (t, i) {
-            (e.content = t),
-                t ? (e.st.showCloseBtn && e.st.closeBtnInside && !0 === e.currTemplate[i] ? e.content.find(".mfp-close").length || e.content.append(x()) : (e.content = t)) : (e.content = ""),
-                S("BeforeAppend"),
-                e.container.addClass("mfp-" + i + "-holder"),
-                e.contentContainer.append(e.content);
-        },
-        parseEl: function (i) {
-            var o,
-                s = e.items[i];
-            if ((s.tagName ? (s = { el: t(s) }) : ((o = s.type), (s = { data: s, src: s.src })), s.el)) {
-                for (var n = e.types, r = 0; r < n.length; r++)
-                    if (s.el.hasClass("mfp-" + n[r])) {
-                        o = n[r];
-                        break;
-                    }
-                (s.src = s.el.attr("data-mfp-src")), s.src || (s.src = s.el.attr("href"));
-            }
-            return (s.type = o || e.st.type || "inline"), (s.index = i), (s.parsed = !0), (e.items[i] = s), S("ElementParse", s), e.items[i];
-        },
-        addGroup: function (t, i) {
-            var o = function (o) {
-                (o.mfpEl = this), e._openClick(o, t, i);
-            };
-            i || (i = {});
-            var s = "click.magnificPopup";
-            (i.mainEl = t), i.items ? ((i.isObj = !0), t.off(s).on(s, o)) : ((i.isObj = !1), i.delegate ? t.off(s).on(s, i.delegate, o) : ((i.items = t), t.off(s).on(s, o)));
-        },
-        _openClick: function (i, o, s) {
-            if ((void 0 !== s.midClick ? s.midClick : t.magnificPopup.defaults.midClick) || !(2 === i.which || i.ctrlKey || i.metaKey || i.altKey || i.shiftKey)) {
-                var n = void 0 !== s.disableOn ? s.disableOn : t.magnificPopup.defaults.disableOn;
-                if (n)
-                    if (t.isFunction(n)) {
-                        if (!n.call(e)) return !0;
-                    } else if (w.width() < n) return !0;
-                i.type && (i.preventDefault(), e.isOpen && i.stopPropagation()), (s.el = t(i.mfpEl)), s.delegate && (s.items = o.find(s.delegate)), e.open(s);
-            }
-        },
-        updateStatus: function (t, o) {
-            if (e.preloader) {
-                i !== t && e.container.removeClass("mfp-s-" + i), o || "loading" !== t || (o = e.st.tLoading);
-                var s = { status: t, text: o };
-                S("UpdateStatus", s),
-                    (t = s.status),
-                    (o = s.text),
-                    e.preloader.html(o),
-                    e.preloader.find("a").on("click", function (t) {
-                        t.stopImmediatePropagation();
-                    }),
-                    e.container.addClass("mfp-s-" + t),
-                    (i = t);
-            }
-        },
-        _checkIfClose: function (i) {
-            if (!t(i).hasClass(g)) {
-                var o = e.st.closeOnContentClick,
-                    s = e.st.closeOnBgClick;
-                if (o && s) return !0;
-                if (!e.content || t(i).hasClass("mfp-close") || (e.preloader && i === e.preloader[0])) return !0;
-                if (i === e.content[0] || t.contains(e.content[0], i)) {
-                    if (o) return !0;
-                } else if (s && t.contains(document, i)) return !0;
-                return !1;
-            }
-        },
-        _addClassToMFP: function (t) {
-            e.bgOverlay.addClass(t), e.wrap.addClass(t);
-        },
-        _removeClassFromMFP: function (t) {
-            this.bgOverlay.removeClass(t), e.wrap.removeClass(t);
-        },
-        _hasScrollBar: function (t) {
-            return (e.isIE7 ? o.height() : document.body.scrollHeight) > (t || w.height());
-        },
-        _setFocus: function () {
-            (e.st.focus ? e.content.find(e.st.focus).eq(0) : e.wrap).focus();
-        },
-        _onFocusIn: function (i) {
-            return i.target === e.wrap[0] || t.contains(e.wrap[0], i.target) ? void 0 : (e._setFocus(), !1);
-        },
-        _parseMarkup: function (e, i, o) {
-            var s;
-            o.data && (i = t.extend(o.data, i)),
-                S(d, [e, i, o]),
-                t.each(i, function (i, o) {
-                    if (void 0 === o || !1 === o) return !0;
-                    if ((s = i.split("_")).length > 1) {
-                        var n = e.find(h + "-" + s[0]);
-                        if (n.length > 0) {
-                            var r = s[1];
-                            "replaceWith" === r ? n[0] !== o[0] && n.replaceWith(o) : "img" === r ? (n.is("img") ? n.attr("src", o) : n.replaceWith(t("<img>").attr("src", o).attr("class", n.attr("class")))) : n.attr(s[1], o);
-                        }
-                    } else e.find(h + "-" + i).html(o);
-                });
-        },
-        _getScrollbarSize: function () {
-            if (void 0 === e.scrollbarSize) {
-                var t = document.createElement("div");
-                (t.style.cssText = "width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;"), document.body.appendChild(t), (e.scrollbarSize = t.offsetWidth - t.clientWidth), document.body.removeChild(t);
-            }
-            return e.scrollbarSize;
-        },
+    })()).prototype.activateADA = function () {
+        this.$slideTrack.find(".slick-active").attr({ "aria-hidden": "false" }).find("a, input, button, select").attr({ tabindex: "0" });
     }),
-        (t.magnificPopup = {
-            instance: null,
-            proto: v.prototype,
-            modules: [],
-            open: function (e, i) {
-                return C(), ((e = e ? t.extend(!0, {}, e) : {}).isObj = !0), (e.index = i || 0), this.instance.open(e);
-            },
-            close: function () {
-                return t.magnificPopup.instance && t.magnificPopup.instance.close();
-            },
-            registerModule: function (e, i) {
-                i.options && (t.magnificPopup.defaults[e] = i.options), t.extend(this.proto, i.proto), this.modules.push(e);
-            },
-            defaults: {
-                disableOn: 0,
-                key: null,
-                midClick: !1,
-                mainClass: "",
-                preloader: !0,
-                focus: "",
-                closeOnContentClick: !1,
-                closeOnBgClick: !0,
-                closeBtnInside: !0,
-                showCloseBtn: !0,
-                enableEscapeKey: !0,
-                modal: !1,
-                alignTop: !1,
-                removalDelay: 0,
-                prependTo: null,
-                fixedContentPos: "auto",
-                fixedBgPos: "auto",
-                overflowY: "auto",
-                closeMarkup: '<button title="%title%" type="button" class="mfp-close">&#215;</button>',
-                tClose: "Close (Esc)",
-                tLoading: "Loading...",
-                autoFocusLast: !0,
-            },
+        (e.prototype.addSlide = e.prototype.slickAdd = function (e, t, o) {
+            var s = this;
+            if ("boolean" == typeof t) (o = t), (t = null);
+            else if (t < 0 || t >= s.slideCount) return !1;
+            s.unload(),
+                "number" == typeof t
+                    ? 0 === t && 0 === s.$slides.length
+                        ? i(e).appendTo(s.$slideTrack)
+                        : o
+                        ? i(e).insertBefore(s.$slides.eq(t))
+                        : i(e).insertAfter(s.$slides.eq(t))
+                    : !0 === o
+                    ? i(e).prependTo(s.$slideTrack)
+                    : i(e).appendTo(s.$slideTrack),
+                (s.$slides = s.$slideTrack.children(this.options.slide)),
+                s.$slideTrack.children(this.options.slide).detach(),
+                s.$slideTrack.append(s.$slides),
+                s.$slides.each(function (e, t) {
+                    i(t).attr("data-slick-index", e);
+                }),
+                (s.$slidesCache = s.$slides),
+                s.reinit();
         }),
-        (t.fn.magnificPopup = function (i) {
-            C();
-            var o = t(this);
-            if ("string" == typeof i)
-                if ("open" === i) {
-                    var s,
-                        n = y ? o.data("magnificPopup") : o[0].magnificPopup,
-                        r = parseInt(arguments[1], 10) || 0;
-                    n.items ? (s = n.items[r]) : ((s = o), n.delegate && (s = s.find(n.delegate)), (s = s.eq(r))), e._openClick({ mfpEl: s }, o, n);
-                } else e.isOpen && e[i].apply(e, Array.prototype.slice.call(arguments, 1));
-            else (i = t.extend(!0, {}, i)), y ? o.data("magnificPopup", i) : (o[0].magnificPopup = i), e.addGroup(o, i);
+        (e.prototype.animateHeight = function () {
+            var i = this;
+            if (1 === i.options.slidesToShow && !0 === i.options.adaptiveHeight && !1 === i.options.vertical) {
+                var e = i.$slides.eq(i.currentSlide).outerHeight(!0);
+                i.$list.animate({ height: e }, i.options.speed);
+            }
+        }),
+        (e.prototype.animateSlide = function (e, t) {
+            var o = {},
+                s = this;
+            s.animateHeight(),
+                !0 === s.options.rtl && !1 === s.options.vertical && (e = -e),
+                !1 === s.transformsEnabled
+                    ? !1 === s.options.vertical
+                        ? s.$slideTrack.animate({ left: e }, s.options.speed, s.options.easing, t)
+                        : s.$slideTrack.animate({ top: e }, s.options.speed, s.options.easing, t)
+                    : !1 === s.cssTransitions
+                    ? (!0 === s.options.rtl && (s.currentLeft = -s.currentLeft),
+                      i({ animStart: s.currentLeft }).animate(
+                          { animStart: e },
+                          {
+                              duration: s.options.speed,
+                              easing: s.options.easing,
+                              step: function (i) {
+                                  (i = Math.ceil(i)), !1 === s.options.vertical ? ((o[s.animType] = "translate(" + i + "px, 0px)"), s.$slideTrack.css(o)) : ((o[s.animType] = "translate(0px," + i + "px)"), s.$slideTrack.css(o));
+                              },
+                              complete: function () {
+                                  t && t.call();
+                              },
+                          }
+                      ))
+                    : (s.applyTransition(),
+                      (e = Math.ceil(e)),
+                      !1 === s.options.vertical ? (o[s.animType] = "translate3d(" + e + "px, 0px, 0px)") : (o[s.animType] = "translate3d(0px," + e + "px, 0px)"),
+                      s.$slideTrack.css(o),
+                      t &&
+                          setTimeout(function () {
+                              s.disableTransition(), t.call();
+                          }, s.options.speed));
+        }),
+        (e.prototype.getNavTarget = function () {
+            var e = this.options.asNavFor;
+            return e && null !== e && (e = i(e).not(this.$slider)), e;
+        }),
+        (e.prototype.asNavFor = function (e) {
+            var t = this.getNavTarget();
+            null !== t &&
+                "object" == typeof t &&
+                t.each(function () {
+                    var t = i(this).slick("getSlick");
+                    t.unslicked || t.slideHandler(e, !0);
+                });
+        }),
+        (e.prototype.applyTransition = function (i) {
+            var e = this,
+                t = {};
+            !1 === e.options.fade ? (t[e.transitionType] = e.transformType + " " + e.options.speed + "ms " + e.options.cssEase) : (t[e.transitionType] = "opacity " + e.options.speed + "ms " + e.options.cssEase),
+                !1 === e.options.fade ? e.$slideTrack.css(t) : e.$slides.eq(i).css(t);
+        }),
+        (e.prototype.autoPlay = function () {
+            var i = this;
+            i.autoPlayClear(), i.slideCount > i.options.slidesToShow && (i.autoPlayTimer = setInterval(i.autoPlayIterator, i.options.autoplaySpeed));
+        }),
+        (e.prototype.autoPlayClear = function () {
+            this.autoPlayTimer && clearInterval(this.autoPlayTimer);
+        }),
+        (e.prototype.autoPlayIterator = function () {
+            var i = this,
+                e = i.currentSlide + i.options.slidesToScroll;
+            i.paused ||
+                i.interrupted ||
+                i.focussed ||
+                (!1 === i.options.infinite &&
+                    (1 === i.direction && i.currentSlide + 1 === i.slideCount - 1 ? (i.direction = 0) : 0 === i.direction && ((e = i.currentSlide - i.options.slidesToScroll), i.currentSlide - 1 == 0 && (i.direction = 1))),
+                i.slideHandler(e));
+        }),
+        (e.prototype.buildArrows = function () {
+            var e = this;
+            !0 === e.options.arrows &&
+                ((e.$prevArrow = i(e.options.prevArrow).addClass("slick-arrow")),
+                (e.$nextArrow = i(e.options.nextArrow).addClass("slick-arrow")),
+                e.slideCount > e.options.slidesToShow
+                    ? (e.$prevArrow.removeClass("slick-hidden").removeAttr("aria-hidden tabindex"),
+                      e.$nextArrow.removeClass("slick-hidden").removeAttr("aria-hidden tabindex"),
+                      e.htmlExpr.test(e.options.prevArrow) && e.$prevArrow.prependTo(e.options.appendArrows),
+                      e.htmlExpr.test(e.options.nextArrow) && e.$nextArrow.appendTo(e.options.appendArrows),
+                      !0 !== e.options.infinite && e.$prevArrow.addClass("slick-disabled").attr("aria-disabled", "true"))
+                    : e.$prevArrow.add(e.$nextArrow).addClass("slick-hidden").attr({ "aria-disabled": "true", tabindex: "-1" }));
+        }),
+        (e.prototype.buildDots = function () {
+            var e,
+                t,
+                o = this;
+            if (!0 === o.options.dots) {
+                for (o.$slider.addClass("slick-dotted"), t = i("<ul />").addClass(o.options.dotsClass), e = 0; e <= o.getDotCount(); e += 1) t.append(i("<li />").append(o.options.customPaging.call(this, o, e)));
+                (o.$dots = t.appendTo(o.options.appendDots)), o.$dots.find("li").first().addClass("slick-active");
+            }
+        }),
+        (e.prototype.buildOut = function () {
+            var e = this;
+            (e.$slides = e.$slider.children(e.options.slide + ":not(.slick-cloned)").addClass("slick-slide")),
+                (e.slideCount = e.$slides.length),
+                e.$slides.each(function (e, t) {
+                    i(t)
+                        .attr("data-slick-index", e)
+                        .data("originalStyling", i(t).attr("style") || "");
+                }),
+                e.$slider.addClass("slick-slider"),
+                (e.$slideTrack = 0 === e.slideCount ? i('<div class="slick-track"/>').appendTo(e.$slider) : e.$slides.wrapAll('<div class="slick-track"/>').parent()),
+                (e.$list = e.$slideTrack.wrap('<div class="slick-list"/>').parent()),
+                e.$slideTrack.css("opacity", 0),
+                (!0 !== e.options.centerMode && !0 !== e.options.swipeToSlide) || (e.options.slidesToScroll = 1),
+                i("img[data-lazy]", e.$slider).not("[src]").addClass("slick-loading"),
+                e.setupInfinite(),
+                e.buildArrows(),
+                e.buildDots(),
+                e.updateDots(),
+                e.setSlideClasses("number" == typeof e.currentSlide ? e.currentSlide : 0),
+                !0 === e.options.draggable && e.$list.addClass("draggable");
+        }),
+        (e.prototype.buildRows = function () {
+            var i,
+                e,
+                t,
+                o,
+                s,
+                n,
+                r,
+                l = this;
+            if (((o = document.createDocumentFragment()), (n = l.$slider.children()), l.options.rows > 1)) {
+                for (r = l.options.slidesPerRow * l.options.rows, s = Math.ceil(n.length / r), i = 0; i < s; i++) {
+                    var d = document.createElement("div");
+                    for (e = 0; e < l.options.rows; e++) {
+                        var a = document.createElement("div");
+                        for (t = 0; t < l.options.slidesPerRow; t++) {
+                            var c = i * r + (e * l.options.slidesPerRow + t);
+                            n.get(c) && a.appendChild(n.get(c));
+                        }
+                        d.appendChild(a);
+                    }
+                    o.appendChild(d);
+                }
+                l.$slider.empty().append(o),
+                    l.$slider
+                        .children()
+                        .children()
+                        .children()
+                        .css({ width: 100 / l.options.slidesPerRow + "%", display: "inline-block" });
+            }
+        }),
+        (e.prototype.checkResponsive = function (e, t) {
+            var o,
+                s,
+                n,
+                r = this,
+                l = !1,
+                d = r.$slider.width(),
+                a = window.innerWidth || i(window).width();
+            if (("window" === r.respondTo ? (n = a) : "slider" === r.respondTo ? (n = d) : "min" === r.respondTo && (n = Math.min(a, d)), r.options.responsive && r.options.responsive.length && null !== r.options.responsive)) {
+                for (o in ((s = null), r.breakpoints)) r.breakpoints.hasOwnProperty(o) && (!1 === r.originalSettings.mobileFirst ? n < r.breakpoints[o] && (s = r.breakpoints[o]) : n > r.breakpoints[o] && (s = r.breakpoints[o]));
+                null !== s
+                    ? null !== r.activeBreakpoint
+                        ? (s !== r.activeBreakpoint || t) &&
+                          ((r.activeBreakpoint = s),
+                          "unslick" === r.breakpointSettings[s] ? r.unslick(s) : ((r.options = i.extend({}, r.originalSettings, r.breakpointSettings[s])), !0 === e && (r.currentSlide = r.options.initialSlide), r.refresh(e)),
+                          (l = s))
+                        : ((r.activeBreakpoint = s),
+                          "unslick" === r.breakpointSettings[s] ? r.unslick(s) : ((r.options = i.extend({}, r.originalSettings, r.breakpointSettings[s])), !0 === e && (r.currentSlide = r.options.initialSlide), r.refresh(e)),
+                          (l = s))
+                    : null !== r.activeBreakpoint && ((r.activeBreakpoint = null), (r.options = r.originalSettings), !0 === e && (r.currentSlide = r.options.initialSlide), r.refresh(e), (l = s)),
+                    e || !1 === l || r.$slider.trigger("breakpoint", [r, l]);
+            }
+        }),
+        (e.prototype.changeSlide = function (e, t) {
+            var o,
+                s,
+                n = this,
+                r = i(e.currentTarget);
+            switch ((r.is("a") && e.preventDefault(), r.is("li") || (r = r.closest("li")), (o = n.slideCount % n.options.slidesToScroll != 0 ? 0 : (n.slideCount - n.currentSlide) % n.options.slidesToScroll), e.data.message)) {
+                case "previous":
+                    (s = 0 === o ? n.options.slidesToScroll : n.options.slidesToShow - o), n.slideCount > n.options.slidesToShow && n.slideHandler(n.currentSlide - s, !1, t);
+                    break;
+                case "next":
+                    (s = 0 === o ? n.options.slidesToScroll : o), n.slideCount > n.options.slidesToShow && n.slideHandler(n.currentSlide + s, !1, t);
+                    break;
+                case "index":
+                    var l = 0 === e.data.index ? 0 : e.data.index || r.index() * n.options.slidesToScroll;
+                    n.slideHandler(n.checkNavigable(l), !1, t), r.children().trigger("focus");
+                    break;
+                default:
+                    return;
+            }
+        }),
+        (e.prototype.checkNavigable = function (i) {
+            var e, t;
+            if (((t = 0), i > (e = this.getNavigableIndexes())[e.length - 1])) i = e[e.length - 1];
+            else
+                for (var o in e) {
+                    if (i < e[o]) {
+                        i = t;
+                        break;
+                    }
+                    t = e[o];
+                }
+            return i;
+        }),
+        (e.prototype.cleanUpEvents = function () {
+            var e = this;
+            e.options.dots &&
+                null !== e.$dots &&
+                (i("li", e.$dots).off("click.slick", e.changeSlide).off("mouseenter.slick", i.proxy(e.interrupt, e, !0)).off("mouseleave.slick", i.proxy(e.interrupt, e, !1)),
+                !0 === e.options.accessibility && e.$dots.off("keydown.slick", e.keyHandler)),
+                e.$slider.off("focus.slick blur.slick"),
+                !0 === e.options.arrows &&
+                    e.slideCount > e.options.slidesToShow &&
+                    (e.$prevArrow && e.$prevArrow.off("click.slick", e.changeSlide),
+                    e.$nextArrow && e.$nextArrow.off("click.slick", e.changeSlide),
+                    !0 === e.options.accessibility && (e.$prevArrow && e.$prevArrow.off("keydown.slick", e.keyHandler), e.$nextArrow && e.$nextArrow.off("keydown.slick", e.keyHandler))),
+                e.$list.off("touchstart.slick mousedown.slick", e.swipeHandler),
+                e.$list.off("touchmove.slick mousemove.slick", e.swipeHandler),
+                e.$list.off("touchend.slick mouseup.slick", e.swipeHandler),
+                e.$list.off("touchcancel.slick mouseleave.slick", e.swipeHandler),
+                e.$list.off("click.slick", e.clickHandler),
+                i(document).off(e.visibilityChange, e.visibility),
+                e.cleanUpSlideEvents(),
+                !0 === e.options.accessibility && e.$list.off("keydown.slick", e.keyHandler),
+                !0 === e.options.focusOnSelect && i(e.$slideTrack).children().off("click.slick", e.selectHandler),
+                i(window).off("orientationchange.slick.slick-" + e.instanceUid, e.orientationChange),
+                i(window).off("resize.slick.slick-" + e.instanceUid, e.resize),
+                i("[draggable!=true]", e.$slideTrack).off("dragstart", e.preventDefault),
+                i(window).off("load.slick.slick-" + e.instanceUid, e.setPosition);
+        }),
+        (e.prototype.cleanUpSlideEvents = function () {
+            var e = this;
+            e.$list.off("mouseenter.slick", i.proxy(e.interrupt, e, !0)), e.$list.off("mouseleave.slick", i.proxy(e.interrupt, e, !1));
+        }),
+        (e.prototype.cleanUpRows = function () {
+            var i,
+                e = this;
+            e.options.rows > 1 && ((i = e.$slides.children().children()).removeAttr("style"), e.$slider.empty().append(i));
+        }),
+        (e.prototype.clickHandler = function (i) {
+            !1 === this.shouldClick && (i.stopImmediatePropagation(), i.stopPropagation(), i.preventDefault());
+        }),
+        (e.prototype.destroy = function (e) {
+            var t = this;
+            t.autoPlayClear(),
+                (t.touchObject = {}),
+                t.cleanUpEvents(),
+                i(".slick-cloned", t.$slider).detach(),
+                t.$dots && t.$dots.remove(),
+                t.$prevArrow &&
+                    t.$prevArrow.length &&
+                    (t.$prevArrow.removeClass("slick-disabled slick-arrow slick-hidden").removeAttr("aria-hidden aria-disabled tabindex").css("display", ""), t.htmlExpr.test(t.options.prevArrow) && t.$prevArrow.remove()),
+                t.$nextArrow &&
+                    t.$nextArrow.length &&
+                    (t.$nextArrow.removeClass("slick-disabled slick-arrow slick-hidden").removeAttr("aria-hidden aria-disabled tabindex").css("display", ""), t.htmlExpr.test(t.options.nextArrow) && t.$nextArrow.remove()),
+                t.$slides &&
+                    (t.$slides
+                        .removeClass("slick-slide slick-active slick-center slick-visible slick-current")
+                        .removeAttr("aria-hidden")
+                        .removeAttr("data-slick-index")
+                        .each(function () {
+                            i(this).attr("style", i(this).data("originalStyling"));
+                        }),
+                    t.$slideTrack.children(this.options.slide).detach(),
+                    t.$slideTrack.detach(),
+                    t.$list.detach(),
+                    t.$slider.append(t.$slides)),
+                t.cleanUpRows(),
+                t.$slider.removeClass("slick-slider"),
+                t.$slider.removeClass("slick-initialized"),
+                t.$slider.removeClass("slick-dotted"),
+                (t.unslicked = !0),
+                e || t.$slider.trigger("destroy", [t]);
+        }),
+        (e.prototype.disableTransition = function (i) {
+            var e = this,
+                t = {};
+            (t[e.transitionType] = ""), !1 === e.options.fade ? e.$slideTrack.css(t) : e.$slides.eq(i).css(t);
+        }),
+        (e.prototype.fadeSlide = function (i, e) {
+            var t = this;
+            !1 === t.cssTransitions
+                ? (t.$slides.eq(i).css({ zIndex: t.options.zIndex }), t.$slides.eq(i).animate({ opacity: 1 }, t.options.speed, t.options.easing, e))
+                : (t.applyTransition(i),
+                  t.$slides.eq(i).css({ opacity: 1, zIndex: t.options.zIndex }),
+                  e &&
+                      setTimeout(function () {
+                          t.disableTransition(i), e.call();
+                      }, t.options.speed));
+        }),
+        (e.prototype.fadeSlideOut = function (i) {
+            var e = this;
+            !1 === e.cssTransitions ? e.$slides.eq(i).animate({ opacity: 0, zIndex: e.options.zIndex - 2 }, e.options.speed, e.options.easing) : (e.applyTransition(i), e.$slides.eq(i).css({ opacity: 0, zIndex: e.options.zIndex - 2 }));
+        }),
+        (e.prototype.filterSlides = e.prototype.slickFilter = function (i) {
+            var e = this;
+            null !== i && ((e.$slidesCache = e.$slides), e.unload(), e.$slideTrack.children(this.options.slide).detach(), e.$slidesCache.filter(i).appendTo(e.$slideTrack), e.reinit());
+        }),
+        (e.prototype.focusHandler = function () {
+            var e = this;
+            e.$slider.off("focus.slick blur.slick").on("focus.slick blur.slick", "*", function (t) {
+                t.stopImmediatePropagation();
+                var o = i(this);
+                setTimeout(function () {
+                    e.options.pauseOnFocus && ((e.focussed = o.is(":focus")), e.autoPlay());
+                }, 0);
+            });
+        }),
+        (e.prototype.getCurrent = e.prototype.slickCurrentSlide = function () {
+            return this.currentSlide;
+        }),
+        (e.prototype.getDotCount = function () {
+            var i = this,
+                e = 0,
+                t = 0,
+                o = 0;
+            if (!0 === i.options.infinite)
+                if (i.slideCount <= i.options.slidesToShow) ++o;
+                else for (; e < i.slideCount; ) ++o, (e = t + i.options.slidesToScroll), (t += i.options.slidesToScroll <= i.options.slidesToShow ? i.options.slidesToScroll : i.options.slidesToShow);
+            else if (!0 === i.options.centerMode) o = i.slideCount;
+            else if (i.options.asNavFor) for (; e < i.slideCount; ) ++o, (e = t + i.options.slidesToScroll), (t += i.options.slidesToScroll <= i.options.slidesToShow ? i.options.slidesToScroll : i.options.slidesToShow);
+            else o = 1 + Math.ceil((i.slideCount - i.options.slidesToShow) / i.options.slidesToScroll);
+            return o - 1;
+        }),
+        (e.prototype.getLeft = function (i) {
+            var e,
+                t,
+                o,
+                s,
+                n = this,
+                r = 0;
+            return (
+                (n.slideOffset = 0),
+                (t = n.$slides.first().outerHeight(!0)),
+                !0 === n.options.infinite
+                    ? (n.slideCount > n.options.slidesToShow &&
+                          ((n.slideOffset = n.slideWidth * n.options.slidesToShow * -1),
+                          (s = -1),
+                          !0 === n.options.vertical && !0 === n.options.centerMode && (2 === n.options.slidesToShow ? (s = -1.5) : 1 === n.options.slidesToShow && (s = -2)),
+                          (r = t * n.options.slidesToShow * s)),
+                      n.slideCount % n.options.slidesToScroll != 0 &&
+                          i + n.options.slidesToScroll > n.slideCount &&
+                          n.slideCount > n.options.slidesToShow &&
+                          (i > n.slideCount
+                              ? ((n.slideOffset = (n.options.slidesToShow - (i - n.slideCount)) * n.slideWidth * -1), (r = (n.options.slidesToShow - (i - n.slideCount)) * t * -1))
+                              : ((n.slideOffset = (n.slideCount % n.options.slidesToScroll) * n.slideWidth * -1), (r = (n.slideCount % n.options.slidesToScroll) * t * -1))))
+                    : i + n.options.slidesToShow > n.slideCount && ((n.slideOffset = (i + n.options.slidesToShow - n.slideCount) * n.slideWidth), (r = (i + n.options.slidesToShow - n.slideCount) * t)),
+                n.slideCount <= n.options.slidesToShow && ((n.slideOffset = 0), (r = 0)),
+                !0 === n.options.centerMode && n.slideCount <= n.options.slidesToShow
+                    ? (n.slideOffset = (n.slideWidth * Math.floor(n.options.slidesToShow)) / 2 - (n.slideWidth * n.slideCount) / 2)
+                    : !0 === n.options.centerMode && !0 === n.options.infinite
+                    ? (n.slideOffset += n.slideWidth * Math.floor(n.options.slidesToShow / 2) - n.slideWidth)
+                    : !0 === n.options.centerMode && ((n.slideOffset = 0), (n.slideOffset += n.slideWidth * Math.floor(n.options.slidesToShow / 2))),
+                (e = !1 === n.options.vertical ? i * n.slideWidth * -1 + n.slideOffset : i * t * -1 + r),
+                !0 === n.options.variableWidth &&
+                    ((o = n.slideCount <= n.options.slidesToShow || !1 === n.options.infinite ? n.$slideTrack.children(".slick-slide").eq(i) : n.$slideTrack.children(".slick-slide").eq(i + n.options.slidesToShow)),
+                    (e = !0 === n.options.rtl ? (o[0] ? -1 * (n.$slideTrack.width() - o[0].offsetLeft - o.width()) : 0) : o[0] ? -1 * o[0].offsetLeft : 0),
+                    !0 === n.options.centerMode &&
+                        ((o = n.slideCount <= n.options.slidesToShow || !1 === n.options.infinite ? n.$slideTrack.children(".slick-slide").eq(i) : n.$slideTrack.children(".slick-slide").eq(i + n.options.slidesToShow + 1)),
+                        (e = !0 === n.options.rtl ? (o[0] ? -1 * (n.$slideTrack.width() - o[0].offsetLeft - o.width()) : 0) : o[0] ? -1 * o[0].offsetLeft : 0),
+                        (e += (n.$list.width() - o.outerWidth()) / 2))),
+                e
+            );
+        }),
+        (e.prototype.getOption = e.prototype.slickGetOption = function (i) {
+            return this.options[i];
+        }),
+        (e.prototype.getNavigableIndexes = function () {
+            var i,
+                e = this,
+                t = 0,
+                o = 0,
+                s = [];
+            for (!1 === e.options.infinite ? (i = e.slideCount) : ((t = -1 * e.options.slidesToScroll), (o = -1 * e.options.slidesToScroll), (i = 2 * e.slideCount)); t < i; )
+                s.push(t), (t = o + e.options.slidesToScroll), (o += e.options.slidesToScroll <= e.options.slidesToShow ? e.options.slidesToScroll : e.options.slidesToShow);
+            return s;
+        }),
+        (e.prototype.getSlick = function () {
+            return this;
+        }),
+        (e.prototype.getSlideCount = function () {
+            var e,
+                t,
+                o = this;
+            return (
+                (t = !0 === o.options.centerMode ? o.slideWidth * Math.floor(o.options.slidesToShow / 2) : 0),
+                !0 === o.options.swipeToSlide
+                    ? (o.$slideTrack.find(".slick-slide").each(function (s, n) {
+                          if (n.offsetLeft - t + i(n).outerWidth() / 2 > -1 * o.swipeLeft) return (e = n), !1;
+                      }),
+                      Math.abs(i(e).attr("data-slick-index") - o.currentSlide) || 1)
+                    : o.options.slidesToScroll
+            );
+        }),
+        (e.prototype.goTo = e.prototype.slickGoTo = function (i, e) {
+            this.changeSlide({ data: { message: "index", index: parseInt(i) } }, e);
+        }),
+        (e.prototype.init = function (e) {
+            var t = this;
+            i(t.$slider).hasClass("slick-initialized") ||
+                (i(t.$slider).addClass("slick-initialized"), t.buildRows(), t.buildOut(), t.setProps(), t.startLoad(), t.loadSlider(), t.initializeEvents(), t.updateArrows(), t.updateDots(), t.checkResponsive(!0), t.focusHandler()),
+                e && t.$slider.trigger("init", [t]),
+                !0 === t.options.accessibility && t.initADA(),
+                t.options.autoplay && ((t.paused = !1), t.autoPlay());
+        }),
+        (e.prototype.initADA = function () {
+            var e = this,
+                t = Math.ceil(e.slideCount / e.options.slidesToShow),
+                o = e.getNavigableIndexes().filter(function (i) {
+                    return i >= 0 && i < e.slideCount;
+                });
+            e.$slides.add(e.$slideTrack.find(".slick-cloned")).attr({ "aria-hidden": "true", tabindex: "-1" }).find("a, input, button, select").attr({ tabindex: "-1" }),
+                null !== e.$dots &&
+                    (e.$slides.not(e.$slideTrack.find(".slick-cloned")).each(function (t) {
+                        var s = o.indexOf(t);
+                        i(this).attr({ role: "tabpanel", id: "slick-slide" + e.instanceUid + t, tabindex: -1 }), -1 !== s && i(this).attr({ "aria-describedby": "slick-slide-control" + e.instanceUid + s });
+                    }),
+                    e.$dots
+                        .attr("role", "tablist")
+                        .find("li")
+                        .each(function (s) {
+                            var n = o[s];
+                            i(this).attr({ role: "presentation" }),
+                                i(this)
+                                    .find("button")
+                                    .first()
+                                    .attr({ role: "tab", id: "slick-slide-control" + e.instanceUid + s, "aria-controls": "slick-slide" + e.instanceUid + n, "aria-label": s + 1 + " of " + t, "aria-selected": null, tabindex: "-1" });
+                        })
+                        .eq(e.currentSlide)
+                        .find("button")
+                        .attr({ "aria-selected": "true", tabindex: "0" })
+                        .end());
+            for (var s = e.currentSlide, n = s + e.options.slidesToShow; s < n; s++) e.$slides.eq(s).attr("tabindex", 0);
+            e.activateADA();
+        }),
+        (e.prototype.initArrowEvents = function () {
+            var i = this;
+            !0 === i.options.arrows &&
+                i.slideCount > i.options.slidesToShow &&
+                (i.$prevArrow.off("click.slick").on("click.slick", { message: "previous" }, i.changeSlide),
+                i.$nextArrow.off("click.slick").on("click.slick", { message: "next" }, i.changeSlide),
+                !0 === i.options.accessibility && (i.$prevArrow.on("keydown.slick", i.keyHandler), i.$nextArrow.on("keydown.slick", i.keyHandler)));
+        }),
+        (e.prototype.initDotEvents = function () {
+            var e = this;
+            !0 === e.options.dots && (i("li", e.$dots).on("click.slick", { message: "index" }, e.changeSlide), !0 === e.options.accessibility && e.$dots.on("keydown.slick", e.keyHandler)),
+                !0 === e.options.dots && !0 === e.options.pauseOnDotsHover && i("li", e.$dots).on("mouseenter.slick", i.proxy(e.interrupt, e, !0)).on("mouseleave.slick", i.proxy(e.interrupt, e, !1));
+        }),
+        (e.prototype.initSlideEvents = function () {
+            var e = this;
+            e.options.pauseOnHover && (e.$list.on("mouseenter.slick", i.proxy(e.interrupt, e, !0)), e.$list.on("mouseleave.slick", i.proxy(e.interrupt, e, !1)));
+        }),
+        (e.prototype.initializeEvents = function () {
+            var e = this;
+            e.initArrowEvents(),
+                e.initDotEvents(),
+                e.initSlideEvents(),
+                e.$list.on("touchstart.slick mousedown.slick", { action: "start" }, e.swipeHandler),
+                e.$list.on("touchmove.slick mousemove.slick", { action: "move" }, e.swipeHandler),
+                e.$list.on("touchend.slick mouseup.slick", { action: "end" }, e.swipeHandler),
+                e.$list.on("touchcancel.slick mouseleave.slick", { action: "end" }, e.swipeHandler),
+                e.$list.on("click.slick", e.clickHandler),
+                i(document).on(e.visibilityChange, i.proxy(e.visibility, e)),
+                !0 === e.options.accessibility && e.$list.on("keydown.slick", e.keyHandler),
+                !0 === e.options.focusOnSelect && i(e.$slideTrack).children().on("click.slick", e.selectHandler),
+                i(window).on("orientationchange.slick.slick-" + e.instanceUid, i.proxy(e.orientationChange, e)),
+                i(window).on("resize.slick.slick-" + e.instanceUid, i.proxy(e.resize, e)),
+                i("[draggable!=true]", e.$slideTrack).on("dragstart", e.preventDefault),
+                i(window).on("load.slick.slick-" + e.instanceUid, e.setPosition),
+                i(e.setPosition);
+        }),
+        (e.prototype.initUI = function () {
+            var i = this;
+            !0 === i.options.arrows && i.slideCount > i.options.slidesToShow && (i.$prevArrow.show(), i.$nextArrow.show()), !0 === i.options.dots && i.slideCount > i.options.slidesToShow && i.$dots.show();
+        }),
+        (e.prototype.keyHandler = function (i) {
+            var e = this;
+            i.target.tagName.match("TEXTAREA|INPUT|SELECT") ||
+                (37 === i.keyCode && !0 === e.options.accessibility
+                    ? e.changeSlide({ data: { message: !0 === e.options.rtl ? "next" : "previous" } })
+                    : 39 === i.keyCode && !0 === e.options.accessibility && e.changeSlide({ data: { message: !0 === e.options.rtl ? "previous" : "next" } }));
+        }),
+        (e.prototype.lazyLoad = function () {
+            function e(e) {
+                i("img[data-lazy]", e).each(function () {
+                    var e = i(this),
+                        t = i(this).attr("data-lazy"),
+                        o = i(this).attr("data-srcset"),
+                        s = i(this).attr("data-sizes") || n.$slider.attr("data-sizes"),
+                        r = document.createElement("img");
+                    (r.onload = function () {
+                        e.animate({ opacity: 0 }, 100, function () {
+                            o && (e.attr("srcset", o), s && e.attr("sizes", s)),
+                                e.attr("src", t).animate({ opacity: 1 }, 200, function () {
+                                    e.removeAttr("data-lazy data-srcset data-sizes").removeClass("slick-loading");
+                                }),
+                                n.$slider.trigger("lazyLoaded", [n, e, t]);
+                        });
+                    }),
+                        (r.onerror = function () {
+                            e.removeAttr("data-lazy").removeClass("slick-loading").addClass("slick-lazyload-error"), n.$slider.trigger("lazyLoadError", [n, e, t]);
+                        }),
+                        (r.src = t);
+                });
+            }
+            var t,
+                o,
+                s,
+                n = this;
+            if (
+                (!0 === n.options.centerMode
+                    ? !0 === n.options.infinite
+                        ? (s = (o = n.currentSlide + (n.options.slidesToShow / 2 + 1)) + n.options.slidesToShow + 2)
+                        : ((o = Math.max(0, n.currentSlide - (n.options.slidesToShow / 2 + 1))), (s = n.options.slidesToShow / 2 + 1 + 2 + n.currentSlide))
+                    : ((o = n.options.infinite ? n.options.slidesToShow + n.currentSlide : n.currentSlide), (s = Math.ceil(o + n.options.slidesToShow)), !0 === n.options.fade && (o > 0 && o--, s <= n.slideCount && s++)),
+                (t = n.$slider.find(".slick-slide").slice(o, s)),
+                "anticipated" === n.options.lazyLoad)
+            )
+                for (var r = o - 1, l = s, d = n.$slider.find(".slick-slide"), a = 0; a < n.options.slidesToScroll; a++) r < 0 && (r = n.slideCount - 1), (t = (t = t.add(d.eq(r))).add(d.eq(l))), r--, l++;
+            e(t),
+                n.slideCount <= n.options.slidesToShow
+                    ? e(n.$slider.find(".slick-slide"))
+                    : n.currentSlide >= n.slideCount - n.options.slidesToShow
+                    ? e(n.$slider.find(".slick-cloned").slice(0, n.options.slidesToShow))
+                    : 0 === n.currentSlide && e(n.$slider.find(".slick-cloned").slice(-1 * n.options.slidesToShow));
+        }),
+        (e.prototype.loadSlider = function () {
+            var i = this;
+            i.setPosition(), i.$slideTrack.css({ opacity: 1 }), i.$slider.removeClass("slick-loading"), i.initUI(), "progressive" === i.options.lazyLoad && i.progressiveLazyLoad();
+        }),
+        (e.prototype.next = e.prototype.slickNext = function () {
+            this.changeSlide({ data: { message: "next" } });
+        }),
+        (e.prototype.orientationChange = function () {
+            this.checkResponsive(), this.setPosition();
+        }),
+        (e.prototype.pause = e.prototype.slickPause = function () {
+            this.autoPlayClear(), (this.paused = !0);
+        }),
+        (e.prototype.play = e.prototype.slickPlay = function () {
+            var i = this;
+            i.autoPlay(), (i.options.autoplay = !0), (i.paused = !1), (i.focussed = !1), (i.interrupted = !1);
+        }),
+        (e.prototype.postSlide = function (e) {
+            var t = this;
+            t.unslicked ||
+                (t.$slider.trigger("afterChange", [t, e]),
+                (t.animating = !1),
+                t.slideCount > t.options.slidesToShow && t.setPosition(),
+                (t.swipeLeft = null),
+                t.options.autoplay && t.autoPlay(),
+                !0 === t.options.accessibility && (t.initADA(), t.options.focusOnChange && i(t.$slides.get(t.currentSlide)).attr("tabindex", 0).focus()));
+        }),
+        (e.prototype.prev = e.prototype.slickPrev = function () {
+            this.changeSlide({ data: { message: "previous" } });
+        }),
+        (e.prototype.preventDefault = function (i) {
+            i.preventDefault();
+        }),
+        (e.prototype.progressiveLazyLoad = function (e) {
+            e = e || 1;
+            var t,
+                o,
+                s,
+                n,
+                r,
+                l = this,
+                d = i("img[data-lazy]", l.$slider);
+            d.length
+                ? ((t = d.first()),
+                  (o = t.attr("data-lazy")),
+                  (s = t.attr("data-srcset")),
+                  (n = t.attr("data-sizes") || l.$slider.attr("data-sizes")),
+                  ((r = document.createElement("img")).onload = function () {
+                      s && (t.attr("srcset", s), n && t.attr("sizes", n)),
+                          t.attr("src", o).removeAttr("data-lazy data-srcset data-sizes").removeClass("slick-loading"),
+                          !0 === l.options.adaptiveHeight && l.setPosition(),
+                          l.$slider.trigger("lazyLoaded", [l, t, o]),
+                          l.progressiveLazyLoad();
+                  }),
+                  (r.onerror = function () {
+                      e < 3
+                          ? setTimeout(function () {
+                                l.progressiveLazyLoad(e + 1);
+                            }, 500)
+                          : (t.removeAttr("data-lazy").removeClass("slick-loading").addClass("slick-lazyload-error"), l.$slider.trigger("lazyLoadError", [l, t, o]), l.progressiveLazyLoad());
+                  }),
+                  (r.src = o))
+                : l.$slider.trigger("allImagesLoaded", [l]);
+        }),
+        (e.prototype.refresh = function (e) {
+            var t,
+                o,
+                s = this;
+            (o = s.slideCount - s.options.slidesToShow),
+                !s.options.infinite && s.currentSlide > o && (s.currentSlide = o),
+                s.slideCount <= s.options.slidesToShow && (s.currentSlide = 0),
+                (t = s.currentSlide),
+                s.destroy(!0),
+                i.extend(s, s.initials, { currentSlide: t }),
+                s.init(),
+                e || s.changeSlide({ data: { message: "index", index: t } }, !1);
+        }),
+        (e.prototype.registerBreakpoints = function () {
+            var e,
+                t,
+                o,
+                s = this,
+                n = s.options.responsive || null;
+            if ("array" === i.type(n) && n.length) {
+                for (e in ((s.respondTo = s.options.respondTo || "window"), n))
+                    if (((o = s.breakpoints.length - 1), n.hasOwnProperty(e))) {
+                        for (t = n[e].breakpoint; o >= 0; ) s.breakpoints[o] && s.breakpoints[o] === t && s.breakpoints.splice(o, 1), o--;
+                        s.breakpoints.push(t), (s.breakpointSettings[t] = n[e].settings);
+                    }
+                s.breakpoints.sort(function (i, e) {
+                    return s.options.mobileFirst ? i - e : e - i;
+                });
+            }
+        }),
+        (e.prototype.reinit = function () {
+            var e = this;
+            (e.$slides = e.$slideTrack.children(e.options.slide).addClass("slick-slide")),
+                (e.slideCount = e.$slides.length),
+                e.currentSlide >= e.slideCount && 0 !== e.currentSlide && (e.currentSlide = e.currentSlide - e.options.slidesToScroll),
+                e.slideCount <= e.options.slidesToShow && (e.currentSlide = 0),
+                e.registerBreakpoints(),
+                e.setProps(),
+                e.setupInfinite(),
+                e.buildArrows(),
+                e.updateArrows(),
+                e.initArrowEvents(),
+                e.buildDots(),
+                e.updateDots(),
+                e.initDotEvents(),
+                e.cleanUpSlideEvents(),
+                e.initSlideEvents(),
+                e.checkResponsive(!1, !0),
+                !0 === e.options.focusOnSelect && i(e.$slideTrack).children().on("click.slick", e.selectHandler),
+                e.setSlideClasses("number" == typeof e.currentSlide ? e.currentSlide : 0),
+                e.setPosition(),
+                e.focusHandler(),
+                (e.paused = !e.options.autoplay),
+                e.autoPlay(),
+                e.$slider.trigger("reInit", [e]);
+        }),
+        (e.prototype.resize = function () {
+            var e = this;
+            i(window).width() !== e.windowWidth &&
+                (clearTimeout(e.windowDelay),
+                (e.windowDelay = window.setTimeout(function () {
+                    (e.windowWidth = i(window).width()), e.checkResponsive(), e.unslicked || e.setPosition();
+                }, 50)));
+        }),
+        (e.prototype.removeSlide = e.prototype.slickRemove = function (i, e, t) {
+            var o = this;
+            if (((i = "boolean" == typeof i ? (!0 === (e = i) ? 0 : o.slideCount - 1) : !0 === e ? --i : i), o.slideCount < 1 || i < 0 || i > o.slideCount - 1)) return !1;
+            o.unload(),
+                !0 === t ? o.$slideTrack.children().remove() : o.$slideTrack.children(this.options.slide).eq(i).remove(),
+                (o.$slides = o.$slideTrack.children(this.options.slide)),
+                o.$slideTrack.children(this.options.slide).detach(),
+                o.$slideTrack.append(o.$slides),
+                (o.$slidesCache = o.$slides),
+                o.reinit();
+        }),
+        (e.prototype.setCSS = function (i) {
+            var e,
+                t,
+                o = this,
+                s = {};
+            !0 === o.options.rtl && (i = -i),
+                (e = "left" == o.positionProp ? Math.ceil(i) + "px" : "0px"),
+                (t = "top" == o.positionProp ? Math.ceil(i) + "px" : "0px"),
+                (s[o.positionProp] = i),
+                !1 === o.transformsEnabled
+                    ? o.$slideTrack.css(s)
+                    : ((s = {}), !1 === o.cssTransitions ? ((s[o.animType] = "translate(" + e + ", " + t + ")"), o.$slideTrack.css(s)) : ((s[o.animType] = "translate3d(" + e + ", " + t + ", 0px)"), o.$slideTrack.css(s)));
+        }),
+        (e.prototype.setDimensions = function () {
+            var i = this;
+            !1 === i.options.vertical
+                ? !0 === i.options.centerMode && i.$list.css({ padding: "0px " + i.options.centerPadding })
+                : (i.$list.height(i.$slides.first().outerHeight(!0) * i.options.slidesToShow), !0 === i.options.centerMode && i.$list.css({ padding: i.options.centerPadding + " 0px" })),
+                (i.listWidth = i.$list.width()),
+                (i.listHeight = i.$list.height()),
+                !1 === i.options.vertical && !1 === i.options.variableWidth
+                    ? ((i.slideWidth = Math.ceil(i.listWidth / i.options.slidesToShow)), i.$slideTrack.width(Math.ceil(i.slideWidth * i.$slideTrack.children(".slick-slide").length)))
+                    : !0 === i.options.variableWidth
+                    ? i.$slideTrack.width(5e3 * i.slideCount)
+                    : ((i.slideWidth = Math.ceil(i.listWidth)), i.$slideTrack.height(Math.ceil(i.$slides.first().outerHeight(!0) * i.$slideTrack.children(".slick-slide").length)));
+            var e = i.$slides.first().outerWidth(!0) - i.$slides.first().width();
+            !1 === i.options.variableWidth && i.$slideTrack.children(".slick-slide").width(i.slideWidth - e);
+        }),
+        (e.prototype.setFade = function () {
+            var e,
+                t = this;
+            t.$slides.each(function (o, s) {
+                (e = t.slideWidth * o * -1),
+                    !0 === t.options.rtl ? i(s).css({ position: "relative", right: e, top: 0, zIndex: t.options.zIndex - 2, opacity: 0 }) : i(s).css({ position: "relative", left: e, top: 0, zIndex: t.options.zIndex - 2, opacity: 0 });
+            }),
+                t.$slides.eq(t.currentSlide).css({ zIndex: t.options.zIndex - 1, opacity: 1 });
+        }),
+        (e.prototype.setHeight = function () {
+            var i = this;
+            if (1 === i.options.slidesToShow && !0 === i.options.adaptiveHeight && !1 === i.options.vertical) {
+                var e = i.$slides.eq(i.currentSlide).outerHeight(!0);
+                i.$list.css("height", e);
+            }
+        }),
+        (e.prototype.setOption = e.prototype.slickSetOption = function () {
+            var e,
+                t,
+                o,
+                s,
+                n,
+                r = this,
+                l = !1;
+            if (
+                ("object" === i.type(arguments[0])
+                    ? ((o = arguments[0]), (l = arguments[1]), (n = "multiple"))
+                    : "string" === i.type(arguments[0]) &&
+                      ((o = arguments[0]), (s = arguments[1]), (l = arguments[2]), "responsive" === arguments[0] && "array" === i.type(arguments[1]) ? (n = "responsive") : void 0 !== arguments[1] && (n = "single")),
+                "single" === n)
+            )
+                r.options[o] = s;
+            else if ("multiple" === n)
+                i.each(o, function (i, e) {
+                    r.options[i] = e;
+                });
+            else if ("responsive" === n)
+                for (t in s)
+                    if ("array" !== i.type(r.options.responsive)) r.options.responsive = [s[t]];
+                    else {
+                        for (e = r.options.responsive.length - 1; e >= 0; ) r.options.responsive[e].breakpoint === s[t].breakpoint && r.options.responsive.splice(e, 1), e--;
+                        r.options.responsive.push(s[t]);
+                    }
+            l && (r.unload(), r.reinit());
+        }),
+        (e.prototype.setPosition = function () {
+            var i = this;
+            i.setDimensions(), i.setHeight(), !1 === i.options.fade ? i.setCSS(i.getLeft(i.currentSlide)) : i.setFade(), i.$slider.trigger("setPosition", [i]);
+        }),
+        (e.prototype.setProps = function () {
+            var i = this,
+                e = document.body.style;
+            (i.positionProp = !0 === i.options.vertical ? "top" : "left"),
+                "top" === i.positionProp ? i.$slider.addClass("slick-vertical") : i.$slider.removeClass("slick-vertical"),
+                (void 0 === e.WebkitTransition && void 0 === e.MozTransition && void 0 === e.msTransition) || (!0 === i.options.useCSS && (i.cssTransitions = !0)),
+                i.options.fade && ("number" == typeof i.options.zIndex ? i.options.zIndex < 3 && (i.options.zIndex = 3) : (i.options.zIndex = i.defaults.zIndex)),
+                void 0 !== e.OTransform && ((i.animType = "OTransform"), (i.transformType = "-o-transform"), (i.transitionType = "OTransition"), void 0 === e.perspectiveProperty && void 0 === e.webkitPerspective && (i.animType = !1)),
+                void 0 !== e.MozTransform && ((i.animType = "MozTransform"), (i.transformType = "-moz-transform"), (i.transitionType = "MozTransition"), void 0 === e.perspectiveProperty && void 0 === e.MozPerspective && (i.animType = !1)),
+                void 0 !== e.webkitTransform &&
+                    ((i.animType = "webkitTransform"), (i.transformType = "-webkit-transform"), (i.transitionType = "webkitTransition"), void 0 === e.perspectiveProperty && void 0 === e.webkitPerspective && (i.animType = !1)),
+                void 0 !== e.msTransform && ((i.animType = "msTransform"), (i.transformType = "-ms-transform"), (i.transitionType = "msTransition"), void 0 === e.msTransform && (i.animType = !1)),
+                void 0 !== e.transform && !1 !== i.animType && ((i.animType = "transform"), (i.transformType = "transform"), (i.transitionType = "transition")),
+                (i.transformsEnabled = i.options.useTransform && null !== i.animType && !1 !== i.animType);
+        }),
+        (e.prototype.setSlideClasses = function (i) {
+            var e,
+                t,
+                o,
+                s,
+                n = this;
+            if (((t = n.$slider.find(".slick-slide").removeClass("slick-active slick-center slick-current").attr("aria-hidden", "true")), n.$slides.eq(i).addClass("slick-current"), !0 === n.options.centerMode)) {
+                var r = n.options.slidesToShow % 2 == 0 ? 1 : 0;
+                (e = Math.floor(n.options.slidesToShow / 2)),
+                    !0 === n.options.infinite &&
+                        (i >= e && i <= n.slideCount - 1 - e
+                            ? n.$slides
+                                  .slice(i - e + r, i + e + 1)
+                                  .addClass("slick-active")
+                                  .attr("aria-hidden", "false")
+                            : ((o = n.options.slidesToShow + i),
+                              t
+                                  .slice(o - e + 1 + r, o + e + 2)
+                                  .addClass("slick-active")
+                                  .attr("aria-hidden", "false")),
+                        0 === i ? t.eq(t.length - 1 - n.options.slidesToShow).addClass("slick-center") : i === n.slideCount - 1 && t.eq(n.options.slidesToShow).addClass("slick-center")),
+                    n.$slides.eq(i).addClass("slick-center");
+            } else
+                i >= 0 && i <= n.slideCount - n.options.slidesToShow
+                    ? n.$slides
+                          .slice(i, i + n.options.slidesToShow)
+                          .addClass("slick-active")
+                          .attr("aria-hidden", "false")
+                    : t.length <= n.options.slidesToShow
+                    ? t.addClass("slick-active").attr("aria-hidden", "false")
+                    : ((s = n.slideCount % n.options.slidesToShow),
+                      (o = !0 === n.options.infinite ? n.options.slidesToShow + i : i),
+                      n.options.slidesToShow == n.options.slidesToScroll && n.slideCount - i < n.options.slidesToShow
+                          ? t
+                                .slice(o - (n.options.slidesToShow - s), o + s)
+                                .addClass("slick-active")
+                                .attr("aria-hidden", "false")
+                          : t
+                                .slice(o, o + n.options.slidesToShow)
+                                .addClass("slick-active")
+                                .attr("aria-hidden", "false"));
+            ("ondemand" !== n.options.lazyLoad && "anticipated" !== n.options.lazyLoad) || n.lazyLoad();
+        }),
+        (e.prototype.setupInfinite = function () {
+            var e,
+                t,
+                o,
+                s = this;
+            if ((!0 === s.options.fade && (s.options.centerMode = !1), !0 === s.options.infinite && !1 === s.options.fade && ((t = null), s.slideCount > s.options.slidesToShow))) {
+                for (o = !0 === s.options.centerMode ? s.options.slidesToShow + 1 : s.options.slidesToShow, e = s.slideCount; e > s.slideCount - o; e -= 1)
+                    (t = e - 1),
+                        i(s.$slides[t])
+                            .clone(!0)
+                            .attr("id", "")
+                            .attr("data-slick-index", t - s.slideCount)
+                            .prependTo(s.$slideTrack)
+                            .addClass("slick-cloned");
+                for (e = 0; e < o + s.slideCount; e += 1)
+                    (t = e),
+                        i(s.$slides[t])
+                            .clone(!0)
+                            .attr("id", "")
+                            .attr("data-slick-index", t + s.slideCount)
+                            .appendTo(s.$slideTrack)
+                            .addClass("slick-cloned");
+                s.$slideTrack
+                    .find(".slick-cloned")
+                    .find("[id]")
+                    .each(function () {
+                        i(this).attr("id", "");
+                    });
+            }
+        }),
+        (e.prototype.interrupt = function (i) {
+            i || this.autoPlay(), (this.interrupted = i);
+        }),
+        (e.prototype.selectHandler = function (e) {
+            var t = this,
+                o = i(e.target).is(".slick-slide") ? i(e.target) : i(e.target).parents(".slick-slide"),
+                s = parseInt(o.attr("data-slick-index"));
+            s || (s = 0), t.slideCount <= t.options.slidesToShow ? t.slideHandler(s, !1, !0) : t.slideHandler(s);
+        }),
+        (e.prototype.slideHandler = function (i, e, t) {
+            var o,
+                s,
+                n,
+                r,
+                l,
+                d = null,
+                a = this;
+            if (((e = e || !1), !((!0 === a.animating && !0 === a.options.waitForAnimate) || (!0 === a.options.fade && a.currentSlide === i))))
+                if (
+                    (!1 === e && a.asNavFor(i),
+                    (o = i),
+                    (d = a.getLeft(o)),
+                    (r = a.getLeft(a.currentSlide)),
+                    (a.currentLeft = null === a.swipeLeft ? r : a.swipeLeft),
+                    !1 === a.options.infinite && !1 === a.options.centerMode && (i < 0 || i > a.getDotCount() * a.options.slidesToScroll))
+                )
+                    !1 === a.options.fade &&
+                        ((o = a.currentSlide),
+                        !0 !== t
+                            ? a.animateSlide(r, function () {
+                                  a.postSlide(o);
+                              })
+                            : a.postSlide(o));
+                else if (!1 === a.options.infinite && !0 === a.options.centerMode && (i < 0 || i > a.slideCount - a.options.slidesToScroll))
+                    !1 === a.options.fade &&
+                        ((o = a.currentSlide),
+                        !0 !== t
+                            ? a.animateSlide(r, function () {
+                                  a.postSlide(o);
+                              })
+                            : a.postSlide(o));
+                else {
+                    if (
+                        (a.options.autoplay && clearInterval(a.autoPlayTimer),
+                        (s =
+                            o < 0
+                                ? a.slideCount % a.options.slidesToScroll != 0
+                                    ? a.slideCount - (a.slideCount % a.options.slidesToScroll)
+                                    : a.slideCount + o
+                                : o >= a.slideCount
+                                ? a.slideCount % a.options.slidesToScroll != 0
+                                    ? 0
+                                    : o - a.slideCount
+                                : o),
+                        (a.animating = !0),
+                        a.$slider.trigger("beforeChange", [a, a.currentSlide, s]),
+                        (n = a.currentSlide),
+                        (a.currentSlide = s),
+                        a.setSlideClasses(a.currentSlide),
+                        a.options.asNavFor && (l = (l = a.getNavTarget()).slick("getSlick")).slideCount <= l.options.slidesToShow && l.setSlideClasses(a.currentSlide),
+                        a.updateDots(),
+                        a.updateArrows(),
+                        !0 === a.options.fade)
+                    )
+                        return (
+                            !0 !== t
+                                ? (a.fadeSlideOut(n),
+                                  a.fadeSlide(s, function () {
+                                      a.postSlide(s);
+                                  }))
+                                : a.postSlide(s),
+                            void a.animateHeight()
+                        );
+                    !0 !== t
+                        ? a.animateSlide(d, function () {
+                              a.postSlide(s);
+                          })
+                        : a.postSlide(s);
+                }
+        }),
+        (e.prototype.startLoad = function () {
+            var i = this;
+            !0 === i.options.arrows && i.slideCount > i.options.slidesToShow && (i.$prevArrow.hide(), i.$nextArrow.hide()),
+                !0 === i.options.dots && i.slideCount > i.options.slidesToShow && i.$dots.hide(),
+                i.$slider.addClass("slick-loading");
+        }),
+        (e.prototype.swipeDirection = function () {
+            var i,
+                e,
+                t,
+                o,
+                s = this;
+            return (
+                (i = s.touchObject.startX - s.touchObject.curX),
+                (e = s.touchObject.startY - s.touchObject.curY),
+                (t = Math.atan2(e, i)),
+                (o = Math.round((180 * t) / Math.PI)) < 0 && (o = 360 - Math.abs(o)),
+                (o <= 45 && o >= 0) || (o <= 360 && o >= 315)
+                    ? !1 === s.options.rtl
+                        ? "left"
+                        : "right"
+                    : o >= 135 && o <= 225
+                    ? !1 === s.options.rtl
+                        ? "right"
+                        : "left"
+                    : !0 === s.options.verticalSwiping
+                    ? o >= 35 && o <= 135
+                        ? "down"
+                        : "up"
+                    : "vertical"
+            );
+        }),
+        (e.prototype.swipeEnd = function (i) {
+            var e,
+                t,
+                o = this;
+            if (((o.dragging = !1), (o.swiping = !1), o.scrolling)) return (o.scrolling = !1), !1;
+            if (((o.interrupted = !1), (o.shouldClick = !(o.touchObject.swipeLength > 10)), void 0 === o.touchObject.curX)) return !1;
+            if ((!0 === o.touchObject.edgeHit && o.$slider.trigger("edge", [o, o.swipeDirection()]), o.touchObject.swipeLength >= o.touchObject.minSwipe)) {
+                switch ((t = o.swipeDirection())) {
+                    case "left":
+                    case "down":
+                        (e = o.options.swipeToSlide ? o.checkNavigable(o.currentSlide + o.getSlideCount()) : o.currentSlide + o.getSlideCount()), (o.currentDirection = 0);
+                        break;
+                    case "right":
+                    case "up":
+                        (e = o.options.swipeToSlide ? o.checkNavigable(o.currentSlide - o.getSlideCount()) : o.currentSlide - o.getSlideCount()), (o.currentDirection = 1);
+                }
+                "vertical" != t && (o.slideHandler(e), (o.touchObject = {}), o.$slider.trigger("swipe", [o, t]));
+            } else o.touchObject.startX !== o.touchObject.curX && (o.slideHandler(o.currentSlide), (o.touchObject = {}));
+        }),
+        (e.prototype.swipeHandler = function (i) {
+            var e = this;
+            if (!(!1 === e.options.swipe || ("ontouchend" in document && !1 === e.options.swipe) || (!1 === e.options.draggable && -1 !== i.type.indexOf("mouse"))))
+                switch (
+                    ((e.touchObject.fingerCount = i.originalEvent && void 0 !== i.originalEvent.touches ? i.originalEvent.touches.length : 1),
+                    (e.touchObject.minSwipe = e.listWidth / e.options.touchThreshold),
+                    !0 === e.options.verticalSwiping && (e.touchObject.minSwipe = e.listHeight / e.options.touchThreshold),
+                    i.data.action)
+                ) {
+                    case "start":
+                        e.swipeStart(i);
+                        break;
+                    case "move":
+                        e.swipeMove(i);
+                        break;
+                    case "end":
+                        e.swipeEnd(i);
+                }
+        }),
+        (e.prototype.swipeMove = function (i) {
+            var e,
+                t,
+                o,
+                s,
+                n,
+                r,
+                l = this;
+            return (
+                (n = void 0 !== i.originalEvent ? i.originalEvent.touches : null),
+                !(!l.dragging || l.scrolling || (n && 1 !== n.length)) &&
+                    ((e = l.getLeft(l.currentSlide)),
+                    (l.touchObject.curX = void 0 !== n ? n[0].pageX : i.clientX),
+                    (l.touchObject.curY = void 0 !== n ? n[0].pageY : i.clientY),
+                    (l.touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(l.touchObject.curX - l.touchObject.startX, 2)))),
+                    (r = Math.round(Math.sqrt(Math.pow(l.touchObject.curY - l.touchObject.startY, 2)))),
+                    !l.options.verticalSwiping && !l.swiping && r > 4
+                        ? ((l.scrolling = !0), !1)
+                        : (!0 === l.options.verticalSwiping && (l.touchObject.swipeLength = r),
+                          (t = l.swipeDirection()),
+                          void 0 !== i.originalEvent && l.touchObject.swipeLength > 4 && ((l.swiping = !0), i.preventDefault()),
+                          (s = (!1 === l.options.rtl ? 1 : -1) * (l.touchObject.curX > l.touchObject.startX ? 1 : -1)),
+                          !0 === l.options.verticalSwiping && (s = l.touchObject.curY > l.touchObject.startY ? 1 : -1),
+                          (o = l.touchObject.swipeLength),
+                          (l.touchObject.edgeHit = !1),
+                          !1 === l.options.infinite &&
+                              ((0 === l.currentSlide && "right" === t) || (l.currentSlide >= l.getDotCount() && "left" === t)) &&
+                              ((o = l.touchObject.swipeLength * l.options.edgeFriction), (l.touchObject.edgeHit = !0)),
+                          !1 === l.options.vertical ? (l.swipeLeft = e + o * s) : (l.swipeLeft = e + o * (l.$list.height() / l.listWidth) * s),
+                          !0 === l.options.verticalSwiping && (l.swipeLeft = e + o * s),
+                          !0 !== l.options.fade && !1 !== l.options.touchMove && (!0 === l.animating ? ((l.swipeLeft = null), !1) : void l.setCSS(l.swipeLeft))))
+            );
+        }),
+        (e.prototype.swipeStart = function (i) {
+            var e,
+                t = this;
+            if (((t.interrupted = !0), 1 !== t.touchObject.fingerCount || t.slideCount <= t.options.slidesToShow)) return (t.touchObject = {}), !1;
+            void 0 !== i.originalEvent && void 0 !== i.originalEvent.touches && (e = i.originalEvent.touches[0]),
+                (t.touchObject.startX = t.touchObject.curX = void 0 !== e ? e.pageX : i.clientX),
+                (t.touchObject.startY = t.touchObject.curY = void 0 !== e ? e.pageY : i.clientY),
+                (t.dragging = !0);
+        }),
+        (e.prototype.unfilterSlides = e.prototype.slickUnfilter = function () {
+            var i = this;
+            null !== i.$slidesCache && (i.unload(), i.$slideTrack.children(this.options.slide).detach(), i.$slidesCache.appendTo(i.$slideTrack), i.reinit());
+        }),
+        (e.prototype.unload = function () {
+            var e = this;
+            i(".slick-cloned", e.$slider).remove(),
+                e.$dots && e.$dots.remove(),
+                e.$prevArrow && e.htmlExpr.test(e.options.prevArrow) && e.$prevArrow.remove(),
+                e.$nextArrow && e.htmlExpr.test(e.options.nextArrow) && e.$nextArrow.remove(),
+                e.$slides.removeClass("slick-slide slick-active slick-visible slick-current").attr("aria-hidden", "true").css("width", "");
+        }),
+        (e.prototype.unslick = function (i) {
+            var e = this;
+            e.$slider.trigger("unslick", [e, i]), e.destroy();
+        }),
+        (e.prototype.updateArrows = function () {
+            var i = this;
+            Math.floor(i.options.slidesToShow / 2),
+                !0 === i.options.arrows &&
+                    i.slideCount > i.options.slidesToShow &&
+                    !i.options.infinite &&
+                    (i.$prevArrow.removeClass("slick-disabled").attr("aria-disabled", "false"),
+                    i.$nextArrow.removeClass("slick-disabled").attr("aria-disabled", "false"),
+                    0 === i.currentSlide
+                        ? (i.$prevArrow.addClass("slick-disabled").attr("aria-disabled", "true"), i.$nextArrow.removeClass("slick-disabled").attr("aria-disabled", "false"))
+                        : ((i.currentSlide >= i.slideCount - i.options.slidesToShow && !1 === i.options.centerMode) || (i.currentSlide >= i.slideCount - 1 && !0 === i.options.centerMode)) &&
+                          (i.$nextArrow.addClass("slick-disabled").attr("aria-disabled", "true"), i.$prevArrow.removeClass("slick-disabled").attr("aria-disabled", "false")));
+        }),
+        (e.prototype.updateDots = function () {
+            var i = this;
+            null !== i.$dots &&
+                (i.$dots.find("li").removeClass("slick-active").end(),
+                i.$dots
+                    .find("li")
+                    .eq(Math.floor(i.currentSlide / i.options.slidesToScroll))
+                    .addClass("slick-active"));
+        }),
+        (e.prototype.visibility = function () {
+            var i = this;
+            i.options.autoplay && (document[i.hidden] ? (i.interrupted = !0) : (i.interrupted = !1));
+        }),
+        (i.fn.slick = function () {
+            var i,
+                t,
+                o = this,
+                s = arguments[0],
+                n = Array.prototype.slice.call(arguments, 1),
+                r = o.length;
+            for (i = 0; i < r; i++) if (("object" == typeof s || void 0 === s ? (o[i].slick = new e(o[i], s)) : (t = o[i].slick[s].apply(o[i].slick, n)), void 0 !== t)) return t;
             return o;
         });
-    var T,
-        _,
-        $,
-        O = "inline",
-        M = function () {
-            $ && (_.after($.addClass(T)).detach(), ($ = null));
-        };
-    t.magnificPopup.registerModule(O, {
-        options: { hiddenClass: "hide", markup: "", tNotFound: "Content not found" },
-        proto: {
-            initInline: function () {
-                e.types.push(O),
-                    b(a + "." + O, function () {
-                        M();
-                    });
-            },
-            getInline: function (i, o) {
-                if ((M(), i.src)) {
-                    var s = e.st.inline,
-                        n = t(i.src);
-                    if (n.length) {
-                        var r = n[0].parentNode;
-                        r && r.tagName && (_ || ((T = s.hiddenClass), (_ = k(T)), (T = "mfp-" + T)), ($ = n.after(_).detach().removeClass(T))), e.updateStatus("ready");
-                    } else e.updateStatus("error", s.tNotFound), (n = t("<div>"));
-                    return (i.inlineElement = n), n;
-                }
-                return e.updateStatus("ready"), e._parseMarkup(o, {}, i), o;
-            },
-        },
-    });
-    var E,
-        z = "ajax",
-        j = function () {
-            E && t(document.body).removeClass(E);
-        },
-        I = function () {
-            j(), e.req && e.req.abort();
-        };
-    t.magnificPopup.registerModule(z, {
-        options: { settings: null, cursor: "mfp-ajax-cur", tError: '<a href="%url%">The content</a> could not be loaded.' },
-        proto: {
-            initAjax: function () {
-                e.types.push(z), (E = e.st.ajax.cursor), b(a + "." + z, I), b("BeforeChange." + z, I);
-            },
-            getAjax: function (i) {
-                E && t(document.body).addClass(E), e.updateStatus("loading");
-                var o = t.extend(
-                    {
-                        url: i.src,
-                        success: function (o, s, n) {
-                            var r = { data: o, xhr: n };
-                            S("ParseAjax", r),
-                                e.appendContent(t(r.data), z),
-                                (i.finished = !0),
-                                j(),
-                                e._setFocus(),
-                                setTimeout(function () {
-                                    e.wrap.addClass(f);
-                                }, 16),
-                                e.updateStatus("ready"),
-                                S("AjaxContentAdded");
-                        },
-                        error: function () {
-                            j(), (i.finished = i.loadError = !0), e.updateStatus("error", e.st.ajax.tError.replace("%url%", i.src));
-                        },
-                    },
-                    e.st.ajax.settings
-                );
-                return (e.req = t.ajax(o)), "";
-            },
-        },
-    });
-    var A,
-        P = function (i) {
-            if (i.data && void 0 !== i.data.title) return i.data.title;
-            var o = e.st.image.titleSrc;
-            if (o) {
-                if (t.isFunction(o)) return o.call(e, i);
-                if (i.el) return i.el.attr(o) || "";
-            }
-            return "";
-        };
-    t.magnificPopup.registerModule("image", {
-        options: {
-            markup:
-                '<div class="mfp-figure"><div class="mfp-close"></div><figure><div class="mfp-img"></div><figcaption><div class="mfp-bottom-bar"><div class="mfp-title"></div><div class="mfp-counter"></div></div></figcaption></figure></div>',
-            cursor: "mfp-zoom-out-cur",
-            titleSrc: "title",
-            verticalFit: !0,
-            tError: '<a href="%url%">The image</a> could not be loaded.',
-        },
-        proto: {
-            initImage: function () {
-                var i = e.st.image,
-                    o = ".image";
-                e.types.push("image"),
-                    b(c + o, function () {
-                        "image" === e.currItem.type && i.cursor && t(document.body).addClass(i.cursor);
-                    }),
-                    b(a + o, function () {
-                        i.cursor && t(document.body).removeClass(i.cursor), w.off("resize" + h);
-                    }),
-                    b("Resize" + o, e.resizeImage),
-                    e.isLowIE && b("AfterChange", e.resizeImage);
-            },
-            resizeImage: function () {
-                var t = e.currItem;
-                if (t && t.img && e.st.image.verticalFit) {
-                    var i = 0;
-                    e.isLowIE && (i = parseInt(t.img.css("padding-top"), 10) + parseInt(t.img.css("padding-bottom"), 10)), t.img.css("max-height", e.wH - i);
-                }
-            },
-            _onImageHasSize: function (t) {
-                t.img && ((t.hasSize = !0), A && clearInterval(A), (t.isCheckingImgSize = !1), S("ImageHasSize", t), t.imgHidden && (e.content && e.content.removeClass("mfp-loading"), (t.imgHidden = !1)));
-            },
-            findImageSize: function (t) {
-                var i = 0,
-                    o = t.img[0],
-                    s = function (n) {
-                        A && clearInterval(A),
-                            (A = setInterval(function () {
-                                return o.naturalWidth > 0 ? void e._onImageHasSize(t) : (i > 200 && clearInterval(A), void (3 === ++i ? s(10) : 40 === i ? s(50) : 100 === i && s(500)));
-                            }, n));
-                    };
-                s(1);
-            },
-            getImage: function (i, o) {
-                var s = 0,
-                    n = function () {
-                        i &&
-                            (i.img[0].complete
-                                ? (i.img.off(".mfploader"), i === e.currItem && (e._onImageHasSize(i), e.updateStatus("ready")), (i.hasSize = !0), (i.loaded = !0), S("ImageLoadComplete"))
-                                : 200 > ++s
-                                ? setTimeout(n, 100)
-                                : r());
-                    },
-                    r = function () {
-                        i && (i.img.off(".mfploader"), i === e.currItem && (e._onImageHasSize(i), e.updateStatus("error", a.tError.replace("%url%", i.src))), (i.hasSize = !0), (i.loaded = !0), (i.loadError = !0));
-                    },
-                    a = e.st.image,
-                    l = o.find(".mfp-img");
-                if (l.length) {
-                    var d = document.createElement("img");
-                    (d.className = "mfp-img"),
-                        i.el && i.el.find("img").length && (d.alt = i.el.find("img").attr("alt")),
-                        (i.img = t(d).on("load.mfploader", n).on("error.mfploader", r)),
-                        (d.src = i.src),
-                        l.is("img") && (i.img = i.img.clone()),
-                        (d = i.img[0]).naturalWidth > 0 ? (i.hasSize = !0) : d.width || (i.hasSize = !1);
-                }
-                return (
-                    e._parseMarkup(o, { title: P(i), img_replaceWith: i.img }, i),
-                    e.resizeImage(),
-                    i.hasSize
-                        ? (A && clearInterval(A), i.loadError ? (o.addClass("mfp-loading"), e.updateStatus("error", a.tError.replace("%url%", i.src))) : (o.removeClass("mfp-loading"), e.updateStatus("ready")), o)
-                        : (e.updateStatus("loading"), (i.loading = !0), i.hasSize || ((i.imgHidden = !0), o.addClass("mfp-loading"), e.findImageSize(i)), o)
-                );
-            },
-        },
-    });
-    var L;
-    t.magnificPopup.registerModule("zoom", {
-        options: {
-            enabled: !1,
-            easing: "ease-in-out",
-            duration: 300,
-            opener: function (t) {
-                return t.is("img") ? t : t.find("img");
-            },
-        },
-        proto: {
-            initZoom: function () {
-                var t,
-                    i = e.st.zoom,
-                    o = ".zoom";
-                if (i.enabled && e.supportsTransition) {
-                    var s,
-                        n,
-                        r = i.duration,
-                        d = function (t) {
-                            var e = t.clone().removeAttr("style").removeAttr("class").addClass("mfp-animated-image"),
-                                o = "all " + i.duration / 1e3 + "s " + i.easing,
-                                s = { position: "fixed", zIndex: 9999, left: 0, top: 0, "-webkit-backface-visibility": "hidden" },
-                                n = "transition";
-                            return (s["-webkit-" + n] = s["-moz-" + n] = s["-o-" + n] = s[n] = o), e.css(s), e;
-                        },
-                        c = function () {
-                            e.content.css("visibility", "visible");
-                        };
-                    b("BuildControls" + o, function () {
-                        if (e._allowZoom()) {
-                            if ((clearTimeout(s), e.content.css("visibility", "hidden"), !(t = e._getItemToZoom()))) return void c();
-                            (n = d(t)).css(e._getOffset()),
-                                e.wrap.append(n),
-                                (s = setTimeout(function () {
-                                    n.css(e._getOffset(!0)),
-                                        (s = setTimeout(function () {
-                                            c(),
-                                                setTimeout(function () {
-                                                    n.remove(), (t = n = null), S("ZoomAnimationEnded");
-                                                }, 16);
-                                        }, r));
-                                }, 16));
-                        }
-                    }),
-                        b(l + o, function () {
-                            if (e._allowZoom()) {
-                                if ((clearTimeout(s), (e.st.removalDelay = r), !t)) {
-                                    if (!(t = e._getItemToZoom())) return;
-                                    n = d(t);
-                                }
-                                n.css(e._getOffset(!0)),
-                                    e.wrap.append(n),
-                                    e.content.css("visibility", "hidden"),
-                                    setTimeout(function () {
-                                        n.css(e._getOffset());
-                                    }, 16);
-                            }
-                        }),
-                        b(a + o, function () {
-                            e._allowZoom() && (c(), n && n.remove(), (t = null));
-                        });
-                }
-            },
-            _allowZoom: function () {
-                return "image" === e.currItem.type;
-            },
-            _getItemToZoom: function () {
-                return !!e.currItem.hasSize && e.currItem.img;
-            },
-            _getOffset: function (i) {
-                var o,
-                    s = (o = i ? e.currItem.img : e.st.zoom.opener(e.currItem.el || e.currItem)).offset(),
-                    n = parseInt(o.css("padding-top"), 10),
-                    r = parseInt(o.css("padding-bottom"), 10);
-                s.top -= t(window).scrollTop() - n;
-                var a = { width: o.width(), height: (y ? o.innerHeight() : o[0].offsetHeight) - r - n };
-                return void 0 === L && (L = void 0 !== document.createElement("p").style.MozTransform), L ? (a["-moz-transform"] = a.transform = "translate(" + s.left + "px," + s.top + "px)") : ((a.left = s.left), (a.top = s.top)), a;
-            },
-        },
-    });
-    var H = "iframe",
-        D = function (t) {
-            if (e.currTemplate[H]) {
-                var i = e.currTemplate[H].find("iframe");
-                i.length && (t || (i[0].src = "//about:blank"), e.isIE8 && i.css("display", t ? "block" : "none"));
-            }
-        };
-    t.magnificPopup.registerModule(H, {
-        options: {
-            markup: '<div class="mfp-iframe-scaler"><div class="mfp-close"></div><iframe class="mfp-iframe" src="//about:blank" frameborder="0" allowfullscreen></iframe></div>',
-            srcAction: "iframe_src",
-            patterns: {
-                youtube: { index: "youtube.com", id: "v=", src: "//www.youtube.com/embed/%id%?autoplay=1" },
-                vimeo: { index: "vimeo.com/", id: "/", src: "//player.vimeo.com/video/%id%?autoplay=1" },
-                gmaps: { index: "//maps.google.", src: "%id%&output=embed" },
-            },
-        },
-        proto: {
-            initIframe: function () {
-                e.types.push(H),
-                    b("BeforeChange", function (t, e, i) {
-                        e !== i && (e === H ? D() : i === H && D(!0));
-                    }),
-                    b(a + "." + H, function () {
-                        D();
-                    });
-            },
-            getIframe: function (i, o) {
-                var s = i.src,
-                    n = e.st.iframe;
-                t.each(n.patterns, function () {
-                    return s.indexOf(this.index) > -1 ? (this.id && (s = "string" == typeof this.id ? s.substr(s.lastIndexOf(this.id) + this.id.length, s.length) : this.id.call(this, s)), (s = this.src.replace("%id%", s)), !1) : void 0;
-                });
-                var r = {};
-                return n.srcAction && (r[n.srcAction] = s), e._parseMarkup(o, r, i), e.updateStatus("ready"), o;
-            },
-        },
-    });
-    var W = function (t) {
-            var i = e.items.length;
-            return t > i - 1 ? t - i : 0 > t ? i + t : t;
-        },
-        N = function (t, e, i) {
-            return t.replace(/%curr%/gi, e + 1).replace(/%total%/gi, i);
-        };
-    t.magnificPopup.registerModule("gallery", {
-        options: {
-            enabled: !1,
-            arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
-            preload: [0, 2],
-            navigateByImgClick: !0,
-            arrows: !0,
-            tPrev: "Previous (Left arrow key)",
-            tNext: "Next (Right arrow key)",
-            tCounter: "%curr% of %total%",
-        },
-        proto: {
-            initGallery: function () {
-                var i = e.st.gallery,
-                    s = ".mfp-gallery";
-                return (
-                    (e.direction = !0),
-                    !(!i || !i.enabled) &&
-                        ((n += " mfp-gallery"),
-                        b(c + s, function () {
-                            i.navigateByImgClick &&
-                                e.wrap.on("click" + s, ".mfp-img", function () {
-                                    return e.items.length > 1 ? (e.next(), !1) : void 0;
-                                }),
-                                o.on("keydown" + s, function (t) {
-                                    37 === t.keyCode ? e.prev() : 39 === t.keyCode && e.next();
-                                });
-                        }),
-                        b("UpdateStatus" + s, function (t, i) {
-                            i.text && (i.text = N(i.text, e.currItem.index, e.items.length));
-                        }),
-                        b(d + s, function (t, o, s, n) {
-                            var r = e.items.length;
-                            s.counter = r > 1 ? N(i.tCounter, n.index, r) : "";
-                        }),
-                        b("BuildControls" + s, function () {
-                            if (e.items.length > 1 && i.arrows && !e.arrowLeft) {
-                                var o = i.arrowMarkup,
-                                    s = (e.arrowLeft = t(o.replace(/%title%/gi, i.tPrev).replace(/%dir%/gi, "left")).addClass(g)),
-                                    n = (e.arrowRight = t(o.replace(/%title%/gi, i.tNext).replace(/%dir%/gi, "right")).addClass(g));
-                                s.click(function () {
-                                    e.prev();
-                                }),
-                                    n.click(function () {
-                                        e.next();
-                                    }),
-                                    e.container.append(s.add(n));
-                            }
-                        }),
-                        b(u + s, function () {
-                            e._preloadTimeout && clearTimeout(e._preloadTimeout),
-                                (e._preloadTimeout = setTimeout(function () {
-                                    e.preloadNearbyImages(), (e._preloadTimeout = null);
-                                }, 16));
-                        }),
-                        void b(a + s, function () {
-                            o.off(s), e.wrap.off("click" + s), (e.arrowRight = e.arrowLeft = null);
-                        }))
-                );
-            },
-            next: function () {
-                (e.direction = !0), (e.index = W(e.index + 1)), e.updateItemHTML();
-            },
-            prev: function () {
-                (e.direction = !1), (e.index = W(e.index - 1)), e.updateItemHTML();
-            },
-            goTo: function (t) {
-                (e.direction = t >= e.index), (e.index = t), e.updateItemHTML();
-            },
-            preloadNearbyImages: function () {
-                var t,
-                    i = e.st.gallery.preload,
-                    o = Math.min(i[0], e.items.length),
-                    s = Math.min(i[1], e.items.length);
-                for (t = 1; t <= (e.direction ? s : o); t++) e._preloadItem(e.index + t);
-                for (t = 1; t <= (e.direction ? o : s); t++) e._preloadItem(e.index - t);
-            },
-            _preloadItem: function (i) {
-                if (((i = W(i)), !e.items[i].preloaded)) {
-                    var o = e.items[i];
-                    o.parsed || (o = e.parseEl(i)),
-                        S("LazyLoad", o),
-                        "image" === o.type &&
-                            (o.img = t('<img class="mfp-img" />')
-                                .on("load.mfploader", function () {
-                                    o.hasSize = !0;
-                                })
-                                .on("error.mfploader", function () {
-                                    (o.hasSize = !0), (o.loadError = !0), S("LazyLoadError", o);
-                                })
-                                .attr("src", o.src)),
-                        (o.preloaded = !0);
-                }
-            },
-        },
-    });
-    var q = "retina";
-    t.magnificPopup.registerModule(q, {
-        options: {
-            replaceSrc: function (t) {
-                return t.src.replace(/\.\w+$/, function (t) {
-                    return "@2x" + t;
-                });
-            },
-            ratio: 1,
-        },
-        proto: {
-            initRetina: function () {
-                if (window.devicePixelRatio > 1) {
-                    var t = e.st.retina,
-                        i = t.ratio;
-                    (i = isNaN(i) ? i() : i) > 1 &&
-                        (b("ImageHasSize." + q, function (t, e) {
-                            e.img.css({ "max-width": e.img[0].naturalWidth / i, width: "100%" });
-                        }),
-                        b("ElementParse." + q, function (e, o) {
-                            o.src = t.replaceSrc(o, i);
-                        }));
-                }
-            },
-        },
-    }),
-        C();
-}),
+});
+
+// 
 (function (t) {
     "use strict";
     "function" == typeof define && define.amd ? define(["jquery"], t) : "undefined" != typeof module && module.exports ? (module.exports = t(require("jquery"))) : t(jQuery);
@@ -2003,6 +2492,8 @@
             r._update(!0, t);
         });
 }),
+
+// jQuery-MultiSelect
 (function (t) {
     var e = {
             columns: 1,
@@ -2392,6 +2883,8 @@
             }
         });
 })(jQuery),
+
+// Touch lib
 (function (t) {
     function e(t, e) {
         if (!(t.originalEvent.touches.length > 1)) {
@@ -2425,6 +2918,8 @@
             });
     }
 })(jQuery),
+
+// JSSocials
 (function (t, e, i) {
     function o(t, i) {
         var o = e(t);
@@ -2734,6 +3229,8 @@
         messenger: { label: "Share", logo: "fa fa-commenting", shareUrl: "fb-messenger://share?link={url}", countUrl: "", shareIn: "self" },
     });
 })(window, jQuery, window.jsSocials),
+
+// Odometer
 function () {
     var t,
         e,
@@ -3094,715 +3591,4 @@ function () {
             : "undefined" != typeof exports && null !== exports
             ? (module.exports = i)
             : (window.Odometer = i);
-}.call(this),
-(function (t, e, i) {
-    t(function () {
-        "use strict";
-        t(document).ready(function () {
-            t(".team-rows .aut-item").slice(0, 8).show(),
-                0 != t(".team-rows .aut-item:hidden").length && t("#loadMembers").show(),
-                t("#loadMembers").on("click", function (e) {
-                    e.preventDefault(), t(".team-rows .aut-item:hidden").slice(0, 8).slideDown(), 0 == t(".team-rows .aut-item:hidden").length && (t("#loadMembers").fadeOut("slow"), console.log("atata"));
-                }),
-                t(".team-rows .aut-item").length < 9 && t("#loadMembers").hide(),
-                t(".group-services").multiselect({ texts: { placeholder: "Nach Service filtern" } });
-            var e,
-                i,
-                o = {};
-            if (t("body").hasClass("page-template-partner-locator")) {
-                var s = t(".s-partner-locator .tabs").isotope({
-                    itemSelector: ".partner-locate-one",
-                    filter: function () {
-                        var o = t(this),
-                            s = !i || o.find(".filter-search").text().match(i),
-                            n = !e || o.is(e);
-                        return s && n;
-                    },
-                });
-                s.data("isotope").filteredItems.length ? t(".noresult-pl").fadeOut() : t(".noresult-pl").show();
-            }
-            var n = t(".ms-options input[type='checkbox']");
-            t(".group-services").on("change", function (i) {
-                var r = t(i.target).attr("value-group"),
-                    a = [];
-                n.filter(":checked").each(function () {
-                    a.push(this.value);
-                }),
-                    (a = a.join(", ")),
-                    (o[r] = a),
-                    (e = (function (t) {
-                        var e = "";
-                        for (var i in t) e += t[i];
-                        return console.log(e), e;
-                    })(o)),
-                    console.log(e),
-                    s.isotope(),
-                    s.data("isotope").filteredItems.length ? t(".noresult-pl").fadeOut() : t(".noresult-pl").show();
-            });
-            var r,
-                a,
-                l,
-                d = t(".quicksearch").keyup(
-                    ((r = function () {
-                        (i = new RegExp(d.val(), "gi")), console.log(i), s.isotope(), s.data("isotope").filteredItems.length ? t(".noresult-pl").fadeOut() : t(".noresult-pl").show();
-                    }),
-                    (a = a || 100),
-                    function () {
-                        clearTimeout(l);
-                        var t = arguments,
-                            e = this;
-                        function i() {
-                            r.apply(e, t);
-                        }
-                        l = setTimeout(i, a);
-                    })
-                );
-            if (
-                (t(".parter-area").click(function () {
-                    t(".content-pl").hide();
-                }),
-                t(document).mouseup(function (e) {
-                    var i = t(".parter-area");
-                    i.is(e.target) || 0 !== i.has(e.target).length || t(".content-pl").fadeIn();
-                }),
-                t(window).scroll(function () {
-                    t(this).scrollTop();
-                }),
-                t(".popup-open-pl").magnificPopup({
-                    type: "inline",
-                    midClick: !0,
-                    mainClass: "mfp-fade",
-                    callbacks: {
-                        open: function () {
-                            var e = [];
-                            t(".ms-options li.selected").each(function (i) {
-                                var o = t(this).find("label").text();
-                                e.push(o);
-                            }),
-                                t("#aServices").val(e);
-                        },
-                    },
-                }),
-                t(".slider-tm") && t(".slider-tm").slick({ dots: !0, infinite: !0, speed: 300, slidesToShow: 1, adaptiveHeight: !0, speed: 500 }),
-                t(".bg-slider-company .bg-one").length > 1)
-            )
-                var c = !0;
-            else c = !1;
-            t(".bg-slider-company") && t(".bg-slider-company").slick({ dots: c, arrows: !1, infinite: !0, speed: 300, slidesToShow: 1, adaptiveHeight: !0, speed: 500 }),
-            t(".aub-td").append(t(".bg-slider-company .slick-dots")),
-            t(".popup-video").magnificPopup({ type: "iframe", mainClass: "mfp-fade mp-video", removalDelay: 160, preloader: !1, fixedContentPos: !1 }),
-            t(".popup-message").magnificPopup({
-                type: "inline",
-                midClick: !0,
-                mainClass: "mfp-fade",
-            }),
-            t(".popup-call").magnificPopup({
-                type: "inline",
-                midClick: !0,
-                mainClass: "mfp-fade",
-            }),
-            t(".tab")
-                .click(function () {
-                    t(".tab").removeClass("active").eq(t(this).index()).addClass("active"), t(".tab_item").hide().eq(t(this).index()).fadeIn();
-                })
-                .eq(0)
-                .addClass("active"),
-            t(".tab_item").css("display", "none"),
-            t(".tab_item:first-child").css("display", "block"),
-            t(".gallery-slider") && t(".gallery-slider").slick({ infinite: !0, slidesToShow: 1, slidesToScroll: 1, dots: !0, nextArrow: '<i class="las la-angle-right"></i>', prevArrow: '<i class="las la-angle-left"></i>', adaptiveHeight: !0 }),
-            t(".ms-blocks2-one").matchHeight(),
-            t(".ms-blocks1-one h3").matchHeight(),
-            t(".price-blocks-eh").matchHeight(),
-            t(".kubernetes-btn p").matchHeight(),
-            t(".usercases-one-eh").matchHeight(),
-            t(".posts-3col .f-item-bottom").matchHeight(),
-            t(".link-soon").click(function (e) {
-                e.preventDefault(), t(".link-soon").removeClass("show-tag"), t(this).addClass("show-tag");
-            }),
-            t("body").on("click", ".link-soon-li > a", function (e) {
-                e.preventDefault(), t(".link-soon-li > a").removeClass("show-tag"), t(this).addClass("show-tag");
-            });
-            var u = t(".price-calc").data("dprice");
-            var p = 1;
-            t(".price-calc .price-val").each(function () {
-                var e = t(this).find(".polzunok"),
-                    i = e.data("value"),
-                    o = e.data("price");
-                e.slider({
-                    animate: "slow",
-                    range: "min",
-                    max: i.length - 1,
-                    value: 0,
-                    slide: function (s, n) {
-                        e.closest(".price-val").find(".price-calc-input").text(i[n.value]),
-                            e.attr("data-sprice", o[n.value]),
-                            (function () {
-                                var e = 1;
-                                t(".price-calc .price-val").each(function (i) {
-                                    var o = t(this).find(".polzunok");
-                                    1 == e && (res_1 = o.attr("data-sprice")), 2 == e && (res_2 = o.attr("data-sprice")), 3 == e && (res_3 = o.attr("data-sprice")), e++;
-                                });
-                                var i = parseInt(res_1) + parseInt(res_2) + parseInt(res_3) + parseInt(u);
-                                t(".price-calc-res var").html(i);
-                            })();
-                    },
-                });
-                var s = e.slider("value");
-                e.parent().find(".price-calc-input").html(i[s]),
-                    e.prepend('<div class="tags-val"></div>'),
-                    t.each(i, function (t, i) {
-                        e.find(".tags-val").append("<div><span>" + i + "</span></div>");
-                    }),
-                    e.attr("data-sprice", o[s]),
-                    1 == p && (res1 = e.data("sprice")),
-                    2 == p && (res2 = e.data("sprice")),
-                    3 == p && (res3 = e.data("sprice")),
-                    p++;
-            }),
-                t("body").hasClass("page-template-pricing-dedicated-machines") &&
-                    (function (e, i, o) {
-                        var s = e + i + o + u;
-                        t(".price-calc-res var").html(s);
-                    })(res1, res2, res3),
-                t(".single-post .content a").on("click", function (e) {
-                    var i = t(this),
-                        o = t(this).find("img").width(),
-                        s = t(this).attr("href"),
-                        n = s.split("v=");
-                    (n = (n = (n = n[1]).split("&t"))[0]),
-                        s.indexOf("youtube") >= 0 &&
-                            (e.preventDefault(),
-                            i.after(
-                                '<div style="max-width:' +
-                                    o +
-                                    'px;margin:0 auto;"><div style="position:relative;height:0;padding-bottom:56.21%"><iframe src="https://www.youtube.com/embed/' +
-                                    n +
-                                    '?autoplay=1" style="position:absolute;width:100%;height:100%;left:0" width="641" height="360" frameborder="0" allowfullscreen></iframe></div></div>'
-                            ),
-                            i.remove());
-                }),
-                t(".slider").bxSlider({ mode: "horizontal", infiniteLoop: !0, pager: !0, pagerType: "full", touchEnabled: !0, captions: !0, oneToOneTouch: !0 }),
-                t(".partners-slider") && t(".partners-slider").slick({
-                    infinite: !0,
-                    slidesToShow: 5,
-                    slidesToScroll: 1,
-                    nextArrow: '<i class="las la-angle-right"></i>',
-                    prevArrow: '<i class="las la-angle-left"></i>',
-                    adaptiveHeight: !0,
-                    autoplay: !0,
-                    autoplaySpeed: 4e3,
-                    responsive: [
-                        { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1 } },
-                        { breakpoint: 768, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-                        { breakpoint: 576, settings: { slidesToShow: 2, slidesToScroll: 1, arrows: !1 } },
-                    ],
-                }),
-                t(".browse-slider").bxSlider({
-                    mode: "horizontal",
-                    slideWidth: 300,
-                    minSlides: 1,
-                    maxSlides: 4,
-                    slideMargin: 10,
-                    moveSlides: 1,
-                    responsive: !0,
-                    infiniteLoop: !0,
-                    auto: !0,
-                    pager: !1,
-                    infiniteLoop: !0,
-                    pagerType: "full",
-                    touchEnabled: !1,
-                    oneToOneTouch: !0,
-                    captions: !0,
-                }),
-                t(".projects, .blog-loop, .filtering").on("click", ".f-item", function () {
-                    var e = t(this).find(".item-link").attr("href");
-                    location.href = e;
-                });
-        }),
-            t(document).ready(function (t) {
-                t(".open-popup-link").magnificPopup({ type: "inline", midClick: !0, mainClass: "mfp-fade" });
-            });
-        var e,
-            i = document.getElementsByClassName("accordion");
-        for (e = 0; e < i.length; e++)
-            i[e].addEventListener("click", function () {
-                this.classList.toggle("acc-active");
-                var t = this.nextElementSibling;
-                "block" === t.style.display ? (t.style.display = "none") : (t.style.display = "block");
-            });
-        t(".coutdown").each(function () {
-            t(this)
-                .prop("coutdown", 0)
-                .animate(
-                    { Counter: t(this).text() },
-                    {
-                        duration: 5e3,
-                        easing: "swing",
-                        step: function (e) {
-                            t(this).text(Math.ceil(e));
-                        },
-                    }
-                );
-        }),
-            t(".number:not(#count3)").each(function () {
-                t(this)
-                    .prop("coutdown", 0)
-                    .animate(
-                        { Counter: t(this).text() },
-                        {
-                            duration: 5e3,
-                            easing: "swing",
-                            step: function (e) {
-                                t(this).text(Math.ceil(e));
-                            },
-                        }
-                    );
-            }),
-            t(document).ready(function () {
-                t(".ytvideo[data-video]").one("click", function () {
-                    var e = t(this);
-                    e.attr("width"), e.attr("height");
-                    e.html('<iframe src="https://www.youtube.com/embed/' + e.data("video") + '?autoplay=1"></iframe>');
-                }),
-                    jQuery(".filter-post .filter-link").on("click", function (e) {
-                        e.preventDefault(), jQuery(".filter-post .filter-link").removeClass("filter-active"), jQuery(this).addClass("filter-active");
-                        var i = jQuery(this).data("service-id"),
-                            o = jQuery("#country-select").find("option:selected").data("country-id");
-                        t.ajax({
-                            type: "POST",
-                            url: ajaxactionurl,
-                            data: { action: "get_projects", service_id: i, country_id: o },
-                            success: function (e) {
-                                jQuery("#ajax-container").html(e), t("#ajax-container .filter-link").css("opacity", 1);
-                            },
-                        });
-                    });
-            }),
-            t(".page-customer-project .filter-post .filter-link").on("click", function (e) {
-                e.preventDefault(), jQuery(".page-customer-project .filter-post .filter-link").removeClass("filter-active"), jQuery(this).addClass("filter-active");
-                var i = jQuery(this).data("service-id"),
-                    o = jQuery("#country-select").find("option:selected").data("country-id");
-                t.ajax({
-                    type: "POST",
-                    url: ajaxactionurl,
-                    cache: !1,
-                    headers: { "cache-control": "no-cache" },
-                    data: { action: "get_stories", service_id: i, country_id: o },
-                    success: function (e) {
-                        t("#ajax-projects").html(e),
-                            t("#ajax-projects .filter-link").css("opacity", 1),
-                            t(".cp-slider") && t(".cp-slider").slick({ infinite: !0, slidesToShow: 3, slidesToScroll: 1, responsive: [{ breakpoint: 767, settings: { slidesToShow: 1, slidesToScroll: 1 } }] });
-                    },
-                });
-            }),
-            jQuery("body").on("click", "#load-more-events", function (e) {
-                e.preventDefault();
-                var i = jQuery(this).data("service-id"),
-                    o = jQuery(this).data("country-id"),
-                    s = jQuery(this).data("page"),
-                    n = jQuery(this);
-                t.ajax({
-                    type: "POST",
-                    url: window.wp_data.ajax_url,
-                    data: { action: "get_projects", service_id: i, country_id: o, paged: s },
-                    success: function (e) {
-                        n.remove(), jQuery("#ajax-container").append(e), t(".posts-3col .f-item-bottom").matchHeight();
-                    },
-                });
-            }),
-            t(".bookmark").click(function (e) {
-                e.preventDefault();
-                var i = this.href,
-                    o = this.title;
-                if (navigator.userAgent.toLowerCase().indexOf("chrome") > -1)
-                    alert("This function is not available in Google Chrome. Click the star symbol at the end of the address-bar or hit Ctrl-D (Command+D for Macs) to create a bookmark.");
-                else if (window.sidebar) window.sidebar.addPanel(o, i, "");
-                else if (window.external || document.all) window.external.AddFavorite(i, o);
-                else {
-                    if (!window.opera) return alert("Your browser does not support this bookmark action"), !1;
-                    t(".bookmark").attr("href", i), t(".bookmark").attr("title", o), t(".bookmark").attr("rel", "sidebar");
-                }
-            });
-        document.getElementsByName("vdc-modal-cb"), document.getElementsByClassName("vdc-cb-area"), document.getElementById("vdc-send-modal");
-        t(".send-subscribe").click(function (e) {
-            e.preventDefault();
-            var i = t(this),
-                o = t("#send_email").val(),
-                s = i.closest("form").attr("id");
-            "" == o && (o = i.closest("form").find(".simple-input").val());
-            var n = "function" == typeof ga && Object.hasOwnProperty.bind(ga)("getAll") ? ga.getAll()[0].get("clientId") : null,
-                r = g("referrer"),
-                a = { url: "https://vdc.xelon.ch/api/user/trial/subscribe?email=" + o + "&cid=" + n + "&referrer=" + r, method: "POST", timeout: 0 };
-            t.ajax(a)
-                .done(function (e) {
-                    i.closest("form").find(".msg").html(e.message).fadeIn("slow"),
-                        (window.dataLayer = window.dataLayer || []),
-                        window.dataLayer.push({ event: "formSubmitted", "gtm.elementId": s }),
-                        "object" == typeof window.analytics && "function" == typeof window.analytics.identify && window.analytics.identify({ email: o }),
-                        t("#open-popup .modal-area").css("padding-bottom", "60px"),
-                        (document.location.href = "https://vdc.xelon.ch/demo?email=" + o),
-                        i.remove();
-                })
-                .fail(function (t, e, o) {
-                    console.log({ xhr: t, textStatus: e, errorThrown: o }),
-                        t &&
-                            t.responseJSON &&
-                            "Email has been already used" === t.responseJSON.error &&
-                            (i.closest(".vdc-modal").length > 0
-                                ? i.closest("form").append('<a class="danger-btn w100" href="https://vdc.xelon.ch/login">Go to Login</a>')
-                                : i.closest("form").prepend('<a class="danger-btn w100" href="https://vdc.xelon.ch/login">Go to Login</a>'),
-                            i.closest("form").find(".simple-input").remove(),
-                            i.closest("form").find(".modal-input").remove(),
-                            i.closest("form").find(".msg").html("An account with this email already exists").addClass("rose-c").fadeIn("slow"),
-                            i.remove()),
-                        t && t.responseJSON && t.responseJSON.error && t.responseJSON.error.email
-                            ? i.closest("form").find(".msg").html(t.responseJSON.error.email).addClass("rose-c").fadeIn("slow")
-                            : t && t.responseJSON && t.responseJSON.error && t.responseJSON.error && i.closest("form").find(".msg").html(t.responseJSON.error).addClass("rose-c").fadeIn("slow");
-                });
-        }),
-            
-            jQuery(document).ready(function (t) {
-                t("#share").jsSocials({ showLabel: !0, showCount: !1, shareIn: "popup", shares: ["linkedin", "twitter", "facebook", "email"] });
-            }),
-            t(document).ready(function () {
-                t(".moreBox").slice(0, 4).show(),
-                    0 != t(".blogBox:hidden").length && t("#loadMore").show(),
-                    t("#loadMore").on("click", function (e) {
-                        e.preventDefault(), t(".moreBox:hidden").slice(0, 4).slideDown(), 0 == t(".moreBox:hidden").length && t("#loadMore").fadeOut("slow");
-                    });
-            });
-        var o = window.location.toString();
-        function s(t) {
-            return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#email").css("border", "none"), !0) : (jQuery("#email").css("border", "1px solid #EF5261"), !1);
-        }
-        function n(t) {
-            return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#hy_email").css("border", "none"), !0) : (jQuery("#hy_email").css("border", "1px solid #EF5261"), !1);
-        }
-        function r(t) {
-            return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#modalEmail").css("border", "none"), !0) : (jQuery("#modalEmail").css("border", "1px solid #EF5261"), !1);
-        }
-        function a(t) {
-            return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#soEmail").css("border", "none"), !0) : (jQuery("#soEmail").css("border", "1px solid #EF5261"), !1);
-        }
-        function l(t) {
-            return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#pr_email").css("border", "solid 2px rgba(255, 255, 255, 0.3)"), !0) : (jQuery("#pr_email").css("border", "solid 2px red"), !1);
-        }
-        function d(t) {
-            return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#spEmail").css("border", "none"), !0) : (jQuery("#spEmail").css("border", "1px solid #EF5261"), !1);
-        }
-        function c(t) {
-            return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#subsEmail").css("border", "none"), !0) : (jQuery("#subsEmail").css("border", "1px solid #EF5261"), !1);
-        }
-        function u(t) {
-            "" == t.val() ? t.css("border", "1px solid #EF5261") : t.css("border", "none");
-        }
-        function p(e) {
-            var i = t("label[for='" + e.attr("id") + "']");
-            return 0 == i.length && (i = e.closest("label")), 0 == i.length ? null : i;
-        }
-        function h(t) {
-            let e = p(t);
-            e && e.addClass("up");
-        }
-        function f(t) {
-            let e = p(t);
-            e && e.removeClass("up");
-        }
-        if (
-            (jQuery(".submit").on("click", function (e) {
-                e.preventDefault();
-                var i = t(this).closest("form").serialize();
-                t("#contact-form input:checkbox:not(:checked)").each(function (t) {
-                    i += "&" + this.name + "=false";
-                });
-                jQuery("#name").val();
-                var n = jQuery("#email").val(),
-                    r = jQuery("#msg").val();
-                jQuery("#subj").val();
-                if ((s(n), "" == r || "" == n || 0 == s(jQuery("#email").val()))) return s(n), u(jQuery("#msg")), u(jQuery("#name")), !1;
-                jQuery.ajax({
-                    type: "post",
-                    url: ajaxactionurl,
-                    data: "action=send_email&" + i + "&url=" + o,
-                    dataType: "json",
-                    success: function (e) {
-                        jQuery("#contact-form input").val(""), jQuery("#contact-form textarea").val(""), t(".sucmsg1").fadeIn(0).html(e.data).addClass("sucmsg-style").fadeOut(3e4);
-                    },
-                    error: function (t, e, i) {
-                        console.log(e);
-                    },
-                });
-            }),
-            jQuery(".hy-submit").on("click", function (e) {
-                e.preventDefault();
-                var i = t(this).closest("form").serialize();
-                t("#hy-form input:checkbox:not(:checked)").each(function (t) {
-                    i += "&" + this.name + "=false";
-                });
-                jQuery("#hy_name").val();
-                var s = jQuery("#hy_email").val(),
-                    r = jQuery("#hy_msg").val();
-                if ((n(s), "" == r || "" == s || 0 == n(jQuery("#hy_email").val()))) return n(s), u(jQuery("#hy_msg")), u(jQuery("#hy_name")), !1;
-                jQuery.ajax({
-                    type: "post",
-                    url: ajaxactionurl,
-                    data: "action=send_email&" + i + "&url=" + o,
-                    dataType: "json",
-                    success: function (e) {
-                        jQuery("#hy-form input").val(""), jQuery("#hy-form textarea").val(""), t(".sucmsg2").fadeIn(0).html(e.data).addClass("sucmsg-style").fadeOut(3e4);
-                    },
-                    error: function (t, e, i) {
-                        console.log(e);
-                    },
-                });
-            }),
-            jQuery(".subs-submit").on("click", function (e) {
-                e.preventDefault();
-                var i = t(this).closest("form").serialize();
-                t("#subs-form input:checkbox:not(:checked)").each(function (t) {
-                    i += "&" + this.name + "=false";
-                });
-                var s = jQuery("#subsEmail").val();
-                if ((c(s), "" == s || 0 == c(jQuery("#subsEmail").val()))) return c(s), !1;
-                jQuery.ajax({
-                    type: "post",
-                    url: ajaxactionurl,
-                    data: "action=send_email&" + i + "&url=" + o,
-                    dataType: "json",
-                    success: function (e) {
-                        jQuery("#modal-form input").val(""), t(".sucmsg4").fadeIn(0).html(e.data).addClass("sucmsg-style").fadeOut(3e4);
-                    },
-                    error: function (t, e, i) {
-                        console.log(e);
-                    },
-                });
-            }),
-            jQuery(".support-submit").on("click", function (e) {
-                e.preventDefault();
-                var i = t(this).closest("form").serialize();
-                t("#support-form input:checkbox:not(:checked)").each(function (t) {
-                    i += "&" + this.name + "=false";
-                });
-                jQuery("#spFullname").val();
-                var s = jQuery("#spEmail").val(),
-                    n = jQuery("#spMsg").val();
-                jQuery("#spCompany").val();
-                if ((d(s), "" == n || "" == s || 0 == d(jQuery("#spEmail").val()))) return r(modalEmail), u(jQuery("#spMsg")), u(jQuery("#spCompany")), u(jQuery("#spFullname")), !1;
-                jQuery.ajax({
-                    type: "post",
-                    url: ajaxactionurl,
-                    data: "action=send_email&" + i + "&url=" + o,
-                    dataType: "json",
-                    success: function (e) {
-                        jQuery("#support-form input").val(""), jQuery("#support-form textarea").val(""), t(".sucmsg5").fadeIn(0).html(e.data).addClass("sucmsg-style").fadeOut(3e4);
-                    },
-                    error: function (t, e, i) {
-                        console.log(e);
-                    },
-                });
-            }),
-            jQuery(".subscribe-btn").on("click", function (e) {
-                e.preventDefault();
-                var i = t(this).closest("form").serialize();
-                t("#subscription-form input:checkbox:not(:checked)").each(function (t) {
-                    i += "&" + this.name + "=false";
-                });
-                var s = jQuery("#soFirstName").val(),
-                    n = jQuery("#soLastName").val(),
-                    r = jQuery("#soEmail").val(),
-                    l = jQuery("#soCompany").val();
-                if ((a(r), "" == s || "" == n || "" == r || "" == l || 0 == a(jQuery("#soEmail").val()))) return u(jQuery("#soFirstName")), u(jQuery("#soLastName")), u(jQuery("#soCompany")), !1;
-                jQuery.ajax({
-                    type: "post",
-                    url: ajaxactionurl,
-                    data: "action=send_email&" + i + "&url=" + o,
-                    dataType: "json",
-                    success: function (e) {
-                        jQuery("#subscription-form input").val(""), t(".sucmsg7").fadeIn(0).html(e.data).addClass("sucmsg-style").fadeOut(3e4);
-                    },
-                    error: function (t, e, i) {
-                        console.log(e);
-                    },
-                });
-            }),
-            jQuery(".pdf-submit").on("click", function (e) {
-                e.preventDefault();
-                var i = t(this).closest("form").serialize();
-                t("#pdfRequest input:checkbox:not(:checked)").each(function (t) {
-                    i += "&" + this.name + "=false";
-                });
-                var s = jQuery("#pr_name").val(),
-                    n = jQuery("#pr_email").val(),
-                    r = jQuery("#pr_company").val(),
-                    a = jQuery("#pr_position").val(),
-                    d = jQuery("#pdfLink").val();
-                if ((l(n), "" == s || "" == r || "" == n || "" == a || 0 == l(jQuery("#pr_email").val()))) return u(jQuery("#pr_name")), u(jQuery("#pr_company")), u(jQuery("#pr_position")), !1;
-                jQuery.ajax({
-                    type: "post",
-                    url: ajaxactionurl,
-                    data: "action=send_email&" + i + "&url=" + o,
-                    dataType: "json",
-                    success: function (e) {
-                        jQuery("#pdfRequest input").val(""), t(".sucmsg8").fadeIn(0).html(e.data).addClass("sucmsg-style").fadeOut(3e4), (window.location.href = d);
-                    },
-                    error: function (t, e, i) {
-                        console.log(e);
-                    },
-                });
-            }),
-            jQuery("#email").on("keypress", function () {
-                s(jQuery(this).val());
-            }),
-            jQuery("#name").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#msg").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#hy_name").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#fullname").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#company").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#modalMsg").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#hy_email").on("keypress", function () {
-                n(jQuery(this).val());
-            }),
-            jQuery("#modalEmail").on("keypress", function () {
-                r(jQuery(this).val());
-            }),
-            jQuery("#subsEmail").on("keypress", function () {
-                c(jQuery(this).val());
-            }),
-            jQuery("#spEmail").on("keypress", function () {
-                c(jQuery(this).val());
-            }),
-            jQuery("#soEmail").on("keypress", function () {
-                a(jQuery(this).val());
-            }),
-            jQuery("#soFirstName").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#soLastName").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#soCompany").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#pr_name").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#pr_company").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#pr_position").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#aFullname").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            jQuery("#aModalMsg").on("keypress", function () {
-                u(jQuery(this));
-            }),
-            t("a[href^='#']").not('.open-popup-link').click(function (e) {
-                if ((e.preventDefault(), !t(this).hasClass("link-soon") && !t(this).parent().hasClass("link-soon-li"))) {
-                    var i = t(t(this).attr("href")).offset().top;
-                    t("body, html").animate({ scrollTop: i });
-                }
-            }),
-            t(".pi-item").click(function () {
-                t(".active").removeClass("active"), 0 == t(this).children(".pi-item-text").is(":visible") && (t(this).addClass("active"), t(".pi-item .pi-item-text").slideUp(600)), t(this).children(".pi-item-text").slideToggle(600);
-            }),
-            t(document).ready(function () {
-                t(".cp-slider") && t(".cp-slider").slick({ infinite: !0, slidesToShow: 3, slidesToScroll: 1, responsive: [{ breakpoint: 767, settings: { slidesToShow: 1, slidesToScroll: 1 } }] }),
-                t(".aut-slider") && t(".aut-slider").slick({
-                    infinite: !1,
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    responsive: [
-                        { breakpoint: 992, settings: { slidesToShow: 3, slidesToScroll: 3 } },
-                        { breakpoint: 768, settings: { slidesToShow: 2, slidesToScroll: 2 } },
-                        { breakpoint: 576, settings: { slidesToShow: 1, slidesToScroll: 1 } },
-                    ],
-                }),
-                t(".xh-row") && t(".xh-row").slick({
-                    infinite: !1,
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    responsive: [
-                        { breakpoint: 1170, settings: { slidesToShow: 3, slidesToScroll: 1 } },
-                        { breakpoint: 992, settings: { slidesToShow: 2, slidesToScroll: 2 } },
-                        { breakpoint: 576, settings: { slidesToShow: 1, slidesToScroll: 1 } },
-                    ],
-                });
-            }),
-            t("#fileCv").change(function () {
-                t(this).closest("label").clone();
-                var e = t("#fileCv")[0].files[0].name;
-                e && (t('label[for*="fileCv"]').text(e), t(this).closest(".input-file-wrap").addClass("fLoaded"));
-            }),
-            t("#open-apply .reset-label").click(function () {
-                t("#fileCv").val(""),
-                    t('[for*="fileCv"]').html(
-                        "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M490.667 234.667H158.17l112.915-112.915c8.331-8.331 8.331-21.839 0-30.17s-21.839-8.331-30.17 0L91.582 240.915a21.56 21.56 0 00-1.413 1.563c-.202.246-.378.506-.568.759-.228.304-.463.601-.674.917-.203.303-.379.618-.564.929-.171.286-.351.566-.509.861-.169.317-.313.643-.465.966-.145.308-.299.611-.43.926-.13.314-.235.635-.349.953-.122.338-.251.672-.356 1.018-.096.318-.167.642-.248.963-.089.353-.188.702-.259 1.061-.074.372-.117.747-.171 1.122-.045.314-.105.623-.136.941a21.331 21.331 0 00-.105 2.083l-.001.022.001.022c.001.695.037 1.39.105 2.083.031.318.091.627.136.941.054.375.097.75.171 1.122.071.36.17.708.259 1.061.081.322.151.645.248.963.105.346.234.68.356 1.018.114.318.219.639.349.953.131.316.284.618.43.926.152.323.296.649.465.966.158.295.338.575.509.861.186.311.361.626.564.929.211.316.447.613.674.917.19.253.365.513.568.759.446.544.916 1.067 1.413 1.563l149.333 149.333c8.331 8.331 21.839 8.331 30.17 0s8.331-21.839 0-30.17L158.17 277.333h332.497c11.782 0 21.333-9.551 21.333-21.333s-9.551-21.333-21.333-21.333zM21.333 85.333C9.551 85.333 0 94.885 0 106.667v298.667c0 11.782 9.551 21.333 21.333 21.333 11.782 0 21.333-9.551 21.333-21.333V106.667c.001-11.782-9.551-21.334-21.333-21.334z'/></svg>Upload CV"
-                    ),
-                    t(".input-file-wrap").removeClass("fLoaded");
-            }),
-            t(function () {
-                t(".home .recent-news").addClass("hide-news"),
-                    t(".home .recent-news #load-more-events").click(function () {
-                        t(".home .recent-news").removeClass("hide-news");
-                    });
-            }),
-            t("input, textarea").change(function () {
-                let e = t(this);
-                e.val().length > 0 ? (e.addClass("not-empty"), h(e)) : (e.removeClass("not-empty"), f(e));
-            }),
-            t("input, textarea").focus(function () {
-                h(t(this));
-            }),
-            t("input, textarea")
-                .focusout(function () {
-                    let e = t(this);
-                    "" === t(this).val() ? (e.removeClass("not-empty"), f(e)) : (e.addClass("not-empty"), h(e));
-                })
-                .focusout(),
-            t(document).ready(function () {
-                document.location.href.indexOf("/en/") > -1 ? t(".menu-item-weglot.weglot-en").addClass("wpml-ls-current-language") : t(".menu-item-weglot.weglot-de").addClass("wpml-ls-current-language");
-            }),
-            document.querySelector(".ytvideo") &&
-                (t(document).ready(function () {
-                    if (t(".ytvideo").css("background-image").indexOf("/project") >= 0) return t(".ytvideo").trigger("click"), t(".ytvideo iframe").find("video").attr("src", t(".ytvideo iframe").attr("src")), !1;
-                }),
-                t(document).ready(function () {
-                    if (t(".ytvideo").css("background-image").indexOf("default.png") >= 0) return t(".ytvideo").trigger("click"), t(".ytvideo iframe").find("video").attr("src", t(".ytvideo iframe").attr("src")), !1;
-                })),
-            !g("referrer"))
-        ) {
-            let t = new Date(),
-                e = t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds();
-            var m = { http_referrer: document.referrer, page_url: window.location.href, date_of_first_visit: e };
-            !(function (t, e, i) {
-                var o = "";
-                if (i) {
-                    var s = new Date();
-                    s.setTime(s.getTime() + 24 * i * 60 * 60 * 1e3), (o = "; expires=" + s.toUTCString());
-                }
-                document.cookie = t + "=" + (e || "") + o + "; path=/";
-            })("referrer", JSON.stringify(m), 30);
-        }
-        function g(t) {
-            for (var e = t + "=", i = document.cookie.split(";"), o = 0; o < i.length; o++) {
-                for (var s = i[o]; " " == s.charAt(0); ) s = s.substring(1, s.length);
-                if (0 == s.indexOf(e)) return s.substring(e.length, s.length);
-            }
-            return null;
-        }
-    });
-})(jQuery);
+}.call(this);
