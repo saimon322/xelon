@@ -8,68 +8,58 @@ get_header(); ?>
 <div class="xln-page">
 	<section class="pricing-banner">
 		<div class="xln-container">
-			<?php if ($intro = get_field('intro_text')) : ?>
-				<div class="xln-content">
-					<?php if ($intro['intro_title']): ?>
-						<h1><?php echo $intro['intro_title']; ?></h1>
-					<?php endif; ?>
-					<?php if ($icons = get_field('intro_icons')) : ?>
-						<div class="pricing-banner__icons">
-							<?php foreach ($icons as $icon_src) : ?>
-								<img src="<?php echo $icon_src; ?>" alt="">
-							<?php endforeach; ?>
-						</div>
-					<?php endif; ?>
-					<?php if ($intro['intro_subtitle']) : ?>
-						<p><?php echo $intro['intro_subtitle']; ?></p>
-					<?php endif; ?>
-				</div>
-			<?php endif; ?>
+            <div class="xln-content">
+                <?php if (get_field('intro_title')): ?>
+                    <h1><?php echo get_field('intro_title'); ?></h1>
+                <?php endif; ?>
+                <?php if ($icons = get_field('intro_icons')) : ?>
+                    <div class="pricing-banner__icons">
+                        <?php foreach ($icons as $icon_src) : ?>
+                            <img src="<?php echo $icon_src; ?>" alt="">
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (get_field('intro_subtitle')) : ?>
+                    <p><?php echo get_field('intro_subtitle'); ?></p>
+                <?php endif; ?>
+            </div>
 
-			<!-- FORM -->
 			<div class="pricing-banner-form">
 				<p class="pricing-banner-form__title">
-					Kostenlose Guthaben für 60 Tage erhalten!
+					<?php echo get_field('form_title'); ?>
 				</p>
 				<form action="#" class="pricing-banner-form__form">
+                    <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
+                    <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
 					<div class="form-block">
-						<input type="email" name="email" id="email" placeholder="Email*" class="form-input">
+						<input type="email" name="email" id="send_email" placeholder="Email*" class="form-input">
 						<label for="email" class="form-label">Email*</label>
 						<div class="msg"></div>
 					</div>
-					<input type="submit" class="xln-button xln-button--green" value="Jetzt anmelden">
+                    <?php $button = get_field('form_button') ? get_field('form_button') : 'Senden'; ?>
+					<input type="submit" class="xln-button xln-button--green send-subscribe" value="<?php echo $button; ?>">
 				</form>
 				<div class="pricing-banner-form__footer">
 					<div class="signups-title">
-						<span>oder registrieren Sie sich mit</span>
+						<span><?php echo get_field('form_signups_label'); ?></span>
 					</div>
-					<div class="signups">
-						<a href="#" class="signup">
-							<img src="<?php echo TEMPLATE_URL; ?>/xln-layout/dist/img/icon/google.svg" alt="">
-							<span>Google</span>
-						</a>
-						<a href="#" class="signup">
-							<img src="<?php echo TEMPLATE_URL; ?>/xln-layout/dist/img/icon/github.svg" alt="">
-							<span>GitHub</span>
-						</a>
-					</div>
+					<?php echo do_shortcode('[signups]'); ?>
 				</div>
 			</div>
-			<!-- //FORM -->
 
 		</div>
 	</section><!-- /.pricing-banner -->
 
 	<section class="pricing-about">
 		<div class="xln-container">
-			<?php if (get_field('plan_title')) : ?>
-				<div class="xln-content">
-					<h2><?php echo get_field('plan_title'); ?></h2>
-					<?php if (get_field('plan_subtitle')) : ?>
-						<p><?php echo get_field('plan_subtitle'); ?></p>
-					<?php endif; ?>
-				</div>
-			<?php endif; ?>
+            <div class="xln-content">
+                <?php if (get_field('plan_title')) : ?>
+                    <h2><?php echo get_field('plan_title'); ?></h2>    
+			    <?php endif; ?>
+                <?php if (get_field('plan_subtitle')) : ?>
+                    <p><?php echo get_field('plan_subtitle'); ?></p>
+                <?php endif; ?>
+            </div>
 			<?php if ($columns = get_field('plan_columns')) : ?>
 				<div class="pricing-about__content">
 					<div class="xln-about-items">
