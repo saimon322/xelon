@@ -789,24 +789,26 @@ function blog_filter()
                            class="xln-news-item__img-wrapper">
                             <?php the_post_thumbnail('large', array('class' => 'xln-news-item__img')); ?>
                         </a>
-                        <?php $tags = wp_get_post_tags(get_the_ID(), array('fields' => 'all'));
-                        if ( ! empty($tags)): ?>
-                            <div class="xln-news-item__tags">
+                        <?php /*
+                        <?php $tags = wp_get_post_tags(get_the_ID(), array('fields' => 'all')); ?>
+                        <div class="xln-news-item__tags">
+                            <?php if ( ! empty($tags)): ?>
                                 <?php foreach ($tags as $tag): ?>
                                     <a href="<?php echo get_category_link($tag->term_id); ?>"
-                                       class="xln-news-item__tag">
+                                    class="xln-news-item__tag">
                                         <?php echo $tag->name; ?>
                                     </a>
                                 <?php endforeach; ?>
-                            </div>
-                        <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
+                        */ ?>
                         <a href="<?php the_permalink(); ?>"
                            class="xln-news-item__title">
                             <?php the_title(); ?>
                         </a>
-                        <p class="xln-news-item__text">
+                        <div class="xln-news-item__text">
                             <?php the_excerpt(); ?>
-                        </p>
+                        </div>
                     </div>
                     <div class="xln-news-item__info">
                         <div class="xln-news-item__info-item">
@@ -843,86 +845,40 @@ add_action('wp_ajax_nopriv_blog_filter', 'blog_filter');
 function custom_pagination_for_ajax($max_pages, $current)
 {
     
-    $arrow_left  = $current > 1 ? $current - 1 : 1;
-    $arrow_right = ($current >= 1 && $max_pages != $current) ? $current + 1 : $max_pages;
+    $prev_page  = $current > 1 ? $current - 1 : 1;
+    $next_page = ($current >= 1 && $max_pages != $current) ? $current + 1 : $max_pages;
     
     echo '
-    <button class="xln-pagination__arrow xln-pagination__arrow--prev" data-paged="' . $arrow_left . '">
+    <button class="xln-pagination__arrow xln-pagination__arrow--prev" data-paged="' . $prev_page . '">
         <svg width="13px"
              height="22px">
             <use xlink:href="#arrow-left"></use>
         </svg>
     </button>
-    ';
     
-    echo '<ul class="xln-pagination__list">';
-    if (($current >= $max_pages - 3) && ($current != 1)) {
-        if ($max_pages > 5) {
-            echo '<li class="xln-pagination__item"><button class="xln-pagination__page" data-paged="1">1</button></li>';
-            echo '<li class="xln-pagination__item"><button class="xln-pagination__page">..</button></li>';
-        }
-        
-        if ($max_pages > 4) {
-            for ($i = $max_pages - 4; $i <= $max_pages; $i++) {
-                $is_current = $current == $i ? 'xln-active' : '';
-                echo '<li class="xln-pagination__item"><button class="xln-pagination__page ' . $is_current . '" data-paged="' . $i . '">' . $i . '</button></li>';
-            }
+    <ul class="xln-pagination__list">';
+
+    $middle_count = 1;
+    $ends_count = 2;
+
+    for ($i = 1; $i <= $max_pages; $i++) {
+        if ($i == $current) {
+            echo '<li class="xln-pagination__item"><button class="xln-pagination__page xln-active" data-paged="' . $i . '">' . $i . '</button></li>';
+            $dots = true;
         } else {
-            for ($i = 1; $i <= $max_pages; $i++) {
-                $is_current = $current == $i ? 'xln-active' : '';
-                echo '<li class="xln-pagination__item"><button class="xln-pagination__page ' . $is_current . '" data-paged="' . $i . '">' . $i . '</button></li>';
+            if ($i <= $ends_count || ($current && $i >= $current - $middle_count && $i <= $current + $middle_count) || $i > $max_pages - $ends_count) { 
+                echo '<li class="xln-pagination__item"><button class="xln-pagination__page" data-paged="' . $i . '">' . $i . '</button></li>';
+                $dots = true;
+            } elseif ($dots) {
+                echo '<li class="xln-pagination__item"><button class="xln-pagination__dots">..</button></li>';
+                $dots = false;
             }
         }
-        
-        echo '
-        <button class="xln-pagination__arrow xln-pagination__arrow--next" data-paged="' . $arrow_right . '">
-            <svg width="13px"
-                 height="22px">
-                <use xlink:href="#arrow-right"></use>
-            </svg>
-        </button>
-        ';
-        
-        
-        return;
     }
     
-    if ($max_pages <= 5) {
-        for ($i = 1; $i <= $max_pages; $i++) {
-            $is_current = $current == $i ? 'xln-active' : '';
-            echo '<li class="xln-pagination__item"><button class="xln-pagination__page ' . $is_current . '" data-paged="' . $i . '">' . $i . '</button></li>';
-        }
-    }
+    echo '</ul>
     
-    if ($max_pages > 5) {
-        $start = $current;
-        $end   = $current + 3;
-        if ($current != 1) {
-            $start = $current - 1;
-            $end   = $current + 2;
-        }
-        
-        if ($current == 3) {
-            $start = 1;
-        }
-        
-        if ($current > 3) {
-            echo '<li class="xln-pagination__item"><button class="xln-pagination__page" data-paged="1">1</button></li>';
-            echo '<li class="xln-pagination__item"><span class="xln-pagination__page">..</span></li>';
-        }
-        
-        for ($i = $start; $i < $end; $i++) {
-            $is_current = $current == $i ? 'xln-active' : '';
-            echo '<li class="xln-pagination__item"><button class="xln-pagination__page ' . $is_current . '" data-paged="' . $i . '">' . $i . '</button></li>';
-        }
-        
-        echo '<li class="xln-pagination__item"><span class="xln-pagination__page">..</span></li>';
-        echo '<li class="xln-pagination__item"><button class="xln-pagination__page" data-paged="' . $max_pages . '">' . $max_pages . '</button></li>';
-    }
-    echo '</ul>';
-    
-    echo '
-    <button class="xln-pagination__arrow xln-pagination__arrow--next" data-paged="' . $arrow_right . '">
+    <button class="xln-pagination__arrow xln-pagination__arrow--next" data-paged="' . $next_page . '">
         <svg width="13px"
              height="22px">
             <use xlink:href="#arrow-right"></use>
@@ -1062,10 +1018,11 @@ function get_signups(){
     return $result;
 }
 
-// Nofollow for external links
-add_filter('the_content', 'my_nofollow');
-add_filter('the_excerpt', 'my_nofollow');
- 
-function my_nofollow($content) {
-    return preg_replace_callback('/&amp;lt;a[^&amp;gt;]+/', 'my_nofollow_callback', $content);
+// Open Graph for Homepage
+if (is_front_page()) {
+    add_filter( 'wpseo_opengraph_desc', '__return_false' );
+    add_filter( 'wpseo_opengraph_title', '__return_false' );
+    add_filter( 'wpseo_opengraph_type', '__return_false' );
+    add_filter( 'wpseo_opengraph_site_name', '__return_false' );
+    add_filter( 'wpseo_opengraph_image' , '__return_false' );
 }

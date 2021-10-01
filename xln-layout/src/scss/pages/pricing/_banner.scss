@@ -22,7 +22,7 @@
     width: 100%;
     max-width: 630px;
     margin: 0 auto;
-    background: var(--xln-light);
+    background: var(--xln-white);
     box-shadow: 0px 4px 10px #EBEEFA;
     border-radius: 8px;
     padding: 20px 16px;
@@ -34,7 +34,7 @@
 
     &__title {
         font-weight: 500;
-        color: var(--blue-light);
+        color: var(--light);
         font-size: 14px;
         line-height: 120%;
         text-align: center;

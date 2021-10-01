@@ -1,6 +1,6 @@
 .footer {
     background: #5D6589;
-    color: var(--xln-light);
+    color: var(--xln-white);
 
     @include media-up(md) {
         padding: 60px 0;
@@ -109,7 +109,7 @@
                 transition: color .25s;
 
                 &:hover {
-                    color: var(--xln-light);
+                    color: var(--xln-white);
                 }
             }
         }
@@ -190,7 +190,7 @@
     }
 
     .checkboks-text {
-        color: var(--xln-light) !important;
+        color: var(--xln-white) !important;
     }
 
     .xln-button {

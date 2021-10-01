@@ -1,0 +1,67 @@
+.xln-info-block {
+  &__wrapper {
+    background: var(--xln-main);
+    border-radius: 8px;
+    padding: 40px 20px;
+
+    @include media-up(md) {
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @include media-up(lg) {
+      padding: 60px 70px;      
+    }
+  }
+
+  &__main {
+    color: #fff;
+    margin-bottom: 30px;
+
+    @include media-up(md) {
+      width: 55%;
+      margin-bottom: 0;
+    }
+
+    @include media-up(lg) {
+      width: 47%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__buttons {
+    @include media-up(md) {
+      width: 40%;
+    }
+
+    @include media-up(lg) {
+      width: 45%;
+      display: flex;
+      align-items: center;
+    }
+
+    .xln-button {
+      width: 100%;
+
+      @include media-up(lg) {
+        flex: 1 1 0;
+        height: 60px;
+      }
+
+      &:first-child {
+        margin-bottom: 20px;
+
+        @include media-up(lg) {
+          margin-bottom: 0;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+}

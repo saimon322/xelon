@@ -1,8 +1,7 @@
 /* ==========================================================================
     LIBS
     ========================================================================== */
-
-@import "~tiny-slider/dist/tiny-slider.css";
+@import '~swiper/swiper-bundle.css';
 
 /* ==========================================================================
     SPECIFICATION
@@ -38,13 +37,14 @@
     HOME PAGE
     ========================================================================== */
 @import "pages/home/banner";
+@import "pages/home/get-started";
 @import "pages/home/customers";
+@import "pages/home/cases";
+@import "pages/home/info-block";
 @import "pages/home/about";
-@import "pages/home/platform";
-@import "pages/home/tools";
-@import "pages/home/service";
-@import "pages/home/offer";
+@import "pages/home/certificates";
 @import "pages/home/news";
+@import "pages/home/ebook";
 
 /* ==========================================================================
     PRICING PAGE

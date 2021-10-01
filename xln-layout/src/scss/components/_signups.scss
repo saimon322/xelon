@@ -6,7 +6,7 @@
         width: 100%;
         position: relative;
         margin-bottom: 20px;
-        color: var(--blue-light);
+        color: var(--light);
         font-size: 14px;
         font-weight: 500;
         text-align: center;
@@ -24,7 +24,7 @@
         span {
             position: relative;
             z-index: 1;
-            background: var(--xln-light);
+            background: var(--xln-white);
             padding: 0 16px;
         }
     }
@@ -36,7 +36,7 @@
         justify-content: center;
         align-items: center;
         padding: 12px;
-        background: var(--xln-light);
+        background: var(--xln-white);
         border: 1px solid #DBEAF8;
         border-radius: 4px;
         transition: box-shadow .25s;
@@ -53,7 +53,7 @@
         }
     
         &:hover {
-            box-shadow: 0px 8px 20px #EBEEFA;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
         }
     
         img {

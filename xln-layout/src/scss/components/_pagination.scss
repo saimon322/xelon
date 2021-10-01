@@ -44,7 +44,18 @@
   }
 }
 
+.xln-pagination__dots {
+  display: block;
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
 .xln-pagination__page.xln-active {
   background-color: var(--xln-main);
-  color: var(--xln-light);
+  color: var(--xln-white);
 }

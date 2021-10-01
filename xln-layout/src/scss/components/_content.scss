@@ -33,7 +33,7 @@
     p {
         font-size: 14px;
         font-weight: 500;
-        color: var(--blue-light);
+        color: var(--light);
 
         @include media-up(md) {
             font-size: 18px;

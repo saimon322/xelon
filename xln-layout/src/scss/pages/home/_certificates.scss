@@ -1,0 +1,41 @@
+.xln-certificates {
+  background: var(--xln-bg);
+  padding: 40px 0;
+
+  @include media-up(md) {
+    padding: 60px 0;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 30px;
+
+    @include media-up(md) {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 882px;
+    margin: 0 auto;
+  }
+
+  &__item {
+    max-width: 150px;
+    max-height: 64px;
+    margin: 0 10px;
+
+    @include media-up(md) {
+      max-width: 292px;
+      max-height: 126px;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}

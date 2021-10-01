@@ -9,7 +9,7 @@
         height: calc(var(--vh, 1vh) * 100);
         padding-top: 60px;
         transform: translateY(-120%);
-        background: var(--xln-light);
+        background: var(--xln-white);
         box-shadow: $shadow;
         transition: transform .5s;
         overflow: hidden;
@@ -108,7 +108,7 @@
         border-radius: 4px;
 
         &:hover {
-            color: var(--xln-light);
+            color: var(--xln-white);
             background: var(--xln-main-hover);
         }
 

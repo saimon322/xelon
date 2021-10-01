@@ -1,0 +1,173 @@
+.xln-get-started {
+  padding-top: 40px;
+
+  @include media-up(md) {
+    padding-top: 60px;
+  }
+
+  &__wrapper {
+    background: var(--blue);
+    padding: 40px 0;
+
+    @include media-up(md) {
+      padding: 60px 0;
+    }
+  }
+
+  &__container {
+    @include media-up(md) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include media-up(lg) {
+      align-items: flex-end;      
+    }
+  }
+
+  &__img {
+    width: 100%;
+    margin: -100px 0 30px;
+
+    @include media-up(md) {
+      width: 45%;
+      margin: 0;
+    }
+
+    @include media-up(lg) {
+      margin: -126px 0 0;      
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  &__content {
+    color: #fff;
+
+    @include media-up(md) {
+      width: 45%;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    color: #fff;
+  }
+
+  &__text p {
+    margin-bottom: 4px;
+  }
+
+  &__form {
+
+    .xln-button {
+      width: 100%;
+    }
+    
+    @include media-up(lg) {
+      display: flex;
+      align-items: center;    
+
+      .form-input {
+        border-radius: 4px 0 0 4px;
+      }
+  
+      .xln-button {
+        width: auto;
+        border-radius: 0 4px 4px 0;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 15px 32px;
+        flex-shrink: 0;
+      }  
+    }
+
+    input:focus ~ .form-label, 
+    input.not-empty ~ .form-label, 
+    textarea:focus ~ .form-label, 
+    textarea.not-empty ~ .form-label {
+      color: #fff !important;
+    }
+  }
+
+  &__signups {
+    margin-top: 24px;
+  }
+}
+
+.xln-banner-form {
+  width: 100%;
+  background: var(--xln-white);
+  box-shadow: 0px 4px 10px #EBEEFA;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+
+  @include media-up(md) {
+    max-width: 440px;
+    box-shadow: 0px 8px 20px #EBEEFA;
+    padding: 20px 40px 32px;
+    margin-bottom: 0;
+  }
+
+  &__title {
+    color: var(--light);
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 120%;
+    margin-bottom: 16px;
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+
+    @include media-up(md) {
+      flex-wrap: nowrap;
+      margin-top: 30px;
+    }
+  }
+
+  input[type="submit"] {
+    font-weight: bold;
+    margin-bottom: 20px;
+
+    @include media-up(md) {
+      margin-bottom: 0;
+    }
+  }
+
+  @include media-up(md) {
+    .signups-title {
+      width: auto;
+      margin-bottom: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    .signups {
+      width: auto;
+    }
+
+    .signup {
+      &:first-child {
+        margin-right: 8px;
+      }
+
+      span {
+        display: none;
+      }
+    }
+  }
+}

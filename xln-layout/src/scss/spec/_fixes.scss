@@ -118,7 +118,7 @@ textarea.not-empty ~ .blue-label {
     top: -7px !important;
     font-weight: 500;
     font-size: 12px;
-    color: var(--blue-light) !important;
+    color: var(--light) !important;
 }
 
 #category #subs-form .custom-sq.checkboks span {
@@ -176,7 +176,7 @@ textarea.not-empty ~ .blue-label {
     padding: 8px 20px;
     font-size: 16px;
     line-height: 1;
-    color: var(--xln-light);
+    color: var(--xln-white);
     background-color: var(--xln-main);
     transition: 0.2s ease-in-out;
     text-align: center;

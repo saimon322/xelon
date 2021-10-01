@@ -1,6 +1,6 @@
 .xln-platform {
     overflow: hidden;
-    background-color: var(--xln-light);
+    background-color: var(--xln-white);
     padding: 60px 0 30px;
 
     @include media-up(md) {
@@ -62,7 +62,7 @@
 }
 
 .xln-scheme-el {
-    fill: var(--xln-light);
+    fill: var(--xln-white);
     cursor: pointer;
     transition: fill .25s;
 
@@ -97,7 +97,7 @@
     top: 0;
     width: 100%;
     padding: 20px;
-    background: var(--xln-light);
+    background: var(--xln-white);
     box-shadow: 0px 4px 10px #EBEEFA;
     border-radius: 8px;
     opacity: 0;

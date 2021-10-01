@@ -10,7 +10,7 @@
     padding: 8px 20px;
     font-size: 16px;
     line-height: 1;
-    color: var(--xln-light);
+    color: var(--xln-white);
     background-color: var(--xln-main);
     transition: 0.2s ease-in-out;
     text-align: center;
@@ -38,28 +38,34 @@
     svg {
         margin-left: 15px;
     }
+
+    img {
+        width: 24px;
+        height: 24px;
+        margin-left: 8px;
+    }
 }
 
 .xln-button--white {
     color: var(--xln-main);
-    background-color: var(--xln-light);
+    background-color: var(--xln-white);
     border: 1px solid var(--xln-main);
 
     &:hover {
         color: var(--xln-main-hover);
-        background-color: var(--xln-light);
+        background-color: var(--xln-white);
         border-color: var(--xln-main-hover);
     }
 
     &:active {
         color: var(--xln-main-active);
-        background-color: var(--xln-light);
+        background-color: var(--xln-white);
         border-color: var(--xln-main-active);
     }
 
     &:disabled {
         color: var(--xln-main-disabled);
-        background-color: var(--xln-light);
+        background-color: var(--xln-white);
         border-color: var(--xln-main-disabled);
     }
 
@@ -67,17 +73,17 @@
         border: 0;
 
         &:hover {
-            color: var(--xln-light);
+            color: var(--xln-white);
             background-color: #68E1C7;
         }
 
         &:active {
-            color: var(--xln-light);
+            color: var(--xln-white);
             background-color: #18CDBE;
         }
 
         &:disabled {
-            color: var(--xln-light);
+            color: var(--xln-white);
             background-color: #D9E1EE;
         }        
     }
@@ -96,22 +102,26 @@
 }
 
 .xln-button--opacity {
-    color: var(--xln-main);
-    background-color: var(--xln-light);
+    color: var(--xln-white);
+    border: 1px solid var(--xln-white);
+    background-color: transparent;
 
     &:hover {
         color: var(--xln-main-hover);
-        background-color: var(--xln-light);
+        background-color: var(--xln-white);
+        border-color: var(--xln-main-hover);
     }
 
     &:active {
         color: var(--xln-main-active);
-        background-color: var(--xln-light);
+        background-color: var(--xln-white);
+        border-color: var(--xln-main-active);
     }
 
     &:disabled {
         color: var(--xln-main-disabled);
-        background-color: var(--xln-light);
+        background-color: var(--xln-white);
+        border-color: var(--xln-main-disabled);
     }
 }
 

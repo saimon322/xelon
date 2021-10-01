@@ -1,0 +1,18 @@
+<%=_.template(require('../templates/header.html'))({
+    title: "Home page - Xelon AG"
+}) %>
+
+<main>
+    <div class="xln-page">
+        <%=_.template(require('../templates/home-old/banner.html'))() %>
+        <%=_.template(require('../templates/home-old/customers.html'))() %>
+        <%=_.template(require('../templates/home-old/about.html'))() %>
+        <%=_.template(require('../templates/home-old/platform.html'))() %>
+        <%=_.template(require('../templates/home-old/tools.html'))() %>
+        <%=_.template(require('../templates/home-old/service.html'))() %>
+        <%=_.template(require('../templates/home-old/offer.html'))() %>
+        <%=_.template(require('../templates/home-old/news.html'))() %>
+    </div>
+</main>
+
+<%=_.template(require('../templates/footer.html'))() %>

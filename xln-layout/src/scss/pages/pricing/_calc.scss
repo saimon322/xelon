@@ -116,7 +116,7 @@
 
 // Total block
 .calc-total {
-    color: var(--xln-dark-2);
+    color: var(--xln-light);
     line-height: 1;
 
     &__item {
@@ -203,7 +203,7 @@
         width: 100%;
         height: 100%;
         padding: 10px 50px 10px 20px;
-        background: var(--xln-light);
+        background: var(--xln-white);
         border: 1px solid var(--xln-gray);
         border-radius: 8px;
 
@@ -218,7 +218,7 @@
         svg {
             width: 24px;
             height: 24px;
-            color: var(--xln-dark-2);
+            color: var(--xln-light);
             margin-right: 8px;
         }
     }
@@ -253,14 +253,14 @@
         align-items: center;
         width: 100%;
         padding: 14px 20px;
-        background: var(--xln-light);
+        background: var(--xln-white);
 
         &:hover {
             background: var(--xln-main);
-            color: var(--xln-light);
+            color: var(--xln-white);
 
             svg {
-                color: var(--xln-light);
+                color: var(--xln-white);
             }
         }
 
@@ -275,7 +275,7 @@
         svg {
             width: 24px;
             height: 24px;
-            color: var(--xln-dark-2);
+            color: var(--xln-light);
             margin-right: 8px;
         }
     }
@@ -290,11 +290,11 @@
         width: 44px;
         height: 100%;
         border-left: 1px solid var(--xln-gray);
-        color: var(--xln-dark-2);
+        color: var(--xln-light);
         pointer-events: none;
 
         svg {
-            color: var(--xln-dark-2);
+            color: var(--xln-light);
             transition: .25s;
         }
     }
@@ -343,7 +343,7 @@
             display: block;
             width: 20px;
             height: 20px;
-            background: var(--xln-light);
+            background: var(--xln-white);
             border-radius: 100%;
             transition: .25s;
             pointer-events: none;
@@ -362,7 +362,7 @@
 
     &--disabled {
         .calc-item__toggler {
-            background: var(--xln-light);
+            background: var(--xln-white);
             border-color: var(--gray-2);
 
             span {
@@ -381,7 +381,7 @@
 .calc-counter {
     display: flex;
     height: 44px;
-    background: var(--xln-light);
+    background: var(--xln-white);
     border: 1px solid var(--xln-gray);
     border-radius: 8px;
     overflow: hidden;
@@ -393,7 +393,7 @@
         align-items: center;
         width: 44px;
         height: 100%;
-        color: var(--xln-dark-2);
+        color: var(--xln-light);
         cursor: pointer;
 
         &:hover {
@@ -515,7 +515,7 @@
         .calc-total {
             display: none;
             width: 100%;
-            background: var(--xln-light);
+            background: var(--xln-white);
             border-radius: 8px;
             padding: 8px 16px;
 
@@ -547,7 +547,7 @@
 
         .calc-total {
             width: 100%;
-            background: var(--xln-light);
+            background: var(--xln-white);
             border-radius: 8px;
             padding: 8px 16px;
 

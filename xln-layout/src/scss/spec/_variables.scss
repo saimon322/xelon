@@ -16,10 +16,10 @@ $shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   // default colors
   --white:      #ffffff;
   --black:      #434963;
-  --blue-light: #5d6589;
-  --blue:       #178cf9;
-  --blue-2:     #007ff5;
-  --blue-3:     #006fd6;
+  --light:      #5d6589;
+  --blue:       #0082fc;
+  --blue-2:     #0075e2;
+  --blue-3:     #016fd6;
   --gray:       #f2f7fc;
   --gray-2:     #b1bed3;
   --gray-3:     #d9e1ee;
@@ -31,9 +31,9 @@ $shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   --red:        #EF5261;
 
   // xelon colors
-  --xln-light:         var(--white);
+  --xln-white:         var(--white);
   --xln-dark:          var(--black);
-  --xln-dark-2:        var(--blue-light);
+  --xln-light:         var(--light);
   --xln-main:          var(--blue);
   --xln-main-hover:    var(--blue-2);
   --xln-main-active:   var(--blue-3);

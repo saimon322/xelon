@@ -189,7 +189,7 @@
                     endif; ?>
                 </div>
             </div>
-            <div class="xln-menu-inside" style="min-height: 580px">
+            <div class="xln-menu-inside">
                 <div class="xln-menu-inside__wrapper">
                     <div class="xln-menu-inside__container">
                     </div>

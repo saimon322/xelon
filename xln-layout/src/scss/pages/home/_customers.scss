@@ -1,9 +1,9 @@
 .xln-customers {
     background-color: var(--xln-bg);
-    padding: 40px 0 60px;
+    padding: 40px 0;
 
     @include media-up(lg) {
-        padding: 100px 0;
+        padding: 80px 0;
     }
 }
 
@@ -12,109 +12,58 @@
     margin-bottom: 30px;
 
     @include media-up(lg) {
-        margin-bottom: 60px;
+        margin-bottom: 40px;
     }
 }
 
 .xln-customers__content {
     position: relative;
-    padding: 16px 20px;
-    background-color: var(--xln-light);
+    background-color: var(--xln-white);
+    padding: 15px;
 
     @include media-up(md) {
-        padding: 40px 20px;
+        padding: 15px 30px;
     }
 }
 
-.xln-customers__slider-arrows {
-    display: none;
-
-    @include media-up(lg) {
-        display: block;
-        left: 20px;
-        right: 20px;
-    }
-}
-
-.xln-customers__slider-wrapper {
-    margin: 0 auto;
-
-    @include media-up(lg) {
-        padding: 0 40px;
-    }
-}
-
-.xln-customers__slider {
-    @include media-up(md) {
-        display: flex;
-    }
-}
-
-.xln-customers__slider-items {
-    @include media-up(md) {
-        display: flex !important;
-        justify-content: space-around;
-    }
-}
-
-.xln-customers__slider-item {
-    position: relative;
+.xln-customers__list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    user-select: none;
-    height: 24px;
-    padding: 0 10px;
 
     @include media-up(md) {
-        height: 80px;
-        padding: 0 30px;
+        justify-content: space-between;
+    }
+}
+
+.xln-customers__item {    
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+
+    @include media-down(sm) {
+        &:first-child {
+            width: 100%;
+        }        
     }
 
-    &:first-child {
-        margin-bottom: 20px;
+    @include media-up(md) {
+        width: auto;
+    }
+
+    img {
+        max-width: 100px;
+        max-height: 50px;
 
         @include media-up(md) {
-            margin-bottom: 0;
+            max-width: 120px;
+            max-height: 60px;
         }
-    }
-}
-
-.xln-customers__logo {
-    max-width: 100%;
-    max-height: 100%;
-
-    &:first-child {
-        display: none;
-    }
-
-    @include media-up(md) {
-        &:first-child {
-            display: block;
+        
+        @include media-up(lg) {
+            max-width: 172px;
+            max-height: 110px;            
         }
-    
-        &:last-child {
-            display: none;
-        }
-    
-        .xln-customers__slider-item:hover & {
-            &:first-child {
-                display: none;
-            }
-    
-            &:last-child {
-                display: block;
-            }
-        }
-    }
-}
-
-.xln-customers__slider-nav {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-
-    @include media-up(md) {
-        margin-top: 40px;
     }
 }

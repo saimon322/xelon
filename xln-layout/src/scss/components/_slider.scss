@@ -1,12 +1,20 @@
-.xln-slider-arrows {
-    position: absolute;
-    top: calc(50% - 20px);
-    left: 0;
-    right: 0;
+.swiper-nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 40px;
+    height: 40px;
+
+    @include media-up(md) {
+        margin-top: 60px;
+    }
 }
 
-.xln-slider-arrow {
-    position: absolute;
+.swiper-arrow {
     width: 40px;
     height: 40px;
     color: var(--xln-slider-arrow);
@@ -17,55 +25,21 @@
     }
 }
 
-.xln-slider-arrow--prev {
-    left: 0;
-}
+.swiper-pagination {
+    position: unset !important;
+    width: auto !important;
 
-.xln-slider-arrow--next {
-    right: 0;
-}
-
-.xln-slider-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 15;
-}
-
-.xln-slider-nav-dot {
-    border-radius: 50%;
-    background-color: rgba(23, 140, 249, 0.3);
-    transition: background-color 0.2s ease-in-out;
-    width: 8px;
-    height: 8px;
-
-    &:not(:last-child) {
-        margin-right: 12px;
-
-        @include media-up(md) {
-            margin-right: 16px;
-        }
-    }
-
-    @include media-down(sm) {
-
-        &:first-child,
-        &:last-child {
-            width: 4px;
-            height: 4px;
-        }
-    }
-
-    @include media-up(md) {
+    &-bullet {
         width: 10px;
         height: 10px;
+        border-radius: 50%;
+        background: var(--xln-main);
+        transition: opacity 0.2s;
+        margin: 0 8px !important;
+        opacity: 0.3;
 
-        &:hover {
-            background-color: var(--xln-main-hover);
+        &-active {
+            opacity: 1;
         }
-    }
-
-    &.tns-nav-active {
-        background-color: var(--xln-main);
     }
 }

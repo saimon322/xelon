@@ -7,5 +7,5 @@ import './js/sticky-menu';
 import './js/main-nav';
 import './js/modal';
 import './js/sliders';
-import './js/counter';
+// import './js/counter';
 import './js/calc';

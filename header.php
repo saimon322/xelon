@@ -28,30 +28,29 @@
     <link rel="preload" href="https://fonts.gstatic.com/s/manrope/v4/xn7gYHE41ni1AdIRggSxSuXd.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="https://fonts.gstatic.com/s/manrope/v4/xn7gYHE41ni1AdIRggmxSuXd.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="https://fonts.gstatic.com/s/manrope/v4/xn7gYHE41ni1AdIRggexSg.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap">   
+
     <?php wp_head(); ?>
+    
+    <?php if (is_front_page()) { ?>
+        <meta property="og:title" content="Xelon | Cloud Infrastructure as a Service & PaaS | Switzerland">
+        <meta property="og:description" content="Der Betrieb von Cloud Infrastruktur mit dem Xelon HQ reduziert Komplexität, und erhöht die Geschwindigkeit und die Effizienz eures IT Operations Teams.">
+        <meta property="og:image" content="https://www.xelon.ch/wp-content/uploads/2021/07/xillustration.jpg">
+    <?php } ?>
 </head>
 
 <body <?php body_class(); ?>>
 <?php //if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); } ?>
 
-<?php 
-$login_link = get_field('login_link', 'options'); 
-$signup_link = get_field('signup_link', 'options'); 
-$consult_link = get_field('consult_link', 'options'); 
-?>
+<?php $login_link = get_field('login_link', 'options'); 
+      $signup_modal = get_field('signup_modal', 'options'); 
+      $contacts_modal = get_field('contacts_modal', 'options'); 
+      $consult_link = get_field('consult_link', 'options'); ?>
 
 <header class="xln-header">
     <div class="top-header">
         <div class="top-header__container xln-container">
             <div class="top-header__wrapper">
-                <?php if ($signup_link): ?>
-                    <a href="<?php echo $signup_link['url']; ?>"
-                       class="top-header__btn xln-button xln-button--white open-popup-link">
-                        <?php echo $signup_link['title']; ?>
-                    </a>
-                <?php endif; ?>
-
                 <?php desktop_lang_switcher(); ?>
 
                 <nav class="top-header__nav top-nav">
@@ -122,7 +121,7 @@ $consult_link = get_field('consult_link', 'options');
                     <?php if ($consult_link): ?>
                         <a href="<?php echo $consult_link['url']; ?>"
                            target="<?php echo $consult_link['target']; ?>"
-                           class="main-nav__consult xln-button xln-button--opacity">
+                           class="main-nav__consult xln-button xln-button--white">
                             <?php echo $consult_link['title']; ?>
                         </a>
                     <?php endif; ?>
