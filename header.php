@@ -16,6 +16,10 @@
     <link rel="mask-icon" href="<?php echo TEMPLATE_URL; ?>/xln-layout/dist/img/favicon/safari-pinned-tab.svg" color="#178cf9">
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#ffffff">
+    
+    <?php if (is_front_page()) { ?>
+        <meta name="facebook-domain-verification" content="u5dk4ssu0rbkkq6tphrgg5m173aqjc" />
+    <?php } ?>
 
     <title><?php wp_title('|', true, 'right'); ?></title>
 

@@ -16,29 +16,29 @@ get_header(); ?>
             <div class="xln-banner__wrapper">
                 <div class="xln-banner__content">
                     <h1 class="xln-banner__title">
-                        <?php the_field('s1_h1'); ?>
+                        <?=get_field('banner_title')?>
                     </h1>
                     <div class="xln-banner__text">
-                        <?php the_field('s1_text'); ?>
+                        <?=get_field('banner_text')?>
                     </div>
                     <?php if ($contacts_modal): ?>
                         <a href="<?php echo $contacts_modal['url']; ?>"
-                            class="xln-banner__button xln-button xln-button--green ">
-                            <?php echo $contacts_modal['title']; ?>
-                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/icon/button-arrow.svg" alt="">
+                            class="xln-banner__button xln-button xln-button--green">
+                                <?=get_field('banner_button')?>
+                                <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/icon/button-arrow.svg" alt="">
                         </a>
                     <?php endif; ?>
                 </div>
                 <div class="xln-banner__media">
                     <?php
-                    $s1_anim_mobile = get_field('s1_anim_mobile');
-                    $s1_anim_desktop = get_field('s1_anim_desktop');
-                    if ($s1_anim_mobile): ?>
-                        <img src="<?php echo $s1_anim_mobile; ?>" 
+                    $banner_anim_mobile = get_field('banner_anim_mobile');
+                    $banner_anim_desktop = get_field('banner_anim_desktop');
+                    if ($banner_anim_mobile): ?>
+                        <img src="<?=$banner_anim_mobile?>" 
                             class="xln-banner__anim xln-banner__anim--mobile">
                     <?php endif;
-                    if ($s1_anim_desktop): ?>
-                        <img src="<?php echo $s1_anim_desktop; ?>" 
+                    if ($banner_anim_desktop): ?>
+                        <img src="<?=$banner_anim_desktop?>" 
                             class="xln-banner__anim xln-banner__anim--desktop">
                     <?php endif; ?>
                 </div>
@@ -50,12 +50,13 @@ get_header(); ?>
         <div class="xln-get-started__wrapper">
                 <div class="xln-get-started__container xln-container">
                 <div class="xln-get-started__img">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/browser.jpg" alt="">
+                    <img src="<?=get_field('get_started_img')?>" alt="">
                 </div>
+                <?php $get_started_form = get_field('get_started_form')?>
                 <div class="xln-get-started__content">
                     <h2 class="xln-get-started__title">Get started!</h2>
                     <div class="xln-get-started__text">
-                        <p>Schneller und einfacher Zugang zum Xelon HQ. Jetzt kostenlos testen!</p>
+                        <?=$get_started_form['text']?>
                     </div>
                     <form action="#" class="xln-get-started__form">
                         <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
@@ -65,10 +66,12 @@ get_header(); ?>
                             <label class="form-label">Email*</label>
                             <div class="msg"></div>
                         </div>
-                        <input type="submit" class="xln-button xln-button--green send-subscribe" value="Jetzt anmelden">
+                        <input type="submit" 
+                               class="xln-button xln-button--green send-subscribe" 
+                               value="<?=$get_started_form['button']?>">
                     </form>
                     <div class="xln-get-started__signups">
-                        <p>oder registriert euch mit</p>
+                        <p><?=$get_started_form['signups_label']?></p>
                         <?php echo do_shortcode('[signups]'); ?>
                     </div>
                 </div>
@@ -79,126 +82,64 @@ get_header(); ?>
     <section class="xln-customers">
         <div class="xln-container">
             <h2 class="xln-customers__title">
-                Die IT-Teams dieser Unternehmen vertrauen uns
+                <?=get_field('customers_title')?>
             </h2>
             <div class="xln-customers__content">
-                <div class="xln-customers__list">
-                    <div class="xln-customers__item">
-                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/infoguard.svg" alt="">
+                <?php $customers = get_field('customers');
+                if($customers): ?>
+                    <div class="xln-customers__list">
+                        <?php foreach($customers as $customer): ?>
+                            <div class="xln-customers__item">
+                                <img src="<?=esc_url($customer['url']);?>" 
+                                        title="<?=esc_attr($customer['title']);?>" 
+                                        alt="<?=esc_attr($customer['alt']);?>">
+                            </div>                            
+                        <?php endforeach; ?>
                     </div>
-                    <div class="xln-customers__item">
-                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/nrj.svg" alt="">
-                    </div>
-                    <div class="xln-customers__item">
-                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/dq-solutions.svg" alt="">
-                    </div>
-                    <div class="xln-customers__item">
-                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/nationalleague.svg" alt="">
-                    </div>
-                    <div class="xln-customers__item">
-                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/green.svg" alt="">
-                    </div>
-                </div>
+                <?php endif; ?> 
             </div>
         </div>
     </section>
 
     <section class="xln-cases">
-        <div class="xln-case">
-            <div class="xln-case__container xln-container">
-                <div class="xln-case__img">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/case-4.png" alt="">
-                </div>
-                <div class="xln-case__content">
-                    <div class="xln-case__subtitle">Einfach, SChnell und sicher </div>
-                    <h3 class="xln-case__title">Wir vereinfachen das Management der IT-Infrastruktur von IT-Dienstleistern</h3>
-                    <div class="xln-case__text">
-                        Erstellt und betreibt eure eigenen Cloud-Infrastrukturen auf einer Schweizer Cloud-Management-Plattform. Dank dem einfachen, schnellen und sicheren Xelon HQ können IT-Dienstleister Kosten optimieren und Gewinne steigern.
+        <?php if(have_rows('cases')): ?>
+        <?php while(have_rows('cases')): the_row(); ?>
+            <div class="xln-case">
+                <div class="xln-case__container xln-container">
+                    <div class="xln-case__img">
+                        <img src="<?=get_sub_field('img')?>" alt="">
                     </div>
-                    <div class="xln-case__review xln-case-review">
-                        <div class="xln-case-review__photo">
-                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/review-1-author.jpg" alt="">
+                    <div class="xln-case__content">
+                        <?php $case_content = get_sub_field('content'); ?>
+                        <div class="xln-case__subtitle"><?=$case_content['subtitle']?></div>
+                        <h3 class="xln-case__title"><?=$case_content['title']?></h3>
+                        <div class="xln-case__text">
+                            <?=$case_content['text']?>
                         </div>
-                        <div class="xln-case-review__header">
-                            <div class="xln-case-review__author">
-                                <div class="xln-case-review__name">Andreas Schweizer</div>
-                                <div class="xln-case-review__post">CEO, Diverto gmbh</div>
-                            </div>
-                            <div class="xln-case-review__company">
-                                <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/diverto.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="xln-case-review__text">
-                            "Unsere Kunden und das ganze Operations Team waren begeistert, wie einfach und schnell  das Projekt umgesetzt war. Wir würden jederzeit wieder mit Xelon starten, um Cloud Services in der Schweiz anzubieten."
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="xln-case">
-            <div class="xln-case__container xln-container">
-                <div class="xln-case__img">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/case-5.png" alt="">
-                </div>
-                <div class="xln-case__content">
-                    <div class="xln-case__subtitle">EffizienzsteigerunG FÜR it OPERATIONS </div>
-                    <h3 class="xln-case__title">Maximale Stabilität und garantierte Verfügbarkeit im täglichen IT Betrieb für euch und eure Kunden</h3>
-                    <div class="xln-case__text">
-                        Vergesst die ressourcenintensive Verwaltung von redundanten Datacentern, Multi-Homing Netzwerken, Hardware Cluster und Virtualisierunglayern. Verwaltet Server und Backups über mehrere Datacenters hinweg verteilt per Mausklick. 
-                    </div>
-                    <div class="xln-case__review xln-case-review">
-                        <div class="xln-case-review__photo">
-                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/review-2-author.jpg" alt="">
-                        </div>
-                        <div class="xln-case-review__header">
-                            <div class="xln-case-review__author">
-                                <div class="xln-case-review__name">Luca Franek</div>
-                                <div class="xln-case-review__post">Bereichsleiter IT-Services, PMI.AG</div>
+                        <?php $case_review = get_sub_field('review'); ?>
+                        <div class="xln-case__review xln-case-review">
+                            <div class="xln-case-review__photo">
+                                <img src="<?=$case_review['photo']?>" alt="">
                             </div>
-                            <div class="xln-case-review__company">
-                                <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/pmi-ag.svg" alt="">
+                            <div class="xln-case-review__header">
+                                <div class="xln-case-review__author">
+                                    <div class="xln-case-review__name"><?=$case_review['author']['name']?></div>
+                                    <div class="xln-case-review__post"><?=$case_review['author']['position']?></div>
+                                </div>
+                                <div class="xln-case-review__company">
+                                    <img src="<?=$case_review['company_logo']?>" alt="">
+                                </div>
                             </div>
-                        </div>
-                        <div class="xln-case-review__text">
-                            “Die Plattform von Xelon konnte neben dem hohen Funktionsumfang auch durch seine Kostentransparenz überzeugen. Die Planbarkeit der Ressourcen sowie der Kosten waren massgebend für die Umsetzung dieses Projektes.”
+                            <div class="xln-case-review__text">
+                                <?=$case_review['author']['text']?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="xln-case">
-            <div class="xln-case__container xln-container">
-                <div class="xln-case__img">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/case-6.png" alt="">
-                </div>
-                <div class="xln-case__content">
-                    <div class="xln-case__subtitle">MEHR ZEIT für Eure Techniker</div>
-                    <h3 class="xln-case__title">Baut innovative IT Services zielgerichtet für eure Kunden</h3>
-                    <div class="xln-case__text">
-                        Ist eure IT-Infrastruktur in guten Händen, könnt ihr euch auf euer Kerngeschäft konzentrieren. Mit dem Xelon HQ behält ihr die volle Kontrolle über eure Serverinfrastruktur und Serverkosten, ohne euch mit Wartungsarbeiten herumschlagen zu müssen.
-                    </div>
-                    <div class="xln-case__review xln-case-review">
-                        <div class="xln-case-review__photo">
-                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/review-3-author.jpg" alt="">
-                        </div>
-                        <div class="xln-case-review__header">
-                            <div class="xln-case-review__author">
-                                <div class="xln-case-review__name">Stephan Wyss</div>
-                                <div class="xln-case-review__post">Head of Service Desk & Operations bei DQ Solutions</div>
-                            </div>
-                            <div class="xln-case-review__company">
-                                <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/dq-solutions.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="xln-case-review__text">
-                            “Die Migration der Maschinen war ein Kinderspiel! Wir müssen seither keine Hardware mehr betreuen und konnten unteranderem den Pikettdienst der Techniker reduzieren.”
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php endwhile; ?>
+        <?php endif; ?>
     </section>
 
     <section class="xln-info-block">
@@ -206,19 +147,25 @@ get_header(); ?>
             <div class="xln-info-block__wrapper">
                 <div class="xln-info-block__main">
                     <h2 class="xln-info-block__title">
-                        Bereit für die Cloud-Revolution?
+                        <?=get_field('action_title');?>
                     </h2>
                     <div class="xln-info-block__text">
-                        Provisioniert jetzt unsere produktionsbereiten, in der Cloud gehosteten Datenbanken - innert Minuten und mit wenigen Klicks!
+                        <?=get_field('action_text');?>
                     </div>
                 </div>
                 <div class="xln-info-block__buttons">
-                    <a href="#modal-signup" class="xln-button xln-button--green open-popup-link">
-                        Account erstellen
-                    </a>
-                    <a href="#modal-contact" class="xln-button xln-button--opacity open-popup-link">
-                        Let’s talk
-                    </a>
+                    <?php if ($signup_modal): ?>
+                        <a href="<?php echo $signup_modal['url']; ?>"
+                            class="xln-button xln-button--green">
+                                <?=get_field('action_sign_up_button') ? get_field('action_sign_up_button') : $signup_modal['title']?>
+                        </a>
+                    <?php endif; ?>
+                    <?php if ($contacts_modal): ?>
+                        <a href="<?php echo $contacts_modal['url']; ?>"
+                            class="xln-button xln-button--opacity">
+                                <?=get_field('action_contact_button') ? get_field('action_contact_button') : $signup_modal['title']?>
+                        </a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -227,68 +174,63 @@ get_header(); ?>
     <section class="xln-about">
         <div class="xln-container">
             <div class="xln-about__main">
-                <h2 class="xln-about__title">Das ist Xelon</h2>
+                <h2 class="xln-about__title">
+                    <?=get_field('about_title');?>
+                </h2>
                 <div class="xln-about__text">
-                    Unsere Mission ist es, eine Cloud-Infrastruktur-Management-Plattform bereitzustellen, die Tech-Teams lieben. Wir möchten zu einer Welt beitragen, in der IT-Teams ihr volles Potenzial entfalten können und Geschäftsideen sowie strategische Expansionen schneller als je zuvor umsetzen.
+                    <?=get_field('about_text');?>                    
                 </div>
             </div>
-            <div class="xln-about__slider swiper">
-                <div class="swiper-wrapper">
-                    <div class="xln-about__slider-item swiper-slide">
-                        <div class="xln-about__slider-item-wrap">
-                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/gallery-1.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="xln-about__slider-item swiper-slide">
-                        <div class="xln-about__slider-item-wrap">
-                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/gallery-2.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="xln-about__slider-item swiper-slide">
-                        <div class="xln-about__slider-item-wrap">
-                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/gallery-3.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="xln-about__slider-item swiper-slide">
-                        <div class="xln-about__slider-item-wrap">
-                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/gallery-4.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
 
-                <div class="swiper-nav">
-                    <button class="swiper-arrow swiper-arrow--prev">
-                        <svg width='13px' height='22px'>
-                            <use xlink:href='#arrow-left'></use>
-                        </svg>
-                    </button>
-                    <div class="swiper-pagination"></div>
-                    <button class="swiper-arrow swiper-arrow--next">
-                        <svg width='13px' height='22px'>
-                            <use xlink:href='#arrow-right'></use>
-                        </svg>
-                    </button>
+            <?php $about_gallery = get_field('about_gallery');
+            if($about_gallery): ?>
+                <div class="xln-about__slider swiper">
+                    <div class="swiper-wrapper">
+                        <?php foreach($about_gallery as $about_img): ?>
+                            <div class="xln-about__slider-item swiper-slide">
+                                <div class="xln-about__slider-item-wrap">
+                                    <img src="<?=$about_img;?>"  alt="">
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <div class="swiper-nav">
+                        <button class="swiper-arrow swiper-arrow--prev">
+                            <svg width='13px' height='22px'>
+                                <use xlink:href='#arrow-left'></use>
+                            </svg>
+                        </button>
+                        <div class="swiper-pagination"></div>
+                        <button class="swiper-arrow swiper-arrow--next">
+                            <svg width='13px' height='22px'>
+                                <use xlink:href='#arrow-right'></use>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?> 
         </div>
     </section>
 
     <section class="xln-certificates">
         <div class="xln-container">
             <h2 class="xln-certificates__title">
-                Unsere Zertifizierungen
+                <?=get_field('certificates_title');?>
             </h2>
-            <ul class="xln-certificates__list">
-                <li class="xln-certificates__item">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/certificate-1.png" alt="">
-                </li>
-                <li class="xln-certificates__item">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/certificate-2.png" alt="">
-                </li>
-                <li class="xln-certificates__item">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/certificate-3.png" alt="">
-                </li>
-            </ul>
+
+            <?php $certificates = get_field('certificates');
+            if($certificates): ?>
+                <ul class="xln-certificates__list">
+                    <?php foreach($certificates as $certificate): ?>
+                        <div class="xln-certificates__item">
+                            <img src="<?=esc_url($certificate['url']);?>" 
+                                title="<?=esc_attr($certificate['title']);?>" 
+                                alt="<?=esc_attr($certificate['alt']);?>">
+                        </div>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
         </div>
     </section>
     

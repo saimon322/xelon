@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Front page
+ * Template Name: Front page old
  */
 
 get_header(); ?>
@@ -506,18 +506,18 @@ get_header(); ?>
         </div>
     </section><!-- /.xln-offer -->
     
-    <?php $s8_tags = get_field('s8_tags');
-    if ($s8_tags): ?>
+    <?php $news_tags = get_field('news_tags');
+    if ($news_tags): ?>
         <section class="xln-news">
             <div class="xln-container">
                 <h2 class="xln-news__title">
                     News
                 </h2>
                 <div class="xln-news__tags">
-                    <?php foreach ($s8_tags as $s8_tag):
-                        $tag = get_tag($s8_tag); ?>
-                        <button class="xln-news__tag <?php echo $s8_tags[0] == $s8_tag ? 'xln-active' : '' ?>"
-                                data-cat="<?php echo $s8_tag; ?>">
+                    <?php foreach ($news_tags as $news_tag):
+                        $tag = get_tag($news_tag); ?>
+                        <button class="xln-news__tag <?php echo $news_tags[0] == $news_tag ? 'xln-active' : '' ?>"
+                                data-cat="<?php echo $news_tag; ?>">
                             <?php echo $tag->name; ?>
                         </button>
                     <?php endforeach; ?>
@@ -526,7 +526,7 @@ get_header(); ?>
                     <?php $args = array(
                         'posts_per_page' => 3,
                         'post_type'      => 'post',
-                        'tag__in'        => $s8_tags[0],
+                        'tag__in'        => $news_tags[0],
                     );
                     
                     $query = new WP_Query($args);
@@ -580,11 +580,11 @@ get_header(); ?>
                     <?php custom_pagination_for_ajax($query->max_num_pages, 1); ?>
                 </div>
                 <?php wp_reset_postdata();
-                $s8_link         = get_field('s8_link');
-                if ($s8_link):
-                    $link_url = $s8_link['url'];
-                    $link_title  = $s8_link['title'];
-                    $link_target = $s8_link['target'] ? $link['target'] : '_self';
+                $news_link         = get_field('news_link');
+                if ($news_link):
+                    $link_url = $news_link['url'];
+                    $link_title  = $news_link['title'];
+                    $link_target = $news_link['target'] ? $link['target'] : '_self';
                     ?>
                     <div class="xln-news__footer">
                         <a href="<?php echo esc_url($link_url); ?>"
