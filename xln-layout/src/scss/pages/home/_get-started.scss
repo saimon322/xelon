@@ -28,6 +28,8 @@
   &__img {
     width: 100%;
     margin: -100px 0 30px;
+    border-radius: 8px;
+    overflow: hidden;
 
     @include media-up(md) {
       width: 45%;
@@ -92,6 +94,10 @@
     input.not-empty ~ .form-label, 
     textarea:focus ~ .form-label, 
     textarea.not-empty ~ .form-label {
+      color: #fff !important;
+    }
+
+    .msg {
       color: #fff !important;
     }
   }

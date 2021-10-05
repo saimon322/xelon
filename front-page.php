@@ -16,11 +16,11 @@ get_header(); ?>
             <div class="xln-banner__wrapper">
                 <div class="xln-banner__content">
                     <h1 class="xln-banner__title">
-                        Cloud Infrastructure as a Service. Einfach, schnell und sicher!
+                        <?php the_field('s1_h1'); ?>
                     </h1>
-                    <p class="xln-banner__text">
-                        Der Betrieb von Cloud-Infrastruktur mit dem Xelon HQ reduziert Komplexität und erhöht die Geschwindigkeit sowie die Effizienz eures IT-Operations-Teams.
-                    </p>
+                    <div class="xln-banner__text">
+                        <?php the_field('s1_text'); ?>
+                    </div>
                     <?php if ($contacts_modal): ?>
                         <a href="<?php echo $contacts_modal['url']; ?>"
                             class="xln-banner__button xln-button xln-button--green ">
@@ -30,8 +30,17 @@ get_header(); ?>
                     <?php endif; ?>
                 </div>
                 <div class="xln-banner__media">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/xillustration.jpg" class="xln-banner__anim xln-banner__anim--mobile" alt="">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/xelon_animation.gif" class="xln-banner__anim xln-banner__anim--desktop" alt="">
+                    <?php
+                    $s1_anim_mobile = get_field('s1_anim_mobile');
+                    $s1_anim_desktop = get_field('s1_anim_desktop');
+                    if ($s1_anim_mobile): ?>
+                        <img src="<?php echo $s1_anim_mobile; ?>" 
+                            class="xln-banner__anim xln-banner__anim--mobile">
+                    <?php endif;
+                    if ($s1_anim_desktop): ?>
+                        <img src="<?php echo $s1_anim_desktop; ?>" 
+                            class="xln-banner__anim xln-banner__anim--desktop">
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -41,7 +50,7 @@ get_header(); ?>
         <div class="xln-get-started__wrapper">
                 <div class="xln-get-started__container xln-container">
                 <div class="xln-get-started__img">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/browser.png" alt="">
+                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/browser.jpg" alt="">
                 </div>
                 <div class="xln-get-started__content">
                     <h2 class="xln-get-started__title">Get started!</h2>
@@ -52,14 +61,14 @@ get_header(); ?>
                         <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
                         <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
                         <div class="form-block">
-                            <input type="email" name="email" id="email" placeholder="Email*" class="form-input">
-                            <label for="email" class="form-label">Email*</label>
+                            <input type="email" id="send_email" name="email" placeholder="Email*" class="form-input">
+                            <label class="form-label">Email*</label>
                             <div class="msg"></div>
                         </div>
-                        <input type="submit" class="xln-button xln-button--green" value="Jetzt anmelden">
+                        <input type="submit" class="xln-button xln-button--green send-subscribe" value="Jetzt anmelden">
                     </form>
                     <div class="xln-get-started__signups">
-                        <p>oder registriert euch sich mit</p>
+                        <p>oder registriert euch mit</p>
                         <?php echo do_shortcode('[signups]'); ?>
                     </div>
                 </div>
@@ -75,19 +84,19 @@ get_header(); ?>
             <div class="xln-customers__content">
                 <div class="xln-customers__list">
                     <div class="xln-customers__item">
-                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/customer-1.png" alt="">
+                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/infoguard.svg" alt="">
                     </div>
                     <div class="xln-customers__item">
-                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/customer-2.png" alt="">
+                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/nrj.svg" alt="">
                     </div>
                     <div class="xln-customers__item">
-                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/customer-3.png" alt="">
+                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/dq-solutions.svg" alt="">
                     </div>
                     <div class="xln-customers__item">
-                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/customer-4.png" alt="">
+                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/nationalleague.svg" alt="">
                     </div>
                     <div class="xln-customers__item">
-                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/customer-5.png" alt="">
+                        <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/green.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -98,7 +107,7 @@ get_header(); ?>
         <div class="xln-case">
             <div class="xln-case__container xln-container">
                 <div class="xln-case__img">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/case-1.png" alt="">
+                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/case-4.png" alt="">
                 </div>
                 <div class="xln-case__content">
                     <div class="xln-case__subtitle">Einfach, SChnell und sicher </div>
@@ -130,7 +139,7 @@ get_header(); ?>
         <div class="xln-case">
             <div class="xln-case__container xln-container">
                 <div class="xln-case__img">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/case-2.png" alt="">
+                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/case-5.png" alt="">
                 </div>
                 <div class="xln-case__content">
                     <div class="xln-case__subtitle">EffizienzsteigerunG FÜR it OPERATIONS </div>
@@ -148,7 +157,7 @@ get_header(); ?>
                                 <div class="xln-case-review__post">Bereichsleiter IT-Services, PMI.AG</div>
                             </div>
                             <div class="xln-case-review__company">
-                                <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/pmi.svg" alt="">
+                                <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/pmi-ag.svg" alt="">
                             </div>
                         </div>
                         <div class="xln-case-review__text">
@@ -162,7 +171,7 @@ get_header(); ?>
         <div class="xln-case">
             <div class="xln-case__container xln-container">
                 <div class="xln-case__img">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/case-3.png" alt="">
+                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/case-6.png" alt="">
                 </div>
                 <div class="xln-case__content">
                     <div class="xln-case__subtitle">MEHR ZEIT für Eure Techniker</div>
@@ -180,7 +189,7 @@ get_header(); ?>
                                 <div class="xln-case-review__post">Head of Service Desk & Operations bei DQ Solutions</div>
                             </div>
                             <div class="xln-case-review__company">
-                                <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/diverto.svg" alt="">
+                                <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/logos/dq-solutions.svg" alt="">
                             </div>
                         </div>
                         <div class="xln-case-review__text">
@@ -227,22 +236,22 @@ get_header(); ?>
                 <div class="swiper-wrapper">
                     <div class="xln-about__slider-item swiper-slide">
                         <div class="xln-about__slider-item-wrap">
-                            <img src="<?=get_template_directory_uri();?>/img/base/gallery-1.jpg" alt="">
+                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/gallery-1.jpg" alt="">
                         </div>
                     </div>
                     <div class="xln-about__slider-item swiper-slide">
                         <div class="xln-about__slider-item-wrap">
-                            <img src="<?=get_template_directory_uri();?>/img/base/gallery-2.jpg" alt="">
+                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/gallery-2.jpg" alt="">
                         </div>
                     </div>
                     <div class="xln-about__slider-item swiper-slide">
                         <div class="xln-about__slider-item-wrap">
-                            <img src="<?=get_template_directory_uri();?>/img/base/gallery-3.jpg" alt="">
+                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/gallery-3.jpg" alt="">
                         </div>
                     </div>
                     <div class="xln-about__slider-item swiper-slide">
                         <div class="xln-about__slider-item-wrap">
-                            <img src="<?=get_template_directory_uri();?>/img/base/gallery-4.jpg" alt="">
+                            <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/gallery-4.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -271,13 +280,13 @@ get_header(); ?>
             </h2>
             <ul class="xln-certificates__list">
                 <li class="xln-certificates__item">
-                    <img src="<?=get_template_directory_uri();?>/img/base/certificate-1.png" alt="">
+                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/certificate-1.png" alt="">
                 </li>
                 <li class="xln-certificates__item">
-                    <img src="<?=get_template_directory_uri();?>/img/base/certificate-2.png" alt="">
+                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/certificate-2.png" alt="">
                 </li>
                 <li class="xln-certificates__item">
-                    <img src="<?=get_template_directory_uri();?>/img/base/certificate-3.png" alt="">
+                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/certificate-3.png" alt="">
                 </li>
             </ul>
         </div>
@@ -363,19 +372,26 @@ get_header(); ?>
     <section class="xln-ebook">
         <div class="container">
             <div class="xln-ebook__wrapper">
-                <div class="xln-ebook__img">
-                    <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/base/e-book.png" alt="">
-                </div>
-                <div class="xln-ebook__content">
-                    <h3 class="xln-ebook__title">Das kleine Cloud-Einmaleins für IT-Dienstleister</h3>
-                    <div class="xln-ebook__text">
-                        In diesem E-Book zeigen wir die Chancen von Cloud-Services für IT-Dienstleister auf.
+                <?php $ebook_img = get_field('ebook_img');
+                if ($ebook_img): ?>
+                    <div class="xln-ebook__img">
+                        <img src="<?=$ebook_img;?>" alt="">
                     </div>
-                    <a href="https://xelon.one-pix.com/ebooks-and-downloads/ebook-it-security-trends-2021/" 
+                <?php endif; 
+
+                $ebook_data = get_field('ebook_data');
+                if ($ebook_data): ?>
+                <div class="xln-ebook__content">
+                    <h3 class="xln-ebook__title"><?=$ebook_data['title'];?></h3>
+                    <div class="xln-ebook__text">
+                        <?=$ebook_data['text'];?>
+                    </div>
+                    <a href="<?=$ebook_data['link']['url'];?>" 
                         class="xln-ebook__button xln-button xln-button--green">
-                        Jetzt Herunterladen
+                        <?=$ebook_data['link']['title'];?>
                     </a>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>
