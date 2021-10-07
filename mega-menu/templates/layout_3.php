@@ -110,7 +110,7 @@
                                 <?php echo $variables['banner']['text']; ?>
                             </div>
                             <a href="<?php echo $variables['banner']['link']['url']; ?>"
-                               class="xln-button xln-button--white open-popup-link">
+                               class="xln-button xln-button--white">
                                 <?php echo $variables['banner']['link']['title']; ?>
                             </a>
                         </div>
