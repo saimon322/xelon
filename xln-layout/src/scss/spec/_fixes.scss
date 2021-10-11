@@ -207,3 +207,13 @@ textarea.not-empty ~ .blue-label {
         top: 32px;        
     }
 }
+
+.breadcrumbs {
+    display: flex; 
+    list-style: none; 
+    margin: 1rem 0 0;
+
+    a {
+        @include xln-link;
+    }
+}

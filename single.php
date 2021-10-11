@@ -30,10 +30,10 @@ get_header (); ?>
     </div>
     <div class="single-content padding-15">
       <div class="container">
-        <ul class="breadcrumb" style="display: flex; list-style: none; margin: 0.9rem 0;">
-          <li><a style="color: #0089fc;" href="<?=home_url()?>">Home</a> / </li>
-          <li style="padding-left: 5px"><a style="color: #0089fc;" href="<?=home_url( '/blog' )?>">Blog</a> / </li>
-          <li style="padding-left: 5px"><?php the_title();?></li>
+        <ul class="breadcrumbs">
+          <li><a href="<?=home_url()?>">Home</a> / </li>
+          <li><a href="<?=home_url( '/blog' )?>">Blog</a> / </li>
+          <li><?php the_title();?></li>
         </ul>
         <div class="content" style="padding: 30px 0;">
           <?php
