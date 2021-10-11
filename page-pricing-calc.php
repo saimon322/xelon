@@ -39,12 +39,14 @@ get_header(); ?>
                     <?php $button = get_field('form_button') ? get_field('form_button') : 'Senden'; ?>
 					<input type="submit" class="xln-button xln-button--green send-subscribe" value="<?php echo $button; ?>">
 				</form>
+				<?php /* ?>
 				<div class="pricing-banner-form__footer">
 					<div class="signups-title">
 						<span><?php echo get_field('form_signups_label'); ?></span>
 					</div>
 					<?php echo do_shortcode('[signups]'); ?>
 				</div>
+				<?php */ ?>
 			</div>
 
 		</div>

@@ -198,7 +198,7 @@
         </form>
         
             
-        <?php $signups = get_field('signups', 'options');
+        <?php /* $signups = get_field('signups', 'options');
         if ($signups):  ?>
             <div class="modal-signups">
                 <div class="signups-title">
@@ -206,7 +206,7 @@
                 </div>
                 <?php echo do_shortcode('[signups]'); ?>
             </div>
-        <?php endif; ?>
+        <?php endif; */ ?>
     </div>
 </div>
 

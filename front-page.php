@@ -70,10 +70,12 @@ get_header(); ?>
                                class="xln-button xln-button--green send-subscribe" 
                                value="<?=$get_started_form['button']?>">
                     </form>
+                    <?php /* ?>
                     <div class="xln-get-started__signups">
                         <p><?=$get_started_form['signups_label']?></p>
                         <?php echo do_shortcode('[signups]'); ?>
                     </div>
+                    <?php */ ?>
                 </div>
             </div>
         </div>
