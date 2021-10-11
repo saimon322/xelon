@@ -1019,10 +1019,10 @@ function get_signups(){
 }
 
 // Open Graph for Homepage
-if (is_front_page()) {
+/*if (is_front_page()) {
     add_filter( 'wpseo_opengraph_desc', '__return_false' );
     add_filter( 'wpseo_opengraph_title', '__return_false' );
     add_filter( 'wpseo_opengraph_type', '__return_false' );
     add_filter( 'wpseo_opengraph_site_name', '__return_false' );
     add_filter( 'wpseo_opengraph_image' , '__return_false' );
-}
+}*/
