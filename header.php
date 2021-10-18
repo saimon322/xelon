@@ -35,12 +35,25 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap">   
 
     <?php wp_head(); ?>
-    
-    <?php if (is_front_page()) { ?>
-        <meta property="og:title" content="Xelon | Cloud Infrastructure as a Service & PaaS | Switzerland">
-        <meta property="og:description" content="Der Betrieb von Cloud Infrastruktur mit dem Xelon HQ reduziert Komplexität, und erhöht die Geschwindigkeit und die Effizienz eures IT Operations Teams.">
-        <meta property="og:image" content="https://www.xelon.ch/wp-content/uploads/2021/07/xillustration.jpg">
-    <?php } ?>
+    <?php $telephone = get_field('telephone', 'options');?>
+    <!--Markup-->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Zug, Switzerland",
+                "addressRegion": "ZG",
+                "streetAddress": "Poststrasse 15, 6300"
+            },
+            "image": "https://www.xelon.ch/wp-content/uploads/2020/02/xelon-favicon-compressed.png",
+            "priceRange": "$$",
+            "description": "<?=get_post_meta(get_the_ID(), '_yoast_wpseo_metadesc', true)?>",
+            "name": "Xelon",
+            "telephone": "<?= $telephone ?>"
+        }
+    </script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -67,8 +80,7 @@
                     ]); ?>
                 </nav>
 
-                <?php $telephone = get_field('telephone', 'options');
-                if ($telephone):?>
+                <?php if ($telephone):?>
                     <a href="tel:<?php echo $telephone; ?>"
                        class="top-header__phone top-header__link">
                         <svg width="14"
