@@ -22,10 +22,10 @@ get_header(); ?>
                         <?=get_field('banner_text')?>
                     </div>
                     <?php if ($contacts_modal): ?>
-                        <a href="<?php echo $contacts_modal['url']; ?>"
+                        <a href="<?=get_field('banner_button')['url']?>"
                             class="xln-banner__button xln-button xln-button--green">
-                                <?=get_field('banner_button')?>
-                                <img src="<?=get_template_directory_uri();?>/xln-layout/dist/img/icon/button-arrow.svg" alt="">
+                                <?=get_field('banner_button')['title']?>
+                                <img src="<?=get_template_directory_uri()?>/xln-layout/dist/img/icon/button-arrow.svg" alt="">
                         </a>
                     <?php endif; ?>
                 </div>
@@ -92,9 +92,9 @@ get_header(); ?>
                     <div class="xln-customers__list">
                         <?php foreach($customers as $customer): ?>
                             <div class="xln-customers__item">
-                                <img src="<?=esc_url($customer['url']);?>" 
-                                        title="<?=esc_attr($customer['title']);?>" 
-                                        alt="<?=esc_attr($customer['alt']);?>">
+                                <img src="<?=esc_url($customer['url'])?>" 
+                                        title="<?=esc_attr($customer['title'])?>" 
+                                        alt="<?=esc_attr($customer['alt'])?>">
                             </div>                            
                         <?php endforeach; ?>
                     </div>
@@ -149,23 +149,23 @@ get_header(); ?>
             <div class="xln-info-block__wrapper">
                 <div class="xln-info-block__main">
                     <h2 class="xln-info-block__title">
-                        <?=get_field('action_title');?>
+                        <?=get_field('action_title')?>
                     </h2>
                     <div class="xln-info-block__text">
-                        <?=get_field('action_text');?>
+                        <?=get_field('action_text')?>
                     </div>
                 </div>
                 <div class="xln-info-block__buttons">
                     <?php if ($signup_modal): ?>
-                        <a href="<?php echo $signup_modal['url']; ?>"
+                        <a href="<?=get_field('action_sign_up_button')['url']?>"
                             class="xln-button xln-button--green">
-                                <?=get_field('action_sign_up_button') ? get_field('action_sign_up_button') : $signup_modal['title']?>
+                                <?=get_field('action_sign_up_button')['title']?>
                         </a>
                     <?php endif; ?>
                     <?php if ($contacts_modal): ?>
-                        <a href="<?php echo $contacts_modal['url']; ?>"
+                        <a href="<?=get_field('action_contact_button')['url']?>"
                             class="xln-button xln-button--opacity">
-                                <?=get_field('action_contact_button') ? get_field('action_contact_button') : $signup_modal['title']?>
+                                <?=get_field('action_contact_button')['title']?>
                         </a>
                     <?php endif; ?>
                 </div>
@@ -177,10 +177,10 @@ get_header(); ?>
         <div class="xln-container">
             <div class="xln-about__main">
                 <h2 class="xln-about__title">
-                    <?=get_field('about_title');?>
+                    <?=get_field('about_title')?>
                 </h2>
                 <div class="xln-about__text">
-                    <?=get_field('about_text');?>                    
+                    <?=get_field('about_text')?>                    
                 </div>
             </div>
 
@@ -218,7 +218,7 @@ get_header(); ?>
     <section class="xln-certificates">
         <div class="xln-container">
             <h2 class="xln-certificates__title">
-                <?=get_field('certificates_title');?>
+                <?=get_field('certificates_title')?>
             </h2>
 
             <?php $certificates = get_field('certificates');
@@ -226,9 +226,9 @@ get_header(); ?>
                 <ul class="xln-certificates__list">
                     <?php foreach($certificates as $certificate): ?>
                         <div class="xln-certificates__item">
-                            <img src="<?=esc_url($certificate['url']);?>" 
-                                title="<?=esc_attr($certificate['title']);?>" 
-                                alt="<?=esc_attr($certificate['alt']);?>">
+                            <img src="<?=esc_url($certificate['url'])?>" 
+                                title="<?=esc_attr($certificate['title'])?>" 
+                                alt="<?=esc_attr($certificate['alt'])?>">
                         </div>
                     <?php endforeach; ?>
                 </ul>
@@ -326,13 +326,13 @@ get_header(); ?>
                 $ebook_data = get_field('ebook_data');
                 if ($ebook_data): ?>
                 <div class="xln-ebook__content">
-                    <h3 class="xln-ebook__title"><?=$ebook_data['title'];?></h3>
+                    <h3 class="xln-ebook__title"><?=$ebook_data['title']?></h3>
                     <div class="xln-ebook__text">
-                        <?=$ebook_data['text'];?>
+                        <?=$ebook_data['text']?>
                     </div>
-                    <a href="<?=$ebook_data['link']['url'];?>" 
+                    <a href="<?=$ebook_data['link']['url']?>" 
                         class="xln-ebook__button xln-button xln-button--green">
-                        <?=$ebook_data['link']['title'];?>
+                        <?=$ebook_data['link']['title']?>
                     </a>
                 </div>
                 <?php endif; ?>

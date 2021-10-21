@@ -210,7 +210,7 @@
                                             <?php echo get_the_post_thumbnail($article->ID, 'thumbnail'); ?>
                                         </div>
                                         <div class="xln-menu-new__text">
-                                            <?php the_excerpt_max_charlength(80, $article->ID); ?>
+                                            <?php echo get_the_title($article->ID); ?>
                                         </div>
                                     </a>
                                 </li>

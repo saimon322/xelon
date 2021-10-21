@@ -34,13 +34,15 @@ get_header();
     <div class="position-info">
       <div class="container">
         <?php if( have_rows('info_item') ): ?>
+          <?php $i = 1; ?>
           <?php while ( have_rows('info_item') ) : the_row(); ?>
-            <div class="pi-item">
+            <div class="pi-item<?= $i == 1 ? ' active' : '' ?>">
               <h3><?php echo the_sub_field('info_title'); ?></h3>
-              <div class="pi-item-text">
+              <div class="pi-item-text"<?= $i == 1 ? ' style="display: block;"' : '' ?>>
                 <?php echo the_sub_field('info_text'); ?>
               </div>
             </div>
+            <?php $i++ ?>
           <?php endwhile; ?>
         <?php else : ?>
         <?php endif; ?>
