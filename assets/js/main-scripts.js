@@ -1039,6 +1039,9 @@
             t("a[href^='#']").not('.open-popup-link').click(function (e) {
                 if ((e.preventDefault(), !t(this).hasClass("link-soon") && !t(this).parent().hasClass("link-soon-li"))) {
                     var i = t(t(this).attr("href")).offset().top;
+                    if (t(this).hasClass("products-platforms-nav__item active")) {
+                        i -= 64;
+                    }
                     t("body, html").animate({ scrollTop: i });
                 }
             }),

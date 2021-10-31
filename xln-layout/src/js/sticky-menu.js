@@ -30,6 +30,7 @@ const stickyMenuInit = () => {
                 if (direction === 'up') {
                     mainNav.style.height = 'auto';
                     mainNavWr.classList.remove('main-nav__wr--start-sticky');
+                    document.body.classList.remove('nav-show');
                 }
             },
             offset: -1,
@@ -41,12 +42,14 @@ const stickyMenuInit = () => {
                 // SCROLL UP
                 if (mainNavWr.classList.contains('main-nav__wr--start-sticky')) {
                     mainNavWr.classList.add('main-nav__wr--show');
+                    document.body.classList.add('nav-show');
                 }
                 mainNavWr.classList.remove('main-nav__wr--hide');
             } else {
                 // SCROLL DOWN
                 if ( !document.body.hasAttribute('data-body-scroll-fix') ) {
                     mainNavWr.classList.remove('main-nav__wr--show');
+                    document.body.classList.remove('nav-show');
 
                     if (mainNavWr.classList.contains('main-nav__wr--start-sticky')) {
                         mainNavWr.classList.add('main-nav__wr--hide');

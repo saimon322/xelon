@@ -1,0 +1,14 @@
+<%=_.template(require('../templates/header.html'))({
+    title: "Products page - Xelon AG"
+}) %>
+
+<main>
+    <div class="xln-page">
+        <%=_.template(require('../templates/products/banner.html'))() %>
+        <%=_.template(require('../templates/products/advantages.html'))() %>
+        <%=_.template(require('../templates/products/review.html'))() %>
+        <%=_.template(require('../templates/products/platforms.html'))() %>
+    </div>
+</main>
+
+<%=_.template(require('../templates/footer.html'))() %>
