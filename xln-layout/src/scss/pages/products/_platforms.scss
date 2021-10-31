@@ -242,11 +242,10 @@
 
     @include media-up(md) {
       grid-gap: 20px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-      &--col-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
+    @include media-up(xl) {
       &--col-3 {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
