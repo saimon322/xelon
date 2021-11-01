@@ -30,7 +30,10 @@ const initPlatforms = () => {
             });
         }, 300)
 
-        window.addEventListener('scroll', () => {
+        setTimeout(platformsNav, 300);
+        window.addEventListener('scroll', platformsNav);
+
+        function platformsNav() {
             let scrollPos = window.pageYOffset || document.documentElement.scrollTop;
             
             if (scrollPos > wrapperTop) {
@@ -55,7 +58,7 @@ const initPlatforms = () => {
                     currentItem = null;
                 }
             }
-        })
+        }
 
         navBtn.addEventListener('click', () => {
             navBtn.classList.toggle(activeClass);
