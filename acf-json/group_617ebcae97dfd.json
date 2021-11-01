@@ -345,6 +345,7 @@
                                 "persistent-storage": "Persistent Storage",
                                 "private-cloud": "Private Cloud",
                                 "public-cloud": "Public Cloud",
+                                "restapi": "RestAPI",
                                 "shared-networks": "Shared Networks",
                                 "user-management": "User Management",
                                 "waf": "WAF",
@@ -419,5 +420,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635731246
+    "modified": 1635732879
 }
