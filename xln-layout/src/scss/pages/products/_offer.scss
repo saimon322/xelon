@@ -1,0 +1,46 @@
+.products-offer {
+  padding: 40px 0;
+  background: var(--xln-main);
+
+  @include media-up(md) {
+    padding: 80px 0;
+  }
+
+  &__content {
+    @include media-up(md) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;      
+    }
+  }
+
+  &__title {
+    color: #fff;
+    margin-bottom: 16px;
+
+    @include media-up(md) {
+      max-width: 925px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  }
+  
+  &__form {    
+    @include media-up(md) {
+      width: 100%;
+      max-width: 716px;
+    }
+
+    .form-input {
+      @include media-up(md) {
+        flex-grow: 1;
+      }
+    }
+
+    [type="submit"] {
+      @include media-up(md) {
+        width: auto;
+      }
+    }
+  }
+}

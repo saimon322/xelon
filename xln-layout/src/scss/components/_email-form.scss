@@ -1,0 +1,31 @@
+.email-form {
+  margin: -6px 0 0;
+
+  @include media-up(md) {
+    display: flex;
+    margin: -16px 0;
+  }
+
+  .form-input {
+    @include media-up(md) {
+      border-radius: 4px 0 0 4px;
+    }
+  }
+
+  [type="submit"] {
+    margin-bottom: 20px;
+
+    @include media-up(md) {
+      flex-shrink: 0;
+      width: 195px;
+      margin: 16px 0;
+      font-size: 18px;
+      border-radius: 0px 4px 4px 0px;
+    }
+  }
+
+  input:focus~.form-label,
+  input.not-empty~.form-label {
+    color: #fff !important;
+  }
+}

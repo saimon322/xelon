@@ -77,33 +77,6 @@
   max-width: 550px;
   margin: 0 auto;
 
-  &__form {
-    margin: -6px 0 0;
-    
-    @include media-up(md) {
-      display: flex;
-      margin: -16px 0;
-    }
-  }
-
-  .form-input {
-    @include media-up(md) {
-      border-radius: 4px 0 0 4px;
-    }
-  }
-
-  input[type="submit"] {
-    margin-bottom: 20px;
-
-    @include media-up(md) {
-      flex-shrink: 0;
-      width: 195px;
-      margin: 16px 0;
-      font-size: 18px;
-      border-radius: 0px 4px 4px 0px;
-    }
-  }
-
   &__signups {
     margin-top: 20px;
   }
