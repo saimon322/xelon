@@ -4,6 +4,6 @@
 */
 get_header(); ?>
 
-<?php include 'components/feedback.php' ?>
+<?php include 'template-parts/feedback.php' ?>
 
 <?php get_footer(); ?>

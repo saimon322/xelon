@@ -121,7 +121,7 @@ get_header();
 	</div>
 </div>
 <div class="product-table" id="scroll-to-table">
-	<?php include 'components/product-table.php' ?>
+	<?php include 'template-parts/product-table.php' ?>
 </div>
 <div class="feature">
 	<div class="container">
@@ -212,10 +212,10 @@ get_header();
 		<h2 class="like-header">
 			<?php echo the_field('our_clients', 'option'); ?>
 		</h2>
-		<?php include 'components/our-clients.php' ?>
+		<?php include 'template-parts/our-clients.php' ?>
 	</div>
 </section>
 <div class="page-customer-project">
-  <?php include 'components/customer-projects.php' ?>
+  <?php include 'template-parts/customer-projects.php' ?>
 </div>
 <?php get_footer(); ?>

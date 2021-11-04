@@ -88,7 +88,7 @@ get_header();
 </section>
 
 <section class="page-customer-project" style="position: relative; z-index: 1;">
-  <?php include 'components/customer-projects.php' ?>
+  <?php include 'template-parts/customer-projects.php' ?>
 </section>
 
 <section class="page-story">

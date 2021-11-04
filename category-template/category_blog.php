@@ -38,7 +38,7 @@ get_header (); ?>
 		</div>
 	</div>
 </section>
-<?php include __DIR__ . '/../components/subscribe-form.php' ?>
+<?php include __DIR__ . '/../template-parts/subscribe-form.php' ?>
 <section class="all-news">
 	<div class="container">
 		<div class="all-news-area">
@@ -49,7 +49,7 @@ get_header (); ?>
 		</div>
 	</div>
 </section>
-<?php include __DIR__ . '/../components/hy-quessions.php' ?>
+<?php include __DIR__ . '/../template-parts/hy-quessions.php' ?>
 <div class="browse-by-author">
 	<div class="container">
 			<h2 class="like-header">

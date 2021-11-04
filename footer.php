@@ -190,11 +190,11 @@
             <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
             <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
             <div class="form-block">
-                <input type="text" id="send_email" name="signup-email" class="form-input" placeholder="Email*" required="required">
-                <label for="send_email" class="form-label">Email*</label>
+                <input type="email" name="signup-email" class="form-input" placeholder="Email*" required="required">
+                <label class="form-label">Email*</label>
                 <div class="msg"></div>
             </div>
-            <input type="submit" name="subscribe-form" id="vdc-send-modal" class="xln-button send-subscribe" value="<?php echo $button; ?>">
+            <input type="submit" class="xln-button send-subscribe" value="<?php echo $button; ?>">
         </form>
         
             

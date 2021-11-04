@@ -45,7 +45,7 @@ get_header (); ?>
         </div>
       </div>
     </div>
-    <?php include 'components/subscribe-form.php' ?>
+    <?php include 'template-parts/subscribe-form.php' ?>
 
     <!--
     <div class="filter-posts">

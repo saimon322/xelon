@@ -98,6 +98,6 @@ get_header(); ?>
 </section>
 
 
-<?php include 'components/included.php' ?>
+<?php include 'template-parts/included.php' ?>
 
 <?php get_footer(); ?>

@@ -62,14 +62,14 @@ get_header(); ?>
 		<h2 class="like-header">
 			<?php echo $tl; ?>
 		</h2>
-		<?php include 'components/our-clients.php' ?>
+		<?php include 'template-parts/our-clients.php' ?>
 	</div>
 </section>
 
 <section class="page-customer-project">
-  <?php include 'components/customer-projects.php' ?>
+  <?php include 'template-parts/customer-projects.php' ?>
 </section>
 
-<?php include 'components/testimonials.php' ?>
+<?php include 'template-parts/testimonials.php' ?>
 
 <?php get_footer(); ?>

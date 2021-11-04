@@ -182,11 +182,11 @@ get_header(); ?>
     <h2 class="like-header">
       <?php echo $tl; ?>
     </h2>
-    <?php include 'components/our-clients.php' ?>
+    <?php include 'template-parts/our-clients.php' ?>
   </div>
 </section>
 
-<?php include 'components/testimonials.php' ?>
-<?php include 'components/footer-form.php' ?>
+<?php include 'template-parts/testimonials.php' ?>
+<?php include 'template-parts/footer-form.php' ?>
 
 <?php get_footer(); ?>

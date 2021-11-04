@@ -70,7 +70,7 @@ if( $add_custom_post ): ?>
 <?php wp_reset_postdata(); ?>
 <?php endif; ?>
 
-<?php include 'components/subscribe-form.php' ?>
+<?php include 'template-parts/subscribe-form.php' ?>
 
 <section class="all-news posts-3col">
 	<div class="container">

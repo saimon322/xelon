@@ -9,7 +9,7 @@ get_header();
 
   <div class="page-customer-project">
 
-    <?php include 'components/customer-projects.php' ?>
+    <?php include 'template-parts/customer-projects.php' ?>
 
 
     <section class="block-testimotionals">

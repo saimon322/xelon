@@ -11,8 +11,8 @@ get_header(); ?>
   </div>
 </section>
 
-<?php  require __DIR__ . '/components/blocks3.php' ?>
+<?php  require __DIR__ . '/template-parts/blocks3.php' ?>
 
-<?php require __DIR__ . '/components/testimonials.php' ?>
+<?php require __DIR__ . '/template-parts/testimonials.php' ?>
 
 <?php get_footer(); ?>

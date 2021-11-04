@@ -26,6 +26,6 @@ get_header (); ?>
 			endif;
 			?>	
 	</div>
-	<?php include __DIR__ . '/../components/subscribe-form.php' ?>
+	<?php include __DIR__ . '/../template-parts/subscribe-form.php' ?>
 </div>
 <?php get_footer (); ?>

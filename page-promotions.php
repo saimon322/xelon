@@ -127,7 +127,7 @@ get_header();
   <br><br>
 
   <section class="page-customer-project">
-    <?php include 'components/customer-projects.php' ?>
+    <?php include 'template-parts/customer-projects.php' ?>
   </section>
 
   <section class="adv-page-client partners">

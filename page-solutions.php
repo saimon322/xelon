@@ -189,10 +189,10 @@ get_header();
 	</div>
 </section>
 
-<?php include 'components/hy-quessions.php' ?>
+<?php include 'template-parts/hy-quessions.php' ?>
 
 <section class="page-customer-project">
-  <?php include 'components/customer-projects.php' ?>
+  <?php include 'template-parts/customer-projects.php' ?>
 </section>
 <section class="solutions-page partners">
   <h2 class="like-header"><?php echo the_field('our_clients', 'option'); ?></h2>

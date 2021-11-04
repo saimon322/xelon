@@ -190,10 +190,10 @@ get_header();
     </div>
   </div>-->
 
-  <?php //include 'components/hy-quessions.php' ?>
+  <?php //include 'template-parts/hy-quessions.php' ?>
 
   <div class="page-customer-project">
-    <?php include 'components/customer-projects.php' ?>
+    <?php include 'template-parts/customer-projects.php' ?>
   </div>
 
 </div>

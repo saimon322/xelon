@@ -764,7 +764,7 @@
         t(".send-subscribe").click(function (e) {
             e.preventDefault();
             var i = t(this),
-                o = t("#send_email").val(),
+                o = i.closest("form").find("input[type='email']").val(),
                 s = i.closest("form").attr("id");
             "" == o && (o = i.closest("form").find(".simple-input").val());
             var n = "function" == typeof ga && Object.hasOwnProperty.bind(ga)("getAll") ? ga.getAll()[0].get("clientId") : null,

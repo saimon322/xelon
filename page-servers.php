@@ -76,7 +76,7 @@ get_header(); ?>
   </div>
 </section>
 
-<?php include 'components/servers-solution.php' ?>
+<?php include 'template-parts/servers-solution.php' ?>
 
 <?php if( have_rows('blocks_price__del') ): ?>
 <section class="s-price-block s-pb-dark">
@@ -215,7 +215,7 @@ $images = get_field('gallery');
   </div>
 </section>
 
-<?php include 'components/included.php' ?>
+<?php include 'template-parts/included.php' ?>
 
 <?php if(get_field('title_logos')) {
   $tl = get_field('title_logos');
@@ -227,11 +227,11 @@ $images = get_field('gallery');
     <h2 class="like-header">
       <?php echo $tl; ?>
     </h2>
-    <?php include 'components/our-clients.php' ?>
+    <?php include 'template-parts/our-clients.php' ?>
   </div>
 </section>
 
-<?php include 'components/testimonials.php' ?>
-<?php include 'components/footer-form.php' ?>
+<?php include 'template-parts/testimonials.php' ?>
+<?php include 'template-parts/footer-form.php' ?>
 
 <?php get_footer(); ?>

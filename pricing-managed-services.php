@@ -77,6 +77,6 @@ get_header(); ?>
 	</div>
 </section>
 
-<?php include 'components/form-steps.php' ?>
+<?php include 'template-parts/form-steps.php' ?>
 
 <?php get_footer(); ?>

@@ -28,7 +28,7 @@ get_header(); ?>
   </div>
 </section>
 
-<?php include 'components/servers-solution.php' ?>
+<?php include 'template-parts/servers-solution.php' ?>
 
 <section class="s-serv-features s-kubernetes-features">
   <div class="container">

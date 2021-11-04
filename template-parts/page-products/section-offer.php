@@ -8,12 +8,14 @@
                 </h2>
             <?php endif; ?>
             <form action="#" class="products-offer__form email-form">
+                <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
+                <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
                 <div class="form-block">
-                    <input type="email" name="email" id="email" placeholder="Email*" class="form-input">
-                    <label for="email" class="form-label">Email*</label>
+                    <input type="email" name="email" placeholder="Email*" class="form-input">
+                    <label class="form-label">Email*</label>
                     <div class="msg"></div>
                 </div>
-                <button type="submit" class="xln-button xln-button--green">
+                <button type="submit" class="xln-button xln-button--green send-subscribe">
                     <?php if ($offer['btn']): ?>
                         <?= $offer['btn']; ?>
                     <?php endif; ?>

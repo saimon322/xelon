@@ -62,44 +62,8 @@
     color: #fff;
   }
 
-  &__text p {
-    margin-bottom: 4px;
-  }
-
-  &__form {
-
-    .xln-button {
-      width: 100%;
-    }
-    
-    @include media-up(lg) {
-      display: flex;
-      align-items: center;    
-
-      .form-input {
-        border-radius: 4px 0 0 4px;
-      }
-  
-      .xln-button {
-        width: auto;
-        border-radius: 0 4px 4px 0;
-        font-size: 18px;
-        font-weight: 500;
-        padding: 15px 32px;
-        flex-shrink: 0;
-      }  
-    }
-
-    input:focus ~ .form-label, 
-    input.not-empty ~ .form-label, 
-    textarea:focus ~ .form-label, 
-    textarea.not-empty ~ .form-label {
-      color: #fff !important;
-    }
-
-    .msg {
-      color: #fff !important;
-    }
+  &__text {
+    margin-bottom: 30px;
   }
 
   &__signups {

@@ -20,15 +20,15 @@
             <?php endif; ?>
         </div>
         <div class="products-banner-form">
-            <form action="#" class="products-banner-form__form xln-get-started__form">
+            <form action="#" class="products-banner-form__form email-form">
                 <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
                 <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
                 <div class="form-block">
-                    <input type="email" id="send_email" name="email" placeholder="Email*" class="form-input">
+                    <input type="email" name="email" placeholder="Email*" class="form-input">
                     <label class="form-label">Email*</label>
                     <div class="msg"></div>
                 </div>
-                <input type="submit" name="subscribe-form" id="vdc-send-modal" class="xln-button xln-button--green send-subscribe"
+                <input type="submit" class="xln-button xln-button--green send-subscribe"
                         value="<?= $banner['btn'] ?>">
             </form>
             <?php /* $signups = get_field('signups', 'options');

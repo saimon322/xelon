@@ -3,6 +3,7 @@
 
   @include media-up(md) {
     display: flex;
+    align-items: center;
     margin: -16px 0;
   }
 
@@ -26,6 +27,10 @@
 
   input:focus~.form-label,
   input.not-empty~.form-label {
+    color: #fff !important;
+  }
+
+  .msg {
     color: #fff !important;
   }
 }

@@ -76,7 +76,7 @@ $wlc_text_btn = get_field('wlc_text_btn');
 		<h2 class="like-header">
 			<?php echo $tl; ?>
 		</h2>
-		<?php include 'components/our-clients.php' ?>
+		<?php include 'template-parts/our-clients.php' ?>
 	</div>
 </section>
 
@@ -98,10 +98,10 @@ $wlc_text_btn = get_field('wlc_text_btn');
 </section>
 
 <section class="page-customer-project">
-  <?php include 'components/customer-projects.php' ?>
+  <?php include 'template-parts/customer-projects.php' ?>
 </section>
 
-<?php include 'components/testimonials.php' ?>
-<?php include 'components/footer-form.php' ?>
+<?php include 'template-parts/testimonials.php' ?>
+<?php include 'template-parts/footer-form.php' ?>
 
 <?php get_footer(); ?>
