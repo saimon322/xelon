@@ -1,103 +1,106 @@
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--xln-dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--xln-dark);
 }
 
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 button {
-    border: none;
-    cursor: pointer;
-    background: none;
+  border: none;
+  cursor: pointer;
+  background: none;
 }
 
 img {
-    user-select: none;
+  user-select: none;
 }
 
-h2, h3, h4 {
-    font-weight: normal;
+h2,
+h3,
+h4 {
+  font-weight: normal;
 }
 
 .xln-page {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-        padding: 0;
-        font-weight: 600;
-        line-height: 1.2;
-    }
 
-    h1 {
-        font-size: 24px;
-        font-weight: bold;
-        line-height: 1.2;
-        letter-spacing: -1px;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    padding: 0;
+    font-weight: 600;
+    line-height: 1.2;
+  }
 
-        @include media-up(md) {
-            font-size: 42px;
-        }
-    }
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -1px;
 
-    h2 {
-        font-size: 20px;
-    
-        @include media-up(md) {
-            font-size: 32px;
-        }
+    @include media-up(md) {
+      font-size: 42px;
     }
-    
-    h3 {
-        font-size: 18px;
-    
-        @include media-up(md) {
-            font-size: 24px;
-        }
-    }
-    
-    h4 {
-        font-size: 16px;
-    
-        @include media-up(md) {
-            font-size: 20px;
-        }
-    }
+  }
 
-    ul,
-    ol {
-        list-style: none;
+  h2 {
+    font-size: 20px;
+
+    @include media-up(md) {
+      font-size: 32px;
     }
+  }
+
+  h3 {
+    font-size: 18px;
+
+    @include media-up(md) {
+      font-size: 24px;
+    }
+  }
+
+  h4 {
+    font-size: 16px;
+
+    @include media-up(md) {
+      font-size: 20px;
+    }
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
 }
 
 input,
 select,
 textarea {
-    font-family: inherit;
-    border: none;
-    outline: none;
-    appearance: none;
+  font-family: inherit;
+  border: none;
+  outline: none;
+  appearance: none;
 }
 
 select {
-    cursor: pointer;
-    font-size: inherit;
-    font-family: inherit;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 input[type="submit"] {
-    appearance: none;
-    cursor: pointer;
+  appearance: none;
+  cursor: pointer;
 }
 
 iframe {
-    width: 100%;
-    border: none;
+  width: 100%;
+  border: none;
 }

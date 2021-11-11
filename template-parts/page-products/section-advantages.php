@@ -1,16 +1,16 @@
 <section class="products-advantages">
     <div class="xln-container">
-        <div class="products-advantages__list">
+        <div class="xln-advantages">
             <?php if(get_field('advantages')): ?>
                 <?php foreach(get_field('advantages') as $adv): ?>
-                    <div class="products-advantage">
-                        <div class="products-advantage__icon">
+                    <div class="xln-advantage">
+                        <div class="xln-advantage__icon">
                             <img src="<?= $adv['icon']?>" alt="">
                         </div>
-                        <div class="products-advantage__title">
+                        <div class="xln-advantage__title">
                             <?= $adv['title'] ?>
                         </div>
-                        <div class="products-advantage__text">
+                        <div class="xln-advantage__text">
                             <?= $adv['text'] ?>
                         </div>
                     </div>

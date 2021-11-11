@@ -10,7 +10,16 @@ const calcInit = () => {
                 toggler.classList.toggle(activeClass);
                 const parent = toggler.closest('.calc-section');
                 const content = parent.querySelector('.calc-section__content');
-                jQuery(content).stop().slideToggle();
+
+                !content.style.maxHeight &&
+                    (content.style.maxHeight = content.scrollHeight + 'px');
+                setTimeout(() => {
+                    if (content.style.maxHeight != '0px') {
+                        content.style.maxHeight = 0;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                })
             }
         })
         

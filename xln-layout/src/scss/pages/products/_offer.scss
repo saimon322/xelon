@@ -36,11 +36,5 @@
         flex-grow: 1;
       }
     }
-
-    [type="submit"] {
-      @include media-up(md) {
-        width: auto;
-      }
-    }
   }
 }

@@ -512,6 +512,9 @@
     }
 
     &__content {
+        overflow: hidden;
+        transition: max-height .5s;
+        
         .calc-total {
             display: none;
             width: 100%;

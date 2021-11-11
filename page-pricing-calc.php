@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Pricing page calc
+ * Template Name: Pricing page
  */
 
 get_header(); ?>
@@ -34,10 +34,10 @@ get_header(); ?>
 					<div class="form-block">
 						<input type="email" name="email" placeholder="Email*" class="form-input">
 						<label for="email" class="form-label">Email*</label>
-						<div class="msg"></div>
 					</div>
                     <?php $button = get_field('form_button') ? get_field('form_button') : 'Senden'; ?>
 					<input type="submit" class="xln-button xln-button--green send-subscribe" value="<?php echo $button; ?>">
+						<div class="msg"></div>
 				</form>
 				<?php /* ?>
 				<div class="pricing-banner-form__footer">
@@ -64,14 +64,14 @@ get_header(); ?>
             </div>
 			<?php if ($columns = get_field('plan_columns')) : ?>
 				<div class="pricing-about__content">
-					<div class="xln-about-items">
+					<div class="xln-advantages">
 						<?php foreach ($columns as $column) : ?>
-							<div class="xln-about-item">
-								<div class="xln-about-item__icon">
+							<div class="xln-advantage">
+								<div class="xln-advantage__icon">
 									<img src="<?php echo $column['icon']; ?>" alt="">
 								</div>
-								<h3 class="xln-about-item__title"><?php echo $column['text']['title']; ?></h3>
-								<p class="xln-about-item__text"><?php echo $column['text']['description']; ?></p>
+								<h3 class="xln-advantage__title"><?php echo $column['text']['title']; ?></h3>
+								<p class="xln-advantage__text"><?php echo $column['text']['description']; ?></p>
 							</div>
 						<?php endforeach; ?>
 					</div>

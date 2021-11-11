@@ -26,10 +26,10 @@
                 <div class="form-block">
                     <input type="email" name="email" placeholder="Email*" class="form-input">
                     <label class="form-label">Email*</label>
-                    <div class="msg"></div>
                 </div>
                 <input type="submit" class="xln-button xln-button--green send-subscribe"
                         value="<?= $banner['btn'] ?>">
+                <div class="msg"></div>
             </form>
             <?php /* $signups = get_field('signups', 'options');
             if ($signups):  ?>

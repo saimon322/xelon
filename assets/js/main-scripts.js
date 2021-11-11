@@ -785,9 +785,7 @@
                         t &&
                             t.responseJSON &&
                             "Email has been already used" === t.responseJSON.error &&
-                            (i.closest(".vdc-modal").length > 0
-                                ? i.closest("form").append('<a class="danger-btn w100" href="https://vdc.xelon.ch/login">Go to Login</a>')
-                                : i.closest("form").prepend('<a class="danger-btn w100" href="https://vdc.xelon.ch/login">Go to Login</a>'),
+                            (i.closest("form").append('<a class="xln-button" href="https://vdc.xelon.ch/login">Go to Login</a>'),
                             i.closest("form").find(".simple-input").remove(),
                             i.closest("form").find(".modal-input").remove(),
                             i.closest("form").find(".msg").html("An account with this email already exists").addClass("rose-c").fadeIn("slow"),

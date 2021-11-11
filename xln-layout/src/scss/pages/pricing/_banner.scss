@@ -57,7 +57,7 @@
         }
     }
     
-    input[type="submit"] {
+    .xln-button {
         margin-bottom: 20px;
 
         @include media-up(md) {

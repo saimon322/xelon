@@ -1,223 +1,223 @@
 .js-focus-visible :focus:not(.focus-visible) {
-    outline: none;
+  outline: none;
 }
 
 .msg {
-    top: -13px;
-    left: auto;
-    right: 0;
-    width: auto;
+  top: -13px;
+  left: auto;
+  right: 0;
+  width: auto;
 }
 
 .custom-sq label:before {
-    width: 24px;
-    height: 24px;
-    max-width: unset;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  max-width: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 4px;
 }
 
 .checkboks-text {
-    position: relative;
-    top: 0 !important;
-    display: block;
-    padding-left: 36px;
-    font-size: 12px;
-    line-height: 100%;
+  position: relative;
+  top: 0 !important;
+  display: block;
+  padding-left: 36px;
+  font-size: 12px;
+  line-height: 100%;
 
-    &::before {
-        position: absolute;
-        left: 0;
-    }
+  &::before {
+    position: absolute;
+    left: 0;
+  }
 
-    a {
-        text-decoration: none;
-    }
+  a {
+    text-decoration: none;
+  }
 }
 
 .checkboks .checkboks-text {
-    top: 0 !important;
+  top: 0 !important;
 }
 
 aside.weglot-default {
-    display: none;
+  display: none;
 }
 
 .like-header {
-    padding: 0;
+  padding: 0;
 }
 
 .ds-item-title {
-    padding: 0;
+  padding: 0;
 }
 
 .adv-title {
-    padding: 0;
+  padding: 0;
 }
 
 .support-form {
-    border: 0;
+  border: 0;
 
-    .like-header {
-        margin-bottom: 30px;
-    }
+  .like-header {
+    margin-bottom: 30px;
+  }
 
-    .checkboks-text {
-        display: flex;
-    }
+  .checkboks-text {
+    display: flex;
+  }
 
-    .custom-sq.checkboks span {
-        color: #000 !important;
-    }
+  .custom-sq.checkboks span {
+    color: #000 !important;
+  }
 
-    .modal-input::placeholder {
-        color: transparent;
-    }
+  .modal-input::placeholder {
+    color: transparent;
+  }
 
-    .send-success-zone {
-        justify-content: center;
-    }
+  .send-success-zone {
+    justify-content: center;
+  }
 
-    .support-submit {
-        min-width: 170px;
-    }
+  .support-submit {
+    min-width: 170px;
+  }
 }
 
 
 .page-special-offer .support-form {
-    .modal-input {
-        border-color: #fff;
-    }
+  .modal-input {
+    border-color: #fff;
+  }
 
-    .checkboks-text:before {
-        border: 1px solid #fff;
-    }
+  .checkboks-text:before {
+    border: 1px solid #fff;
+  }
 }
 
 .blue-label {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    line-height: 1;
-    color: var(--gray-4);
-    pointer-events: none;
-    transition: .25s;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  line-height: 1;
+  color: var(--gray-4);
+  pointer-events: none;
+  transition: .25s;
 
-    @include media-down(sm) {
-        top: 22px;
-    }
+  @include media-down(sm) {
+    top: 22px;
+  }
 }
 
-input:focus ~ .blue-label,
-input.not-empty ~ .blue-label,
-textarea:focus ~ .blue-label,
-textarea.not-empty ~ .blue-label {
-    top: -7px !important;
-    font-weight: 500;
-    font-size: 12px;
-    color: var(--light) !important;
+input:focus~.blue-label,
+input.not-empty~.blue-label,
+textarea:focus~.blue-label,
+textarea.not-empty~.blue-label {
+  top: -7px !important;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--light) !important;
 }
 
 #category #subs-form .custom-sq.checkboks span {
-    color: #000 !important;
+  color: #000 !important;
 }
 
 .partner-locate-one .contact-pl {
-    @media (min-width: 576px) {
-        margin-left: 10px;
-    }
+  @media (min-width: 576px) {
+    margin-left: 10px;
+  }
 }
 
 .blue-label {
-    pointer-events: none;
+  pointer-events: none;
 }
 
-.admin-bar .mfp-wrap .mfp-close, 
-.admin-bar .mfp-wrap .mfp-close:active, 
-.admin-bar .mfp-wrap .mfp-close:hover, 
+.admin-bar .mfp-wrap .mfp-close,
+.admin-bar .mfp-wrap .mfp-close:active,
+.admin-bar .mfp-wrap .mfp-close:hover,
 .admin-bar .mfp-wrap .mfp-close:focus {
-    top: 0 !important;
+  top: 0 !important;
 }
 
 .wlc-text {
-    .d-flex {
-        @include media-down(xs) {
-            display: block;
-        }
+  .d-flex {
+    @include media-down(xs) {
+      display: block;
     }
+  }
 
-    .xln-button + .xln-button {
-        margin-left: 20px;
+  .xln-button+.xln-button {
+    margin-left: 20px;
 
-        @include media-down(xs) {
-            margin-left: 0;
-            margin-top: 20px;
-        }
+    @include media-down(xs) {
+      margin-left: 0;
+      margin-top: 20px;
     }
+  }
 }
 
 .serv-need {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .subs-submit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-    height: 50px;
-    background: none;
-    border-radius: 4px;
-    padding: 8px 20px;
-    font-size: 16px;
-    line-height: 1;
-    color: var(--xln-white);
-    background-color: var(--xln-main);
-    transition: 0.2s ease-in-out;
-    text-align: center;
-    text-decoration: none !important;
-    white-space: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  height: 50px;
+  background: none;
+  border-radius: 4px;
+  padding: 8px 20px;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--xln-white);
+  background-color: var(--xln-main);
+  transition: 0.2s ease-in-out;
+  text-align: center;
+  text-decoration: none !important;
+  white-space: unset;
 
-    @include media-up(md) {
-        display: inline-flex;
-        width: 150px;
-        padding: 8px 24px;
-    }
+  @include media-up(md) {
+    display: inline-flex;
+    width: 150px;
+    padding: 8px 24px;
+  }
 
-    &:hover {
-        background-color: var(--xln-main-hover);
-    }
+  &:hover {
+    background-color: var(--xln-main-hover);
+  }
 
-    &:active {
-        background-color: var(--xln-main-active);
-    }
+  &:active {
+    background-color: var(--xln-main-active);
+  }
 }
 
 .single-post h2 strong {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 .admin-bar .main-nav__wr--start-sticky {
-    @include media-up(lg) {
-        top: 32px;        
-    }
+  @include media-up(lg) {
+    top: 32px;
+  }
 }
 
 .breadcrumbs {
-    display: flex; 
-    list-style: none; 
-    margin: 1rem 0 0;
-  
-    li {
-        margin: 0 0 0 5px !important;
-    }
-  
-    a {
-        @include xln-link-blue;
-    }
+  display: flex;
+  list-style: none;
+  margin: 1rem 0 0;
+
+  li {
+    margin: 0 0 0 5px !important;
   }
+
+  a {
+    @include xln-link-blue;
+  }
+}
