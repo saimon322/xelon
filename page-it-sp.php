@@ -15,11 +15,9 @@ $wlc_text_btn = get_field('wlc_text_btn');
                 <form method="POST" class="send-modal-data" id="form-hero">
                     <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga']?>">
                     <input type="hidden" name="pageUrl" value="<?php echo "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
-                    <input type="text" class="simple-input email-input-home" placeholder="Email" style="width: 280px"/>
+                    <input type="email" name="email" class="simple-input email-input-home" placeholder="Email" style="width: 280px"/>
                     <button class="xln-button send-subscribe" style="width: 150px"><?php echo $wlc_text_btn; ?></button>
-                    <div class="success-msg">
-                        <div class="msg"></div>
-                    </div>
+                    <div class="msg"></div>
                 </form>
             </div>
             <div style="margin: 20px auto 0; color: #000; font-size: 12px; max-width: 370px;"><?php the_field('wlc_under_form') ?></div>

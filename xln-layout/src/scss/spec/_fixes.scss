@@ -2,11 +2,23 @@
   outline: none;
 }
 
+.send-modal-data {
+  padding: 0 0 20px;
+
+  a.xln-button {
+    width: 100%;
+  }
+}
+
 .msg {
   top: -13px;
   left: auto;
   right: 0;
   width: auto;
+
+  &--white {
+    color: #fff !important;
+  }
 }
 
 .custom-sq label:before {

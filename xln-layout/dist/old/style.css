@@ -1661,10 +1661,6 @@ input#vdc-send-modal:disabled {
 .vdc-modal .msg {
   text-align: center;
 }
-.s-fform .msg {
-  color: #c32b4a !important;
-  font-weight: 800;
-}
 .product.partners {
   padding: 80px 0;
 }
@@ -4775,9 +4771,6 @@ body {
 }
 .page-template-page-kubernetes .s-allp-content {
   padding: 140px 0;
-}
-.page-template-page-kubernetes .xln-button {
-  background: #0089fc;
 }
 .s-kubernetes-features .d-flex > div:nth-child(-n + 2) {
   flex-basis: 0;

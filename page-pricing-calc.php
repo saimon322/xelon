@@ -37,7 +37,7 @@ get_header(); ?>
 					</div>
                     <?php $button = get_field('form_button') ? get_field('form_button') : 'Senden'; ?>
 					<input type="submit" class="xln-button xln-button--green send-subscribe" value="<?php echo $button; ?>">
-						<div class="msg"></div>
+					<div class="msg"></div>
 				</form>
 				<?php /* ?>
 				<div class="pricing-banner-form__footer">
