@@ -240,16 +240,7 @@ get_header(); ?>
             <h2 class="xln-news__title">
                 News
             </h2>
-            <div class="xln-news__tags">
-                <?php $news_tags = get_field('news_tags'); ?>
-                <?php foreach ($news_tags as $news_tag):
-                    $tag = get_tag($news_tag); ?>
-                    <button class="xln-news__tag <?php echo $news_tags[0] == $news_tag ? 'xln-active' : '' ?>"
-                            data-cat="<?php echo $news_tag; ?>">
-                        <?php echo $tag->name; ?>
-                    </button>
-                <?php endforeach; ?>
-            </div>
+            <?php $news_tags = get_field('news_tags'); ?>
             <div class="xln-news__content">
                 <?php $args = array(
                     'posts_per_page' => 3,
@@ -263,17 +254,28 @@ get_header(); ?>
                     while ($query->have_posts()) :
                         $query->the_post(); ?>
                         <div class="xln-news-item">
-                            <div class="xln-news-item__wrapper">
-                                <div class="xln-news-item__main">
-                                    <a href="<?php the_permalink(); ?>" class="xln-news-item__img-wrapper">
-                                        <?php the_post_thumbnail('large', array('class' => 'xln-news-item__img')); ?>
-                                    </a>
-                                    <a href="<?php the_permalink(); ?>" class="xln-news-item__title">
-                                        <?php the_title(); ?>
-                                    </a>
-                                    <div class="xln-news-item__text">
-                                        <?php the_excerpt(); ?>
+                            <a href="<?php the_permalink(); ?>" class="xln-news-item__img-wrapper">
+                                <?php the_post_thumbnail('large', array('class' => 'xln-news-item__img')); ?>
+                            </a>
+                            <div class="xln-news-item__content">
+                                <?php $tags = wp_get_post_tags(get_the_ID(), array('fields' => 'all'));
+                                if ( ! empty($tags)): ?>
+                                    <div class="xln-news-item__tags">
+                                        <?php foreach ($tags as $tag): 
+                                            if ($tag->slug != 'homepage'):?>
+                                                <a href="<?php echo get_category_link($tag->term_id); ?>"
+                                                class="xln-news-item__tag">
+                                                    <?php echo $tag->name; ?>
+                                                </a>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
                                     </div>
+                                <?php endif; ?>
+                                <a href="<?php the_permalink(); ?>" class="xln-news-item__title">
+                                    <?php the_title(); ?>
+                                </a>
+                                <div class="xln-news-item__text">
+                                    <?php the_excerpt(); ?>
                                 </div>
                                 <div class="xln-news-item__info">
                                     <div class="xln-news-item__info-item">

@@ -33,7 +33,9 @@
 @import "components/socials";
 @import "components/mfp";
 @import "components/email-form";
-@import "components/xln-advantages";
+@import "components/advantages";
+@import "components/news";
+@import "components/info-block";
 
 /* ==========================================================================
     HOME PAGE
@@ -42,10 +44,8 @@
 @import "pages/home/get-started";
 @import "pages/home/customers";
 @import "pages/home/cases";
-@import "pages/home/info-block";
 @import "pages/home/about";
 @import "pages/home/certificates";
-@import "pages/home/news";
 @import "pages/home/ebook";
 
 /* ==========================================================================
@@ -63,3 +63,9 @@
 @import "pages/products/review";
 @import "pages/products/platforms";
 @import "pages/products/offer";
+
+/* ==========================================================================
+    BLOG PAGE
+    ========================================================================== */
+@import "pages/blog/header";
+@import "pages/blog/featured";

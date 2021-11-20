@@ -9,3 +9,4 @@ import './js/modal';
 import './js/sliders';
 import './js/calc';
 import './js/platforms';
+import './js/inline-scroll';

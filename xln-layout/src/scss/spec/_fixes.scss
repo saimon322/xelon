@@ -233,3 +233,7 @@ textarea.not-empty~.blue-label {
     @include xln-link-blue;
   }
 }
+
+.fl-builder-edit header {
+	display: none;
+}

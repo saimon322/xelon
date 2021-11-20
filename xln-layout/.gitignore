@@ -3,6 +3,9 @@
 
 # Dist #
 /dist/img
+/dist/js
+/dist/*.html
+/dist/style.css
 
 # Compiled source #
 *.com

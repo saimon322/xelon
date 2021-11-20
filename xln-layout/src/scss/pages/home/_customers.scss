@@ -1,69 +1,69 @@
 .xln-customers {
-    background-color: var(--xln-bg);
-    padding: 40px 0;
+  background-color: var(--xln-bg);
+  padding: 40px 0;
 
-    @include media-up(lg) {
-        padding: 80px 0;
-    }
+  @include media-up(lg) {
+    padding: 80px 0;
+  }
 }
 
 .xln-customers__title {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 
-    @include media-up(lg) {
-        margin-bottom: 40px;
-    }
+  @include media-up(lg) {
+    margin-bottom: 40px;
+  }
 }
 
 .xln-customers__content {
-    position: relative;
-    background-color: var(--xln-white);
-    padding: 15px;
+  position: relative;
+  background-color: var(--xln-white);
+  padding: 15px;
 
-    @include media-up(md) {
-        padding: 15px 30px;
-    }
+  @include media-up(md) {
+    padding: 15px 30px;
+  }
 }
 
 .xln-customers__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 
-    @include media-up(md) {
-        justify-content: space-between;
-    }
+  @include media-up(md) {
+    justify-content: space-between;
+  }
 }
 
-.xln-customers__item {    
-    width: 50%;
-    padding: 10px;
-    text-align: center;
+.xln-customers__item {
+  width: 50%;
+  padding: 10px;
+  text-align: center;
 
-    @include media-down(sm) {
-        &:first-child {
-            width: 100%;
-        }        
+  @include media-down(sm) {
+    &:first-child {
+      width: 100%;
     }
+  }
+
+  @include media-up(md) {
+    width: auto;
+  }
+
+  img {
+    max-width: 100px;
+    max-height: 50px;
 
     @include media-up(md) {
-        width: auto;
+      max-width: 120px;
+      max-height: 60px;
     }
 
-    img {
-        max-width: 100px;
-        max-height: 50px;
-
-        @include media-up(md) {
-            max-width: 120px;
-            max-height: 60px;
-        }
-        
-        @include media-up(lg) {
-            max-width: 172px;
-            max-height: 100px;            
-        }
+    @include media-up(lg) {
+      max-width: 172px;
+      max-height: 100px;
     }
+  }
 }

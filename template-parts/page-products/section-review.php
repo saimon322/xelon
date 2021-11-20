@@ -1,5 +1,5 @@
 <?php $review = get_field('review'); ?>
-<section class="products-review">
+<section class="products-review half-bg">
     <div class="xln-container">
         <div class="products-review__wrapper">
             <?php if ($review['text']): ?>
