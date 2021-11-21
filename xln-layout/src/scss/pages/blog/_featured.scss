@@ -10,12 +10,6 @@
     padding: 60px 0 100px;
   }
 
-  &__container {
-    @include media-down(md) {
-      padding: 0;
-    }
-  }
-
   .xln-news__title {
     padding: 0 20px;
     margin-bottom: 20px;

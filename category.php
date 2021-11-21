@@ -12,7 +12,7 @@ $blog = get_field('blog', 'option');?>
         </div>
     </div>
     <section class="xln-news xln-featured-news">
-        <div class="xln-featured-news__container xln-container">
+        <div class="xln-news__container xln-container">
             <h2 class="xln-news__title">
                 <?= $blog['featured_posts_title']; ?>
             </h2>
