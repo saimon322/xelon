@@ -247,50 +247,12 @@ get_header(); ?>
                     'post_type'      => 'post',
                     'tag__in'        => $news_tags[0],
                 );
-                
                 $query = new WP_Query($args);
-                
                 if ($query->have_posts()):
                     while ($query->have_posts()) :
-                        $query->the_post(); ?>
-                        <div class="xln-news-item">
-                            <a href="<?php the_permalink(); ?>" class="xln-news-item__img-wrapper">
-                                <?php the_post_thumbnail('large', array('class' => 'xln-news-item__img')); ?>
-                            </a>
-                            <div class="xln-news-item__content">
-                                <?php $tags = wp_get_post_tags(get_the_ID(), array('fields' => 'all'));
-                                if ( ! empty($tags)): ?>
-                                    <div class="xln-news-item__tags">
-                                        <?php foreach ($tags as $tag): 
-                                            if ($tag->slug != 'homepage'):?>
-                                                <a href="<?php echo get_category_link($tag->term_id); ?>"
-                                                class="xln-news-item__tag">
-                                                    <?php echo $tag->name; ?>
-                                                </a>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </div>
-                                <?php endif; ?>
-                                <a href="<?php the_permalink(); ?>" class="xln-news-item__title">
-                                    <?php the_title(); ?>
-                                </a>
-                                <div class="xln-news-item__text">
-                                    <?php the_excerpt(); ?>
-                                </div>
-                                <div class="xln-news-item__info">
-                                    <div class="xln-news-item__info-item">
-                                        <?php the_author(); ?>
-                                    </div>
-                                    <div class="xln-news-item__info-item">
-                                        <?php the_date('D, d M'); ?>
-                                    </div>
-                                    <div class="xln-news-item__info-item">
-                                        <?php echo estimated_reading_time(get_the_content()); ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endwhile;
+                        $query->the_post();
+                        get_template_part('template-parts/blog-archive-single');
+                    endwhile;
                 endif; ?>
             </div>
             <div class="xln-news__pagination xln-pagination">
