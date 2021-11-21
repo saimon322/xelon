@@ -773,10 +773,12 @@ function blog_filter()
         die();
     }
     
+    $posts_per_page = $_POST['posts_per_page'] ?? 3; 
+    
     query_posts(array(
-        'posts_per_page' => 3,
+        'posts_per_page' => $posts_per_page,
         'post_type'      => 'post',
-        'tag__in'        => $_POST['category'],
+        'category__in'   => $_POST['category'],
         'paged'          => $_POST['paged'],
     ));
     ob_start();
