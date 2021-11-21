@@ -221,11 +221,11 @@ textarea.not-empty~.blue-label {
 }
 
 .breadcrumbs {
-  display: flex;
   list-style: none;
   margin: 1rem 0 0;
 
   li {
+    display: inline;
     margin: 0 0 0 5px !important;
   }
 

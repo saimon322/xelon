@@ -238,14 +238,19 @@ get_header(); ?>
     <section class="xln-news">
         <div class="xln-container">
             <h2 class="xln-news__title">
-                News
+                <?= get_field('news_title'); ?>
             </h2>
-            <?php $news_tags = get_field('news_tags'); ?>
             <div class="xln-news__content">
                 <?php $args = array(
                     'posts_per_page' => 3,
                     'post_type'      => 'post',
-                    'tag__in'        => $news_tags[0],
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'post_tag',
+                            'field'    => 'name',
+                            'terms'    => 'homepage',
+                        ),
+                    ),
                 );
                 $query = new WP_Query($args);
                 if ($query->have_posts()):

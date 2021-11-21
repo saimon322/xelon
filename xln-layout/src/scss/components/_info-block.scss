@@ -68,8 +68,17 @@
     .checkboks {
       margin: 12px 0 0;
 
-      &-text a {
-        color: #fff;
+      &-text {
+        color: var(--xln-white) !important;
+
+        a {
+          color: #fff;
+          transition: color 0.2s ease-in-out;
+
+          &:hover {
+            color: var(--gray-2);
+          }
+        }
       }
     }
 

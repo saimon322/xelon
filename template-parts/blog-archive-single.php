@@ -3,9 +3,9 @@
         <?php the_post_thumbnail('large', array('class' => 'xln-news-item__img')); ?>
     </a>
     <div class="xln-news-item__content">
-        <?php $tags = wp_get_post_tags(get_the_ID(), array('fields' => 'all'));
-        if ( ! empty($tags)): ?>
-            <div class="xln-news-item__tags">
+        <div class="xln-news-item__tags">
+            <?php $tags = wp_get_post_tags(get_the_ID(), array('fields' => 'all'));
+            if ( ! empty($tags)): ?>
                 <?php foreach ($tags as $tag):
                     if ($tag->slug != 'homepage'):?>
                         <a href="<?php echo get_category_link($tag->term_id); ?>"
@@ -14,8 +14,8 @@
                         </a>
                     <?php endif; ?>
                 <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
         <a href="<?php the_permalink(); ?>" class="xln-news-item__title">
             <?php the_title(); ?>
         </a>

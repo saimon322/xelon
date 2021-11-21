@@ -100,7 +100,7 @@
   flex-shrink: 0;
   border-bottom: 1px solid var(--xln-gray);
   margin-right: 20px;
-  // @include scrollpad;
+  @include scrollpad;
 
   &:last-child {
     margin-right: 0;
@@ -324,6 +324,7 @@
     background: var(--xln-bg);
 
     &::placeholder {
+      font-size: 16px;
       color: var(--xln-medium-gray);
     }
   }
