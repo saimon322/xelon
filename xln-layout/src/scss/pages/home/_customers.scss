@@ -1,10 +1,6 @@
 .xln-customers {
   background-color: var(--xln-bg);
-  padding: 40px 0;
-
-  @include media-up(lg) {
-    padding: 80px 0;
-  }
+  @include section-pad;
 }
 
 .xln-customers__title {

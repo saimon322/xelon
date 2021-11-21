@@ -1,3 +1,13 @@
+@mixin blog-padding {
+  @include media-down(md) {
+    padding: 0 30px;
+  }
+
+  @include media-down(sm) {
+    padding: 0 20px;
+  }
+}
+
 .xln-news {
   padding: 30px 0 80px;
 
@@ -26,8 +36,6 @@
 }
 
 .xln-news__tags {
-  display: flex;
-  overflow-x: auto;
   margin-bottom: 30px;
   padding: 0 20px;
 
@@ -41,13 +49,6 @@
 
   @include media-up(lg) {
     margin-bottom: 60px;
-
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
   }
 }
 
@@ -79,31 +80,41 @@
 
 .xln-news__content {
   display: flex;
-  overflow: auto;
-  padding: 0 20px;
-
-  @include media-up(md) {
-    padding: 0 30px;
-  }
+  @include blog-padding;
+  overflow-x: auto;
+  @include scrollhide;
 
   @include media-up(lg) {
     display: grid;
     grid-gap: 40px;
-    padding: 0;
     overflow: unset;
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 .xln-news-item {
+  display: flex;
+  flex-direction: column;
   width: 87.5%;
   max-width: 280px;
   flex-shrink: 0;
   border-bottom: 1px solid var(--xln-gray);
   margin-right: 20px;
+  // @include scrollpad;
 
   &:last-child {
     margin-right: 0;
+
+    &:after {
+      @include media-up(md) {
+        right: -30px;
+        width: 30px;
+      }
+  
+      @include media-up(lg) {
+        display: none;
+      }
+    }
   }
 
   @include media-up(md) {
@@ -144,6 +155,7 @@
 }
 
 .xln-news-item__content {
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   padding: 24px 0 16px;
@@ -154,8 +166,9 @@
 }
 
 .xln-news-item__tags {
+  height: 20px;
   margin-bottom: 15px;
-  line-height: 14px;
+  line-height: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -188,8 +201,9 @@
 }
 
 .xln-news-item__title {
-  font-weight: 600;
   display: block;
+  height: 66px;
+  font-weight: 600;
   font-size: 18px;
   line-height: 22px;
   margin-bottom: 10px;
@@ -200,6 +214,7 @@
   -webkit-box-orient: vertical;
 
   @include media-up(md) {
+    height: 72px;
     margin-bottom: 16px;
     transition: color 0.2s ease-in-out;
     font-size: 20px;
@@ -212,11 +227,13 @@
   }
 
   @include media-up(xl) {
+    height: 48px;
     -webkit-line-clamp: 2;
   }
 }
 
 .xln-news-item__text {
+  height: 45px;
   font-size: 14px;
   margin-bottom: 15px;
   overflow: hidden;
@@ -226,6 +243,7 @@
   -webkit-box-orient: vertical;
 
   @include media-up(md) {
+    height: 52px;
     margin-bottom: 24px;
     font-size: 16px;
   }
@@ -233,10 +251,11 @@
 
 .xln-news-item__info {
   display: flex;
-  color: var(--xln-medium-gray);
   justify-content: space-between;
+  margin-top: auto;
   font-size: 14px;
   line-height: 14px;
+  color: var(--xln-medium-gray);
 
   @include media-up(xl) {
     justify-content: flex-start;
@@ -260,6 +279,7 @@
 
 .xln-news__pagination {
   margin: 30px auto 0;
+  @include blog-padding;
 
   @include media-up(lg) {
     margin-top: 60px;
@@ -269,6 +289,7 @@
 .xln-news__footer {
   text-align: center;
   margin-top: 32px;
+  @include blog-padding;
 
   @include media-up(lg) {
     margin-top: 60px;

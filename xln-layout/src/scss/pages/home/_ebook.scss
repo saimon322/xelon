@@ -1,10 +1,6 @@
 .xln-ebook {
-  padding: 40px 0;
+  @include section-pad;
   overflow: unset;
-
-  @include media-up(md) {
-    padding: 80px 0;
-  }
 
   &__wrapper {
     display: flex;

@@ -296,21 +296,12 @@ get_header(); ?>
             <div class="xln-news__pagination xln-pagination">
                 <?php custom_pagination_for_ajax($query->max_num_pages, 1); ?>
             </div>
-            <?php wp_reset_postdata();
-            $news_link = get_field('news_link');
-            if ($news_link):
-                $link_url = $news_link['url'];
-                $link_title  = $news_link['title'];
-                $link_target = $news_link['target'] ? $link['target'] : '_self';
-                ?>
-                <div class="xln-news__footer">
-                    <a href="<?php echo esc_url($link_url); ?>"
-                    target="<?php echo esc_attr($link_target); ?>"
-                    class="xln-news__button xln-button xln-button--big">
-                        <?php echo esc_html($link_title); ?>
-                    </a>
-                </div>
-            <?php endif; ?>
+            <?php wp_reset_postdata(); ?>
+            <div class="xln-news__footer">
+                <a href="/category/blog/" class="xln-news__button xln-button xln-button--big">
+                    <?= get_field('news_link'); ?>
+                </a>
+            </div>
         </div>
     </section>
 

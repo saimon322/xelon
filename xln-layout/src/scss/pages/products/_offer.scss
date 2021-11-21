@@ -1,10 +1,6 @@
 .products-offer {
-  padding: 40px 0;
+  @include section-pad;
   background: var(--xln-main);
-
-  @include media-up(md) {
-    padding: 80px 0;
-  }
 
   &__content {
     @include media-up(md) {

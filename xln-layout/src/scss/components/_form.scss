@@ -21,6 +21,22 @@ form {
   @include media-down(sm) {
     padding: 6px 0 16px;
   }
+
+  &--big {
+    @include media-up(xl) {
+      .form-input {
+        height: 60px;
+      }
+
+      .form-label {
+        top: 38px;
+      }
+
+      & + .xln-button {
+        height: 60px;
+      }
+    }
+  }
 }
 
 .form-input {

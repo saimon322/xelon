@@ -2,20 +2,11 @@
   display: grid;
   gap: 5px;
   max-width: 450px;
-  grid-template-columns: 30px 1fr 40px;
-
-  @include media-up(md) {
-    grid-template-columns: 40px 1fr 40px;
-  }
+  grid-template-columns: auto 1fr auto;
 }
 
 .xln-pagination__arrow {
-  color: var(--xln-slider-arrow);
-  transition: color 0.2s ease-in-out;
-
-  &:hover {
-    color: var(--xln-main-hover);
-  }
+  @include arrow;
 }
 
 .xln-pagination__list {

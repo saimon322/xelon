@@ -1,32 +1,25 @@
-.xln-info-block {
+.xln-info-block {  
   &__wrapper {
+    display: grid;
+    grid-gap: 30px;
     background: var(--xln-main);
+    color: #fff;
     border-radius: 8px;
     padding: 40px 20px;
 
     @include media-up(md) {
       padding: 40px;
-      display: flex;
-      justify-content: space-between;
+    }
+
+    @include media-up(lg) {
+      grid-template-columns: 57% 1fr;
+      grid-gap: 40px;
       align-items: center;
     }
 
-    @include media-up(lg) {
-      padding: 60px 70px;      
-    }
-  }
-
-  &__main {
-    color: #fff;
-    margin-bottom: 30px;
-
-    @include media-up(md) {
-      width: 55%;
-      margin-bottom: 0;
-    }
-
-    @include media-up(lg) {
-      width: 47%;
+    @include media-up(xl) {
+      grid-template-columns: 1fr 1fr;
+      padding: 60px 70px;
     }
   }
 
@@ -35,33 +28,54 @@
   }
 
   &__buttons {
-    @include media-up(md) {
-      width: 40%;
-    }
+    display: grid;
+    grid-gap: 20px;
 
-    @include media-up(lg) {
-      width: 45%;
-      display: flex;
-      align-items: center;
+    @include media-up(xl) {
+      grid-template-columns: auto auto;
     }
 
     .xln-button {
       width: 100%;
 
-      @include media-up(lg) {
-        flex: 1 1 0;
+      @include media-up(xl) {
         height: 60px;
-      }
-
-      &:first-child {
-        margin-bottom: 20px;
-
-        @include media-up(lg) {
-          margin-bottom: 0;
-          margin-right: 20px;
-        }
       }
     }
   }
 
+  &__form {
+    .email-form {
+      @include media-down(lg) {
+        display: block;
+      }
+    }
+    
+    .form-input {
+      @include media-down(lg) {
+        border-radius: 4px;
+      }
+    }
+
+    .xln-button {
+      @include media-down(lg) {
+        width: 100%;
+        margin: 0 0 12px;
+        border-radius: 4px;
+      }
+    }
+
+    .checkboks {
+      margin: 12px 0 0;
+
+      &-text a {
+        color: #fff;
+      }
+    }
+
+    .custom-sq input:checked~label:before {
+      color: var(--xln-main);
+      background: #fff;
+    }
+  }
 }
