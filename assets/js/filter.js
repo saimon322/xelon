@@ -27,7 +27,7 @@
             let posts_per_page = 3;
             
             if ($('body').hasClass('category')){
-                posts_per_page = 12;
+                posts_per_page = 9;
             }
             
             $.ajax({
