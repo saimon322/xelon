@@ -4,22 +4,25 @@
   background: var(--xln-bg);
   border-radius: 8px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: column;
+  text-align: center;
 
   @include media-up(md) {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
     margin-top: 40px;
   }
 
   &__photo {
-    width: 80px;
-    height: 80px;
-    margin-right: 12px;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
 
     @include media-up(md) {
-      width: 100px;
-      height: 100px;
-      margin-right: 20px;
+      flex-shrink: 0;
+      margin-bottom: 0;
+      margin: 0 20px 0 0;
     }
 
     img {
@@ -43,8 +46,9 @@
   &__link {
     width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 12px;
     font-weight: 500;
     font-size: 18px;
     line-height: 140%;

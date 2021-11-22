@@ -1,6 +1,11 @@
 <?php
 get_header ();
-$blog = get_field('blog', 'option'); ?>
+$blog = get_field('blog', 'option'); 
+$author = $post->post_author; 
+$author_url = get_author_posts_url($author);
+$author_name = get_the_author_meta('display_name', $author);
+$author_post = get_field('business_position', 'user_'.$author);
+$author_img = get_field('profile_img', 'user_'.$author); ?>
 
 <div class="xln-page">
     <div class="xln-single-post">
@@ -30,8 +35,8 @@ $blog = get_field('blog', 'option'); ?>
                     <div class="xln-single-author-bar">
                         <div class="xln-single-author-bar__item">
                             Author:
-                            <a href="<?php echo get_author_posts_url($post->post_author); ?>">
-                                <?php the_author_meta('display_name', $post->post_author ); ?>
+                            <a href="<?= $author_url; ?>">
+                                <?= $author_name; ?>
                             </a>
                         </div>
 
@@ -61,12 +66,12 @@ $blog = get_field('blog', 'option'); ?>
                     </div>
 
                     <div class="xln-single-author">
-                        <?php $author = $post->post_author; 
-                            $author_name = get_the_author_meta('display_name', $author);
-                            $author_post = get_field('business_position', 'user_'.$author); ?>
-                        <div class="xln-single-author__photo">
-                            <img src="img/base/review-author.jpg" alt="">
-                        </div>
+                        <?php if($author_img): ?>
+                            <div class="xln-single-author__photo">
+                                <img src="<?= wp_get_attachment_image_url($author_img, 'full', true); ?>" 
+                                    alt="<?= $author_name; ?>">
+                            </div>
+                        <?php endif; ?>
                         <div class="xln-single-author__info">
                             <div class="xln-single-author__name">
                                 <?= $author_name; ?>
@@ -75,7 +80,7 @@ $blog = get_field('blog', 'option'); ?>
                                 <?= $author_post; ?>
                             </div>
                         </div>
-                        <a href="#" class="xln-single-author__link">
+                        <a href="<?= $author_url; ?>" class="xln-single-author__link">
                             All posts by <?= $author_name; ?>
                             <svg width="14" height="14">
                                 <use xlink:href="#arrow-right"></use>
@@ -99,7 +104,7 @@ $blog = get_field('blog', 'option'); ?>
             </div>
             
             <?php $subscribe_form = $blog['subscribe_form']; ?>
-            <section class="xln-info-block half-bg">
+            <section class="xln-info-block">
                 <div class="xln-container">
                     <div class="xln-info-block__wrapper">
                         <div class="xln-info-block__main">
