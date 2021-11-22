@@ -1,0 +1,27 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 20px 0;
+  line-height: 1;
+
+  li:last-child {
+    max-width: 247px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  a {
+    @include xln-link-blue;
+    white-space: nowrap;
+  }
+
+  &__sep {
+    width: 24px;
+    height: 24px;
+    margin: 0 4px;
+  }
+}

@@ -1,0 +1,61 @@
+.xln-single-header {
+  position: relative;
+  height: 250px;
+  margin: 0 -20px;
+
+  @include media-up(md) {
+    height: 300px;
+    margin: 0 -30px;
+  }
+
+  @include media-up(lg) {
+    height: 400px;
+    margin: 0;
+    border-radius: 0px 0px 8px 8px;
+    overflow: hidden;
+  }
+
+  &__bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    padding: 20px;
+
+    @include media-up(md) {
+      padding: 32px;
+    }
+
+    @include media-up(xl) {
+      padding-left: 110px;
+    }
+  }
+
+  &__title {
+    color: #fff;
+    font-weight: 600 !important;
+    letter-spacing: normal !important;
+
+    @include media-down(sm) {
+      br {
+        display: none;
+      }
+    }
+
+    @include media-up(md) {
+      font-size: 32px !important;
+    }
+
+    @include media-up(xl) {
+      max-width: 730px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<%=_.template(require("../templates/header.html"))({
+    title: 'Blog post - Xelon',
+}) %>
+
+<main class="site-main">
+    <div class="xln-page">
+        <div class="xln-single-post">
+            <div class="xln-container">
+                <%=_.template(require("../templates/blog-single/breadcrumbs.html"))() %>
+                <%=_.template(require("../templates/blog-single/header.html"))() %>
+                <%=_.template(require("../templates/blog-single/content.html"))() %>
+                <%=_.template(require("../templates/blog-single/info-block.html"))() %>
+            </div>
+        </div>
+        <%=_.template(require("../templates/blog-single/related.html"))() %>
+    </div>
+</main>
+
+<%=_.template(require("../templates/footer.html"))() %>

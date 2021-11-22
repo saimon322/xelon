@@ -1,12 +1,11 @@
 .email-form {
   margin: -6px 0 0;
-  padding-bottom: 1px;
+  padding-bottom: 5px;
 
   @include media-up(md) {
     display: flex;
     align-items: center;
     margin: -16px 0;
-    padding-bottom: 5px;
   }
 
   .form-input {

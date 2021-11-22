@@ -1,0 +1,23 @@
+.xln-single-share {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: var(--xln-bg);
+  border-radius: 8px;
+
+  @include media-up(lg) {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140%;
+  }
+
+  &__list {
+
+  }
+}

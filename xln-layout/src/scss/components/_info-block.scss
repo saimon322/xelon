@@ -66,7 +66,11 @@
     }
 
     .checkboks {
-      margin: 12px 0 0;
+      margin-top: 12px;
+
+      @include media-up(md) {
+        margin-top: 20px;
+      }
 
       &-text {
         color: var(--xln-white) !important;

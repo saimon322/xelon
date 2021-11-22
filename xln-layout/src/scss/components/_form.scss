@@ -32,7 +32,7 @@ form {
         top: 38px;
       }
 
-      & + .xln-button {
+      & ~ .xln-button {
         height: 60px;
       }
     }

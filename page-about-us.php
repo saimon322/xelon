@@ -2,8 +2,6 @@
 /**
 * Template Name: About us
 */
-$page_header_background = get_field('single_header_background');
-$page_bg_img = wp_get_attachment_image_url( $page_header_background, 'full', true );
 get_header();
 ?>
 

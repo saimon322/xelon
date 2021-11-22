@@ -1,0 +1,27 @@
+.xln-single-container {
+  display: grid;
+  grid-gap: 30px;
+  margin-bottom: 30px;
+
+  @include media-up(lg) {
+    grid-template-columns: 1fr 350px;
+    padding-left: 32px;
+    margin-bottom: 40px;
+  }
+
+  @include media-up(xl) {
+    grid-template-columns: 1fr 400px;
+    grid-gap: 40px;
+    padding-left: 110px;
+  }
+}
+
+.xln-single-main {
+
+}
+
+.xln-single-aside {
+  @include media-up(lg) {
+    margin-top: 54px;
+  }
+}

@@ -1,0 +1,14 @@
+.xln-single-banner {
+  padding: 20px;
+  background: #FFFFFF;
+  box-shadow: 0px 8px 20px #EBEEFA;
+  border-radius: 8px;
+
+  @include media-up(md) {
+    padding: 30px;
+  }
+
+  @include media-up(lg) {
+    padding: 40px;
+  }
+}

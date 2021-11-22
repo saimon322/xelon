@@ -1,0 +1,37 @@
+.xln-single-author-bar {
+  display: grid;
+  grid-gap: 10px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--xln-gray);
+  margin-bottom: 20px;
+
+  @include media-up(md) {
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+  }
+
+  &__item {
+    white-space: nowrap;
+    line-height: 1;
+
+    a {
+      margin-left: 5px;
+      @include xln-link-blue;
+    }
+  }
+
+  &__cats {
+    a:not(:last-child) {
+      position: relative;
+      margin-right: 12px;
+      
+      &:after {
+        content: '/';
+        position: absolute;
+        right: -14px;
+        color: var(--xln-dark);
+        pointer-events: none;
+      }
+    }
+  }
+}

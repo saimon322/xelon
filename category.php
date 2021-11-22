@@ -1,7 +1,7 @@
 <?php
 global $wp_query;
 get_header(); 
-$blog = get_field('blog', 'option');?>
+$blog = get_field('blog', 'option'); ?>
 
 <div class="xln-page">
     <div class="blog-header">
@@ -11,13 +11,14 @@ $blog = get_field('blog', 'option');?>
             </h1>
         </div>
     </div>
+    
     <section class="xln-news xln-featured-news">
         <div class="xln-news__container xln-container">
             <h2 class="xln-news__title">
-                <?= $blog['featured_posts_title']; ?>
+                <?= $blog['featured_posts']['title']; ?>
             </h2>
             <div class="xln-news__content">
-                <?php $featured_posts = $blog['featured_posts']; 
+                <?php $featured_posts = $blog['featured_posts']['posts']; 
                 if( $featured_posts ):
                     foreach( $featured_posts as $post ):
                         setup_postdata($post); 
@@ -42,14 +43,16 @@ $blog = get_field('blog', 'option');?>
                     </div>
                 </div>
                 <div class="xln-info-block__form">
-                    <div class="email-form">
+                    <form action="#" class="email-form email-form--blue">
+                        <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
+                        <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
                         <div class="form-block form-block--big  ">
                             <input type="email" name="email" placeholder="<?= $subscribe_form['email_placeholder']; ?>" class="form-input">
                             <label class="form-label"><?= $subscribe_form['email_placeholder']; ?></label>
-                            <div class="msg"></div>
                         </div>
-                        <input type="submit" class="xln-button xln-button--green" value="<?= $subscribe_form['button']; ?>">
-                    </div>
+                        <input type="submit" class="xln-button xln-button--green send-subscribe" value="<?= $subscribe_form['button']; ?>">
+                        <div class="msg"></div>
+                    </form>
                     <div class="checkboks custom-sq">
                         <input type="checkbox" class="checked-checkbox" name="myCheckboxes" id="box10"
                                checked="checked" value="true">
