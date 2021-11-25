@@ -3,25 +3,39 @@
   align-items: center;
   list-style: none;
   padding: 20px 0;
-  line-height: 1;
 
-  li:last-child {
+  li {
     max-width: 247px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+
+    &:first-child {
+      flex-shrink: 0;
+
+      span {
+        @include media-down(xs) {
+          display: none;
+        }
+      }
+    }
+
+    &:last-child {
+      min-width: 100px;
+    }
   }
 
   a {
     @include xln-link-blue;
-    white-space: nowrap;
   }
 
   &__sep {
+    flex-shrink: 0;
     width: 24px;
     height: 24px;
     margin: 0 4px;
+    background: url(img/icon/arrow-back.svg) center / contain no-repeat;
   }
 }

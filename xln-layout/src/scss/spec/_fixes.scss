@@ -210,10 +210,6 @@ textarea.not-empty~.blue-label {
   }
 }
 
-.single-post h2 strong {
-  font-weight: normal;
-}
-
 .admin-bar .main-nav__wr--start-sticky {
   @include media-up(lg) {
     top: 32px;

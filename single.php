@@ -11,12 +11,10 @@ $author_img = get_field('profile_img', 'user_'.$author); ?>
     <div class="xln-single-post">
         <div class="xln-container">
             <ul class="breadcrumbs">
-                <li><a href="<?=home_url( '/blog' )?>">Xelon Blog</a></li>
-                <div class="breadcrumbs__sep">
-                    <svg width='24px' height='24px'>
-                        <use xlink:href='#arrow-back'></use>
-                    </svg>
-                </div>
+                <li><a href="<?=home_url( '/blog' )?>">
+                    <span>Xelon</span> Blog</a>
+                </li>
+                <div class="breadcrumbs__sep"></div>
                 <li><?php the_title();?></li>
             </ul>
 
@@ -96,60 +94,54 @@ $author_img = get_field('profile_img', 'user_'.$author); ?>
                         </div>
                         <div class="xln-single-share__list" id="share"></div>
                     </div>
-
-                    <div class="xln-single-banner">
-
-                    </div>
                 </div>
             </div>
             
             <?php $subscribe_form = $blog['subscribe_form']; ?>
             <section class="xln-info-block">
-                <div class="xln-container">
-                    <div class="xln-info-block__wrapper">
-                        <div class="xln-info-block__main">
-                            <h3 class="xln-info-block__title">
-                                <?= $subscribe_form['title']; ?>
-                            </h3>
-                            <div class="xln-info-block__text">
-                                <?= $subscribe_form['text']; ?>
+                <div class="xln-info-block__wrapper">
+                    <div class="xln-info-block__main">
+                        <h3 class="xln-info-block__title">
+                            <?= $subscribe_form['title']; ?>
+                        </h3>
+                        <div class="xln-info-block__text">
+                            <?= $subscribe_form['text']; ?>
+                        </div>
+                    </div>
+                    <div class="xln-info-block__form">
+                        <form action="#" class="email-form email-form--blue">
+                            <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
+                            <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
+                            <div class="form-block form-block--big">
+                                <input type="email" name="email" placeholder="<?= $subscribe_form['email_placeholder']; ?>" class="form-input">
+                                <label class="form-label"><?= $subscribe_form['email_placeholder']; ?></label>
                             </div>
-                        </div>
-                        <div class="xln-info-block__form">
-                            <form action="#" class="email-form email-form--blue">
-                                <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
-                                <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
-                                <div class="form-block form-block--big">
-                                    <input type="email" name="email" placeholder="<?= $subscribe_form['email_placeholder']; ?>" class="form-input">
-                                    <label class="form-label"><?= $subscribe_form['email_placeholder']; ?></label>
-                                </div>
-                                <input type="submit" class="xln-button xln-button--green send-subscribe" value="<?= $subscribe_form['button']; ?>">
-                                <div class="msg"></div>
-                            </form>
-                        </div>
+                            <input type="submit" class="xln-button xln-button--green send-subscribe" value="<?= $subscribe_form['button']; ?>">
+                            <div class="msg"></div>
+                        </form>
                     </div>
                 </div>
             </section>
         </div>
     </div>
 
-    <section class="xln-news xln-featured-news">
-        <div class="xln-news__container xln-container">
-            <h2 class="xln-news__title">
-                <?= $blog['related_posts']['title']; ?>
-            </h2>
-            <div class="xln-news__content">
-                <?php $featured_posts = $blog['related_posts']['posts']; 
-                if( $featured_posts ):
-                    foreach( $featured_posts as $post ):
+    <?php $related_posts = get_field('related_posts');
+        if( $related_posts ): ?>
+        <section class="xln-news xln-featured-news">
+            <div class="xln-news__container xln-container">
+                <h2 class="xln-news__title">
+                    <?= $blog['related_posts']['title']; ?>
+                </h2>
+                <div class="xln-news__content">
+                    <?php foreach( $related_posts as $post ):
                         setup_postdata($post); 
                         get_template_part('template-parts/blog-archive-single');
                     endforeach;
-                    wp_reset_postdata();
-                endif; ?>
+                    wp_reset_postdata(); ?>
+                </div>
             </div>
-        </div>
-    </section><!-- /.xln-news -->
+        </section>
+    <?php endif; ?>
 
     <?php wp_reset_postdata(); ?>
 </div>

@@ -10,6 +10,13 @@ import '../img/svg-sprite/arrows/arrow-link.svg';
 import '../img/svg-sprite/arrows/arrow-back.svg';
 
 // Socials
+import '../img/svg-sprite/socials/social-facebook.svg';
+import '../img/svg-sprite/socials/social-instagram.svg';
+import '../img/svg-sprite/socials/social-linkedin.svg';
+import '../img/svg-sprite/socials/social-email.svg';
+import '../img/svg-sprite/socials/social-twitter.svg';
+import '../img/svg-sprite/socials/social-youtube.svg';
+
 import '../img/svg-sprite/socials/social-instagram.svg';
 import '../img/svg-sprite/socials/social-facebook.svg';
 import '../img/svg-sprite/socials/social-linkedin.svg';

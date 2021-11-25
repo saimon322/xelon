@@ -4,11 +4,9 @@
         const newsBlock = $(this).parents('.xln-news');
         newsBlock.find('.xln-news__tag.xln-active').removeClass('xln-active');
         $(this).addClass('xln-active');
+        const cat = $(this).data('cat');
 
-        let cat = $(this).data('cat');
-
-        load_posts(cat, 1);
-
+        load_posts(cat, 1, newsBlock);
     });
 
     function pagination_init() {

@@ -4,20 +4,24 @@ $author_id = get_the_author_meta('ID');
 $author_name = $author->display_name;
 get_header (); ?>
 
-
-<div class="author-page">
+<div class="xln-page author-page">
 	<div class="xln-container">
         <ul class="breadcrumbs">
-            <li><a href="<?=home_url( '/blog' )?>">Xelon Blog</a></li>
-            <div class="breadcrumbs__sep">
-                <svg width='24px' height='24px'>
-                    <use xlink:href='#arrow-back'></use>
-                </svg>
-            </div>
+            <li><a href="<?=home_url( '/blog' )?>">
+                <span>Xelon</span> Blog</a>
+            </li>
+            <div class="breadcrumbs__sep"></div>
+            <?php $prev_page = $_SERVER['HTTP_REFERER'];
+            if ($prev_page) { ?>
+                <li><a href="<?= $prev_page; ?>">
+                    <?= get_the_title(url_to_postid($prev_page)); ?>
+                </a></li>
+                <div class="breadcrumbs__sep"></div>
+            <?php }?>
             <li><?= $author_name; ?></li>
         </ul>
-		<div class="author-page-row d-flex">
-			<div class="author-posts">
+		<div class="author-page-wrapper">
+			<div class="author-page-posts">
 				<?php if ( have_posts() ) : 
                     while ( have_posts() ) : the_post();
                         get_template_part('template-parts/blog-archive-single');
@@ -26,31 +30,28 @@ get_header (); ?>
 					<div><?php _e('No posts by this author.'); ?></p>
 				<?php endif; ?>
 			</div>
-			<div class="author-card">
-				<div class="author-img">
-					<?php 
-						$author_img = get_field('profile_img', 'user_'.$author_id);
+			<div class="author-page-card">
+				<div class="author-page-card__photo">
+					<?php $author_img = get_field('profile_img', 'user_'.$author_id);
 						$author_ava = wp_get_attachment_image_url($author_img, 'full', true);
 						if ($author_img) { ?>
-						<img src="<?echo $author_ava; ?>" alt="<?php echo $author->nickname; ?>">
+						    <img src="<?= $author_ava; ?>" alt="<?php echo $author_name; ?>">
 					<?php } ?>
 				</div>
-				<div class="author-card-item">
-					<div class="author-name">
-						<?php echo $author_name; ?>
+				<div class="author-page-card__content">
+					<div class="author-page-card__name">
+						<?= $author_name; ?>
 					</div>
-					<div class="author-card-position">
-						<?php 
-							
-							echo the_field('business_position', 'user_'.$author_id);
-						 ?>					
+					<div class="author-page-card__post">
+						<?= get_field('business_position', 'user_'.$author_id); ?>					
+					</div>					
+					<div class="author-page-card__text">
+						<?= get_field('text', 'user_'.$author_id); ?>					
 					</div>					
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-
 
 <?php get_footer (); ?>

@@ -1,27 +1,49 @@
 .xln-single-container {
-  display: grid;
-  grid-gap: 30px;
   margin-bottom: 30px;
 
   @include media-up(lg) {
-    grid-template-columns: 1fr 350px;
+    display: flex;
     padding-left: 32px;
     margin-bottom: 40px;
   }
 
   @include media-up(xl) {
-    grid-template-columns: 1fr 400px;
-    grid-gap: 40px;
     padding-left: 110px;
   }
 }
 
 .xln-single-main {
+  width: 100%;
 
+  @include media-up(lg) {
+    flex: 1 1 0;
+  }
 }
 
 .xln-single-aside {
+  margin-top: 20px;
+
+  @include media-up(md) {
+    margin-top: 30px;
+  }
+
   @include media-up(lg) {
+    position: sticky;
+    top: 20px;
+    width: 350px;
+    height: -webkit-fill-available;
     margin-top: 54px;
+    margin-left: 30px;
+    order: 1;
+    transition: top .5s;
+
+    .nav-show & {
+      top: 100px;
+    }
+  }
+
+  @include media-up(xl) {
+    width: 400px;
+    margin-left: 40px;
   }
 }

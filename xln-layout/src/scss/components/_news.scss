@@ -166,9 +166,10 @@
 }
 
 .xln-news-item__tags {
+  flex-shrink: 0;
   height: 20px;
   margin-bottom: 15px;
-  line-height: 20px;
+  line-height: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -202,6 +203,7 @@
 
 .xln-news-item__title {
   display: block;
+  flex-shrink: 0;
   height: 66px;
   font-weight: 600;
   font-size: 18px;
@@ -233,6 +235,7 @@
 }
 
 .xln-news-item__text {
+  flex-shrink: 0;
   height: 45px;
   font-size: 14px;
   margin-bottom: 15px;

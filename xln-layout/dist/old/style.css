@@ -131,7 +131,7 @@ img {
 .content a,
 .page-content a {
     text-decoration: underline;
-    transition: color .2s;
+    transition: color .2s
 }
 
 .content a:hover,
@@ -1811,65 +1811,6 @@ input#vdc-send-modal:disabled {
     margin: 66px auto 20px
 }
 
-.on-mobile {
-    display: none
-}
-
-#share {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    width: auto;
-    height: auto;
-    line-height: 0;
-    transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    text-align: center;
-    font-size: 0;
-    position: fixed;
-    right: -71px;
-    top: 50%;
-    z-index: 9999999
-}
-
-.jssocials-shares {
-    display: flex;
-    justify-content: flex-end
-}
-
-.jssocials-share {
-    width: 50px;
-    height: 50px;
-    -webkit-background-size: cover;
-    background-size: cover;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    margin: -1px;
-    transform: rotate(90deg)
-}
-
-.jssocials-share.jssocials-share-facebook {
-    background-image: url(../img/icons/o-fb.svg)
-}
-
-.jssocials-share.jssocials-share-email {
-    background-image: url(../img/icons/o-mail.svg)
-}
-
-.jssocials-share.jssocials-share-twitter {
-    background-image: url(../img/icons/o-twitter.svg)
-}
-
-.jssocials-share.jssocials-share-linkedin {
-    background-image: url(../img/icons/o-linkedin.svg)
-}
-
-.jssocials-share-label {
-    display: block;
-    height: 100%;
-    font-size: 0
-}
-
 .current-category {
     padding-top: 60px
 }
@@ -2290,28 +2231,12 @@ ul.mobile-nav-footer {
 
 .content ul {
     padding-left: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 20px
 }
 
 .content p {
     font-size: 16px;
     line-height: 30px
-}
-
-.author-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover
-}
-
-.author-img {
-    height: 200px
-}
-
-.author-link {
-    color: #0089fc;
-    font-size: 16px;
-    text-decoration: underline
 }
 
 #category .subscribe-area {
@@ -2365,65 +2290,6 @@ ul.mobile-nav-footer {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     width: 100%
-}
-
-#author {
-    background-color: #dde3e9
-}
-
-.author-page {
-    padding: 60px 0
-}
-
-.author-page-row {
-    width: 100%
-}
-
-.author-card {
-    width: 100%;
-    max-width: 320px;
-    height: 100%;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .14);
-    background: #fff
-}
-
-.author-posts {
-    width: 100%;
-    margin-right: 45px
-}
-
-.author-posts .f-item {
-    height: auto;
-    width: auto;
-    margin: 0 0 20px
-}
-
-.author-posts .item-link {
-    font-weight: 700
-}
-
-.author-posts .post-review {
-    font-size: 16px;
-    font-weight: 400;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.88;
-    letter-spacing: normal;
-    margin-top: 20px
-}
-
-.author-posts .f-item-bottom {
-    padding: 40px 30px
-}
-
-.author-card-item {
-    padding: 25px 30px
-}
-
-.author-card-position {
-    font-size: 14px;
-    color: #9b9ea1
 }
 
 .about-us-welcome {
@@ -3895,15 +3761,6 @@ ul.mobile-nav-footer {
         background-color: #2e3144
     }
 
-    .on-mobile .jssocials-share {
-        transform: none
-    }
-
-    .on-mobile .jssocials-shares {
-        justify-content: flex-start;
-        padding: 15px
-    }
-
     .subscribe-area .subs-flex .simple-input {
         margin-bottom: 15px
     }
@@ -4412,15 +4269,6 @@ ul.mobile-nav-footer {
         padding: 0 50px
     }
 
-    .author-page-row {
-        flex-direction: column-reverse
-    }
-
-    .author-card {
-        max-width: 100%;
-        margin-bottom: 20px
-    }
-
     .f-item-block,
     .facts-item {
         flex-direction: column;
@@ -4485,10 +4333,6 @@ ul.mobile-nav-footer {
         margin-right: 0
     }
 
-    .on-mobile .jssocials-shares {
-        justify-content: center
-    }
-
     .have-you-quession .q-area .q-content {
         padding-left: 0
     }
@@ -4512,10 +4356,6 @@ ul.mobile-nav-footer {
 
     .facts-item {
         margin-bottom: 20px
-    }
-
-    .author-item {
-        margin-right: 20px
     }
 
     .digit-now {

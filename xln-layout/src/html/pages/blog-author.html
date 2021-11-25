@@ -3,8 +3,11 @@
 }) %>
 
 <main class="site-main">
-    <div class="xln-page">
-        <%=_.template(require("../templates/blog/header.html"))() %>
+    <div class="xln-page author-page">
+        <div class="xln-container">
+            <%=_.template(require("../templates/blog-author/breadcrumbs.html"))() %>
+            <%=_.template(require("../templates/blog-author/content.html"))() %>
+        </div>
     </div>
 </main>
 

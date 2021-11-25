@@ -237,7 +237,7 @@
                 });
             });
             
-            t("#share").jsSocials({ showLabel: !0, showCount: !1, shareIn: "popup", shares: ["linkedin", "twitter", "facebook", "email"] });
+            t("#share").jsSocials({ showLabel: !0, showCount: !1, shareIn: "popup", shares: ["email", "facebook", "linkedin", "twitter"] });
             t(".moreBox").slice(0, 4).show();
             0 != t(".blogBox:hidden").length && t("#loadMore").show();
             t("#loadMore").on("click", function (e) {

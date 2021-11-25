@@ -37,6 +37,7 @@
 @import "components/news";
 @import "components/info-block";
 @import "components/inline-scroll";
+@import "components/breadcrumbs";
 
 /* ==========================================================================
     HOME PAGE
@@ -75,13 +76,11 @@
     BLOG SINGLE PAGE
     ========================================================================== */
 @import "pages/blog-single/single-post";
-@import "pages/blog-single/breadcrumbs";
 @import "pages/blog-single/header";
 @import "pages/blog-single/container";
 @import "pages/blog-single/author-bar";
 @import "pages/blog-single/content";
 @import "pages/blog-single/share";
-@import "pages/blog-single/banner";
 @import "pages/blog-single/author";
 
 /* ==========================================================================
