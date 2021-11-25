@@ -1,6 +1,10 @@
 <div class="xln-news-item">
     <a href="<?php the_permalink(); ?>" class="xln-news-item__img-wrapper">
-        <?php the_post_thumbnail('large', array('class' => 'xln-news-item__img')); ?>
+        <?php $thumbnail_img = get_post_thumbnail_id( $post->ID );
+            $square = get_field('square_image', $post->ID);
+            $toShow = $square ? $square : $thumbnail_img; ?>
+        <img src="<?= wp_get_attachment_image_url($toShow, array(590, 440), false) ?>" alt=""
+            class="xln-news-item__img">
     </a>
     <div class="xln-news-item__content">
         <div class="xln-news-item__tags">
