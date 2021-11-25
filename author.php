@@ -1,6 +1,7 @@
 <?php 
 $author = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 $author_id = get_the_author_meta('ID');
+$author_user = 'user_'.$author_id;
 $author_name = $author->display_name;
 get_header (); ?>
 
@@ -32,8 +33,8 @@ get_header (); ?>
 			</div>
 			<div class="author-page-card">
 				<div class="author-page-card__photo">
-					<?php $author_img = get_field('profile_img', 'user_'.$author_id);
-						$author_ava = wp_get_attachment_image_url($author_img, 'full', true);
+					<?php $author_img = get_field('profile_img', $author_user);
+						$author_ava = wp_get_attachment_image_url($author_img, array(590, 440), true);
 						if ($author_img) { ?>
 						    <img src="<?= $author_ava; ?>" alt="<?php echo $author_name; ?>">
 					<?php } ?>
@@ -42,12 +43,16 @@ get_header (); ?>
 					<div class="author-page-card__name">
 						<?= $author_name; ?>
 					</div>
-					<div class="author-page-card__post">
-						<?= get_field('business_position', 'user_'.$author_id); ?>					
-					</div>					
-					<div class="author-page-card__text">
-						<?= get_field('text', 'user_'.$author_id); ?>					
-					</div>					
+                    <?php if(get_filed('business_position', $author_user)): ?>
+                        <div class="author-page-card__post">
+                            <?= get_field('business_position', $author_user); ?>					
+                        </div>
+                    <?php endif; ?>	
+                    <?php if(get_filed('text', $author_user)): ?>
+                        <div class="author-page-card__text">
+                            <?= get_field('text', $author_user); ?>					
+                        </div>
+                    <?php endif; ?>				
 				</div>
 			</div>
 		</div>
