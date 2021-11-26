@@ -786,7 +786,7 @@ function blog_filter()
     query_posts(array(
         'posts_per_page' => $posts_per_page,
         'post_type'      => 'post',
-        'category__in'   => $category,
+        'tag__in'   => $category,
         'paged'          => $_POST['paged'],
         'tax_query'      => $tax_query
     ));
