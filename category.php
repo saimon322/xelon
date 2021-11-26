@@ -73,12 +73,12 @@ $blog  = get_field('blog', 'option'); ?>
                 </form>
             </div>
             <div class="xln-news__tags inline-scroll">
-                <?php if ($categories = get_categories()): ?>
+                <?php if ($tags = get_tags()): ?>
                     <div class="inline-scroll__content">
-                        <?php foreach ($categories as $category): ?>
-                            <button class="xln-news__tag <?= is_category($category->term_id) ? 'xln-active' : ''; ?>"
-                                    data-cat="<?= $category->term_id; ?>">
-                                <?= $category->name; ?>
+                        <?php foreach ($tags as $tag): ?>
+                            <button class="xln-news__tag <?= is_tag($tag->term_id) ? 'xln-active' : ''; ?>"
+                                    data-cat="<?= $tag->term_id; ?>">
+                                <?= $tag->name; ?>
                             </button>
                         <?php endforeach; ?>
                     </div>
