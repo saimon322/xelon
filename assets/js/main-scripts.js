@@ -894,7 +894,10 @@
                     data: "action=send_email&" + i + "&url=" + o,
                     dataType: "json",
                     success: function (e) {
-                        jQuery("#modal-form input").val(""), t(".sucmsg4").fadeIn(0).html(e.data).addClass("sucmsg-style").fadeOut(3e4);
+                        jQuery("#subs-form")[0].reset(), t(".sucmsg4").fadeIn(0).html(e.data).addClass("sucmsg-style");
+                        setTimeout(() => {
+                            jQuery(".sucmsg4").fadeOut(1000);
+                        }, 2000);
                     },
                     error: function (t, e, i) {
                         console.log(e);

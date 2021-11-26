@@ -4,8 +4,15 @@
 
   @include media-up(md) {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin: -16px 0;
+  }
+
+  &__box {
+    width: 100%;
+    display: flex;
+    align-items: center;
   }
 
   .form-input {

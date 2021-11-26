@@ -109,15 +109,24 @@ $author_img = get_field('profile_img', 'user_'.$author); ?>
                         </div>
                     </div>
                     <div class="xln-info-block__form">
-                        <form action="#" class="email-form email-form--blue">
-                            <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
-                            <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
-                            <div class="form-block form-block--big">
-                                <input type="email" name="email" placeholder="<?= $subscribe_form['email_placeholder']; ?>" class="form-input">
-                                <label class="form-label"><?= $subscribe_form['email_placeholder']; ?></label>
+                        <form id="subs-form" class="email-form email-form--blue">
+                            <div class="email-form__box">
+                                <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga']?>">
+                                <input type="hidden" name="pageUrl" value="<?php echo "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
+                                <div class="form-block form-block--big  ">
+                                    <input type="email" name="subsEmail" id="subsEmail" placeholder="<?= $subscribe_form['email_placeholder']; ?>" class="form-input">
+                                    <label class="form-label"><?= $subscribe_form['email_placeholder']; ?></label>
+                                </div>
+                                <input type="submit" class="xln-button xln-button--green subs-submit" value="<?= $subscribe_form['button']; ?>">
+                                <div class="sucmsg4"></div>	
                             </div>
-                            <input type="submit" class="xln-button xln-button--green send-subscribe" value="<?= $subscribe_form['button']; ?>">
-                            <div class="msg"></div>
+                            <div class="checkboks custom-sq">
+                                <input type="checkbox" class="checked-checkbox" name="myCheckboxes" id="box10"
+                                    checked="checked" value="true">
+                                <label for="box10" class="checkboks-text">
+                                    <?php echo replace_p(get_field('footer_checkbox_text', 'option')); ?>
+                                </label>
+                            </div>
                         </form>
                     </div>
                 </div>

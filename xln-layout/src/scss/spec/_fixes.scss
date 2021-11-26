@@ -219,3 +219,15 @@ textarea.not-empty~.blue-label {
 .fl-builder-edit header {
 	display: none;
 }
+
+.sucmsg-style {
+  min-width: 150px;
+
+  @include media-down(lg) {
+    margin: 0;
+
+    &:before {
+      display: none;
+    }
+  }
+}

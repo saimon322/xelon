@@ -25,6 +25,7 @@ get_header (); ?>
 			<div class="author-page-posts">
 				<?php if ( have_posts() ) : 
                     while ( have_posts() ) : the_post();
+                        // if (get_the_category($post->ID)[0]->slug == 'blog')
                         get_template_part('template-parts/blog-archive-single');
                     endwhile; 
                 else: ?>
@@ -43,16 +44,12 @@ get_header (); ?>
 					<div class="author-page-card__name">
 						<?= $author_name; ?>
 					</div>
-                    <?php if(get_filed('business_position', $author_user)): ?>
-                        <div class="author-page-card__post">
-                            <?= get_field('business_position', $author_user); ?>					
-                        </div>
-                    <?php endif; ?>	
-                    <?php if(get_filed('text', $author_user)): ?>
-                        <div class="author-page-card__text">
-                            <?= get_field('text', $author_user); ?>					
-                        </div>
-                    <?php endif; ?>				
+                    <div class="author-page-card__post">
+                        <?= get_field('business_position', $author_user); ?>					
+                    </div>
+                    <div class="author-page-card__text">
+                        <?= get_field('bio', $author_user); ?>					
+                    </div>			
 				</div>
 			</div>
 		</div>
