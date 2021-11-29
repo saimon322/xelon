@@ -1,0 +1,7 @@
+.xln-single-tag {
+  padding-bottom: 40px;
+
+  @include media-up(md) {
+    padding-bottom: 80px;
+  }
+}

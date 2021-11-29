@@ -243,14 +243,9 @@ get_header(); ?>
             <div class="xln-news__content">
                 <?php $args = array(
                     'posts_per_page' => 3,
+                    'cat'            => 278,
                     'post_type'      => 'post',
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'post_tag',
-                            'field'    => 'name',
-                            'terms'    => 'homepage',
-                        ),
-                    ),
+                    'post_status'=>'publish'
                 );
                 $query = new WP_Query($args);
                 if ($query->have_posts()):

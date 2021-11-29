@@ -10,13 +10,11 @@
         <div class="xln-news-item__tags">
             <?php $tags = wp_get_post_tags(get_the_ID(), array('fields' => 'all'));
             if ( ! empty($tags)): ?>
-                <?php foreach ($tags as $tag):
-                    if ($tag->slug != 'homepage'):?>
-                        <a href="<?php echo get_category_link($tag->term_id); ?>"
-                           class="xln-news-item__tag">
-                            <?php echo $tag->name; ?>
-                        </a>
-                    <?php endif; ?>
+                <?php foreach ($tags as $tag):?>
+                    <a href="<?php echo get_category_link($tag->term_id); ?>"
+                        class="xln-news-item__tag">
+                        <?php echo $tag->name; ?>
+                    </a>
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>

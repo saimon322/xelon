@@ -773,23 +773,19 @@ function blog_filter()
         die();
     }
     
-    $posts_per_page = $_POST['posts_per_page'] ?? 3; 
-    $category = $_POST['category'] ?? null;
-    $tax_query = empty($_POST['category']) ? array(
-        [
-            'taxonomy' => 'post_tag',
-            'field'    => 'name',
-            'terms'    => 'homepage',
-        ]
-    ) : null;
+    $posts_per_page = $_POST['posts_per_page'] ?? 3;
+    $tag__in        = $_POST['tag_in'] ?? null;
+    $cat            = empty($_POST['category']) ? 278 : $_POST['category'];
     
     query_posts(array(
         'posts_per_page' => $posts_per_page,
         'post_type'      => 'post',
-        'tag__in'   => $category,
+        'tag__in'        => $tag__in,
         'paged'          => $_POST['paged'],
-        'tax_query'      => $tax_query
+        'cat'            => $cat,
+        'post_status'    => 'publish'
     ));
+    
     ob_start();
     if (have_posts()) :
         while (have_posts()): the_post(); ?>

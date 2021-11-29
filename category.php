@@ -4,13 +4,13 @@ get_header();
 $paged = ($wp_query->query_vars['paged']) ?? 1;
 $blog  = get_field('blog', 'option'); ?>
 <div class="xln-page">
-    <div class="blog-header">
+    <section class="blog-header">
         <div class="xln-container">
             <h1 class="blog-header__title">
                 <?= $blog['title']; ?>
             </h1>
         </div>
-    </div>
+    </section>
     <section class="xln-news xln-featured-news">
         <div class="xln-news__container xln-container">
             <h2 class="xln-news__title">
@@ -29,41 +29,9 @@ $blog  = get_field('blog', 'option'); ?>
         </div>
     </section><!-- /.xln-news -->
     <?php $subscribe_form = $blog['subscribe_form']; ?>
-    <section class="xln-info-block half-bg">
-        <div class="xln-container">
-            <div class="xln-info-block__wrapper">
-                <div class="xln-info-block__main">
-                    <h3 class="xln-info-block__title">
-                        <?= $subscribe_form['title']; ?>
-                    </h3>
-                    <div class="xln-info-block__text">
-                        <?= $subscribe_form['text']; ?>
-                    </div>
-                </div>
-                <div class="xln-info-block__form">
-                    <form id="subs-form" class="email-form email-form--blue">
-                        <div class="email-form__box">
-                            <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga']?>">
-                            <input type="hidden" name="pageUrl" value="<?php echo "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
-                            <div class="form-block form-block--big  ">
-                                <input type="email" name="subsEmail" id="subsEmail" placeholder="<?= $subscribe_form['email_placeholder']; ?>" class="form-input">
-                                <label class="form-label"><?= $subscribe_form['email_placeholder']; ?></label>
-                            </div>
-                            <input type="submit" class="xln-button xln-button--green subs-submit" value="<?= $subscribe_form['button']; ?>">
-                            <div class="sucmsg4"></div>	
-                        </div>
-                        <div class="checkboks custom-sq">
-                            <input type="checkbox" class="checked-checkbox" name="myCheckboxes" id="box10"
-                                checked="checked" value="true">
-                            <label for="box10" class="checkboks-text">
-                                <?php echo replace_p(get_field('footer_checkbox_text', 'option')); ?>
-                            </label>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="half-bg">
+        <?php include 'template-parts/subscribe-form.php' ?>
+    </div>
     <section class="xln-news">
         <div class="xln-news__container xln-container">
             <div class="xln-news-search">
@@ -77,8 +45,12 @@ $blog  = get_field('blog', 'option'); ?>
             <div class="xln-news__tags inline-scroll">
                 <?php if ($tags = get_tags()): ?>
                     <div class="inline-scroll__content">
+                            <button class="xln-news__tag blog_cat <?= is_category(278) ? 'xln-active' : ''; ?>"
+                                    data-cat="278">
+                                Blog
+                            </button>
                         <?php foreach ($tags as $tag): ?>
-                            <button class="xln-news__tag <?= is_tag($tag->term_id) ? 'xln-active' : ''; ?>"
+                            <button class="xln-news__tag blog_tag <?= is_tag($tag->term_id) ? 'xln-active' : ''; ?>"
                                     data-cat="<?= $tag->term_id; ?>">
                                 <?= $tag->name; ?>
                             </button>
@@ -103,6 +75,7 @@ $blog  = get_field('blog', 'option'); ?>
                     'paged'          => $paged,
                     'cat'            => $wp_query->queried_object->term_id,
                     'post_type'      => 'post',
+                    'post_status'=>'publish',
                     'posts_per_page' => 9,
                 ]);
                 
