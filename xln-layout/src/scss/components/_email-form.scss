@@ -11,12 +11,15 @@
 
   &__box {
     width: 100%;
-    display: flex;
-    align-items: center;
+
+    @include media-up(md) {
+      display: flex;
+      align-items: center;
+    }
   }
 
   .form-block {
-    @include media-up(md) {
+    @include media-up(xl) {
       flex: 1 1 0;    
     }
   }

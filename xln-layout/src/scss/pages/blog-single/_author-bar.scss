@@ -8,11 +8,12 @@
   @include media-up(md) {
     grid-template-columns: repeat(3, auto);
     justify-content: space-between;
+    grid-gap: 20px;
   }
 
   &__item {
     white-space: nowrap;
-    line-height: 1;
+    overflow: hidden;
 
     a {
       margin-left: 5px;

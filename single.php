@@ -41,10 +41,13 @@ $author_img = get_field('profile_img', 'user_'.$author); ?>
                         <div class="xln-single-author-bar__item">
                             Category:
                             <span class="xln-single-author-bar__cats">
-                                <?php $category = get_the_category();
-                                foreach ($category as $cat ) { ?>
-                                    <a href="<?php echo get_category_link($cat->cat_ID)?>"><?php echo $cat->cat_name; ?></a>
-                                <?php } ?>
+                                <?php if ($tags = get_the_tags()): ?>
+                                    <?php foreach ($tags as $tag): ?>
+                                        <a href="<?php echo get_category_link($cat->term_id)?>">
+                                            <?= $tag->name; ?>
+                                        </a>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </span>
                         </div>
 
@@ -97,9 +100,9 @@ $author_img = get_field('profile_img', 'user_'.$author); ?>
                 </div>
             </div>
         </div>
-    </div>
             
-    <?php include 'template-parts/subscribe-form.php' ?>
+        <?php include 'template-parts/subscribe-form.php' ?>
+    </div>
 
     <?php $related_posts = get_field('related_posts');
         if( $related_posts ): ?>

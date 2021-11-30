@@ -12,13 +12,12 @@
     }
 
     @include media-up(lg) {
-      grid-template-columns: 57% 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-gap: 40px;
       align-items: center;
     }
 
     @include media-up(xl) {
-      grid-template-columns: 1fr 1fr;
       padding: 60px 70px;
     }
   }
@@ -27,11 +26,17 @@
     margin-bottom: 16px;
   }
 
+  &__text br {
+    @include media-down(md) {
+      display: none;
+    }
+  }
+
   &__buttons {
     display: grid;
     grid-gap: 20px;
 
-    @include media-up(xl) {
+    @include media-up(md) {
       grid-template-columns: auto auto;
     }
 
@@ -44,21 +49,15 @@
     }
   }
 
-  &__form {
-    .email-form {
-      @include media-down(lg) {
-        display: block;
-      }
-    }
-    
+  &__form {    
     .form-input {
-      @include media-down(lg) {
+      @include media-down(sm) {
         border-radius: 4px;
       }
     }
 
     .xln-button {
-      @include media-down(lg) {
+      @include media-down(sm) {
         width: 100%;
         margin: 0 0 12px;
         border-radius: 4px;
@@ -67,6 +66,7 @@
 
     .checkboks {
       margin-top: 12px;
+      margin-bottom: 0;
 
       @include media-up(md) {
         margin-top: 20px;
@@ -90,5 +90,11 @@
       color: var(--xln-main);
       background: #fff;
     }
+  }
+}
+
+.xln-subscribe .xln-info-block__wrapper {
+  @include media-up(xl) {
+    grid-template-columns: 40% 1fr;
   }
 }
