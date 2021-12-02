@@ -43,7 +43,7 @@ $author_img = get_field('profile_img', 'user_'.$author); ?>
                             <span class="xln-single-author-bar__cats">
                                 <?php if ($tags = get_the_tags()): ?>
                                     <?php foreach ($tags as $tag): ?>
-                                        <a href="<?php echo get_category_link($cat->term_id)?>">
+                                        <a href="<?php echo get_category_link($tag->term_id)?>">
                                             <?= $tag->name; ?>
                                         </a>
                                     <?php endforeach; ?>

@@ -10,7 +10,7 @@
   }
 
   &__box {
-    width: 100%;
+    flex: 1 1 0;
 
     @include media-up(md) {
       display: flex;
@@ -43,18 +43,18 @@
     }
   }
 
-  &--blue {
+  &--white {
     a.xln-button {
       border: 1px solid #fff;
     }
-  }
 
-  input:focus~.form-label,
-  input.not-empty~.form-label {
-    color: #fff !important;
-  }
-
-  .msg {
-    color: #fff !important;
+    input:focus~.form-label,
+    input.not-empty~.form-label {
+      color: #fff !important;
+    }
+  
+    .msg {
+      color: #fff !important;
+    }
   }
 }

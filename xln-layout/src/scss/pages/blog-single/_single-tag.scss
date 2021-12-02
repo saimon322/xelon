@@ -4,4 +4,12 @@
   @include media-up(md) {
     padding-bottom: 80px;
   }
+
+  .xln-news {
+    padding: 0 0 40px;
+
+    @include media-up(md) {
+      padding: 0 0 80px;
+    }
+  }
 }

@@ -1,120 +1,96 @@
 .xln-banner {
-    color: inherit;
-    background: none;
-    padding: 12px 0 40px;
+  color: inherit;
+  background: none;
+  padding: 30px 0;
 
-    @include media-up(md) {
-        padding: 20px 0 50px;
-    }
+  @include media-up(md) {
+    padding: 40px;
+  }
 
-    @include media-up(lg) {
-        padding: 120px 0 70px;
-    }
+  @include media-up(lg) {
+    padding: 120px 0 70px;
+  }
 }
 
 .xln-banner__container {
-    position: relative;
+  position: relative;
 }
 
 .xln-banner__wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column-reverse;
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
 
-    @include media-up(lg) {
-        flex-direction: row;
-    }
+  @include media-up(lg) {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .xln-banner__content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    @include media-up(lg) {
-        width: 51%;
-    }
+  @include media-up(lg) {
+    width: 51%;
+    margin-right: 50px;
+    margin-bottom: 30px;
+  }
 }
 
 .xln-banner__main {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 
-    @include media-up(md) {
-        margin-bottom: 40px;
-    }
+  @include media-up(md) {
+    margin-bottom: 40px;
+  }
 
-    @include media-up(lg) {
-        margin-bottom: 60px;
-    }
+  @include media-up(lg) {
+    margin-bottom: 60px;
+  }
 }
 
 .xln-banner__title {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 
-    @include media-up(md) {
-        margin-bottom: 32px;
-    }
+  @include media-up(md) {
+    margin-bottom: 32px;
+  }
 }
 
 .xln-banner__title span {
-    color: var(--xln-main);
+  color: var(--xln-main);
 }
 
 .xln-banner__text {
-    color: var(--light);
-    margin-bottom: 16px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 160%;
+  color: var(--light);
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 160%;
 
-    @include media-up(md) {
-        font-size: 16px;
-        max-width: 455px;
-        margin-bottom: 32px;
-    }
+  @include media-up(md) {
+    font-size: 16px;
+    max-width: 455px;
+    margin-bottom: 32px;
+  }
 }
 
-.xln-banner__button {
-    @include media-up(md) {
-        height: 60px;
-        max-width: 290px;
-    }
+.xln-banner__form {
+  @include media-up(lg) {
+    max-width: 550px;
+  }
 }
 
 .xln-banner__media {
-    text-align: center;
-    
-    @include media-up(lg) {
-        width: 49%;
-        margin-top: 30px;
-    }
+  margin-bottom: 30px;
+  text-align: center;
 
-    @include media-up(xl) {
-        display: flex;
-        justify-content: flex-end;
-    }
+  @include media-up(lg) {
+    flex: 1 1 0;
+  }
 }
 
-.xln-banner__anim {
-    &--mobile {
-        max-height: 230px;
-    
-        @include media-up(md) {
-            max-height: 350px;
-        }
-
-        @include media-up(md) {
-            display: none;
-        }
-    }
-
-    &--desktop {        
-        @include media-down(sm) {
-            display: none;
-        }
-
-        @include media-up(xl) {
-            width: 110%;
-            max-width: unset;
-        }
-    }
+.xln-banner__img {
+  max-width: 100%;
 }
