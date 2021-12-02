@@ -28,7 +28,6 @@ $blog  = get_field('blog', 'option'); ?>
             </div>
         </div>
     </section><!-- /.xln-news -->
-    <?php $subscribe_form = $blog['subscribe_form']; ?>
     <div class="half-bg">
         <?php include 'template-parts/subscribe-form.php' ?>
     </div>
