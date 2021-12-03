@@ -8,6 +8,7 @@ import '../img/svg-sprite/arrows/arrow-left.svg';
 import '../img/svg-sprite/arrows/arrow-right.svg';
 import '../img/svg-sprite/arrows/arrow-link.svg';
 import '../img/svg-sprite/arrows/arrow-back.svg';
+import '../img/svg-sprite/arrows/arrow-full.svg';
 
 // Socials
 import '../img/svg-sprite/socials/social-facebook.svg';

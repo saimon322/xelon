@@ -116,137 +116,14 @@
     </div>
 </footer>
 
-<!-- Contact Modal -->
-<div id="modal-contact"
-     class="white-popup mfp-hide">
-    <div class="modal-area">
-        <?php $popup_contact = get_field('popup_contact', 'options');
-         $headline = $popup_contact['headline'];
-         $text = $popup_contact['text'];
-         $button = $popup_contact['button'] ? $popup_contact['button'] : 'Senden';
-        if ($headline):?>
-            <div class="modal-header">
-                <?php echo $headline; ?>
-            </div>
-        <?php endif;
-        if ($text):?>
-            <div class="modal-text">
-                <?php echo $text; ?>
-            </div>
-        <?php endif; ?>
-        
-        <form class="modal-form" id="modal-form" method="POST">
-            <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
-            <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
-            <div class="form-block">
-                <input type="text" name="fullname" id="fullname" class="form-input" placeholder="<?php the_field('ph_full_name', 'option'); ?>*">
-                <label class="form-label" for="fullname"><?php echo the_field('full_name', 'option'); ?>*</label>
-                <div class="msg">Not valid</div>
-            </div>
-            <div class="form-block">
-                <input type="text" class="form-input" name="modalEmail" id="modalEmail" placeholder="<?php the_field('ph_email', 'option'); ?>*">
-                <label class="form-label" for="modalEmail"><?php echo the_field('mh_email', 'option'); ?>*</label>
-                <div class="msg">The email must be a valid email address.</div>
-            </div>
-            <div class="form-block">
-                <input type="text" class="form-input" name="company" id="company" placeholder="">
-                <label class="form-label" for="company"><?php the_field('ph_company', 'option'); ?></label>
-            </div>
-            <div class="form-block">
-                <textarea class="form-input" cols="40" rows="10" name="modalMsg" id="modalMsg" placeholder="Ihre Nachricht"></textarea>
-                <label class="form-label" for="modalMsg"><?php replace_p(get_field('ph_message', 'option')) ?>Ihre Nachricht</label>
-            </div>
-            <div class="checkboks custom-sq">
-                <input type="checkbox" id="box6" name="modalCheckboks2" class="checked-checkbox" checked="checked" value="true"/>
-                <label for="box6" class="checkboks-text d-flex align-center"><?php echo replace_p(get_field('header_checkbox_text', 'option')) ?></label>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="xln-button modal-submit"><?php echo $button; ?></button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- Sign Up Modal -->
-<div id="modal-signup"
-     class="white-popup mfp-hide">
-    <div class="modal-area d-flex">
-        <?php $popup_signup = get_field('popup_signup', 'options');
-         $headline = $popup_signup['headline'];
-         $text = $popup_signup['text'];
-         $button = $popup_signup['button'] ? $popup_signup['button'] : 'Senden';
-        if ($headline):?>
-            <div class="modal-header">
-                <?php echo $headline; ?>
-            </div>
-        <?php endif;
-        if ($text):?>
-            <div class="modal-text">
-                <?php echo $text; ?>
-            </div>
-        <?php endif; ?>
-
-        <form class="modal-form" method="POST" id="form-popup">
-            <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
-            <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
-            <div class="form-block">
-                <input type="email" name="signup-email" class="form-input" placeholder="Email*" required="required">
-                <label class="form-label">Email*</label>
-                <div class="msg"></div>
-            </div>
-            <input type="submit" class="xln-button send-subscribe" value="<?php echo $button; ?>">
-        </form>
-        
-            
-        <?php /* $signups = get_field('signups', 'options');
-        if ($signups):  ?>
-            <div class="modal-signups">
-                <div class="signups-title">
-                    <span>oder registrieren Sie sich mit</span>
-                </div>
-                <?php echo do_shortcode('[signups]'); ?>
-            </div>
-        <?php endif; */ ?>
-    </div>
-</div>
-
-<!-- Thanks Modal -->
-<div id="modal-thanks"
-     class="white-popup mfp-hide">
-    <div class="modal-area d-flex">
-        <?php $popup_thanks = get_field('popup_thanks', 'options');
-         $headline = $popup_thanks['headline'];
-         $text = $popup_thanks['text'];
-         $button = $popup_thanks['button'] ? $popup_thanks['button'] : 'Senden';
-        if ($headline):?>
-            <div class="modal-header">
-                <?php echo $headline; ?>
-            </div>
-        <?php endif;
-        if ($text):?>
-            <div class="modal-text">
-                <?php echo $text; ?>
-            </div>
-        <?php endif; ?>
-        <div class="xln-button send-subscribe modal-close">
-            <?php echo $button; ?>
-        </div>
-    </div>
-</div>
-
-<!-- Open Apply to position Modal -->
-<div id="open-apply"
-     class="white-popup mfp-hide">
-    <div class="modal-area d-flex">
-    <div class="modal-header"><?php echo the_field('ap_title', 'option'); ?></div>
-      <?php echo do_shortcode( '[contact-form-7 id="10660" html_class="modal-form" html_id="modal-form-apply" title="Apply for position"]' ); ?>
-  </div>
-</div>
+<?php include 'template-parts/modals/modal-signup.php' ?>
+<?php include 'template-parts/modals/modal-contact.php' ?>
+<?php include 'template-parts/modals/modal-apply.php' ?>
+<?php include 'template-parts/modals/modal-thanks.php' ?>
 
 <script>
     var ajaxactionurl = '<?php echo admin_url('admin-ajax.php'); ?>';
 </script>
 <?php wp_footer(); ?>
-<!--<script src="--><?php //echo TEMPLATE_URL; ?><!--/js/custom.js"></script>-->
 </body>
 </html>

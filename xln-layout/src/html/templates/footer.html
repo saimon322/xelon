@@ -134,7 +134,7 @@
 
 <!-- Contact Modal -->
 <div id="modal-contact" class="white-popup mfp-hide">
-    <div class="modal-area d-flex">
+    <div class="modal-area">
         <div class="modal-header">Kontaktformular</div>
         <form class="modal-form" id="modal-form" method="POST">
             <input type="hidden" name="userCID" value="" class="not-empty">
@@ -177,42 +177,56 @@
 
 <!-- Sign Up Modal -->
 <div id="modal-signup" class="white-popup mfp-hide">
-    <div class="modal-area d-flex">
-        <div class="modal-header">
-            Konto erstellen
+    <div class="modal-wrapper">
+        <div class="modal-img">
+            <img src="img/base/signup.png" alt="">
         </div>
-        <div class="modal-text">
-            und kostenlose Guthaben erhalten!
-        </div>
-        <form class="modal-form" method="POST" id="form-popup">
-            <div class="form-block">
-                <input type="text" name="subscribe-email" class="form-input" placeholder="Email*" required="required">
-                <label class="form-label">Email*</label>
-                <div class="msg"></div>
+        <div class="modal-area">
+            <div class="modal-header">
+                Kostenlosen Account erstellen
             </div>
-            <input type="submit" class="xln-button send-subscribe" value="Jetzt starten!">
-        </form>
-        <div class="modal-signups">
-            <div class="signups-title">
-                <span>oder registrieren Sie sich mit</span>
+            <div class="modal-text">
+                Erstellen Sie ein Konto und entdecken Sie<br> die Plattform selbst
             </div>
-            <div class="signups">
-                <a href="#" class="signup">
-                    <img src="img/icon/google.svg" alt="">
-                    <span>Google</span>
-                </a>
-                <a href="#" class="signup">
-                    <img src="img/icon/github.svg" alt="">
-                    <span>GitHub</span>
-                </a>
+            <form class="modal-form" method="POST" id="form-popup">
+                <div class="form-block">
+                    <input type="text" name="subscribe-email" class="form-input" placeholder="Email*" required="required">
+                    <label class="form-label">Email*</label>
+                    <div class="msg"></div>
+                </div>
+                <button type="submit" class="xln-button xln-button--green">
+                    Jetzt starten!
+                    <svg width="14" height="14">
+                        <use xlink:href='#arrow-full'></use>
+                    </svg>
+                </button>
+            </form>
+            <div class="modal-footer-text">
+                Sie haben bereits ein Konto?
+                <a href="#">Login</a>
             </div>
+            <!-- <div class="modal-signups">
+                <div class="signups-title">
+                    <span>oder registrieren Sie sich mit</span>
+                </div>
+                <div class="signups">
+                    <a href="#" class="signup">
+                        <img src="img/icon/google.svg" alt="">
+                        <span>Google</span>
+                    </a>
+                    <a href="#" class="signup">
+                        <img src="img/icon/github.svg" alt="">
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div> -->
         </div>
     </div>
 </div>
 
 <!-- Thanks Modal -->
 <div id="modal-thanks" class="white-popup mfp-hide">
-    <div class="modal-area d-flex">
+    <div class="modal-area">
         <div class="modal-header">
             Vielen Dank!
         </div>
