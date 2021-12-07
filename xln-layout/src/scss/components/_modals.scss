@@ -12,7 +12,8 @@
 
 #modal-signup {
   @include media-up(md) {
-    max-width: 755px;
+    width: 95%;
+    max-width: 800px;
     
     .modal-header,
     .modal-text {
@@ -49,11 +50,10 @@
   justify-content: center;
 
   @include media-up(md) {
-    flex-shrink: 0;
-    width: 315px;
+    flex: 1 1 0;
+    padding: 20px 20px 0 20px;
     margin-bottom: 0;
     height: auto;
-    justify-content: flex-end;
   }
 
   img {
@@ -61,18 +61,16 @@
     max-width: 100%;
 
     @include media-up(md) {
-      width: 365px;
-      max-width: unset;
-      margin-right: 0;
+      width: 100%;
     }
   }
 }
 
 .modal-area {
-  padding: 40px;
+  padding: 40px 20px;
 
-  @include media-down(sm) {
-    padding: 40px 20px;
+  @include media-up(md) {
+    padding-right: 40px;
   }
 }
 
