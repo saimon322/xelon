@@ -761,40 +761,6 @@
     t(function () {
         "use strict";
         t(".open-popup-link").magnificPopup({ type: "inline", midClick: !0, mainClass: "mfp-fade" });
-        t(".send-subscribe").click(function (e) {
-            e.preventDefault();
-            var i = t(this),
-                o = i.closest("form").find("input[type='email']").val(),
-                s = i.closest("form").attr("id");
-            "" == o && (o = i.closest("form").find(".simple-input").val());
-            var n = "function" == typeof ga && Object.hasOwnProperty.bind(ga)("getAll") ? ga.getAll()[0].get("clientId") : null,
-                r = g("referrer"),
-                a = { url: "https://vdc.xelon.ch/api/user/trial/subscribe?email=" + o + "&cid=" + n + "&referrer=" + r, method: "POST", timeout: 0 };
-            t.ajax(a)
-                .done(function (e) {
-                    i.closest("form").find(".msg").html(e.message).fadeIn("slow"),
-                        (window.dataLayer = window.dataLayer || []),
-                        window.dataLayer.push({ event: "formSubmitted", "gtm.elementId": s }),
-                        "object" == typeof window.analytics && "function" == typeof window.analytics.identify && window.analytics.identify({ email: o }),
-                        t("#open-popup .modal-area").css("padding-bottom", "60px"),
-                        (document.location.href = "https://vdc.xelon.ch/demo?email=" + o),
-                        i.remove();
-                })
-                .fail(function (t, e, o) {
-                    console.log({ xhr: t, textStatus: e, errorThrown: o }),
-                        t &&
-                            t.responseJSON &&
-                            "Email has been already used" === t.responseJSON.error &&
-                            (i.closest("form").append('<a class="xln-button" href="https://vdc.xelon.ch/login">Go to Login</a>'),
-                            i.closest("form").find(".simple-input").remove(),
-                            i.closest("form").find(".modal-input").remove(),
-                            i.closest("form").find(".msg").html("An account with this email already exists").addClass("rose-c").fadeIn("slow"),
-                            i.remove()),
-                        t && t.responseJSON && t.responseJSON.error && t.responseJSON.error.email
-                            ? i.closest("form").find(".msg").html(t.responseJSON.error.email).addClass("rose-c").fadeIn("slow")
-                            : t && t.responseJSON && t.responseJSON.error && t.responseJSON.error && i.closest("form").find(".msg").html(t.responseJSON.error).addClass("rose-c").fadeIn("slow");
-                });
-        });
         var o = window.location.toString();
         function s(t) {
             return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#email").css("border", "none"), !0) : (jQuery("#email").css("border", "1px solid #EF5261"), !1);
@@ -1073,8 +1039,7 @@
                 .focusout(),
             t(document).ready(function () {
                 document.location.href.indexOf("/en/") > -1 ? t(".menu-item-weglot.weglot-en").addClass("wpml-ls-current-language") : t(".menu-item-weglot.weglot-de").addClass("wpml-ls-current-language");
-            }),
-            !g("referrer"))
+            }))
         ) {
             let t = new Date(),
                 e = t.getFullYear() + "-" + (t.getMonth() + 1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds();
@@ -1087,13 +1052,6 @@
                 }
                 document.cookie = t + "=" + (e || "") + o + "; path=/";
             })("referrer", JSON.stringify(m), 30);
-        }
-        function g(t) {
-            for (var e = t + "=", i = document.cookie.split(";"), o = 0; o < i.length; o++) {
-                for (var s = i[o]; " " == s.charAt(0); ) s = s.substring(1, s.length);
-                if (0 == s.indexOf(e)) return s.substring(e.length, s.length);
-            }
-            return null;
         }
     });
 })(jQuery);

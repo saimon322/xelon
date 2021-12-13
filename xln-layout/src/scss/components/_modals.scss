@@ -21,6 +21,10 @@
       color: var(--light);
       margin-top: 12px;
     }
+
+    .modal-area {
+      padding-left: 20px;
+    }
   }
 }
 
@@ -70,7 +74,7 @@
   padding: 40px 20px;
 
   @include media-up(md) {
-    padding-right: 40px;
+    padding: 40px;
   }
 }
 

@@ -7,7 +7,11 @@
                     <?= $offer['title']; ?>
                 </h2>
             <?php endif; ?>
-            <form action="#" class="products-offer__form email-form email-form--white">
+            <form method="POST"
+                class="products-offer__form email-form email-form--white"
+                id="products-footer-signup"
+                data-portal-id="3366455"
+                data-form-id="42743e69-7709-45ac-b87f-b49202e27c95">
                 <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
                 <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
                 <div class="email-form__box">

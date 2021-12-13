@@ -69,26 +69,30 @@
       line-height: 140%;
     }
   }
-}
 
-.products-banner-form {
-  position: relative;
-  width: 100%;
-  max-width: 550px;
-  margin: 0 auto;
-
-  &__signups {
-    margin-top: 20px;
+  &__form {
+    width: 100%;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
   }
-
-  .signups-title {
-    &:before {
-      display: none;
-    }
-
-    span {
-      background: none;
-      color: #fff;
+  
+  &__signups {
+    width: 100%;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  
+    .signups-title {
+      &:before {
+        display: none;
+      }
+  
+      span {
+        background: none;
+        color: #fff;
+      }
     }
   }
 }

@@ -15,7 +15,7 @@
             </div>
         <?php endif; ?>
         
-        <form class="modal-form" id="modal-contact-form" method="POST">
+        <form class="modal-form" id="modal-form" method="POST">
             <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
             <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
             <div class="form-block">

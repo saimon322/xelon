@@ -17,7 +17,11 @@
                     <?= $popup_signup['content']['text']; ?>
                 </div>
             <?php endif; ?>
-            <form class="modal-signup-form" method="POST" id="form-popup">
+            <form method="POST"
+                class="modal-signup-form"
+                id="modal-signup"
+                data-portal-id="3366455"
+                data-form-id="8af481f0-f3fc-4555-967f-5884a08adf95">
                 <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
                 <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
                 <div class="form-block">
