@@ -1,3 +1,6 @@
+.fl-builder .top-langs__list {
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
 .fl-builder .like-h1 {
 	display: none;
 }

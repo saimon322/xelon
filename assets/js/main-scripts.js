@@ -771,20 +771,20 @@
         function r(t) {
             return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#modalEmail").css("border", "none"), !0) : (jQuery("#modalEmail").css("border", "1px solid #EF5261"), !1);
         }
+        function d(t) {
+            return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#spEmail").css("border", "none"), !0) : (jQuery("#spEmail").css("border", "1px solid #EF5261"), !1);
+        }
+        function u(t) {
+            "" == t.val() ? t.css("border", "1px solid #EF5261") : t.css("border", "none");
+        }
         function a(t) {
             return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#soEmail").css("border", "none"), !0) : (jQuery("#soEmail").css("border", "1px solid #EF5261"), !1);
         }
         function l(t) {
             return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#pr_email").css("border", "solid 2px rgba(255, 255, 255, 0.3)"), !0) : (jQuery("#pr_email").css("border", "solid 2px red"), !1);
         }
-        function d(t) {
-            return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#spEmail").css("border", "none"), !0) : (jQuery("#spEmail").css("border", "1px solid #EF5261"), !1);
-        }
         function c(t) {
             return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#subsEmail").css("border", "none"), !0) : (jQuery("#subsEmail").css("border", "1px solid #EF5261"), !1);
-        }
-        function u(t) {
-            "" == t.val() ? t.css("border", "1px solid #EF5261") : t.css("border", "none");
         }
         function p(e) {
             var i = t("label[for='" + e.attr("id") + "']");
@@ -840,54 +840,6 @@
                     dataType: "json",
                     success: function (e) {
                         jQuery("#hy-form input").val(""), jQuery("#hy-form textarea").val(""), t(".sucmsg2").fadeIn(0).html(e.data).addClass("sucmsg-style").fadeOut(3e4);
-                    },
-                    error: function (t, e, i) {
-                        console.log(e);
-                    },
-                });
-            }),
-            jQuery(".subs-submit").on("click", function (e) {
-                e.preventDefault();
-                var i = t(this).closest("form").serialize();
-                t("#subs-form input:checkbox:not(:checked)").each(function (t) {
-                    i += "&" + this.name + "=false";
-                });
-                var s = jQuery("#subsEmail").val();
-                if ((c(s), "" == s || 0 == c(jQuery("#subsEmail").val()))) return c(s), !1;
-                jQuery.ajax({
-                    type: "post",
-                    url: ajaxactionurl,
-                    data: "action=send_email&" + i + "&url=" + o,
-                    dataType: "json",
-                    success: function (e) {
-                        jQuery("#subs-form")[0].reset(), t(".sucmsg4").fadeIn(0).html(e.data).addClass("sucmsg-style");
-                        setTimeout(() => {
-                            jQuery(".sucmsg4").fadeOut(1000);
-                        }, 2000);
-                    },
-                    error: function (t, e, i) {
-                        console.log(e);
-                    },
-                });
-            }),
-            jQuery(".support-submit").on("click", function (e) {
-                e.preventDefault();
-                var i = t(this).closest("form").serialize();
-                t("#support-form input:checkbox:not(:checked)").each(function (t) {
-                    i += "&" + this.name + "=false";
-                });
-                jQuery("#spFullname").val();
-                var s = jQuery("#spEmail").val(),
-                    n = jQuery("#spMsg").val();
-                jQuery("#spCompany").val();
-                if ((d(s), "" == n || "" == s || 0 == d(jQuery("#spEmail").val()))) return r(modalEmail), u(jQuery("#spMsg")), u(jQuery("#spCompany")), u(jQuery("#spFullname")), !1;
-                jQuery.ajax({
-                    type: "post",
-                    url: ajaxactionurl,
-                    data: "action=send_email&" + i + "&url=" + o,
-                    dataType: "json",
-                    success: function (e) {
-                        jQuery("#support-form input").val(""), jQuery("#support-form textarea").val(""), t(".sucmsg5").fadeIn(0).html(e.data).addClass("sucmsg-style").fadeOut(3e4);
                     },
                     error: function (t, e, i) {
                         console.log(e);
@@ -1003,7 +955,7 @@
             jQuery("#aModalMsg").on("keypress", function () {
                 u(jQuery(this));
             }),
-            t("a[href^='#']").not('.open-popup-link').click(function (e) {
+            jQuery("a[href^='#']").not("[href='#']").not('.open-popup-link').on('click', e => {
                 if ((e.preventDefault(), !t(this).hasClass("link-soon") && !t(this).parent().hasClass("link-soon-li"))) {
                     const bp992 = window.matchMedia('(min-width: 992px)').matches;
                     const mediaOffset = bp992 ? 100 : 20;

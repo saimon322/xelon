@@ -36,7 +36,11 @@ get_header();
 				<div class="support-form">
 					<div class="tp-m-area">
 						<h2 class="like-header"><?php echo the_field('message_support_instantly', 'option'); ?></h2>
-						<form id="support-form" class="tp-m-form" method="POST">
+						<form method="POST"
+                            id="support-form"
+                            class="tp-m-form"
+                            data-portal-id="3366455"
+                            data-form-id="1b4f57a3-8bd5-4fa2-85a5-8fa26b59c4b9">
                             <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga']?>">
                             <input type="hidden" name="pageUrl" value="<?php echo "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
 							<div class="tp-get-names d-flex">
@@ -45,7 +49,7 @@ get_header();
                                   <label for="spFullname" class="blue-label"><?php echo the_field('full_name', 'option'); ?></label>
 								</div>
 								<div class="get-inputs">
-									<input type="text" class="modal-input" name="spEmail" id="spEmail" placeholder="<?php the_field('ph_email', 'option');?>">
+									<input type="email" class="modal-input" name="spEmail" id="spEmail" placeholder="<?php the_field('ph_email', 'option');?>">
                                     <label for="spEmail" class="blue-label"><?php echo the_field('mh_email', 'option'); ?></label>
 								</div>
 							</div>
