@@ -81,6 +81,8 @@
     
     // Thrive leads forms
     function thriveHubspot() {
+        $('.tve-leads-lightbox').length && console.log('Thrive leads form found');
+        
         $('.tve-form-button-submit').on('click', function(){
             const thriveBtn = $(this);
             const thriveForm = thriveBtn.closest("form");
@@ -95,6 +97,7 @@
     }
 
     thriveHubspot();
+    setTimeout(thriveHubspot, 5000);
     $(".fl-button[href='#']").on('click', function(){
         $('.tve-leads-lightbox').length && thriveHubspot();
     });
