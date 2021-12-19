@@ -25,7 +25,7 @@
                 <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
                 <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
                 <div class="form-block">
-                    <input type="email" name="signup-email" class="form-input" placeholder="Email*" required="required">
+                    <input type="email" name="email" class="form-input" placeholder="Email*" required="required">
                     <label class="form-label">Email*</label>
                     <div class="msg"></div>
                 </div>

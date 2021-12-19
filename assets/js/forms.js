@@ -23,7 +23,7 @@
         hshqr.send(JSON.stringify(fp));
     }
 
-    function cookieRef($) {
+    function cookieRef(t) {
         for (var e = t + "=", i = document.cookie.split(";"), o = 0; o < i.length; o++) {
             for (var s = i[o]; " " == s.charAt(0); ) s = s.substring(1, s.length);
             if (0 == s.indexOf(e)) return s.substring(e.length, s.length);
@@ -45,7 +45,7 @@
         const submitCID = "function" == typeof ga && Object.hasOwnProperty.bind(ga)("getAll") ? ga.getAll()[0].get("clientId") : null;
         submitEmail == "" && (submitEmail = submitForm.find(".simple-input").val());
         if (isEmail(submitEmail)) {
-            if(getCookie("hubspotutk")!=null && submitEmail && submitEmail != "" && submitPortalId && submitFormId){
+            if(getCookie("hubspotutk")!=null && submitEmail && submitPortalId && submitFormId){
                 hshq(submitEmail, submitPortalId, submitFormId);
                 console.log('Sign up form sent\nemail: ' + submitEmail + '\nportalID: ' + submitPortalId + '\nformID: ' + submitFormId);
             }
@@ -89,7 +89,7 @@
             const thriveEmail = thriveForm.find("input[type='email']").val();
             const thrivePortalId = 3366455;
             const thriveFormId = thriveForm.find("[data-name=FormID]").val();
-            if(getCookie("hubspotutk") != null && thriveEmail && thriveEmail != "" && thrivePortalId && thriveFormId){
+            if(getCookie("hubspotutk") != null && thriveEmail && isEmail(thriveEmail) && thrivePortalId && thriveFormId){
                 hshq(thriveEmail, thrivePortalId, thriveFormId);
                 console.log('Thrive leads hubspot form sent\nemail: ' + thriveEmail + '\nportalID: ' + thrivePortalId + '\nformID: ' + thriveFormId);
             }
@@ -119,7 +119,7 @@
             n = $("#spMsg").val();
         $("#spCompany").val();
         if ((d(s), "" == n || "" == s || 0 == d($("#spEmail").val()))) return r(modalEmail), u($("#spMsg")), u($("#spCompany")), u($("#spFullname")), !1;
-        jQuery.ajax({
+        $.ajax({
             type: "post",
             url: ajaxactionurl,
             data: "action=send_email&" + i + "&url=" + o,
@@ -143,7 +143,7 @@
     });
 
     // Supscription form
-    jQuery(".subs-submit").on("click", function (e) {
+    $(".subs-submit").on("click", function (e) {
         e.preventDefault();
         const subsBtn = $(this);
         const subsForm = subsBtn.closest("form");
@@ -154,9 +154,9 @@
         $("#subs-form input:checkbox:not(:checked)").each(function (t) {
             i += "&" + this.name + "=false";
         });
-        var s = jQuery("#subsEmail").val();
-        if ((c(s), "" == s || 0 == c(jQuery("#subsEmail").val()))) return c(s), !1;
-        jQuery.ajax({
+        var s = $("#subsEmail").val();
+        if ((c(s), "" == s || 0 == c($("#subsEmail").val()))) return c(s), !1;
+        $.ajax({
             type: "post",
             url: ajaxactionurl,
             data: "action=send_email&" + i + "&url=" + o,
@@ -166,9 +166,9 @@
                     hshq(subsEmail, subsPortalId, subsFormId);
                     console.log('Support form sent\nemail: ' + subsEmail + '\nportalID: ' + subsPortalId + '\nformID: ' + subsFormId);
                 }
-                jQuery("#subs-form")[0].reset(), $(".sucmsg4").fadeIn(0).html(e.data).addClass("sucmsg-style");
+                $("#subs-form")[0].reset(), $(".sucmsg4").fadeIn(0).html(e.data).addClass("sucmsg-style");
                 setTimeout(() => {
-                    jQuery(".sucmsg4").fadeOut(1000);
+                    $(".sucmsg4").fadeOut(1000);
                 }, 2000);
             },
             error: function (t, e, i) {
@@ -178,44 +178,35 @@
     }),
 
     // Modal contact form
-    $("#modal-form").submit(function (e) {
+    $(".contact-submit").on("click", function (e) {
         e.preventDefault();
 
-        let fullname = $(this).find('#fullname');
-        let modalEmail = $(this).find('#modalEmail');
-        let valid = true;
+        const contactBtn = $(this);
+        const contactForm = contactBtn.closest("form");
+        const contactEmail = contactForm.find("input[type='email']");
+        const contactName = contactForm.find("input[name='name'");
+        const contactPortalId = contactForm.attr("data-portal-id");
+        const contactFormId = contactForm.attr("data-form-id");
 
-        if (fullname.val() === '') {
-            fullname.addClass('not-valid');
-            fullname.removeClass('valid');
-            fullname.parent().children('.msg').addClass('msg-show');
-            valid = false;
-        } else {
-            fullname.removeClass('not-valid');
-            fullname.addClass('valid');
-            fullname.parent().children('.msg').removeClass('msg-show');
-        }
-
-        if (modalEmail.val() === '' || !isEmail(modalEmail.val())) {
-            modalEmail.addClass('not-valid');
-            modalEmail.removeClass('valid');
-            modalEmail.parent().children('.msg').addClass('msg-show');
-            valid = false;
-        } else {
-            modalEmail.removeClass('not-valid');
-            modalEmail.addClass('valid');
-            modalEmail.removeAttr('style');
-            modalEmail.parent().children('.msg').removeClass('msg-show');
-        }
-
-        if (valid === false) {
+        const contactNameValid = validName(contactName);
+        const contactEmailValid = validEmail(contactEmail);
+        if (!contactNameValid || !contactEmailValid) {
             return;
         }
 
-        var data = new FormData(this);
+        var data = new FormData(contactForm[0]);
 
         data.append('action', 'send_email');
         data.append('url', window.location.href);
+        
+        if(getCookie("hubspotutk")!=null && contactPortalId && contactFormId){
+            hshq(contactEmail.val(), contactPortalId, contactFormId);
+            console.log('Sign up form sent\nemail: ' + contactEmail.val() + '\nportalID: ' + contactPortalId + '\nformID: ' + contactFormId);
+        }
+        contactForm[0].reset();
+        contactForm.find('input').each(function(){
+            $(this).removeClass('valid');
+        })
 
         $.ajax({
             type: "post",
@@ -242,68 +233,69 @@
         return false;
     })
 
-    $("#modal-form #modalEmail").change(function () {
-        var modalEmail = $(this);
-
-        if (!isEmail(modalEmail.val())) {
-            modalEmail.addClass('not-valid');
-            modalEmail.removeClass('valid');
-            modalEmail.parent().children('.msg').addClass('msg-show');
+    function validEmail(email) {
+        if (isEmail(email.val()) && !email.val() == "") {
+            email.removeClass('not-valid');
+            email.addClass('valid');
+            email.removeAttr('style');
+            email.parent().children('.msg').removeClass('msg-show');
+            return true;
         } else {
-            modalEmail.removeClass('not-valid');
-            modalEmail.addClass('valid');
-            modalEmail.removeAttr('style');
-            modalEmail.parent().children('.msg').removeClass('msg-show');
+            email.addClass('not-valid');
+            email.removeClass('valid');
+            email.parent().children('.msg').addClass('msg-show');
+            return false;
         }
-    });
-
-    $("#modal-form #fullname").change(function () {
-        var fullname = $(this);
-
-        if (isName(fullname)) {
-            fullname.addClass('not-valid');
-            fullname.removeClass('valid');
-            fullname.parent().children('.msg').addClass('msg-show');
-        } else {
-            fullname.removeClass('not-valid');
-            fullname.addClass('valid');
-            fullname.parent().children('.msg').removeClass('msg-show');
-        }
-    });
-
-    function isName(name) {
-        return name.val() != '';
     }
+
+    function validName(name) {
+        if (name.val().length >= 3) {
+            name.removeClass('not-valid');
+            name.addClass('valid');
+            name.parent().children('.msg').removeClass('msg-show');
+            return true;
+        } else {
+            name.addClass('not-valid');
+            name.removeClass('valid');
+            name.parent().children('.msg').addClass('msg-show');
+            return false;
+        }
+    }
+
+    $("input[type='email']").on('change', function () {
+        validEmail($(this));
+    });
+
+    $("input[name='name']").on('change', function () {
+        validName($(this));
+    });
 
     function isEmail(email) {
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        return regex.test(email) && email.val() != '';
+        return regex.test(email);
     }
     
     var o = window.location.toString();
     function s(t) {
-        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#email").css("border", "none"), !0) : (jQuery("#email").css("border", "1px solid #EF5261"), !1);
+        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? ($("#email").css("border", "none"), !0) : ($("#email").css("border", "1px solid #EF5261"), !1);
     }
     function n(t) {
-        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#hy_email").css("border", "none"), !0) : (jQuery("#hy_email").css("border", "1px solid #EF5261"), !1);
-    }
-    function r(t) {
-        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#modalEmail").css("border", "none"), !0) : (jQuery("#modalEmail").css("border", "1px solid #EF5261"), !1);
+        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? ($("#hy_email").css("border", "none"), !0) : ($("#hy_email").css("border", "1px solid #EF5261"), !1);
     }
     function d(t) {
-        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#spEmail").css("border", "none"), !0) : (jQuery("#spEmail").css("border", "1px solid #EF5261"), !1);
+        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? ($("#spEmail").css("border", "none"), !0) : ($("#spEmail").css("border", "1px solid #EF5261"), !1);
     }
     function u(t) {
         "" == t.val() ? t.css("border", "1px solid #EF5261") : t.css("border", "none");
     }
     function a(t) {
-        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#soEmail").css("border", "none"), !0) : (jQuery("#soEmail").css("border", "1px solid #EF5261"), !1);
+        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? ($("#soEmail").css("border", "none"), !0) : ($("#soEmail").css("border", "1px solid #EF5261"), !1);
     }
     function l(t) {
-        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#pr_email").css("border", "solid 2px rgba(255, 255, 255, 0.3)"), !0) : (jQuery("#pr_email").css("border", "solid 2px red"), !1);
+        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? ($("#pr_email").css("border", "solid 2px rgba(255, 255, 255, 0.3)"), !0) : ($("#pr_email").css("border", "solid 2px red"), !1);
     }
     function c(t) {
-        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? (jQuery("#subsEmail").css("border", "none"), !0) : (jQuery("#subsEmail").css("border", "1px solid #EF5261"), !1);
+        return "" != t && /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/gim.test(t) ? ($("#subsEmail").css("border", "none"), !0) : ($("#subsEmail").css("border", "1px solid #EF5261"), !1);
     }
     function p(e) {
         var i = t("label[for='" + e.attr("id") + "']");

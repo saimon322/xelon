@@ -15,17 +15,21 @@
             </div>
         <?php endif; ?>
         
-        <form class="modal-form" id="modal-form" method="POST">
+        <form method="POST" 
+            class="modal-form"
+            id="contact-form"
+            data-portal-id="3366455"
+            data-form-id="bff6f5fe-72fb-4ab7-9fa2-ebc6a1dcb6a8">
             <input type="hidden" name="userCID" value="<?php echo $_COOKIE['_ga'] ?>">
             <input type="hidden" name="pageUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
             <div class="form-block">
-                <input type="text" name="fullname" id="fullname" class="form-input" placeholder="<?php the_field('ph_full_name', 'option'); ?>*">
-                <label class="form-label" for="fullname"><?php echo the_field('full_name', 'option'); ?>*</label>
+                <input type="text" name="name" id="contact-name" class="form-input" placeholder="<?php the_field('ph_full_name', 'option'); ?>*">
+                <label class="form-label" for="contact-name"><?php echo the_field('full_name', 'option'); ?>*</label>
                 <div class="msg">Not valid</div>
             </div>
             <div class="form-block">
-                <input type="text" class="form-input" name="modalEmail" id="modalEmail" placeholder="<?php the_field('ph_email', 'option'); ?>*">
-                <label class="form-label" for="modalEmail"><?php echo the_field('mh_email', 'option'); ?>*</label>
+                <input type="email" class="form-input" name="email" id="contact-email" placeholder="<?php the_field('ph_email', 'option'); ?>*">
+                <label class="form-label" for="contact-email"><?php echo the_field('mh_email', 'option'); ?>*</label>
                 <div class="msg">The email must be a valid email address.</div>
             </div>
             <div class="form-block">
@@ -41,7 +45,7 @@
                 <label for="box6" class="checkboks-text d-flex align-center"><?php echo replace_p(get_field('header_checkbox_text', 'option')) ?></label>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="xln-button modal-submit"><?php echo $button; ?></button>
+                <button type="submit" class="xln-button contact-submit"><?php echo $button; ?></button>
             </div>
         </form>
     </div>
