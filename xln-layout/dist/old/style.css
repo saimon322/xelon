@@ -27167,27 +27167,27 @@ body.hc-nav-open {
     }
 }
 
-.white-popup#open-apply {
+.white-popup#modal-position {
     max-width: 680px
 }
 
-.white-popup#open-apply .modal-area {
+.white-popup#modal-position .modal-area {
     padding: 30px 20px 20px
 }
 
-.white-popup#open-apply .send-success-zone {
+.white-popup#modal-position .send-success-zone {
     justify-content: space-between;
     margin-top: 10px
 }
 
-.white-popup#open-apply label.up {
+.white-popup#modal-position label.up {
     top: -10px;
     transition: .2s;
     font-size: 12px;
     color: #0089fc
 }
 
-.white-popup#open-apply .send-success-zone .submit-btn-wrap .apply-for-position-btn {
+.white-popup#modal-position .send-success-zone .submit-btn-wrap .apply-for-position-btn {
     height: 50px;
     display: flex;
     align-items: center;
@@ -27196,25 +27196,25 @@ body.hc-nav-open {
     font-family: Manrope
 }
 
-.white-popup#open-apply .send-success-zone .submit-btn-wrap .sucmsg6 {
+.white-popup#modal-position .send-success-zone .submit-btn-wrap .sucmsg6 {
     opacity: 0;
     z-index: -9999;
     position: absolute
 }
 
-.white-popup#open-apply .send-success-zone .submit-btn-wrap .sucmsg6.sucmsg-style {
+.white-popup#modal-position .send-success-zone .submit-btn-wrap .sucmsg6.sucmsg-style {
     right: 145px;
     opacity: 1;
     z-index: 1
 }
 
-.white-popup#open-apply .send-success-zone .submit-btn-wrap .sucmsg6.sucmsg-style:before {
+.white-popup#modal-position .send-success-zone .submit-btn-wrap .sucmsg6.sucmsg-style:before {
     transform: rotate(180deg);
     left: auto;
     right: -15px
 }
 
-.white-popup#open-apply .send-success-zone .input-file-wrap input {
+.white-popup#modal-position .send-success-zone .input-file-wrap input {
     height: 0;
     width: 0;
     opacity: 0;
@@ -27223,7 +27223,7 @@ body.hc-nav-open {
     z-index: -999
 }
 
-.white-popup#open-apply .send-success-zone .input-file-wrap label {
+.white-popup#modal-position .send-success-zone .input-file-wrap label {
     width: 152px;
     cursor: pointer;
     border: 0;
@@ -27238,7 +27238,7 @@ body.hc-nav-open {
     justify-content: center
 }
 
-.white-popup#open-apply .send-success-zone .input-file-wrap label svg {
+.white-popup#modal-position .send-success-zone .input-file-wrap label svg {
     height: 16px;
     width: 16px;
     fill: #fff;
@@ -27246,8 +27246,8 @@ body.hc-nav-open {
     margin-right: 10px
 }
 
-.white-popup#open-apply .send-success-zone .input-file-wrap svg.check-double,
-.white-popup#open-apply .send-success-zone .input-file-wrap svg.reset-label {
+.white-popup#modal-position .send-success-zone .input-file-wrap svg.check-double,
+.white-popup#modal-position .send-success-zone .input-file-wrap svg.reset-label {
     z-index: -999;
     height: 0;
     width: 0;
@@ -27255,7 +27255,7 @@ body.hc-nav-open {
     position: absolute
 }
 
-.white-popup#open-apply .send-success-zone .input-file-wrap.fLoaded {
+.white-popup#modal-position .send-success-zone .input-file-wrap.fLoaded {
     width: 202px;
     cursor: default;
     border: 0;
@@ -27268,7 +27268,7 @@ body.hc-nav-open {
     justify-content: center
 }
 
-.white-popup#open-apply .send-success-zone .input-file-wrap.fLoaded label {
+.white-popup#modal-position .send-success-zone .input-file-wrap.fLoaded label {
     font-size: 14px;
     color: rgba(0, 0, 0, .5);
     background: #dde3e9;
@@ -27281,7 +27281,7 @@ body.hc-nav-open {
     display: inline-block
 }
 
-.white-popup#open-apply .send-success-zone .input-file-wrap.fLoaded svg.check-double {
+.white-popup#modal-position .send-success-zone .input-file-wrap.fLoaded svg.check-double {
     height: auto;
     width: 16px;
     fill: #979797;
@@ -27291,7 +27291,7 @@ body.hc-nav-open {
     position: relative
 }
 
-.white-popup#open-apply .send-success-zone .input-file-wrap.fLoaded svg.reset-label {
+.white-popup#modal-position .send-success-zone .input-file-wrap.fLoaded svg.reset-label {
     height: 16px;
     width: 16px;
     fill: #979797;

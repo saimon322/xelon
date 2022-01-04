@@ -118,7 +118,7 @@
 
 <?php include 'template-parts/modals/modal-signup.php' ?>
 <?php include 'template-parts/modals/modal-contact.php' ?>
-<?php include 'template-parts/modals/modal-apply.php' ?>
+<?php include 'template-parts/modals/modal-position.php' ?>
 <?php include 'template-parts/modals/modal-thanks.php' ?>
 
 <script>

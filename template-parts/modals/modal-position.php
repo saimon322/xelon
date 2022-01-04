@@ -1,4 +1,4 @@
-<div id="open-apply"
+<div id="modal-position"
      class="white-popup mfp-hide">
     <div class="modal-area">
     <div class="modal-header"><?php echo the_field('ap_title', 'option'); ?></div>
