@@ -57,7 +57,7 @@
                         </div>
                         <div class="cp-row">
                             <p><?php the_title(); ?></p>
-                            <a href="<?php the_permalink() ?>" class="btn-read"><?php echo $cp_slider_btn; ?></a>
+                            <a href="<?php the_permalink() ?>" class="xln-button xln-button--green btn-read"><?php echo $cp_slider_btn; ?></a>
                         </div>
                     </div>
                 </a>

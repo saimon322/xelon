@@ -6671,11 +6671,26 @@ body {
 }
 
 .s-it-sp-header .send-modal-data {
-    width: 100%
+    width: 100%;
+    max-width: 700px;
 }
 
 .s-it-sp-header .email-input-home {
-    width: calc(100% - 150px) !important
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+@media (max-width: 576px) {
+    .s-it-sp-header .email-input-home {
+        width: 100%;
+    }
+    
+    .s-it-sp-header .wlc-text .xln-button {
+        width: 100%;
+        margin-top: 10px;
+    }
 }
 
 .s-it-sp-usercases.s-serv-need {
@@ -6711,7 +6726,6 @@ body {
 
 .usercases-btn a {
     margin: 0 !important;
-    background: #1fb3a7
 }
 
 .page-template-page-it-sp .page-customer-project .success-stories {
@@ -22875,19 +22889,8 @@ body.hc-nav-open {
 }
 
 .page-customer-project .success-stories .cp-slider .cp-wrap .cp-item .cp-row .btn-read {
-    height: 40px;
     width: 90px;
-    background: #1fb3a7;
-    border: none !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-    text-decoration: none !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 3px
+    margin-left: 15px;
 }
 
 .page-customer-project .block-testimotionals {

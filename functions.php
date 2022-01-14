@@ -597,7 +597,7 @@ function get_stories()
                 </div>
                 <div class="cp-row">
                   <p>' . $title . '</p>
-                  <a href="' . $permalink . '" class="btn-read">' . $cp_slider_btn . '</a>
+                  <a href="' . $permalink . '" class="xln-button xln-button--green btn-read">' . $cp_slider_btn . '</a>
                 </div>
               </div>
             </div>
