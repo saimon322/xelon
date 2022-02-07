@@ -1,5 +1,4 @@
 (function ($) {
-    // Modal submit form    
     function getCookie(cname) {
         let name = cname + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
@@ -32,7 +31,7 @@
     }
 
     // Sugn up forms
-    $(".send-subscribe").on('click', function (e) {
+    $(".send-subscribe").on('click', function(e){
         e.preventDefault();
 
         const submitBtn = $(this);
@@ -63,7 +62,7 @@
                     submitBtn.remove();
             })
             .fail(function (t, e, o) {
-                // console.log({ xhr: t, textStatus: e, errorThrown: o });
+                console.log({ xhr: t, textStatus: e, errorThrown: o })
                 t &&
                     t.responseJSON &&
                     "Email has been already used" === t.responseJSON.error &&
@@ -75,35 +74,12 @@
                 t && t.responseJSON && t.responseJSON.error && t.responseJSON.error.email
                     ? submitMsg.html(t.responseJSON.error.email).fadeIn("slow")
                     : t && t.responseJSON && t.responseJSON.error && t.responseJSON.error && submitMsg.html(t.responseJSON.error).fadeIn("slow");
-            });
+            })
         }
-    });
-    
-    // Thrive leads forms
-    function thriveHubspot() {
-        $('.tve-leads-lightbox').length && console.log('Thrive leads form found');
-        
-        $('.tve-form-button-submit').on('click', function(){
-            const thriveBtn = $(this);
-            const thriveForm = thriveBtn.closest("form");
-            const thriveEmail = thriveForm.find("input[type='email']").val();
-            const thrivePortalId = 3366455;
-            const thriveFormId = thriveForm.find("[data-name=FormID]").val();
-            if(getCookie("hubspotutk") != null && thriveEmail && isEmail(thriveEmail) && thrivePortalId && thriveFormId){
-                hshq(thriveEmail, thrivePortalId, thriveFormId);
-                console.log('Thrive leads hubspot form sent\nemail: ' + thriveEmail + '\nportalID: ' + thrivePortalId + '\nformID: ' + thriveFormId);
-            }
-        })
-    }
-
-    thriveHubspot();
-    setTimeout(thriveHubspot, 5000);
-    $(".fl-button[href='#']").on('click', function(){
-        $('.tve-leads-lightbox').length && thriveHubspot();
-    });
+    })
     
     // Support form
-    $(".support-submit").on("click", function (e) {
+    $(".support-submit").on("click", function(e){
         e.preventDefault();
         const supportBtn = $(this);
         const supportForm = supportBtn.closest("form");
@@ -113,7 +89,7 @@
         let i = $(this).closest("form").serialize();
         $("#support-form input:checkbox:not(:checked)").each(function ($) {
             i += "&" + this.name + "=false";
-        });
+        })
         $("#spFullname").val();
         let s = $("#spEmail").val(),
             n = $("#spMsg").val();
@@ -139,11 +115,11 @@
             error: function (t, e, i) {
                 console.log(e);
             },
-        });
-    });
+        })
+    })
 
     // Supscription form
-    $(".subs-submit").on("click", function (e) {
+    $(".subs-submit").on("click", function(e){
         e.preventDefault();
         const subsBtn = $(this);
         const subsForm = subsBtn.closest("form");
@@ -153,7 +129,7 @@
         var i = $(this).closest("form").serialize();
         $("#subs-form input:checkbox:not(:checked)").each(function (t) {
             i += "&" + this.name + "=false";
-        });
+        })
         var s = $("#subsEmail").val();
         if ((c(s), "" == s || 0 == c($("#subsEmail").val()))) return c(s), !1;
         $.ajax({
@@ -174,11 +150,11 @@
             error: function (t, e, i) {
                 console.log(e);
             },
-        });
-    }),
+        })
+    })
 
     // Modal contact form
-    $(".contact-submit").on("click", function (e) {
+    $(".contact-submit").on("click", function(e){
         e.preventDefault();
 
         const contactBtn = $(this);
@@ -223,14 +199,45 @@
                     type: 'inline',
                     midClick: !0,
                     mainClass: "mfp-fade",
-                });
+                })
             },
             error: function (t, e, i) {
                 console.log(e);
             },
-        });
+        })
 
         return false;
+    })
+
+    // Meeting click
+    $("a[href*='meetings.hubspot.com']").on("click", function(e){
+        if(getCookie("hubspotutk")!=null){
+            hshq('meetings.hubspot.com', '3366455', '98d51b72-8212-4d34-8385-bcbc6041076c');
+            console.log('Meeting click');
+        }
+    })
+    
+    // Thrive leads forms
+    function thriveHubspot() {
+        $('.tve-leads-lightbox').length && console.log('Thrive leads form found');
+        
+        $('.tve-form-button-submit').on('click', function(){
+            const thriveBtn = $(this);
+            const thriveForm = thriveBtn.closest("form");
+            const thriveEmail = thriveForm.find("input[type='email']").val();
+            const thrivePortalId = 3366455;
+            const thriveFormId = thriveForm.find("[data-name=FormID]").val();
+            if(getCookie("hubspotutk") != null && thriveEmail && isEmail(thriveEmail) && thrivePortalId && thriveFormId){
+                hshq(thriveEmail, thrivePortalId, thriveFormId);
+                console.log('Thrive leads hubspot form sent\nemail: ' + thriveEmail + '\nportalID: ' + thrivePortalId + '\nformID: ' + thriveFormId);
+            }
+        })
+    }
+
+    thriveHubspot();
+    setTimeout(thriveHubspot, 5000);
+    $(".fl-button[href='#']").on('click', function(){
+        $('.tve-leads-lightbox').length && thriveHubspot();
     })
 
     function validEmail(email) {
@@ -264,11 +271,11 @@
 
     $("input[type='email']").on('change', function () {
         validEmail($(this));
-    });
+    })
 
     $("input[name='name']").on('change', function () {
         validName($(this));
-    });
+    })
 
     function isEmail(email) {
         var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;

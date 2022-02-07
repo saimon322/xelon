@@ -12,12 +12,14 @@
             <div class="xln-info-block__buttons">
                 <?php if ($signup_modal): ?>
                     <a href="<?=get_field('action_sign_up_button')['url']?>"
+                        target="<?=get_field('action_sign_up_button')['target']?>"
                         class="xln-button xln-button--green">
                             <?=get_field('action_sign_up_button')['title']?>
                     </a>
                 <?php endif; ?>
                 <?php if ($contacts_modal): ?>
                     <a href="<?=get_field('action_contact_button')['url']?>"
+                        target="<?=get_field('action_contact_button')['target']?>"
                         class="xln-button xln-button--opacity">
                             <?=get_field('action_contact_button')['title']?>
                     </a>
