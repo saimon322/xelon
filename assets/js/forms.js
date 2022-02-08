@@ -60,6 +60,7 @@
                     window.dataLayer.push({ event: "formSubmitted", "gtm.elementId": submitId }),
                     "object" == typeof window.analytics && "function" == typeof window.analytics.identify && window.analytics.identify({ email: submitEmail }),
                     submitBtn.remove();
+                document.location.href = "https://vdc.xelon.ch/demo?email=" + submitEmail;
             })
             .fail(function (t, e, o) {
                 console.log({ xhr: t, textStatus: e, errorThrown: o })
